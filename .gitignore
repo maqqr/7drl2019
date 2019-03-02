@@ -52,3 +52,5 @@ crashlytics-build.properties
 
 *.pyc
 *.blend[1-9]
+
+.vscode/

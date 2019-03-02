@@ -12,6 +12,9 @@ ModelImporter:
     100012: WoodenDoor1
     100014: WoodenRoof1
     100016: WoodenSupport1
+    100018: BrickWallOnesided1
+    100020: CellDoor1
+    100022: CellWall1
     400000: //RootNode
     400002: BrickWall1
     400004: BrickWallHole1
@@ -21,6 +24,9 @@ ModelImporter:
     400012: WoodenDoor1
     400014: WoodenRoof1
     400016: WoodenSupport1
+    400018: BrickWallOnesided1
+    400020: CellDoor1
+    400022: CellWall1
     2100000: PreviewMaterial
     2300000: BrickWall1
     2300002: BrickWallHole1
@@ -30,6 +36,9 @@ ModelImporter:
     2300010: WoodenDoor1
     2300012: WoodenRoof1
     2300014: WoodenSupport1
+    2300016: BrickWallOnesided1
+    2300018: CellDoor1
+    2300020: CellWall1
     3300000: BrickWall1
     3300002: BrickWallHole1
     3300004: DoorFrame1
@@ -38,6 +47,9 @@ ModelImporter:
     3300010: WoodenDoor1
     3300012: WoodenRoof1
     3300014: WoodenSupport1
+    3300016: BrickWallOnesided1
+    3300018: CellDoor1
+    3300020: CellWall1
     4300000: BrickWall1
     4300002: StoneTileGround1
     4300004: Pillar1
@@ -46,6 +58,9 @@ ModelImporter:
     4300010: WoodenRoof1
     4300012: WoodenSupport1
     4300014: WoodenDoor1
+    4300016: BrickWallOnesided1
+    4300018: CellDoor1
+    4300020: CellWall1
   externalObjects: {}
   materials:
     importMaterials: 0
@@ -103,11 +118,11 @@ ModelImporter:
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
-    tangentImportMode: 3
-    normalCalculationMode: 4
+    tangentImportMode: 1
+    normalCalculationMode: 1
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
-    blendShapeNormalImportMode: 1
-    normalSmoothingSource: 0
+    blendShapeNormalImportMode: 2
+    normalSmoothingSource: 3
   importAnimation: 1
   copyAvatar: 0
   humanDescription:

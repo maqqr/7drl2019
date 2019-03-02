@@ -43,14 +43,14 @@ namespace LevelGenerator.Scripts
         /// Tags that will be taken into consideration when building the first section
         /// </summary>
         public string[] InitialSectionTags;
-        
+
         /// <summary>
         /// Special section rules, limits and forces the amount of a specific tag
         /// </summary>
         public TagRule[] SpecialRules;
 
         protected List<Section> registeredSections = new List<Section>();
-        
+
         public int LevelSize { get; private set; }
         public Transform Container => SectionContainer != null ? SectionContainer : transform;
 
@@ -58,17 +58,21 @@ namespace LevelGenerator.Scripts
         protected List<Collider> DeadEndColliders = new List<Collider>();
         protected bool HalfLevelBuilt => registeredSections.Count > LevelSize;
 
-        protected void Start()
+        public void GenerateLevel()
         {
             if (Seed != 0)
                 RandomService.SetSeed(Seed);
             else
                 Seed = RandomService.Seed;
-            
+
             CheckRuleIntegrity();
             LevelSize = MaxLevelSize;
             CreateInitialSection();
             DeactivateBounds();
+        }
+
+        protected void Start()
+        {
         }
 
         protected void CheckRuleIntegrity()
@@ -85,14 +89,14 @@ namespace LevelGenerator.Scripts
         public void AddSectionTemplate() => Instantiate(Resources.Load("SectionTemplate"), Vector3.zero, Quaternion.identity);
         public void AddDeadEndTemplate() => Instantiate(Resources.Load("DeadEndTemplate"), Vector3.zero, Quaternion.identity);
 
-        public bool IsSectionValid(Bounds newSection, Bounds sectionToIgnore) => 
+        public bool IsSectionValid(Bounds newSection, Bounds sectionToIgnore) =>
             !RegisteredColliders.Except(sectionToIgnore.Colliders).Any(c => c.bounds.Intersects(newSection.Colliders.First().bounds));
 
         public void RegisterNewSection(Section newSection)
         {
             registeredSections.Add(newSection);
 
-            if(SpecialRules.Any(r => newSection.Tags.Contains(r.Tag)))
+            if (SpecialRules.Any(r => newSection.Tags.Contains(r.Tag)))
                 SpecialRules.First(r => newSection.Tags.Contains(r.Tag)).PlaceRuleSection();
 
             LevelSize--;
