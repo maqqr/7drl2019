@@ -5,6 +5,6 @@ namespace LevelGenerator.Scripts
 {
     public class Bounds : MonoBehaviour
     {
-            public IEnumerable<Collider> Colliders => GetComponentsInChildren<Collider>();
+        public IEnumerable<Collider> Colliders => GetComponentsInChildren<Collider>();
     }
 }

@@ -89,8 +89,27 @@ namespace LevelGenerator.Scripts
         public void AddSectionTemplate() => Instantiate(Resources.Load("SectionTemplate"), Vector3.zero, Quaternion.identity);
         public void AddDeadEndTemplate() => Instantiate(Resources.Load("DeadEndTemplate"), Vector3.zero, Quaternion.identity);
 
-        public bool IsSectionValid(Bounds newSection, Bounds sectionToIgnore) =>
-            !RegisteredColliders.Except(sectionToIgnore.Colliders).Any(c => c.bounds.Intersects(newSection.Colliders.First().bounds));
+        // public bool IsSectionValid(Bounds newSection, Bounds sectionToIgnore) =>
+        //     !RegisteredColliders.Except(sectionToIgnore.Colliders).Any(c => c.bounds.Intersects(newSection.Colliders.First().bounds));
+
+        public bool IsSectionValid(Bounds newSection, Bounds sectionToIgnore)
+        {
+            var colls = RegisteredColliders.Except(sectionToIgnore.Colliders).ToArray();
+            var newSectionColls = newSection.Colliders.ToArray();
+
+            for (int i = 0; i < colls.Count(); i++)
+            {
+                var c = colls[i];
+                for (int j = 0; j < newSectionColls.Length; j++)
+                {
+                    if (c.bounds.Intersects(newSectionColls[j].bounds))
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
 
         public void RegisterNewSection(Section newSection)
         {
