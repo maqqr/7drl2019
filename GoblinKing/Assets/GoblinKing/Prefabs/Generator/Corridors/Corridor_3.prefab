@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1071728010194370447}
   - component: {fileID: 8132454301378121561}
   m_Layer: 0
-  m_Name: Corridor_4 1
+  m_Name: Corridor_3
   m_TagString: Untagged
   m_Icon: {fileID: 8418204508859773708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 886823316542166889}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.598326, y: -3.2949333, z: 2.0916505}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2278794405344562800}
