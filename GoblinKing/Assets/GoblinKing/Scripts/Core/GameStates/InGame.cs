@@ -67,8 +67,10 @@ namespace GoblinKing.Core.GameStates
 
             if (playerMoveTo != null)
             {
-                // TODO: check collisions
-                gameManager.playerObject.GetComponent<Creature>().position = playerMoveTo.Value;
+                if (gameManager.IsWalkable(playerMoveTo.Value))
+                {
+                    gameManager.playerObject.GetComponent<Creature>().position = playerMoveTo.Value;
+                }
             }
         }
 

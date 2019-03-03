@@ -18,6 +18,7 @@ namespace GoblinKing.Core
         private int currentFloor = -1;
         private List<GameObject> dungeonFloors = new List<GameObject>();
         private Stack<GameStates.IGameView> gameViews = new Stack<GameStates.IGameView>();
+        private Collider[] raycastResult = new Collider[1];
 
         public GameObject CurrentFloorObject
         {
@@ -29,6 +30,17 @@ namespace GoblinKing.Core
                 }
                 return null;
             }
+        }
+
+        public bool IsWalkable(Vector2Int position)
+        {
+            Vector3 worldPosition = Utils.ConvertToWorldCoord(position) + new Vector3(0f, 0.5f, 0f);
+            int hits = Physics.OverlapSphereNonAlloc(worldPosition, 0.4f, raycastResult, ~0, QueryTriggerInteraction.Ignore);
+            bool noObstacles = hits == 0;
+
+            bool hasGroundUnderneath = Physics.Raycast(worldPosition, Vector3.down, 2.0f, ~0, QueryTriggerInteraction.Ignore);
+
+            return hasGroundUnderneath && noObstacles;
         }
 
         public void NextDungeonFloor()
