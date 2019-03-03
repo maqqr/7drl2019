@@ -63,7 +63,9 @@
 		#endif
 
 		//vertex fog
-		UNITY_TRANSFER_FOG(o,o.pos);
+
+		// Disabled because it causes errors
+		//UNITY_TRANSFER_FOG(o,o.pos);
 
 		return o;
 	}
@@ -90,7 +92,7 @@
 		mkts.Color_Out.rgb = BControl(mkts.Color_Out.rgb, _Brightness);
 
 		//if enabled add some fog - forward rendering only
-		UNITY_APPLY_FOG(o.fogCoord, mkts.Color_Out);
+		//UNITY_APPLY_FOG(o.fogCoord, mkts.Color_Out);
 
 		return mkts.Color_Out;
 	}
