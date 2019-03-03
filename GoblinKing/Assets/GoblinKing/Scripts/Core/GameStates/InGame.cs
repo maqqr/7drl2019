@@ -1,10 +1,11 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace GoblinKing.Core.GameStates
 {
     internal class InGame : IGameView
     {
-        GameManager gameManager;
+        private GameManager gameManager;
 
         public void Initialize(GameManager gameManager)
         {
@@ -21,6 +22,8 @@ namespace GoblinKing.Core.GameStates
             {
                 HandlePlayerInput();
             }
+
+            UpdatePlayerVisibility();
 
             // These are for debugging purposes
             if (Input.GetKeyDown(KeyCode.PageUp))
@@ -67,6 +70,13 @@ namespace GoblinKing.Core.GameStates
                 // TODO: check collisions
                 gameManager.playerObject.GetComponent<Creature>().position = playerMoveTo.Value;
             }
+        }
+
+        private void UpdatePlayerVisibility()
+        {
+            VisibilityLevel level = Visibility.Calculate(gameManager.playerObject.transform.position, gameManager.CurrentFloorObject.GetComponent<DungeonLevel>().lightSources);
+
+            gameManager.visibilityDiamondObject.GetComponent<MeshRenderer>().material.SetColor("_Color", Visibility.GetGemColor(level));
         }
     }
 }
