@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8525570768474280643}
   - component: {fileID: 8525570768474280642}
   - component: {fileID: 8525570768474280641}
+  - component: {fileID: 3353510952516971356}
   m_Layer: 0
   m_Name: StoneTileGround
   m_TagString: Untagged
@@ -77,3 +78,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &3353510952516971356
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8525570768474280640}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0037092, y: 1.0018482, z: 0.06423713}
+  m_Center: {x: 0.00002759695, y: 0.0009240508, z: -0.047118574}

@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 4567888140277505713}
   - component: {fileID: 4567888140274081427}
   - component: {fileID: 4567888140275080275}
+  - component: {fileID: 603776016818429911}
   m_Layer: 0
-  m_Name: BrickWall (29)
+  m_Name: BrickWallTwoSided
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,3 +78,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &603776016818429911
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4567888140277269137}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1763505, y: 1.0000002, z: 1.0000002}
+  m_Center: {x: 0, y: 0, z: 0.5000001}
