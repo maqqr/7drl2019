@@ -37,7 +37,7 @@ namespace GoblinKing.Core
             {
                 LightSource light = lightSources[i];
                 float distanceSq = Vector3.SqrMagnitude(light.gameObject.transform.position - position);
-                float partialRadius = light.lightRadius + 1.0f;
+                float partialRadius = light.lightRadius + 0.8f;
 
                 if (distanceSq < partialRadius * partialRadius)
                 {
