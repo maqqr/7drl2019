@@ -14,9 +14,9 @@ namespace GoblinKing.Core
     internal static class Visibility
     {
         private static readonly Dictionary<VisibilityLevel, Color> visibilityColors = new Dictionary<VisibilityLevel, Color>() {
-            { VisibilityLevel.Hidden, new Color(0, 115, 160) },
-            { VisibilityLevel.Partial, new Color(4, 180, 255) },
-            { VisibilityLevel.Visible, new Color(193, 237, 255) }
+            { VisibilityLevel.Hidden, new Color(0, 83/255f, 108/255f) },
+            { VisibilityLevel.Partial, new Color(4/255f, 150/255f, 200/255f) },
+            { VisibilityLevel.Visible, new Color(153/255f, 207/255f, 255/255f) }
         };
 
         public static Color GetGemColor(VisibilityLevel level)
@@ -37,14 +37,14 @@ namespace GoblinKing.Core
             {
                 LightSource light = lightSources[i];
                 float distanceSq = Vector3.SqrMagnitude(light.gameObject.transform.position - position);
-                float shortRadius = light.lightRadius - 1.0f;
+                float partialRadius = light.lightRadius + 1.0f;
 
-                if (distanceSq < light.lightRadius * light.lightRadius)
+                if (distanceSq < partialRadius * partialRadius)
                 {
                     visibility = VisibilityLevel.Partial;
                 }
 
-                if (distanceSq < shortRadius * shortRadius)
+                if (distanceSq < light.lightRadius * light.lightRadius)
                 {
                     visibility = VisibilityLevel.Visible;
                 }
