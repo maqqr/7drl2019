@@ -98,7 +98,9 @@ namespace GoblinKing.Core.GameStates
         private void UpdatePlayerVisibility()
         {
             List<LightSource> lights = gameManager.CurrentFloorObject.GetComponent<DungeonLevel>().LightSources.Items;
-            VisibilityLevel level = Visibility.Calculate(gameManager.playerObject.transform.position, lights);
+
+            Vector3 playerWorldPos = Utils.ConvertToWorldCoord(gameManager.playerObject.GetComponent<Creature>().Position) + new Vector3(0f, 0.5f, 0f);
+            VisibilityLevel level = Visibility.Calculate(playerWorldPos, lights);
             gameManager.playerObject.GetComponent<Player>().CurrentVisibility = level;
             gameManager.visibilityDiamondObject.GetComponent<MeshRenderer>().material.SetColor("_Color", Visibility.GetGemColor(level));
         }

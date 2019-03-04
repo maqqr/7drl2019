@@ -899,6 +899,7 @@ MonoBehaviour:
     AssetPath: 
     CreaturePrefab: {fileID: 0}
   TransitionSlowness: 0.3
+  animator: {fileID: 0}
 --- !u!1 &2087924440
 GameObject:
   m_ObjectHideFlags: 0
@@ -911,7 +912,7 @@ GameObject:
   - component: {fileID: 2087924444}
   - component: {fileID: 2087924443}
   - component: {fileID: 2087924442}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}

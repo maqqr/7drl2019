@@ -41,12 +41,19 @@ namespace GoblinKing.Core
 
                 if (distanceSq < partialRadius * partialRadius)
                 {
-                    visibility = VisibilityLevel.Partial;
-                }
+                    Vector3 raycastDir = position - light.transform.position;
+                    if (Physics.Raycast(light.transform.position, raycastDir, raycastDir.magnitude, LayerMask.NameToLayer("Player"), QueryTriggerInteraction.Ignore))
+                    {
+                        // Something is blocking the light ray
+                        return VisibilityLevel.Hidden;
+                    }
 
-                if (distanceSq < light.lightRadius * light.lightRadius)
-                {
-                    visibility = VisibilityLevel.Visible;
+                    visibility = VisibilityLevel.Partial;
+
+                    if (distanceSq < light.lightRadius * light.lightRadius)
+                    {
+                        visibility = VisibilityLevel.Visible;
+                    }
                 }
             }
 
