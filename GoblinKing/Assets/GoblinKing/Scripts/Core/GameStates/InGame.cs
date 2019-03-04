@@ -31,9 +31,6 @@ namespace GoblinKing.Core.GameStates
                 HandlePlayerInput();
             }
 
-            // TODO: visibility does not need to be updated every frame?
-            UpdatePlayerVisibility();
-
             // These are for debugging purposes
             if (Input.GetKeyDown(KeyCode.PageUp))
             {
@@ -91,6 +88,7 @@ namespace GoblinKing.Core.GameStates
                 {
                     gameManager.playerObject.GetComponent<Creature>().Position = playerMoveTo.Value;
                     advanceTime = gameManager.playerObject.GetComponent<Creature>().Speed;
+                    UpdatePlayerVisibility();
                 }
             }
         }
