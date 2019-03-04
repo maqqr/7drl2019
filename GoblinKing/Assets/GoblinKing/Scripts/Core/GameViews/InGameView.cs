@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using LevelGenerator.Scripts.Helpers;
 
-namespace GoblinKing.Core.GameStates
+namespace GoblinKing.Core.GameViews
 {
     internal class InGameView : IGameView
     {

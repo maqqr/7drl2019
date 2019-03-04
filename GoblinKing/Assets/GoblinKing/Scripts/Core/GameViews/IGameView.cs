@@ -1,4 +1,4 @@
-namespace GoblinKing.Core.GameStates
+namespace GoblinKing.Core.GameViews
 {
     internal interface IGameView
     {

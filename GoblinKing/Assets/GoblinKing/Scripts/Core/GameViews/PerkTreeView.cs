@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace GoblinKing.Core.GameStates
+namespace GoblinKing.Core.GameViews
 {
     internal class PerkTreeView : IGameView
     {

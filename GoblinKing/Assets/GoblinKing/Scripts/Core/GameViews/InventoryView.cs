@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-namespace GoblinKing.Core.GameStates
+namespace GoblinKing.Core.GameViews
 {
     internal class InventoryView : IGameView
     {
