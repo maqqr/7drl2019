@@ -70,10 +70,22 @@ namespace GoblinKing.Core
 
         public bool IsWalkable(Vector2Int position)
         {
+            // Check that no creature is currently occupying the position
+            List<Creature> creatures = CurrentFloorObject.GetComponent<DungeonLevel>().EnemyCreatures.Items;
+            for (int i = 0; i < creatures.Count; i++)
+            {
+                if (creatures[i].Position == position)
+                {
+                    return false;
+                }
+            }
+
+            // Use sphere cast to check that there is enough free space
             Vector3 worldPosition = Utils.ConvertToWorldCoord(position) + new Vector3(0f, 0.5f, 0f);
             int hits = Physics.OverlapSphereNonAlloc(worldPosition, 0.3f, raycastResult, ~0, QueryTriggerInteraction.Ignore);
             bool noObstacles = hits == 0;
 
+            // Check ground to prevent moving to tiles outside of map
             bool hasGroundUnderneath = Physics.Raycast(worldPosition, Vector3.down, 2.0f, ~0, QueryTriggerInteraction.Ignore);
 
             return hasGroundUnderneath && noObstacles;
