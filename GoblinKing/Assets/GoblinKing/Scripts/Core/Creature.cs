@@ -38,9 +38,17 @@ namespace GoblinKing.Core
             }
         }
 
-        public void AddItem(InventoryItem item)
+        public void AddItem(string newItemKey)
         {
-            // TODO
+            for (int i=0; i<Inventory.Count; i++)
+            {
+                if (Inventory[i].ItemKey == newItemKey)
+                {
+                    Inventory[i].Count++;
+                    return;
+                }
+            }
+            Inventory.Add(new InventoryItem() { ItemKey = newItemKey, Count = 1 });
         }
 
         private void Awake()

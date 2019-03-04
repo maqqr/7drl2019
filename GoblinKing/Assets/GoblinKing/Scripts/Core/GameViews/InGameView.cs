@@ -110,7 +110,7 @@ namespace GoblinKing.Core.GameStates
                 if (highlightedObject != null)
                 {
                     string itemKey = highlightedObject.GetComponent<PickupItem>().itemKey;
-                    gameManager.playerObject.GetComponent<Creature>().Inventory.Add(new InventoryItem() { ItemKey = itemKey, Count = 1 });
+                    gameManager.playerObject.GetComponent<Creature>().AddItem(itemKey);
                     Unhighlight(highlightedObject);
                     GameObject.Destroy(highlightedObject);
                 }
