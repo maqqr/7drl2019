@@ -99,11 +99,15 @@ namespace GoblinKing.Core
 
             if (isDiagonal)
             {
-                // TODO: replace this with a single raycast
-                Vector2Int delta = new Vector2Int(to.x - from.x, to.y - from.y);
-                bool noCornersBlocking = IsWalkable(new Vector2Int(from.x + delta.x, from.y)) && IsWalkable(new Vector2Int(from.x, from.y + delta.y));
+                // Vector2Int delta = new Vector2Int(to.x - from.x, to.y - from.y);
+                // bool noCornersBlocking = IsWalkable(new Vector2Int(from.x + delta.x, from.y)) && IsWalkable(new Vector2Int(from.x, from.y + delta.y));
+                Vector3 fromWorld = Utils.ConvertToWorldCoord(from) + new Vector3(0f, 0.5f, 0f);
+                Vector3 toWorld = Utils.ConvertToWorldCoord(to) + new Vector3(0f, 0.5f, 0f);
+                Vector3 raycastDir = toWorld - fromWorld;
+                bool wayBlocked = Physics.Raycast(fromWorld, raycastDir, 1f);
+
                 bool targetSpaceFree = IsWalkable(to);
-                return targetSpaceFree && noCornersBlocking;
+                return targetSpaceFree && !wayBlocked;
             }
             else
             {

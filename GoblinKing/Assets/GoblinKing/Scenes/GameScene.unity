@@ -898,6 +898,7 @@ MonoBehaviour:
     Speed: 100
     AssetPath: 
     CreaturePrefab: {fileID: 0}
+  Inventory: []
   TransitionSlowness: 0.3
   animator: {fileID: 0}
 --- !u!1 &2087924440
