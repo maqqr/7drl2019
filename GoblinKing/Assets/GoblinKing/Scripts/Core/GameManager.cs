@@ -19,7 +19,7 @@ namespace GoblinKing.Core
 
         private int currentFloor = -1;
         private List<GameObject> dungeonFloors = new List<GameObject>();
-        private Stack<GameStates.IGameView> gameViews = new Stack<GameStates.IGameView>();
+        private Stack<GameViews.IGameView> gameViews = new Stack<GameViews.IGameView>();
         private Collider[] raycastResult = new Collider[1];
 
         private List<Vector2Int> reservedPlaces = new List<Vector2Int>(); // Prevent creatures from moving inside eachother
@@ -217,7 +217,7 @@ namespace GoblinKing.Core
             }
         }
 
-        internal void AddNewView(GameStates.IGameView view)
+        internal void AddNewView(GameViews.IGameView view)
         {
             if (gameViews.Count > 0)
             {
@@ -240,7 +240,7 @@ namespace GoblinKing.Core
         private void Start()
         {
             NextDungeonFloor();
-            AddNewView(new GameStates.InGameView());
+            AddNewView(new GameViews.InGameView());
         }
 
         // Update is called once per frame
