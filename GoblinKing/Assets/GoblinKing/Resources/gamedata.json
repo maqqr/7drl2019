@@ -1,15 +1,15 @@
 {
     "items": {
-        "sword": { "name": "Short sword", "assetpath": "Items/Sword", "weight": 5 },
-        "gold": { "name": "Gold coin", "assetpath": "Items/Gold", "weight": 0 },
-        "skull": { "name": "Skull", "assetpath": "Items/Skull", "weight": 2 },
-        "rib": { "name": "Rib", "assetpath": "Items/Rib", "weight": 3 },
-        "bone": { "name": "Bone", "assetpath": "Items/Bone", "weight": 1 },
-        "bucket": { "name": "Bucket", "assetpath": "Items/Bucket", "weight": 3 },
-        "potionSmallXP": { "name": "Small XP potion", "assetpath": "Items/PotionSmall_XP", "weight": 1 },
-        "potionSmallHealth": { "name": "Small health potion", "assetpath": "Items/PotionSmall_Health", "weight": 1 },
-        "potionBigXP": { "name": "Big XP potion", "assetpath": "Items/PotionBig_XP", "weight": 1 },
-        "potionBigHealth": { "name": "Big health potion", "assetpath": "Items/PotionBig_Health", "weight": 1 }
+        "sword":  { "weight": 6, "damM": 6, "damT": 3, "def": 1, "name": "Short sword", "assetpath": "Items/Sword", "desc": "Nice sword." },
+        "gold":   { "weight": 0, "damM": 0, "damT": 0, "def": 0, "name": "Gold coin", "assetpath": "Items/Gold", "desc": "Shiny." },
+        "skull":  { "weight": 1, "damM": 1, "damT": 1, "def": 0, "name": "Skull", "assetpath": "Items/Skull", "desc": "Nice skull." },
+        "rib":    { "weight": 3, "damM": 1, "damT": 1, "def": 1, "name": "Rib", "assetpath": "Items/Rib", "desc": "Nice rib." },
+        "bone":   { "weight": 2, "damM": 2, "damT": 1, "def": 0, "name": "Bone", "assetpath": "Items/Bone", "desc": "Nice bone." },
+        "bucket": { "weight": 3, "damM": 1, "damT": 1, "def": 1, "name": "Bucket", "assetpath": "Items/Bucket", "desc": "Nice bucket." },
+        "potionSmallXP":     { "weight": 1, "damM": 0, "damT": 1, "def": 0, "name": "Small experience potion", "assetpath": "Items/PotionSmall_XP", "desc": "Magical potion infused with wisdom. Drink to gain experience." },
+        "potionSmallHealth": { "weight": 1, "damM": 0, "damT": 1, "def": 0, "name": "Small health potion", "assetpath": "Items/PotionSmall_Health", "desc": "Drink to gain health." },
+        "potionBigXP":       { "weight": 2, "damM": 0, "damT": 1, "def": 1, "name": "Big XP potion", "assetpath": "Items/PotionBig_XP", "desc": "Magical potion infused with wisdom. Drink to gain large amount of experience." },
+        "potionBigHealth":   { "weight": 2, "damM": 0, "damT": 1, "def": 1, "name": "Big health potion", "assetpath": "Items/PotionBig_Health", "desc": "Drink to gain lots of health." }
     },
 
     "creatures": {

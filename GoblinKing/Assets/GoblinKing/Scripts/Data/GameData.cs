@@ -24,6 +24,10 @@ namespace GoblinKing.Data
                     Name = item.Value["name"],
                     AssetPath = item.Value["assetpath"],
                     Weight = item.Value["weight"].AsInt,
+                    MeleeDamage = item.Value["damM"].AsInt,
+                    ThrowingDamage = item.Value["damT"].AsInt,
+                    Defence = item.Value["def"].AsInt,
+                    Description = item.Value["desc"],
                     ItemPrefab = Resources.Load<GameObject>(item.Value["assetpath"])
                 });
             }

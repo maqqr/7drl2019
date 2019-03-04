@@ -9,8 +9,12 @@ namespace GoblinKing.Data
     {
         public string Name;
         public int Weight;
-
+        public int MeleeDamage;
+        public int ThrowingDamage;
+        public int Defence;
+        public string Description;
         public string AssetPath;
+
         public GameObject ItemPrefab;
     }
 }
