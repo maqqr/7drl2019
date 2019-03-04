@@ -33,11 +33,16 @@ namespace GoblinKing.Core.GameViews
                 if (child.name == "Description")
                 {
                     descriptionText = child.GetComponentInChildren<TMPro.TextMeshProUGUI>();
+                    break;
                 }
             }
 
-            descriptionText.text = "derp";
+            if (inventory.Count == 0)
+            {
+                descriptionText.text = "Your inventory is empty.";
+            }
 
+            // Instantiate items in inventory
             for (int i = 0; i < inventory.Count; i++)
             {
                 var obj = GameObject.Instantiate(gameManager.inventoryGuiItemPrefab);
@@ -50,7 +55,6 @@ namespace GoblinKing.Core.GameViews
 
                 var itemEvent = obj.GetComponent<InventoryItemEventHandler>();
 
-                int i2 = i;
                 itemEvent.MouseEnter += delegate { ShowItemStats(item); };
                 itemEvent.MouseExit += delegate { descriptionText.text = ""; };
             }
@@ -69,7 +73,7 @@ namespace GoblinKing.Core.GameViews
 
         private void ShowItemStats(Data.ItemData item)
         {
-            descriptionText.text = string.Format("Melee damage: {0}\nThrowing damage: {1}\nDefence: {2}\n\n{3}", item.MeleeDamage, item.ThrowingDamage, item.Defence, item.Description);
+            descriptionText.text = string.Format("Melee damage: {0}\nThrowing damage: {1}\nDefence: {2}\n\nWeight: {3}\n\n{4}", item.MeleeDamage, item.ThrowingDamage, item.Defence, item.Weight, item.Description);
         }
     }
 }
