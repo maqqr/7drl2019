@@ -1,0 +1,11 @@
+{
+    "items": {
+        "sword": { "name": "Short sword", "assetpath": "Items/Sword", "weight": 5 },
+        "gold": { "name": "Gold coin", "assetpath": "Items/Gold", "weight": 0 },
+        "skull": { "name": "Skull", "assetpath": "Items/Skull", "weight": 2 }
+    },
+
+    "creatures": {
+        "goblin": { "name": "Goblin", "assetpath": "Creatures/Goblin", "maxhp": 10, "speed": 100 }
+    }
+}

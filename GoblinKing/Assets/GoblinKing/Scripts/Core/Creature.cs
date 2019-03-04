@@ -6,17 +6,21 @@ namespace GoblinKing.Core
 {
     internal class Creature : MonoBehaviour
     {
-        public CreatureStats stats = new CreatureStats();
-        public Vector2Int position; // Position in game coordinates
+        // Game related data
+        public int Hp = 0;
+        public int TimeElapsed = 0; // Creature takes turn when TimeElapsed > Speed
+        public Vector2Int Position; // Position in game coordinates
+        public Data.CreatureData Data;
 
-        public float transitionSlowness = 0.3f;
+        // Variables for keeping 3D model in sync
+        public float TransitionSlowness = 0.3f; // TODO: should this be affected by creature speed?
         private Vector3 velocity = Vector3.zero; // Velocity calculated by Vector3.SmoothDamp
 
         public bool InSync
         {
             get
             {
-                return Vector3.Distance(Utils.ConvertToWorldCoord(position), transform.position) < 0.1f;
+                return Vector3.Distance(Utils.ConvertToWorldCoord(Position), transform.position) < 0.1f;
             }
         }
 
@@ -30,8 +34,8 @@ namespace GoblinKing.Core
         private void Update()
         {
             // Keep the 3D model's world coordinates in sync with game coordinates
-            Vector3 targetPosition = Utils.ConvertToWorldCoord(position);
-            transform.localPosition = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, transitionSlowness);
+            Vector3 targetPosition = Utils.ConvertToWorldCoord(Position);
+            transform.localPosition = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, TransitionSlowness);
         }
     }
 

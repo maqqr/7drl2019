@@ -14,11 +14,12 @@ namespace GoblinKing.Core
         public GameObject[] levelGeneratorPrefabs;
         public GameObject perkTreePrefab;
 
-
         private int currentFloor = -1;
         private List<GameObject> dungeonFloors = new List<GameObject>();
         private Stack<GameStates.IGameView> gameViews = new Stack<GameStates.IGameView>();
         private Collider[] raycastResult = new Collider[1];
+
+        Data.GameData gameData;
 
         public GameObject CurrentFloorObject
         {
@@ -32,10 +33,41 @@ namespace GoblinKing.Core
             }
         }
 
+        public void SpawnItem(string key, Vector3 position, Quaternion rotation)
+        {
+            if (!gameData.ItemData.ContainsKey(key))
+            {
+                Debug.LogError("SpawnItem: invalid key \"" + key + "\"");
+                return;
+            }
+
+            Data.ItemData item = gameData.ItemData[key];
+            GameObject itemObject = Instantiate(item.ItemPrefab, position, rotation);
+        }
+
+        public void SpawnCreature(string key, Vector2Int position)
+        {
+            if (!gameData.CreatureData.ContainsKey(key))
+            {
+                Debug.LogError("SpawnCreature: invalid key \"" + key + "\"");
+                return;
+            }
+
+            Data.CreatureData data = gameData.CreatureData[key];
+
+            GameObject creatureObject = Instantiate(data.CreaturePrefab, Utils.ConvertToWorldCoord(position), Quaternion.identity);
+            creatureObject.transform.position = Utils.ConvertToWorldCoord(position);
+
+            Creature creature = creatureObject.GetComponent<Creature>();
+            creature.Data = data;
+            creature.Hp = creature.Data.MaxHp;
+            creature.Position = position;
+        }
+
         public bool IsWalkable(Vector2Int position)
         {
             Vector3 worldPosition = Utils.ConvertToWorldCoord(position) + new Vector3(0f, 0.5f, 0f);
-            int hits = Physics.OverlapSphereNonAlloc(worldPosition, 0.4f, raycastResult, ~0, QueryTriggerInteraction.Ignore);
+            int hits = Physics.OverlapSphereNonAlloc(worldPosition, 0.3f, raycastResult, ~0, QueryTriggerInteraction.Ignore);
             bool noObstacles = hits == 0;
 
             bool hasGroundUnderneath = Physics.Raycast(worldPosition, Vector3.down, 2.0f, ~0, QueryTriggerInteraction.Ignore);
@@ -51,6 +83,7 @@ namespace GoblinKing.Core
 
             if (isDiagonal)
             {
+                // TODO: replace this with a single raycast
                 Vector2Int delta = new Vector2Int(to.x - from.x, to.y - from.y);
                 bool noCornersBlocking = IsWalkable(new Vector2Int(from.x + delta.x, from.y)) && IsWalkable(new Vector2Int(from.x, from.y + delta.y));
                 bool targetSpaceFree = IsWalkable(to);
@@ -131,6 +164,7 @@ namespace GoblinKing.Core
         private void Awake()
         {
             keybindings = new Keybindings();
+            gameData = Data.GameData.LoadData();
             playerObject = FindObjectOfType<Player>().gameObject;
         }
 

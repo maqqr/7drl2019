@@ -34,6 +34,17 @@ namespace GoblinKing.Core.GameStates
             {
                 gameManager.PreviousDungeonFloor();
             }
+            if (Input.GetKey(KeyCode.Insert))
+            {
+                Vector3 spawnpos = gameManager.playerObject.transform.position + new Vector3(0f, 0.5f, 0f) + gameManager.playerObject.transform.forward;
+                gameManager.SpawnItem("skull", spawnpos, Random.rotation);
+            }
+
+            if (Input.GetKeyDown(KeyCode.Home))
+            {
+                Vector2Int spawnpos = gameManager.playerObject.GetComponent<Creature>().Position;
+                gameManager.SpawnCreature("goblin", spawnpos);
+            }
 
             return false;
         }
@@ -67,9 +78,9 @@ namespace GoblinKing.Core.GameStates
 
             if (playerMoveTo != null)
             {
-                if (gameManager.MovementAllowed(playerObj.GetComponent<Creature>().position, playerMoveTo.Value))
+                if (gameManager.MovementAllowed(playerObj.GetComponent<Creature>().Position, playerMoveTo.Value))
                 {
-                    gameManager.playerObject.GetComponent<Creature>().position = playerMoveTo.Value;
+                    gameManager.playerObject.GetComponent<Creature>().Position = playerMoveTo.Value;
                 }
             }
         }
