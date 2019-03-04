@@ -2,16 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 namespace GoblinKing.Core
 {
     internal class Creature : MonoBehaviour
     {
+        public CreatureStats stats = new CreatureStats();
         public Vector2Int position; // Position in game coordinates
 
         public float transitionSlowness = 0.3f;
-
-        private Vector3 velocity = Vector3.zero;
+        private Vector3 velocity = Vector3.zero; // Velocity calculated by Vector3.SmoothDamp
 
         public bool InSync
         {

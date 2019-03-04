@@ -9,7 +9,7 @@ namespace GoblinKing.Core
     /// </summary>
     internal class LightSource : MonoBehaviour
     {
-        public float lightRadius;
+        public float lightRadius = 0f;
         public bool drawLightRadius = true;
 
         private new Light light;
@@ -26,7 +26,7 @@ namespace GoblinKing.Core
         // Update is called once per frame
         private void Update()
         {
-
+            // TODO: add light flickering
         }
 
         private void OnDrawGizmos()

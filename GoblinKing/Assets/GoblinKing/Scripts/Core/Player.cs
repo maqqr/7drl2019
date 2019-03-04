@@ -4,18 +4,8 @@ using UnityEngine;
 
 namespace GoblinKing.Core
 {
-    public class Player : MonoBehaviour
+    internal class Player : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
-        {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
+        public VisibilityLevel CurrentVisibility;
     }
 }

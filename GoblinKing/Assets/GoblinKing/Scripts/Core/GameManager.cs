@@ -43,6 +43,25 @@ namespace GoblinKing.Core
             return hasGroundUnderneath && noObstacles;
         }
 
+        public bool MovementAllowed(Vector2Int from, Vector2Int to)
+        {
+            // TODO: check that manhattan distance between from and to is not greater than 1?
+
+            bool isDiagonal = from.x != to.x && from.y != to.y;
+
+            if (isDiagonal)
+            {
+                Vector2Int delta = new Vector2Int(to.x - from.x, to.y - from.y);
+                bool noCornersBlocking = IsWalkable(new Vector2Int(from.x + delta.x, from.y)) && IsWalkable(new Vector2Int(from.x, from.y + delta.y));
+                bool targetSpaceFree = IsWalkable(to);
+                return targetSpaceFree && noCornersBlocking;
+            }
+            else
+            {
+                return IsWalkable(to);
+            }
+        }
+
         public void NextDungeonFloor()
         {
             // Disable current level

@@ -67,7 +67,7 @@ namespace GoblinKing.Core.GameStates
 
             if (playerMoveTo != null)
             {
-                if (gameManager.IsWalkable(playerMoveTo.Value))
+                if (gameManager.MovementAllowed(playerObj.GetComponent<Creature>().position, playerMoveTo.Value))
                 {
                     gameManager.playerObject.GetComponent<Creature>().position = playerMoveTo.Value;
                 }
@@ -78,7 +78,7 @@ namespace GoblinKing.Core.GameStates
         {
             List<LightSource> lights = gameManager.CurrentFloorObject.GetComponent<DungeonLevel>().LightSources.Items;
             VisibilityLevel level = Visibility.Calculate(gameManager.playerObject.transform.position, lights);
-
+            gameManager.playerObject.GetComponent<Player>().CurrentVisibility = level;
             gameManager.visibilityDiamondObject.GetComponent<MeshRenderer>().material.SetColor("_Color", Visibility.GetGemColor(level));
         }
     }
