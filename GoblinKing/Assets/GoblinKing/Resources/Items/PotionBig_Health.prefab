@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1676496197657016
+--- !u!1 &1282401954096636
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,26 +8,26 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4839397882755874}
-  - component: {fileID: 33105472416689448}
-  - component: {fileID: 23108094817555092}
-  - component: {fileID: 2986163305102880135}
-  - component: {fileID: 7224462338939210104}
-  - component: {fileID: 4255367300622126833}
+  - component: {fileID: 4908073047772912}
+  - component: {fileID: 33750584633994588}
+  - component: {fileID: 23363679202105952}
+  - component: {fileID: 4502187677478128613}
+  - component: {fileID: 6281058365584001650}
+  - component: {fileID: 8726587397927653391}
   m_Layer: 0
-  m_Name: Rib
+  m_Name: PotionBig_Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4839397882755874
+--- !u!4 &4908073047772912
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1676496197657016}
+  m_GameObject: {fileID: 1282401954096636}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -35,21 +35,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &33105472416689448
+--- !u!33 &33750584633994588
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1676496197657016}
-  m_Mesh: {fileID: 4300000, guid: eeddff60faec64f4283416d1c7e2c966, type: 3}
---- !u!23 &23108094817555092
+  m_GameObject: {fileID: 1282401954096636}
+  m_Mesh: {fileID: 4300000, guid: 795f729313602c34bbeca9a7bf23e1b0, type: 3}
+--- !u!23 &23363679202105952
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1676496197657016}
+  m_GameObject: {fileID: 1282401954096636}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -80,13 +80,39 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!54 &2986163305102880135
+--- !u!65 &4502187677478128613
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1282401954096636}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.21570206, y: 0.3737731, z: 0.2268021}
+  m_Center: {x: 0.00000023841858, y: 0.18688655, z: 0}
+--- !u!114 &6281058365584001650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1282401954096636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f1927aa3eb5dc947a304cb8ff2bc500, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemKey: potionBigHealth
+--- !u!54 &8726587397927653391
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1676496197657016}
+  m_GameObject: {fileID: 1282401954096636}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -96,29 +122,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &7224462338939210104
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1676496197657016}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f1927aa3eb5dc947a304cb8ff2bc500, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemKey: rib
---- !u!65 &4255367300622126833
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1676496197657016}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.0607831, y: 0.17444712, z: 0.5583589}
-  m_Center: {x: 0, y: 0.08722356, z: 0}
