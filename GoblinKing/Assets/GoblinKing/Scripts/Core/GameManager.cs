@@ -10,6 +10,7 @@ namespace GoblinKing.Core
         public Keybindings keybindings;
         public GameObject playerObject;
         public GameObject visibilityDiamondObject;
+        public Camera Camera;
 
         public GameObject[] levelGeneratorPrefabs;
         public GameObject perkTreePrefab;
@@ -219,6 +220,7 @@ namespace GoblinKing.Core
             keybindings = new Keybindings();
             GameData = Data.GameData.LoadData();
             playerObject = FindObjectOfType<Player>().gameObject;
+            Camera = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
         }
 
         private void Start()

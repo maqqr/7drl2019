@@ -10,6 +10,8 @@ namespace GoblinKing.Core.GameStates
 
         private int advanceTime = 0; // Gow much time should be advanced due to player actions
 
+        private GameObject highlightedObject = null;
+
         public void Initialize(GameManager gameManager)
         {
             this.gameManager = gameManager;
@@ -30,6 +32,20 @@ namespace GoblinKing.Core.GameStates
                 }
 
                 HandlePlayerInput();
+            }
+
+            RaycastHit hitInfo;
+            if (Physics.Raycast(gameManager.Camera.transform.position, gameManager.Camera.transform.forward, out hitInfo, 1.5f))
+            {
+                var pickup = hitInfo.collider.gameObject.GetComponent<PickupItem>();
+                if (pickup)
+                {
+                    HighlightObject(pickup.gameObject);
+                }
+                else
+                {
+                    HighlightObject(null);
+                }
             }
 
             // These are for debugging purposes
@@ -79,6 +95,8 @@ namespace GoblinKing.Core.GameStates
                 playerMoveTo = Utils.ConvertToGameCoord(playerObj.transform.localPosition - playerObj.transform.right);
             }
 
+            // TODO: pickup highlighted object when pressing pick up key
+
             if (Utils.IsPressed(gameManager.keybindings.openPerkTree))
             {
                 gameManager.AddView(new PerkTree());
@@ -103,6 +121,45 @@ namespace GoblinKing.Core.GameStates
             VisibilityLevel level = Visibility.Calculate(playerWorldPos, lights);
             gameManager.playerObject.GetComponent<Player>().CurrentVisibility = level;
             gameManager.visibilityDiamondObject.GetComponent<MeshRenderer>().material.SetColor("_Color", Visibility.GetGemColor(level));
+        }
+
+        private void HighlightObject(GameObject obj)
+        {
+            if (obj == highlightedObject)
+            {
+                return;
+            }
+
+            if (obj == null)
+            {
+                if (highlightedObject != null)
+                {
+                    Unhighlight(highlightedObject);
+                }
+                highlightedObject = null;
+                return;
+            }
+
+            if (highlightedObject != null)
+            {
+                Unhighlight(highlightedObject);
+            }
+
+            MeshRenderer rend = obj.GetComponent<MeshRenderer>();
+            rend.material.SetColor("_RimColor", new Color(1f, 1f, 1f));
+            rend.material.SetFloat("_RimIntensity", 1f);
+            rend.material.SetFloat("_RimSize", 1f);
+            rend.material.SetFloat("_RimSmoothness", 1f);
+            highlightedObject = obj;
+        }
+
+        private void Unhighlight(GameObject obj)
+        {
+            MeshRenderer rend = obj.GetComponent<MeshRenderer>();
+            rend.material.SetColor("_RimColor", new Color(0f, 0f, 0f));
+            rend.material.SetFloat("_RimIntensity", 0f);
+            rend.material.SetFloat("_RimSize", 0f);
+            rend.material.SetFloat("_RimSmoothness", 0f);
         }
     }
 }
