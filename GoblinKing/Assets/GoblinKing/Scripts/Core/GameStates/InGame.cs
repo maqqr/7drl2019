@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using LevelGenerator.Scripts.Helpers;
 
 namespace GoblinKing.Core.GameStates
 {
@@ -42,8 +43,9 @@ namespace GoblinKing.Core.GameStates
             }
             if (Input.GetKey(KeyCode.Insert))
             {
+                IEnumerable<string> itemKeys = gameManager.GameData.ItemData.Keys;
                 Vector3 spawnpos = gameManager.playerObject.transform.position + new Vector3(0f, 0.5f, 0f) + gameManager.playerObject.transform.forward;
-                gameManager.SpawnItem("skull", spawnpos, Random.rotation);
+                gameManager.SpawnItem(itemKeys.PickOne(), spawnpos, Random.rotation);
             }
 
             if (Input.GetKeyDown(KeyCode.Home))

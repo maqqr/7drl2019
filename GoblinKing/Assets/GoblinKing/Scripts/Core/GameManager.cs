@@ -21,7 +21,7 @@ namespace GoblinKing.Core
 
         private List<Vector2Int> reservedPlaces = new List<Vector2Int>(); // Prevent creatures from moving inside eachother
 
-        Data.GameData gameData;
+        public Data.GameData GameData;
 
         public GameObject CurrentFloorObject
         {
@@ -37,25 +37,25 @@ namespace GoblinKing.Core
 
         public void SpawnItem(string key, Vector3 position, Quaternion rotation)
         {
-            if (!gameData.ItemData.ContainsKey(key))
+            if (!GameData.ItemData.ContainsKey(key))
             {
                 Debug.LogError("SpawnItem: invalid key \"" + key + "\"");
                 return;
             }
 
-            Data.ItemData item = gameData.ItemData[key];
+            Data.ItemData item = GameData.ItemData[key];
             GameObject itemObject = Instantiate(item.ItemPrefab, position, rotation);
         }
 
         public void SpawnCreature(string key, Vector2Int position)
         {
-            if (!gameData.CreatureData.ContainsKey(key))
+            if (!GameData.CreatureData.ContainsKey(key))
             {
                 Debug.LogError("SpawnCreature: invalid key \"" + key + "\"");
                 return;
             }
 
-            Data.CreatureData data = gameData.CreatureData[key];
+            Data.CreatureData data = GameData.CreatureData[key];
 
             GameObject creatureObject = Instantiate(data.CreaturePrefab, Utils.ConvertToWorldCoord(position), Quaternion.identity);
             creatureObject.transform.position = Utils.ConvertToWorldCoord(position);
@@ -99,8 +99,6 @@ namespace GoblinKing.Core
 
             if (isDiagonal)
             {
-                // Vector2Int delta = new Vector2Int(to.x - from.x, to.y - from.y);
-                // bool noCornersBlocking = IsWalkable(new Vector2Int(from.x + delta.x, from.y)) && IsWalkable(new Vector2Int(from.x, from.y + delta.y));
                 Vector3 fromWorld = Utils.ConvertToWorldCoord(from) + new Vector3(0f, 0.5f, 0f);
                 Vector3 toWorld = Utils.ConvertToWorldCoord(to) + new Vector3(0f, 0.5f, 0f);
                 Vector3 raycastDir = toWorld - fromWorld;
@@ -219,7 +217,7 @@ namespace GoblinKing.Core
         private void Awake()
         {
             keybindings = new Keybindings();
-            gameData = Data.GameData.LoadData();
+            GameData = Data.GameData.LoadData();
             playerObject = FindObjectOfType<Player>().gameObject;
         }
 
