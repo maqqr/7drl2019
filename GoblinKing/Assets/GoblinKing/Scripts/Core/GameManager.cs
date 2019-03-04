@@ -19,6 +19,8 @@ namespace GoblinKing.Core
         private Stack<GameStates.IGameView> gameViews = new Stack<GameStates.IGameView>();
         private Collider[] raycastResult = new Collider[1];
 
+        private List<Vector2Int> reservedPlaces = new List<Vector2Int>(); // Prevent creatures from moving inside eachother
+
         Data.GameData gameData;
 
         public GameObject CurrentFloorObject
@@ -57,6 +59,8 @@ namespace GoblinKing.Core
 
             GameObject creatureObject = Instantiate(data.CreaturePrefab, Utils.ConvertToWorldCoord(position), Quaternion.identity);
             creatureObject.transform.position = Utils.ConvertToWorldCoord(position);
+            creatureObject.transform.parent = CurrentFloorObject.transform;
+            CurrentFloorObject.GetComponent<DungeonLevel>().UpdateAllReferences();
 
             Creature creature = creatureObject.GetComponent<Creature>();
             creature.Data = data;
@@ -75,7 +79,7 @@ namespace GoblinKing.Core
             return hasGroundUnderneath && noObstacles;
         }
 
-        public bool MovementAllowed(Vector2Int from, Vector2Int to)
+        public bool IsWalkableFrom(Vector2Int from, Vector2Int to)
         {
             // TODO: check that manhattan distance between from and to is not greater than 1?
 
@@ -109,7 +113,8 @@ namespace GoblinKing.Core
             // Generate dungeon if it does not exist
             if (currentFloor >= dungeonFloors.Count)
             {
-                if (levelGeneratorPrefabs.Length == 0) {
+                if (levelGeneratorPrefabs.Length == 0)
+                {
                     Debug.LogError("levelGeneratorPrefabs are missing!");
                     return;
                 }
@@ -155,11 +160,45 @@ namespace GoblinKing.Core
             CurrentFloorObject.SetActive(true);
         }
 
+        public void AdvanceGameWorld(int deltaTime)
+        {
+            Debug.Log("Advancing time by " + deltaTime + " units");
+            List<Creature> creatures = CurrentFloorObject.GetComponent<DungeonLevel>().EnemyCreatures.Items;
+            reservedPlaces.Clear();
+
+            for (int i = 0; i < creatures.Count; i++)
+            {
+                Creature cre = creatures[i];
+                cre.TimeElapsed += deltaTime;
+
+                if (cre.TimeElapsed >= cre.Speed)
+                {
+                    cre.TimeElapsed -= cre.Speed;
+                    UpdateCreatureAi(cre);
+                }
+            }
+        }
+
+        private void UpdateCreatureAi(Creature cre)
+        {
+            // TODO: implement real creature AI instead of random movement
+            int randomX = Random.Range(-1, 2);
+            int randomY = Random.Range(-1, 2);
+            Vector2Int newPos = new Vector2Int(cre.Position.x + randomX, cre.Position.y + randomY);
+
+            if (!reservedPlaces.Contains(newPos) && IsWalkableFrom(cre.Position, newPos))
+            {
+                cre.Position = newPos;
+                reservedPlaces.Add(newPos);
+            }
+        }
+
         internal void AddView(GameStates.IGameView view)
         {
             gameViews.Push(view);
             view.Initialize(this);
         }
+
 
         private void Awake()
         {

@@ -7,6 +7,8 @@ namespace GoblinKing.Core.GameStates
     {
         private GameManager gameManager;
 
+        private int advanceTime = 0; // Gow much time should be advanced due to player actions
+
         public void Initialize(GameManager gameManager)
         {
             this.gameManager = gameManager;
@@ -20,9 +22,16 @@ namespace GoblinKing.Core.GameStates
         {
             if (gameManager.playerObject.GetComponent<Creature>().InSync)
             {
+                if (advanceTime > 0)
+                {
+                    gameManager.AdvanceGameWorld(advanceTime);
+                    advanceTime = 0;
+                }
+
                 HandlePlayerInput();
             }
 
+            // TODO: visibility does not need to be updated every frame?
             UpdatePlayerVisibility();
 
             // These are for debugging purposes
@@ -78,9 +87,10 @@ namespace GoblinKing.Core.GameStates
 
             if (playerMoveTo != null)
             {
-                if (gameManager.MovementAllowed(playerObj.GetComponent<Creature>().Position, playerMoveTo.Value))
+                if (gameManager.IsWalkableFrom(playerObj.GetComponent<Creature>().Position, playerMoveTo.Value))
                 {
                     gameManager.playerObject.GetComponent<Creature>().Position = playerMoveTo.Value;
+                    advanceTime = gameManager.playerObject.GetComponent<Creature>().Speed;
                 }
             }
         }
