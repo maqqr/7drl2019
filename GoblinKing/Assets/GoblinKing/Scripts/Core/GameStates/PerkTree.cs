@@ -22,7 +22,7 @@ namespace GoblinKing.Core.GameStates
 
         public bool UpdateView()
         {
-            return Utils.IsPressed(gameManager.keybindings.openPerkTree);
+            return Utils.IsPressed(gameManager.keybindings.OpenPerkTree);
         }
     }
 }

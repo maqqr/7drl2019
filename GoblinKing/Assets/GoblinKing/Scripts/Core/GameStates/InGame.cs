@@ -78,26 +78,35 @@ namespace GoblinKing.Core.GameStates
             Vector2Int? playerMoveTo = null;
             GameObject playerObj = gameManager.playerObject;
 
-            if (Utils.IsDown(gameManager.keybindings.moveForward))
+            if (Utils.IsDown(gameManager.keybindings.MoveForward))
             {
                 playerMoveTo = Utils.ConvertToGameCoord(playerObj.transform.localPosition + playerObj.transform.forward);
             }
-            else if (Utils.IsDown(gameManager.keybindings.moveBackward))
+            else if (Utils.IsDown(gameManager.keybindings.MoveBackward))
             {
                 playerMoveTo = Utils.ConvertToGameCoord(playerObj.transform.localPosition - playerObj.transform.forward);
             }
-            else if (Utils.IsDown(gameManager.keybindings.moveRight))
+            else if (Utils.IsDown(gameManager.keybindings.MoveRight))
             {
                 playerMoveTo = Utils.ConvertToGameCoord(playerObj.transform.localPosition + playerObj.transform.right);
             }
-            else if (Utils.IsDown(gameManager.keybindings.moveLeft))
+            else if (Utils.IsDown(gameManager.keybindings.MoveLeft))
             {
                 playerMoveTo = Utils.ConvertToGameCoord(playerObj.transform.localPosition - playerObj.transform.right);
             }
 
-            // TODO: pickup highlighted object when pressing pick up key
+            if (Utils.IsPressed(gameManager.keybindings.PickUp))
+            {
+                if (highlightedObject != null)
+                {
+                    string itemKey = highlightedObject.GetComponent<PickupItem>().itemKey;
+                    gameManager.playerObject.GetComponent<Creature>().Inventory.Add(itemKey);
+                    Unhighlight(highlightedObject);
+                    GameObject.Destroy(highlightedObject);
+                }
+            }
 
-            if (Utils.IsPressed(gameManager.keybindings.openPerkTree))
+            if (Utils.IsPressed(gameManager.keybindings.OpenPerkTree))
             {
                 gameManager.AddView(new PerkTree());
             }

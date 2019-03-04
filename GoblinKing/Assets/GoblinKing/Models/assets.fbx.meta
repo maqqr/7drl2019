@@ -19,6 +19,106 @@ ModelImporter:
     100026: LightGemHolder
     100028: ExclamationMark
     100030: QuestionMark
+    100032: Bottom_arm.L
+    100034: Bottom_arm.R
+    100036: Bottom_leg.L
+    100038: Bottom_leg.R
+    100040: Clavicle.L
+    100042: Clavicle.R
+    100044: Crosshair
+    100046: CrosshairSpinner
+    100048: DoorCutter
+    100050: Elbow_IK.L
+    100052: Elbow_IK.L_end
+    100054: Elbow_IK.L_end_end
+    100056: Elbow_IK.R
+    100058: Elbow_IK.R_end
+    100060: Elbow_IK.R_end_end
+    100062: finger1_1.L
+    100064: finger1_1.R
+    100066: finger1_2.L
+    100068: finger1_2.L_end
+    100070: finger1_2.L_end_end
+    100072: finger1_2.R
+    100074: finger1_2.R_end
+    100076: finger1_2.R_end_end
+    100078: finger2_1.L
+    100080: finger2_1.R
+    100082: finger2_2.L
+    100084: finger2_2.L_end
+    100086: finger2_2.L_end_end
+    100088: finger2_2.R
+    100090: finger2_2.R_end
+    100092: finger2_2.R_end_end
+    100094: Foot.L
+    100096: Foot.R
+    100098: Foot_ctrl.L
+    100100: Foot_ctrl.R
+    100102: Foot_IK.L
+    100104: Foot_IK.L_end
+    100106: Foot_IK.L_end_end
+    100108: Foot_IK.R
+    100110: Foot_IK.R_end
+    100112: Foot_IK.R_end_end
+    100114: FootRoll_crtl.L
+    100116: FootRoll_crtl.L_end
+    100118: FootRoll_crtl.L_end_end
+    100120: FootRoll_crtl.R
+    100122: FootRoll_crtl.R_end
+    100124: FootRoll_crtl.R_end_end
+    100126: Goblin_armature
+    100128: GOBLIN_BASE
+    100130: Hand.L
+    100132: Hand.R
+    100134: Hand_IK.L
+    100136: Hand_IK.R
+    100138: Head
+    100140: Heel_roll.L
+    100142: Heel_roll.R
+    100144: Hips_ctrl
+    100146: jaw
+    100148: jaw_end
+    100150: jaw_end_end
+    100152: Knee_IK.L
+    100154: Knee_IK.L_end
+    100156: Knee_IK.L_end_end
+    100158: Knee_IK.R
+    100160: Knee_IK.R_end
+    100162: Knee_IK.R_end_end
+    100164: Neck
+    100166: Point
+    100168: spine_1
+    100170: spine_2
+    100172: spine_3
+    100174: Thumb_1.L
+    100176: Thumb_1.R
+    100178: Thumb_2.L
+    100180: Thumb_2.L_end
+    100182: Thumb_2.L_end_end
+    100184: Thumb_2.R
+    100186: Thumb_2.R_end
+    100188: Thumb_2.R_end_end
+    100190: Toe.L
+    100192: Toe.L_end
+    100194: Toe.L_end_end
+    100196: Toe.R
+    100198: Toe.R_end
+    100200: Toe.R_end_end
+    100202: Toe_roll.L
+    100204: Toe_roll.R
+    100206: Upper_arm.L
+    100208: Upper_arm.R
+    100210: Upper_leg.L
+    100212: Upper_leg.R
+    100214: Vis_1
+    100216: Vis_1_end
+    100218: Vis_1_end_end
+    100220: Weapon_bone.L
+    100222: Weapon_bone.L_end
+    100224: Weapon_bone.L_end_end
+    100226: Weapon_bone.R
+    100228: Weapon_bone.R_end
+    100230: Weapon_bone.R_end_end
     400000: //RootNode
     400002: BrickWall1
     400004: BrickWallHole1
@@ -35,6 +135,106 @@ ModelImporter:
     400026: LightGemHolder
     400028: ExclamationMark
     400030: QuestionMark
+    400032: Bottom_arm.L
+    400034: Bottom_arm.R
+    400036: Bottom_leg.L
+    400038: Bottom_leg.R
+    400040: Clavicle.L
+    400042: Clavicle.R
+    400044: Crosshair
+    400046: CrosshairSpinner
+    400048: DoorCutter
+    400050: Elbow_IK.L
+    400052: Elbow_IK.L_end
+    400054: Elbow_IK.L_end_end
+    400056: Elbow_IK.R
+    400058: Elbow_IK.R_end
+    400060: Elbow_IK.R_end_end
+    400062: finger1_1.L
+    400064: finger1_1.R
+    400066: finger1_2.L
+    400068: finger1_2.L_end
+    400070: finger1_2.L_end_end
+    400072: finger1_2.R
+    400074: finger1_2.R_end
+    400076: finger1_2.R_end_end
+    400078: finger2_1.L
+    400080: finger2_1.R
+    400082: finger2_2.L
+    400084: finger2_2.L_end
+    400086: finger2_2.L_end_end
+    400088: finger2_2.R
+    400090: finger2_2.R_end
+    400092: finger2_2.R_end_end
+    400094: Foot.L
+    400096: Foot.R
+    400098: Foot_ctrl.L
+    400100: Foot_ctrl.R
+    400102: Foot_IK.L
+    400104: Foot_IK.L_end
+    400106: Foot_IK.L_end_end
+    400108: Foot_IK.R
+    400110: Foot_IK.R_end
+    400112: Foot_IK.R_end_end
+    400114: FootRoll_crtl.L
+    400116: FootRoll_crtl.L_end
+    400118: FootRoll_crtl.L_end_end
+    400120: FootRoll_crtl.R
+    400122: FootRoll_crtl.R_end
+    400124: FootRoll_crtl.R_end_end
+    400126: Goblin_armature
+    400128: GOBLIN_BASE
+    400130: Hand.L
+    400132: Hand.R
+    400134: Hand_IK.L
+    400136: Hand_IK.R
+    400138: Head
+    400140: Heel_roll.L
+    400142: Heel_roll.R
+    400144: Hips_ctrl
+    400146: jaw
+    400148: jaw_end
+    400150: jaw_end_end
+    400152: Knee_IK.L
+    400154: Knee_IK.L_end
+    400156: Knee_IK.L_end_end
+    400158: Knee_IK.R
+    400160: Knee_IK.R_end
+    400162: Knee_IK.R_end_end
+    400164: Neck
+    400166: Point
+    400168: spine_1
+    400170: spine_2
+    400172: spine_3
+    400174: Thumb_1.L
+    400176: Thumb_1.R
+    400178: Thumb_2.L
+    400180: Thumb_2.L_end
+    400182: Thumb_2.L_end_end
+    400184: Thumb_2.R
+    400186: Thumb_2.R_end
+    400188: Thumb_2.R_end_end
+    400190: Toe.L
+    400192: Toe.L_end
+    400194: Toe.L_end_end
+    400196: Toe.R
+    400198: Toe.R_end
+    400200: Toe.R_end_end
+    400202: Toe_roll.L
+    400204: Toe_roll.R
+    400206: Upper_arm.L
+    400208: Upper_arm.R
+    400210: Upper_leg.L
+    400212: Upper_leg.R
+    400214: Vis_1
+    400216: Vis_1_end
+    400218: Vis_1_end_end
+    400220: Weapon_bone.L
+    400222: Weapon_bone.L_end
+    400224: Weapon_bone.L_end_end
+    400226: Weapon_bone.R
+    400228: Weapon_bone.R_end
+    400230: Weapon_bone.R_end_end
     2100000: PreviewMaterial
     2300000: BrickWall1
     2300002: BrickWallHole1
@@ -51,6 +251,9 @@ ModelImporter:
     2300024: LightGemHolder
     2300026: ExclamationMark
     2300028: QuestionMark
+    2300030: Crosshair
+    2300032: DoorCutter
+    2300034: GOBLIN_BASE
     3300000: BrickWall1
     3300002: BrickWallHole1
     3300004: DoorFrame1
@@ -66,6 +269,9 @@ ModelImporter:
     3300024: LightGemHolder
     3300026: ExclamationMark
     3300028: QuestionMark
+    3300030: Crosshair
+    3300032: DoorCutter
+    3300034: GOBLIN_BASE
     4300000: BrickWall1
     4300002: StoneTileGround1
     4300004: Pillar1
@@ -81,6 +287,10 @@ ModelImporter:
     4300024: LightGem
     4300026: QuestionMark
     4300028: ExclamationMark
+    4300030: Crosshair
+    4300032: GOBLIN_BASE
+    4300034: DoorCutter
+    10800000: Point
   externalObjects: {}
   materials:
     importMaterials: 0

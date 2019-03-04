@@ -14,7 +14,7 @@ namespace GoblinKing.Core
     internal static class Visibility
     {
         private static readonly Dictionary<VisibilityLevel, Color> visibilityColors = new Dictionary<VisibilityLevel, Color>() {
-            { VisibilityLevel.Hidden, new Color(0, 83/255f, 108/255f) },
+            { VisibilityLevel.Hidden, new Color(0, 53/255f, 78/255f) },
             { VisibilityLevel.Partial, new Color(4/255f, 150/255f, 200/255f) },
             { VisibilityLevel.Visible, new Color(153/255f, 207/255f, 255/255f) }
         };
