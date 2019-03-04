@@ -892,6 +892,10 @@ MonoBehaviour:
   - {fileID: 5527877373573840763, guid: a42bb827e519d284986595bf05606948, type: 3}
   perkTreePrefab: {fileID: 307888046144457542, guid: 29ef7b7c14eb26e45a354ae14c110772,
     type: 3}
+  inventoryPrefab: {fileID: 1116146211989653171, guid: bd17bb3897ee64a4c8acac7d0c80188f,
+    type: 3}
+  inventoryGuiItemPrefab: {fileID: 9127414026104117885, guid: fb91669c6387f25408f0bc7a9e28e0f1,
+    type: 3}
 --- !u!4 &1485741022
 Transform:
   m_ObjectHideFlags: 0

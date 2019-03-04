@@ -14,6 +14,8 @@ namespace GoblinKing.Core
 
         public GameObject[] levelGeneratorPrefabs;
         public GameObject perkTreePrefab;
+        public GameObject inventoryPrefab;
+        public GameObject inventoryGuiItemPrefab;
 
         private int currentFloor = -1;
         private List<GameObject> dungeonFloors = new List<GameObject>();
@@ -194,6 +196,12 @@ namespace GoblinKing.Core
             }
         }
 
+        public void SetMouseLookEnabled(bool enabled)
+        {
+            Camera.gameObject.GetComponent<SmoothMouseLook>().enabled = enabled;
+        }
+
+
         private void UpdateCreatureAi(Creature cre)
         {
             // TODO: implement real creature AI instead of random movement
@@ -208,12 +216,17 @@ namespace GoblinKing.Core
             }
         }
 
-        internal void AddView(GameStates.IGameView view)
+        internal void AddNewView(GameStates.IGameView view)
         {
+            if (gameViews.Count > 0)
+            {
+                gameViews.Peek().CloseView();
+            }
+
             gameViews.Push(view);
             view.Initialize(this);
+            view.OpenView();
         }
-
 
         private void Awake()
         {
@@ -226,7 +239,7 @@ namespace GoblinKing.Core
         private void Start()
         {
             NextDungeonFloor();
-            AddView(new GameStates.InGame());
+            AddNewView(new GameStates.InGameView());
         }
 
         // Update is called once per frame
@@ -238,6 +251,13 @@ namespace GoblinKing.Core
             {
                 var view = gameViews.Pop();
                 view.CloseView();
+                view.Destroy();
+
+                if (gameViews.Count > 0)
+                {
+                    // Re-enable previous view
+                    gameViews.Peek().OpenView();
+                }
 
                 // TODO: if last view was closed, quit the game
             }

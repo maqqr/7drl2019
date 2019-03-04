@@ -4,11 +4,11 @@ using LevelGenerator.Scripts.Helpers;
 
 namespace GoblinKing.Core.GameStates
 {
-    internal class InGame : IGameView
+    internal class InGameView : IGameView
     {
         private GameManager gameManager;
 
-        private int advanceTime = 0; // Gow much time should be advanced due to player actions
+        private int advanceTime = 0; // How much time should be advanced due to player actions
 
         private GameObject highlightedObject = null;
 
@@ -17,8 +17,18 @@ namespace GoblinKing.Core.GameStates
             this.gameManager = gameManager;
         }
 
+        public void Destroy()
+        {
+        }
+
+        public void OpenView()
+        {
+            gameManager.SetMouseLookEnabled(true);
+        }
+
         public void CloseView()
         {
+            gameManager.SetMouseLookEnabled(false);
         }
 
         public bool UpdateView()
@@ -48,7 +58,7 @@ namespace GoblinKing.Core.GameStates
                 }
             }
 
-            // These are for debugging purposes
+            // ----- These are for debugging purposes ---------------------------------
             if (Input.GetKeyDown(KeyCode.PageUp))
             {
                 gameManager.NextDungeonFloor();
@@ -63,12 +73,12 @@ namespace GoblinKing.Core.GameStates
                 Vector3 spawnpos = gameManager.playerObject.transform.position + new Vector3(0f, 0.5f, 0f) + gameManager.playerObject.transform.forward;
                 gameManager.SpawnItem(itemKeys.PickOne(), spawnpos, Random.rotation);
             }
-
             if (Input.GetKeyDown(KeyCode.Home))
             {
                 Vector2Int spawnpos = gameManager.playerObject.GetComponent<Creature>().Position;
                 gameManager.SpawnCreature("goblin", spawnpos);
             }
+            // -----------------------------------------------------------------------
 
             return false;
         }
@@ -100,7 +110,7 @@ namespace GoblinKing.Core.GameStates
                 if (highlightedObject != null)
                 {
                     string itemKey = highlightedObject.GetComponent<PickupItem>().itemKey;
-                    gameManager.playerObject.GetComponent<Creature>().Inventory.Add(itemKey);
+                    gameManager.playerObject.GetComponent<Creature>().Inventory.Add(new InventoryItem() { ItemKey = itemKey, Count = 1 });
                     Unhighlight(highlightedObject);
                     GameObject.Destroy(highlightedObject);
                 }
@@ -108,7 +118,12 @@ namespace GoblinKing.Core.GameStates
 
             if (Utils.IsPressed(gameManager.keybindings.OpenPerkTree))
             {
-                gameManager.AddView(new PerkTree());
+                gameManager.AddNewView(new PerkTreeView());
+            }
+
+            if (Utils.IsPressed(gameManager.keybindings.OpenInventory))
+            {
+                gameManager.AddNewView(new InventoryView());
             }
 
             if (playerMoveTo != null)

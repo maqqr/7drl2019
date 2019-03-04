@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace GoblinKing.Core.GameStates
 {
-    internal class PerkTree : IGameView
+    internal class PerkTreeView : IGameView
     {
         private GameManager gameManager;
 
@@ -11,7 +11,14 @@ namespace GoblinKing.Core.GameStates
         public void Initialize(GameManager gameManager)
         {
             this.gameManager = gameManager;
+        }
 
+        public void Destroy()
+        {
+        }
+
+        public void OpenView()
+        {
             perkTreeCanvas = GameObject.Instantiate(gameManager.perkTreePrefab);
         }
 
@@ -19,6 +26,7 @@ namespace GoblinKing.Core.GameStates
         {
             GameObject.Destroy(perkTreeCanvas);
         }
+
 
         public bool UpdateView()
         {

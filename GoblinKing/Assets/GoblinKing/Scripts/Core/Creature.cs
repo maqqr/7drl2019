@@ -11,7 +11,7 @@ namespace GoblinKing.Core
         public int TimeElapsed = 0; // Creature takes turn when TimeElapsed > Speed
         public Vector2Int Position; // Position in game coordinates
         public Data.CreatureData Data;
-        public List<string> Inventory = new List<string>();
+        public List<InventoryItem> Inventory = new List<InventoryItem>();
 
         // Variables for keeping 3D model in sync
         public float TransitionSlowness = 0.3f; // TODO: should this be affected by creature speed?
@@ -36,6 +36,11 @@ namespace GoblinKing.Core
                 // TODO: should inventory weight affect speed?
                 return Data.Speed;
             }
+        }
+
+        public void AddItem(InventoryItem item)
+        {
+            // TODO
         }
 
         private void Awake()

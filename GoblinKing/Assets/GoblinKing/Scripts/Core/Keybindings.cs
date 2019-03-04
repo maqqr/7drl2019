@@ -12,5 +12,6 @@ namespace GoblinKing.Core
         public KeyCode[] PickUp = { KeyCode.Space, KeyCode.Mouse0 };
 
         public KeyCode OpenPerkTree = KeyCode.P;
+        public KeyCode OpenInventory = KeyCode.I;
     }
 }
