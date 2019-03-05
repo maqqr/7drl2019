@@ -15,6 +15,10 @@ namespace GoblinKing.Core
         public List<InventoryItem> Inventory = new List<InventoryItem>();
         public Dictionary<EquipSlot, InventoryItem> Equipment = new Dictionary<EquipSlot, InventoryItem>();
 
+        public string InitialLeftHandItem = "";
+        public string InitialRightHandItem = "";
+        public List<string> InitialInventory = new List<string>();
+
         // AI
         public AIType AIType = AIType.Still;
         public AlertLevel AlertLevel = AlertLevel.Unaware;
@@ -84,6 +88,26 @@ namespace GoblinKing.Core
             if (transform.childCount > 0)
             {
                 animator = transform.GetChild(0).GetComponent<Animator>();
+            }
+        }
+
+        private void Start()
+        {
+            if (InitialLeftHandItem.Length > 0)
+            {
+                var item = new InventoryItem() { ItemKey = InitialLeftHandItem, Count = 1 };
+                Equipment.Add(EquipSlot.LeftHand, item);
+                Inventory.Add(item);
+            }
+            if (InitialRightHandItem.Length > 0)
+            {
+                var item = new InventoryItem() { ItemKey = InitialRightHandItem, Count = 1 };
+                Equipment.Add(EquipSlot.RightHand, item);
+                Inventory.Add(item);
+            }
+            foreach (string item in InitialInventory)
+            {
+                AddItem(item);
             }
         }
 

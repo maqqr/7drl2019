@@ -53,6 +53,14 @@ MonoBehaviour:
     Speed: 0
     AssetPath: 
     CreaturePrefab: {fileID: 0}
+  InitialLeftHandItem: sword
+  InitialRightHandItem: bone
+  InitialInventory:
+  - gold
+  - bone
+  AIType: 0
+  AlertLevel: 0
+  SuspiciousPosition: {x: 0, y: 0}
   TransitionSlowness: 0.5
   animator: {fileID: 0}
 --- !u!1 &9121182618312938497
