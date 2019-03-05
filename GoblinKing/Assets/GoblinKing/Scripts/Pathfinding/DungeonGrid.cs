@@ -47,7 +47,10 @@ namespace GoblinKing.Pathfinding
             {
                 for (int y = minY; y <= maxY; y++)
                 {
-                    nodes.Add(new Vector2Int(x, y), new Node(isWalkable(new Vector2Int(x, y)), x, y));
+                    if (isWalkable(new Vector2Int(x, y)))
+                    {
+                        nodes.Add(new Vector2Int(x, y), new Node(1f, x, y));
+                    }
                 }
             }
         }
@@ -61,12 +64,7 @@ namespace GoblinKing.Pathfinding
             }
         }
 
-        /// <summary>
-        /// Get all the neighbors of a given tile in the grid.
-        /// </summary>
-        /// <param name="node">Node to get neighbors for.</param>
-        /// <returns>List of node neighbors.</returns>
-        public System.Collections.IEnumerable GetNeighbours(Node node, Pathfinding.DistanceType distanceType)
+        public System.Collections.IEnumerable GetNeighbours(Node node, Pathfinding.DistanceType distanceType, System.Func<Vector2Int, Vector2Int, bool> isWalkableFrom)
         {
             int x = 0, y = 0;
             switch (distanceType)
@@ -75,7 +73,7 @@ namespace GoblinKing.Pathfinding
                     y = 0;
                     for (x = -1; x <= 1; ++x)
                     {
-                        var neighbor = AddNodeNeighbour(x, y, node);
+                        var neighbor = AddNodeNeighbour(x, y, node, isWalkableFrom);
                         if (neighbor != null)
                             yield return neighbor;
                     }
@@ -83,7 +81,7 @@ namespace GoblinKing.Pathfinding
                     x = 0;
                     for (y = -1; y <= 1; ++y)
                     {
-                        var neighbor = AddNodeNeighbour(x, y, node);
+                        var neighbor = AddNodeNeighbour(x, y, node, isWalkableFrom);
                         if (neighbor != null)
                             yield return neighbor;
                     }
@@ -94,7 +92,7 @@ namespace GoblinKing.Pathfinding
                     {
                         for (y = -1; y <= 1; y++)
                         {
-                            var neighbor = AddNodeNeighbour(x, y, node);
+                            var neighbor = AddNodeNeighbour(x, y, node, isWalkableFrom);
                             if (neighbor != null)
                                 yield return neighbor;
                         }
@@ -103,15 +101,7 @@ namespace GoblinKing.Pathfinding
             }
         }
 
-        /// <summary>
-        /// Adds the node neighbour.
-        /// </summary>
-        /// <returns><c>true</c>, if node neighbour was added, <c>false</c> otherwise.</returns>
-        /// <param name="x">The x coordinate.</param>
-        /// <param name="y">The y coordinate.</param>
-        /// <param name="node">Node.</param>
-        /// <param name="neighbours">Neighbours.</param>
-        Node AddNodeNeighbour(int x, int y, Node node)
+        Node AddNodeNeighbour(int x, int y, Node node, System.Func<Vector2Int, Vector2Int, bool> isWalkableFrom)
         {
             if (x == 0 && y == 0)
             {
@@ -122,13 +112,13 @@ namespace GoblinKing.Pathfinding
             int checkY = node.gridY + y;
             var checkPos = new Vector2Int(checkX, checkY);
 
-            if (checkX >= minX && checkX <= maxX && checkY >= minY && checkY <= maxY)
+            // if (checkX >= minX && checkX <= maxX && checkY >= minY && checkY <= maxY)
+            // {
+            if (nodes.ContainsKey(checkPos) && isWalkableFrom(new Vector2Int(node.gridX, node.gridY), checkPos))
             {
-                if (nodes.ContainsKey(checkPos))
-                {
-                    return nodes[checkPos];
-                }
+                return nodes[checkPos];
             }
+            // }
 
             return null;
         }

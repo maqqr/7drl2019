@@ -52,7 +52,21 @@ namespace GoblinKing.Core
             int minY = (int)Mathf.Round(dungeonLevel.Bounds.min.z);
             int maxY = (int)Mathf.Round(dungeonLevel.Bounds.max.z);
             pathfindingGrid = new Pathfinding.DungeonGrid();
-            pathfindingGrid.CreateGrid(minX, maxX, minY, maxY, IsWalkable);
+            pathfindingGrid.CreateGrid(minX, maxX, minY, maxY, delegate (Vector2Int pos)
+            {
+                return playerObject.GetComponent<Creature>().Position == pos || IsWalkable(pos);
+            });
+        }
+
+        public List<Vector2Int> FindPath(Vector2Int from, Vector2Int to)
+        {
+            System.Func<Vector2Int, Vector2Int, bool> isWalkableFrom = delegate (Vector2Int start, Vector2Int end)
+            {
+                // TODO: this could use some caching
+                return IsWalkableFrom(start, end, LayerMask.NameToLayer("Player"));
+            };
+
+            return Pathfinding.Pathfinding.FindPath(pathfindingGrid, from, to, isWalkableFrom);
         }
 
         private void OnDrawGizmos()
@@ -62,14 +76,21 @@ namespace GoblinKing.Core
                 return;
             }
 
-            var result = Pathfinding.Pathfinding.FindPath(pathfindingGrid, new Vector2Int(0, 0), playerObject.GetComponent<Creature>().Position);
+            // var result = FindPath(new Vector2Int(0, 0), playerObject.GetComponent<Creature>().Position);
 
-            foreach (var point in result)
-            {
-                Vector3 pos = Utils.ConvertToWorldCoord(point);
-                Gizmos.color = Color.red;
-                Gizmos.DrawSphere(pos, 0.3f);
-            }
+            // foreach (var point in result)
+            // {
+            //     Vector3 pos = Utils.ConvertToWorldCoord(point);
+            //     Gizmos.color = Color.red;
+            //     Gizmos.DrawSphere(pos, 0.3f);
+            // }
+
+            // foreach (var kv in pathfindingGrid.nodes)
+            // {
+            //     Vector3 pos = Utils.ConvertToWorldCoord(kv.Key);
+            //     Gizmos.color = Color.white;
+            //     Gizmos.DrawWireSphere(pos, 0.4f);
+            // }
         }
 
         public GameObject SpawnItem(string key, Vector3 position, Quaternion rotation)
@@ -165,6 +186,12 @@ namespace GoblinKing.Core
 
         public bool IsWalkable(Vector2Int position)
         {
+            LayerMask mask = ~0;
+            return IsWalkable(position, mask);
+        }
+
+        public bool IsWalkable(Vector2Int position, LayerMask ignoreMask)
+        {
             // Check that no creature is currently occupying the position
             List<Creature> creatures = CurrentFloorObject.GetComponent<DungeonLevel>().EnemyCreatures.Items;
             for (int i = 0; i < creatures.Count; i++)
@@ -177,16 +204,21 @@ namespace GoblinKing.Core
 
             // Use sphere cast to check that there is enough free space
             Vector3 worldPosition = Utils.ConvertToWorldCoord(position) + new Vector3(0f, 0.5f, 0f);
-            int hits = Physics.OverlapSphereNonAlloc(worldPosition, 0.3f, raycastResult, ~0, QueryTriggerInteraction.Ignore);
+            int hits = Physics.OverlapSphereNonAlloc(worldPosition, 0.3f, raycastResult, ignoreMask, QueryTriggerInteraction.Ignore);
             bool noObstacles = hits == 0;
 
             // Check ground to prevent moving to tiles outside of map
-            bool hasGroundUnderneath = Physics.Raycast(worldPosition, Vector3.down, 2.0f, ~0, QueryTriggerInteraction.Ignore);
+            bool hasGroundUnderneath = Physics.Raycast(worldPosition, Vector3.down, 2.0f, ignoreMask, QueryTriggerInteraction.Ignore);
 
             return hasGroundUnderneath && noObstacles;
         }
 
         public bool IsWalkableFrom(Vector2Int from, Vector2Int to)
+        {
+            return IsWalkableFrom(from, to, ~0);
+        }
+
+        public bool IsWalkableFrom(Vector2Int from, Vector2Int to, LayerMask ignoreMask)
         {
             // TODO: check that manhattan distance between from and to is not greater than 1?
 
@@ -197,14 +229,14 @@ namespace GoblinKing.Core
                 Vector3 fromWorld = Utils.ConvertToWorldCoord(from) + new Vector3(0f, 0.5f, 0f);
                 Vector3 toWorld = Utils.ConvertToWorldCoord(to) + new Vector3(0f, 0.5f, 0f);
                 Vector3 raycastDir = toWorld - fromWorld;
-                bool wayBlocked = Physics.Raycast(fromWorld, raycastDir, 1f);
+                bool wayBlocked = Physics.Raycast(fromWorld, raycastDir, 1f, ignoreMask);
 
-                bool targetSpaceFree = IsWalkable(to);
+                bool targetSpaceFree = IsWalkable(to, ignoreMask);
                 return targetSpaceFree && !wayBlocked;
             }
             else
             {
-                return IsWalkable(to);
+                return IsWalkable(to, ignoreMask);
             }
         }
 
@@ -309,10 +341,20 @@ namespace GoblinKing.Core
 
         private void UpdateCreatureAi(Creature cre)
         {
-            // TODO: implement real creature AI instead of random movement
-            int randomX = Random.Range(-1, 2);
-            int randomY = Random.Range(-1, 2);
-            Vector2Int newPos = new Vector2Int(cre.Position.x + randomX, cre.Position.y + randomY);
+            // int randomX = Random.Range(-1, 2);
+            // int randomY = Random.Range(-1, 2);
+            // Vector2Int newPos = new Vector2Int(cre.Position.x + randomX, cre.Position.y + randomY);
+
+            var path = FindPath(cre.Position, playerObject.GetComponent<Creature>().Position);
+            Vector2Int newPos = cre.Position;
+            if (path.Count > 0)
+            {
+                newPos = path[0];
+            }
+            else
+            {
+                Debug.LogError("No path to player!");
+            }
 
             if (!reservedPlaces.Contains(newPos) && IsWalkableFrom(cre.Position, newPos))
             {
