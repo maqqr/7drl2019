@@ -123,6 +123,7 @@ ModelImporter:
     100234: TorchHolder
     100236: TorchHead
     100238: Flame
+    100240: WoodenCrate
     400000: //RootNode
     400002: BrickWall1
     400004: BrickWallHole1
@@ -243,6 +244,7 @@ ModelImporter:
     400234: TorchHolder
     400236: TorchHead
     400238: Flame
+    400240: WoodenCrate
     2100000: PreviewMaterial
     2300000: BrickWall1
     2300002: BrickWallHole1
@@ -266,6 +268,7 @@ ModelImporter:
     2300038: TorchHolder
     2300040: TorchHead
     2300042: Flame
+    2300044: WoodenCrate
     3300000: BrickWall1
     3300002: BrickWallHole1
     3300004: DoorFrame1
@@ -288,6 +291,7 @@ ModelImporter:
     3300038: TorchHolder
     3300040: TorchHead
     3300042: Flame
+    3300044: WoodenCrate
     4300000: BrickWall1
     4300002: StoneTileGround1
     4300004: Pillar1
@@ -310,6 +314,7 @@ ModelImporter:
     4300038: TorchHolder
     4300040: TorchHead
     4300042: Flame
+    4300044: WoodenCrate
     10800000: Point
   externalObjects: {}
   materials:
