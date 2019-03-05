@@ -45,11 +45,14 @@ namespace GoblinKing.Core.GameViews
                 HandlePlayerInput();
             }
 
+            Creature displayEnemy = null;
             RaycastHit hitInfo;
-            if (Physics.Raycast(gameManager.Camera.transform.position, gameManager.Camera.transform.forward, out hitInfo, 1.5f))
+            if (Physics.Raycast(gameManager.Camera.transform.position, gameManager.Camera.transform.forward, out hitInfo, 5f))
             {
+                const float pickupDistance = 1.5f;
+
                 var pickup = hitInfo.collider.gameObject.GetComponent<PickupItem>();
-                if (pickup)
+                if (pickup && hitInfo.distance < pickupDistance)
                 {
                     HighlightObject(pickup.gameObject);
                 }
@@ -57,7 +60,11 @@ namespace GoblinKing.Core.GameViews
                 {
                     HighlightObject(null);
                 }
+
+                displayEnemy = hitInfo.collider.transform.parent?.gameObject.GetComponent<Creature>();
             }
+
+            gameManager.UpdateHearts(displayEnemy, gameManager.EnemyHearts);
 
             // ----- These are for debugging purposes ---------------------------------
             if (Input.GetKeyDown(KeyCode.PageUp))

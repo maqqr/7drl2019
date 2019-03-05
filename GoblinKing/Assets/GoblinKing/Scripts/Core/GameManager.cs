@@ -345,9 +345,9 @@ namespace GoblinKing.Core
 
         public void UpdateHunger()
         {
-            int deltahp = playerObject.GetComponent<Player>().Nutrition < 1 ? (playerObject.GetComponent<Player>().Nutrition > -10 ? - 1 : - 2): 0;
+            int deltahp = playerObject.GetComponent<Player>().Nutrition < 1 ? (playerObject.GetComponent<Player>().Nutrition > -10 ? -1 : -2) : 0;
             playerObject.GetComponent<Creature>().Hp -= deltahp;
-            
+
         }
 
         public void SetMouseLookEnabled(bool enabled)
@@ -374,7 +374,7 @@ namespace GoblinKing.Core
             AdjustNutrition(-1);
             UpdateHunger();
             UpdateHearts(playerObject.GetComponent<Creature>(), PlayerHearts);
-            Debug.Log("Player nutrition: "+playerObject.GetComponent<Player>().Nutrition);
+            Debug.Log("Player nutrition: " + playerObject.GetComponent<Player>().Nutrition);
         }
 
         internal void AddNewView(GameViews.IGameView view)
@@ -400,28 +400,36 @@ namespace GoblinKing.Core
             // Backstab
             var atkdir = attacker.gameObject.transform.forward;
             var defdir = defender.gameObject.transform.forward;
-            var angle = Vector2.Angle(new Vector2(atkdir.x, atkdir.z),new Vector2(defdir.x, defdir.z));
+            var angle = Vector2.Angle(new Vector2(atkdir.x, atkdir.z), new Vector2(defdir.x, defdir.z));
 
-            if(angle<20) Debug.Log("Backstab!");
+            if (angle < 20) Debug.Log("Backstab!");
 
             int dmg = System.Math.Max(atk_left + atk_right - (def_left + def_right), 0);
             defender.Hp -= dmg;
-            if(defender.Hp <1)
+            if (defender.Hp < 1)
             {
-                foreach(InventoryItem dropped_item in defender.Inventory) {
+                foreach (InventoryItem dropped_item in defender.Inventory)
+                {
                     System.Random rnd = new System.Random();
-                    SpawnItem(dropped_item.ItemKey, Utils.ConvertToWorldCoord(defender.Position) + new Vector3(0,(float)rnd.NextDouble()*0.6f+0.2f,0f), Random.rotation);
+                    SpawnItem(dropped_item.ItemKey, Utils.ConvertToWorldCoord(defender.Position) + new Vector3(0, (float)rnd.NextDouble() * 0.6f + 0.2f, 0f), Random.rotation);
                 }
                 GameObject.Destroy(defender);
             }
             Debug.Log(attacker.Data.Name + " attacks " + defender.Data.Name + " for " + dmg + " damage.");
-            Debug.Log(defender.Data.Name + " has " + defender.Hp + " hp. " );
+            Debug.Log(defender.Data.Name + " has " + defender.Hp + " hp. ");
         }
 
         internal void UpdateHearts(Creature creature, HeartContainer container)
         {
-            container.SetLife(creature.Hp);
-            container.SetMaxLife(creature.Data.MaxHp);
+            if (creature)
+            {
+                container.SetLife(creature.Hp);
+                container.SetMaxLife(creature.Data.MaxHp);
+            }
+            else
+            {
+                container.SetMaxLife(0);
+            }
         }
 
         private void Awake()
