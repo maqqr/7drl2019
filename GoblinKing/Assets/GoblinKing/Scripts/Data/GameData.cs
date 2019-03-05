@@ -41,6 +41,7 @@ namespace GoblinKing.Data
                     AssetPath = cre.Value["assetpath"],
                     MaxHp = cre.Value["maxhp"].AsInt,
                     Speed = cre.Value["speed"].AsInt,
+                    BaseDamage = cre.Value["basedamage"].AsInt,
                     CreaturePrefab = Resources.Load<GameObject>(cre.Value["assetpath"])
                 });
             }
