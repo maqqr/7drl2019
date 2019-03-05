@@ -21,6 +21,7 @@ namespace GoblinKing.Core
         private List<GameObject> dungeonFloors = new List<GameObject>();
         private Stack<GameViews.IGameView> gameViews = new Stack<GameViews.IGameView>();
         private Collider[] raycastResult = new Collider[1];
+        private int advanceTime = 0; // How much time should be advanced due to player actions
 
         private List<Vector2Int> reservedPlaces = new List<Vector2Int>(); // Prevent creatures from moving inside eachother
 
@@ -235,22 +236,17 @@ namespace GoblinKing.Core
             CurrentFloorObject.SetActive(true);
         }
 
-        public void AdvanceGameWorld(int deltaTime)
+        public void AdvanceTime(int deltaTime)
         {
-            Debug.Log("Advancing time by " + deltaTime + " units");
-            List<Creature> creatures = CurrentFloorObject.GetComponent<DungeonLevel>().EnemyCreatures.Items;
-            reservedPlaces.Clear();
+            advanceTime += deltaTime;
+        }
 
-            for (int i = 0; i < creatures.Count; i++)
+        public void UpdateGameWorld()
+        {
+            if (advanceTime > 0)
             {
-                Creature cre = creatures[i];
-                cre.TimeElapsed += deltaTime;
-
-                if (cre.TimeElapsed >= cre.Speed)
-                {
-                    cre.TimeElapsed -= cre.Speed;
-                    UpdateCreatureAi(cre);
-                }
+                AdvanceGameWorld(advanceTime);
+                advanceTime = 0;
             }
         }
 
@@ -259,6 +255,23 @@ namespace GoblinKing.Core
             Camera.gameObject.GetComponent<SmoothMouseLook>().enabled = enabled;
         }
 
+        private void AdvanceGameWorld(int deltaTime)
+        {
+            List<Creature> creatures = CurrentFloorObject.GetComponent<DungeonLevel>().EnemyCreatures.Items;
+            reservedPlaces.Clear();
+
+            for (int i = 0; i < creatures.Count; i++)
+            {
+                Creature cre = creatures[i];
+                cre.TimeElapsed += deltaTime;
+
+                while (cre.TimeElapsed >= cre.Speed)
+                {
+                    cre.TimeElapsed -= cre.Speed;
+                    UpdateCreatureAi(cre);
+                }
+            }
+        }
 
         private void UpdateCreatureAi(Creature cre)
         {
