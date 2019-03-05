@@ -129,13 +129,6 @@ namespace GoblinKing.Core
             {
                 animator.SetBool(movingParam, !InSync);
             }
-
-            if(Hp <1)
-            {
-                // TODO: implement more sophisticated approach
-                GameObject.Destroy(gameObject);
-
-            }
         }
     }
 

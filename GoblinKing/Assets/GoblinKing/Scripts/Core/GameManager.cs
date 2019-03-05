@@ -379,6 +379,14 @@ namespace GoblinKing.Core
             int def_right = defender.Equipment.ContainsKey(EquipSlot.RightHand) ? GameData.ItemData[defender.Equipment[EquipSlot.RightHand].ItemKey].Defence : 0;
             int dmg = System.Math.Max(atk_left + atk_right - (def_left + def_right), 0);
             defender.Hp -= dmg;
+            if(defender.Hp <1)
+            {
+                foreach(InventoryItem dropped_item in defender.Inventory) {
+                    System.Random rnd = new System.Random();
+                    SpawnItem(dropped_item.ItemKey, Utils.ConvertToWorldCoord(defender.Position) + new Vector3(0,(float)rnd.NextDouble()*0.6f+0.2f,0f), Random.rotation);
+                }
+                GameObject.Destroy(defender);
+            }
             Debug.Log(attacker.Data.Name + " attacks " + defender.Data.Name + " for " + dmg + " damage.");
             Debug.Log(defender.Data.Name + " has " + defender.Hp + " hp. " );
         }
