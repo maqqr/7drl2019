@@ -75,7 +75,7 @@ namespace GoblinKing.Core
 
         public void TurnTowards(Vector2Int position)
         {
-            // TODO: implement
+            transform.rotation = Quaternion.LookRotation(Utils.ConvertToWorldCoord(position) - transform.position, new Vector3(0,1f,0));
         }
 
         private void Awake()
@@ -104,6 +104,13 @@ namespace GoblinKing.Core
             if (animator)
             {
                 animator.SetBool(movingParam, !InSync);
+            }
+
+            if(Hp <1)
+            {
+                // TODO: implement more sophisticated approach
+                GameObject.Destroy(gameObject);
+
             }
         }
     }

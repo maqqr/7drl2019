@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 42276415838985965}
   - component: {fileID: 42276415838985964}
   - component: {fileID: 42276415838985967}
+  - component: {fileID: 2337227803962177944}
   m_Layer: 0
   m_Name: WoodenCeiling
   m_TagString: Untagged
@@ -77,3 +78,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &2337227803962177944
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 42276415838985966}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.0000002, z: 0.03714574}
+  m_Center: {x: 0, y: -0.00000002980233, z: 0.9815003}

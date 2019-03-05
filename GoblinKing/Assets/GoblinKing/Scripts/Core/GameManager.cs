@@ -372,7 +372,15 @@ namespace GoblinKing.Core
 
         internal void Fight(Creature attacker, Creature defender)
         {
-            Debug.Log(attacker.Data.Name + " attacks " + defender.Data.Name);
+            // Damage is sum of meleedmg - sum of defence
+            int atk_left = attacker.Equipment.ContainsKey(EquipSlot.LeftHand) ? GameData.ItemData[attacker.Equipment[EquipSlot.LeftHand].ItemKey].MeleeDamage : 1;
+            int atk_right = attacker.Equipment.ContainsKey(EquipSlot.RightHand) ? GameData.ItemData[attacker.Equipment[EquipSlot.RightHand].ItemKey].MeleeDamage : 1;
+            int def_left = defender.Equipment.ContainsKey(EquipSlot.LeftHand) ? GameData.ItemData[defender.Equipment[EquipSlot.LeftHand].ItemKey].Defence : 0;
+            int def_right = defender.Equipment.ContainsKey(EquipSlot.RightHand) ? GameData.ItemData[defender.Equipment[EquipSlot.RightHand].ItemKey].Defence : 0;
+            int dmg = System.Math.Max(atk_left + atk_right - (def_left + def_right), 0);
+            defender.Hp -= dmg;
+            Debug.Log(attacker.Data.Name + " attacks " + defender.Data.Name + " for " + dmg + " damage.");
+            Debug.Log(defender.Data.Name + " has " + defender.Hp + " hp. " );
         }
 
         private void Awake()
