@@ -76,5 +76,26 @@ namespace GoblinKing.Core
             }
             return false;
         }
+
+        public static int TotalEncumbrance(GameManager gameManager, Creature cre)
+        {
+            int totalEnc = 0;
+            var inventory = cre.GetComponent<Creature>().Inventory;
+
+            for (int i = 0; i < inventory.Count; i++)
+            {
+                var item = inventory[i];
+                Data.ItemData data = gameManager.GameData.ItemData[item.ItemKey];
+                totalEnc += data.Weight * item.Count;
+            }
+
+            return totalEnc;
+        }
+
+        public static void Alignment(Transform parent1, Transform child1, Transform transform2)
+        {
+            parent1.rotation = transform2.rotation * Quaternion.Inverse(child1.localRotation);
+            parent1.position = transform2.position + (parent1.position - child1.position);
+        }
     }
 }

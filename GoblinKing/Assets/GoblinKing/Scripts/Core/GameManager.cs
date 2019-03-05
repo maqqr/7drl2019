@@ -38,17 +38,18 @@ namespace GoblinKing.Core
             }
         }
 
-        public void SpawnItem(string key, Vector3 position, Quaternion rotation)
+        public GameObject SpawnItem(string key, Vector3 position, Quaternion rotation)
         {
             if (!GameData.ItemData.ContainsKey(key))
             {
                 Debug.LogError("SpawnItem: invalid key \"" + key + "\"");
-                return;
+                return null;
             }
 
             Data.ItemData item = GameData.ItemData[key];
             GameObject itemObject = Instantiate(item.ItemPrefab, position, rotation);
             itemObject.transform.parent = CurrentFloorObject.transform;
+            return itemObject;
         }
 
         public void SpawnCreature(string key, Vector2Int position)

@@ -10,6 +10,7 @@ namespace GoblinKing.Core.GameViews
         private GameObject inventoryCanvas;
         private List<GameObject> guiItems = new List<GameObject>();
         private TMPro.TextMeshProUGUI descriptionText;
+        private TMPro.TextMeshProUGUI encumbranceText;
 
         public void Initialize(GameManager gameManager)
         {
@@ -33,9 +34,14 @@ namespace GoblinKing.Core.GameViews
                 if (child.name == "Description")
                 {
                     descriptionText = child.GetComponentInChildren<TMPro.TextMeshProUGUI>();
-                    break;
+                }
+                if (child.name == "EncumbranceText")
+                {
+                    encumbranceText = child.GetComponentInChildren<TMPro.TextMeshProUGUI>();
                 }
             }
+
+            UpdateEncumbranceText();
 
             if (inventory.Count == 0)
             {
@@ -74,6 +80,12 @@ namespace GoblinKing.Core.GameViews
         private void ShowItemStats(Data.ItemData item)
         {
             descriptionText.text = string.Format("Melee damage: {0}\nThrowing damage: {1}\nDefence: {2}\n\nWeight: {3}\n\n{4}", item.MeleeDamage, item.ThrowingDamage, item.Defence, item.Weight, item.Description);
+        }
+
+        private void UpdateEncumbranceText()
+        {
+            int total = Utils.TotalEncumbrance(gameManager, gameManager.playerObject.GetComponent<Creature>());
+            encumbranceText.text = string.Format("Encumbrance: {0} / {1}", total, "?");
         }
     }
 }
