@@ -15,5 +15,11 @@
 
     "creatures": {
         "goblin": { "name": "Goblin", "assetpath": "Creatures/Goblin", "maxhp": 10, "speed": 100 }
+    },
+
+    "spawnlist": {
+        "0": ["goblin", "goblin"],
+        "1": ["goblin", "rat", "rat"],
+        "2": ["goblin", "rat", "rat"]
     }
 }

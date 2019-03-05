@@ -8,6 +8,7 @@ namespace GoblinKing.Data
     {
         public readonly Dictionary<string, ItemData> ItemData = new Dictionary<string, ItemData>();
         public readonly Dictionary<string, CreatureData> CreatureData = new Dictionary<string, CreatureData>();
+        public readonly Dictionary<int, string[]> SpawnList = new Dictionary<int, string[]>();
 
         public static GameData LoadData()
         {
@@ -42,6 +43,16 @@ namespace GoblinKing.Data
                     Speed = cre.Value["speed"].AsInt,
                     CreaturePrefab = Resources.Load<GameObject>(cre.Value["assetpath"])
                 });
+            }
+
+            foreach (var spawnlist in parsedData["spawnlist"])
+            {
+                List<string> keys = new List<string>();
+                foreach (var key in spawnlist.Value.AsArray)
+                {
+                    keys.Add(key.Value);
+                }
+                gameData.SpawnList.Add(int.Parse(spawnlist.Key), keys.ToArray());
             }
 
             return gameData;
