@@ -69,7 +69,7 @@ namespace GoblinKing.Core
 
         public void TurnTowards(Vector2Int position)
         {
-            // TODO: implement
+            transform.rotation = Quaternion.LookRotation(Utils.ConvertToWorldCoord(position) - transform.position, new Vector3(0,1f,0));
         }
 
         private void Awake()
