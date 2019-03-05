@@ -17,6 +17,8 @@ namespace GoblinKing.Core
         public GameObject perkTreePrefab;
         public GameObject inventoryPrefab;
         public GameObject inventoryGuiItemPrefab;
+        public GameObject questionMarkPrefab;
+        public GameObject exclamationMarkPrefab;
 
         private int currentFloor = -1;
         private List<GameObject> dungeonFloors = new List<GameObject>();
@@ -104,6 +106,9 @@ namespace GoblinKing.Core
             Data.ItemData item = GameData.ItemData[key];
             GameObject itemObject = Instantiate(item.ItemPrefab, position, rotation);
             itemObject.transform.parent = CurrentFloorObject.transform;
+
+            CurrentFloorObject.GetComponent<DungeonLevel>().UpdateLights();
+
             return itemObject;
         }
 
@@ -348,48 +353,7 @@ namespace GoblinKing.Core
                 while (cre.TimeElapsed >= cre.Speed)
                 {
                     cre.TimeElapsed -= cre.Speed;
-                    UpdateCreatureAi(cre);
-                }
-            }
-        }
-
-        private void UpdateCreatureAi(Creature cre)
-        {
-            // int randomX = Random.Range(-1, 2);
-            // int randomY = Random.Range(-1, 2);
-            // Vector2Int newPos = new Vector2Int(cre.Position.x + randomX, cre.Position.y + randomY);
-
-            // TODO: move towards player only if player is seen or creature suspects that player is nearby
-            var player = playerObject.GetComponent<Creature>();
-            var path = FindPath(cre.Position, player.Position);
-            Vector2Int newPos = cre.Position;
-            if (path.Count > 0)
-            {
-                newPos = path[0];
-            }
-            else
-            {
-                Debug.LogError("No path to player!");
-                return;
-            }
-
-            LayerMask mask = ~LayerMask.GetMask("Player", "Enemy");
-            if (IsWalkableFrom(cre.Position, newPos, mask))
-            {
-                cre.TurnTowards(newPos);
-
-                Creature creatureBlocking = GetCreatureAt(newPos);
-                if (creatureBlocking == null)
-                {
-                    cre.Position = newPos;
-                }
-                else if (creatureBlocking == player)
-                {
-                    Fight(cre, creatureBlocking);
-                }
-                else
-                {
-                    // TODO: move randomly to avoid the other enemy that blocks the way?
+                    AI.AIBehaviour.UpdateAI(this, cre);
                 }
             }
         }

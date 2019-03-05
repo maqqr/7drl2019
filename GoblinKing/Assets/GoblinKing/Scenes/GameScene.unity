@@ -958,6 +958,10 @@ MonoBehaviour:
     type: 3}
   inventoryGuiItemPrefab: {fileID: 9127414026104117885, guid: fb91669c6387f25408f0bc7a9e28e0f1,
     type: 3}
+  questionMarkPrefab: {fileID: 3796228837468258106, guid: 3293ccbb76b516e45ab47fa177ad3dd5,
+    type: 3}
+  exclamationMarkPrefab: {fileID: 6424480087016520230, guid: 579db34f561aa0044a611b4d75367f15,
+    type: 3}
   pathfindDirty: 0
 --- !u!4 &1485741022
 Transform:
@@ -1155,6 +1159,9 @@ MonoBehaviour:
     Speed: 100
     AssetPath: 
     CreaturePrefab: {fileID: 0}
+  AIType: 0
+  AlertLevel: 0
+  SuspiciousPosition: {x: 0, y: 0}
   TransitionSlowness: 0.3
   animator: {fileID: 0}
 --- !u!1 &2087924440

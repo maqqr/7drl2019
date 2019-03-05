@@ -34,7 +34,17 @@ namespace GoblinKing.Core
 
         public void UpdateAllReferences()
         {
+            UpdateCreatures();
+            UpdateLights();
+        }
+
+        public void UpdateCreatures()
+        {
             Fetch<Creature>(EnemyCreatures.Items);
+        }
+
+        public void UpdateLights()
+        {
             Fetch<LightSource>(LightSources.Items);
         }
 

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GoblinKing.AI;
 
 namespace GoblinKing.Core
 {
@@ -13,6 +14,11 @@ namespace GoblinKing.Core
         public Data.CreatureData Data;
         public List<InventoryItem> Inventory = new List<InventoryItem>();
         public Dictionary<EquipSlot, InventoryItem> Equipment = new Dictionary<EquipSlot, InventoryItem>();
+
+        // AI
+        public AIType AIType = AIType.Still;
+        public AlertLevel AlertLevel = AlertLevel.Unaware;
+        public Vector2Int SuspiciousPosition;
 
         // Variables for keeping 3D model in sync
         public float TransitionSlowness = 0.3f; // TODO: should this be affected by creature speed?
