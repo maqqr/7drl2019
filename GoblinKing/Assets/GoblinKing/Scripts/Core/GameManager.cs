@@ -190,25 +190,29 @@ namespace GoblinKing.Core
             return IsWalkable(position, mask);
         }
 
-        public bool IsWalkable(Vector2Int position, LayerMask ignoreMask)
+        internal Creature GetCreatureAt(Vector2Int position)
         {
-            // Check that no creature is currently occupying the position
             List<Creature> creatures = CurrentFloorObject.GetComponent<DungeonLevel>().EnemyCreatures.Items;
             for (int i = 0; i < creatures.Count; i++)
             {
                 if (creatures[i].Position == position)
                 {
-                    return false;
+                    return creatures[i];
                 }
             }
+            return null;
+        }
 
+        public bool IsWalkable(Vector2Int position, LayerMask ignoreMask)
+        {
             // Use sphere cast to check that there is enough free space
             Vector3 worldPosition = Utils.ConvertToWorldCoord(position) + new Vector3(0f, 0.5f, 0f);
             int hits = Physics.OverlapSphereNonAlloc(worldPosition, 0.3f, raycastResult, ignoreMask, QueryTriggerInteraction.Ignore);
             bool noObstacles = hits == 0;
 
             // Check ground to prevent moving to tiles outside of map
-            bool hasGroundUnderneath = Physics.Raycast(worldPosition, Vector3.down, 2.0f, ignoreMask, QueryTriggerInteraction.Ignore);
+            LayerMask groundMask = Physics.DefaultRaycastLayers;
+            bool hasGroundUnderneath = Physics.Raycast(worldPosition, Vector3.down, 2.0f, groundMask, QueryTriggerInteraction.Ignore);
 
             return hasGroundUnderneath && noObstacles;
         }
@@ -345,7 +349,9 @@ namespace GoblinKing.Core
             // int randomY = Random.Range(-1, 2);
             // Vector2Int newPos = new Vector2Int(cre.Position.x + randomX, cre.Position.y + randomY);
 
-            var path = FindPath(cre.Position, playerObject.GetComponent<Creature>().Position);
+            // TODO: move towards player only if player is seen or creature suspects that player is nearby
+            var player = playerObject.GetComponent<Creature>();
+            var path = FindPath(cre.Position, player.Position);
             Vector2Int newPos = cre.Position;
             if (path.Count > 0)
             {
@@ -354,9 +360,15 @@ namespace GoblinKing.Core
             else
             {
                 Debug.LogError("No path to player!");
+                return;
             }
 
-            if (!reservedPlaces.Contains(newPos) && IsWalkableFrom(cre.Position, newPos))
+            // Attack player
+            if (newPos == player.Position)
+            {
+                Debug.Log("Player hit!");
+            }
+            else if (!reservedPlaces.Contains(newPos) && IsWalkableFrom(cre.Position, newPos))
             {
                 cre.Position = newPos;
                 reservedPlaces.Add(newPos);

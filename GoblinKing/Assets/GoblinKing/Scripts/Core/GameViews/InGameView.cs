@@ -127,11 +127,15 @@ namespace GoblinKing.Core.GameViews
 
             if (playerMoveTo != null)
             {
-                if (gameManager.IsWalkableFrom(playerObj.GetComponent<Creature>().Position, playerMoveTo.Value))
+                LayerMask mask = ~LayerMask.GetMask("Player", "Enemy");
+                if (gameManager.IsWalkableFrom(playerObj.GetComponent<Creature>().Position, playerMoveTo.Value, mask))
                 {
                     gameManager.playerObject.GetComponent<Creature>().Position = playerMoveTo.Value;
                     gameManager.AdvanceTime(gameManager.playerObject.GetComponent<Creature>().Speed);
                     UpdatePlayerVisibility();
+                }
+                else {
+                    Debug.LogError("not walkable");
                 }
             }
         }
