@@ -113,6 +113,7 @@ namespace GoblinKing.Core.GameViews
                     gameManager.playerObject.GetComponent<Creature>().AddItem(itemKey);
                     Unhighlight(highlightedObject);
                     GameObject.Destroy(highlightedObject);
+                    advanceTime = gameManager.playerObject.GetComponent<Creature>().Speed;
                 }
             }
 
@@ -164,8 +165,8 @@ namespace GoblinKing.Core.GameViews
                 Vector3 spawnPos = Utils.ConvertToWorldCoord(player.Position) + new Vector3(0f, 0.6f, 0f)
                                  + player.gameObject.transform.forward * 0.3f;
                 var spawnedItem = gameManager.SpawnItem(removedItem.ItemKey, spawnPos, Random.rotation);
-
                 spawnedItem.GetComponent<Rigidbody>().AddForce(gameManager.Camera.transform.forward * 10f, ForceMode.Impulse);
+                advanceTime = gameManager.playerObject.GetComponent<Creature>().Speed;
             }
         }
 
