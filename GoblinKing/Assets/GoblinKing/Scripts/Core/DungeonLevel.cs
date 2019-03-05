@@ -25,13 +25,12 @@ namespace GoblinKing.Core
         }
     }
 
-    /// <summary>
-    /// Mostly keeps track of object references so they do not need to be fetched every frame.
-    /// <summary>
     internal class DungeonLevel : MonoBehaviour
     {
         public ReferenceList<Creature> EnemyCreatures = new ReferenceList<Creature>();
         public ReferenceList<LightSource> LightSources = new ReferenceList<LightSource>();
+
+        public Bounds Bounds;
 
         public void UpdateAllReferences()
         {
@@ -43,6 +42,21 @@ namespace GoblinKing.Core
         {
             list.Clear();
             GetComponentsInChildren<T>(false, list);
+        }
+
+        public void CalculateBounds()
+        {
+            Bounds = new Bounds(Vector3.zero, Vector3.zero);
+            Renderer[] mfs = GetComponentsInChildren<Renderer>();
+
+            for (int i = 0; i < mfs.Length; i++)
+            {
+                var mf = mfs[i];
+                Vector3 pos = mf.transform.position;
+                Bounds childBounds = mf.bounds;
+                childBounds.center = pos;
+                Bounds.Encapsulate(childBounds);
+            }
         }
     }
 }

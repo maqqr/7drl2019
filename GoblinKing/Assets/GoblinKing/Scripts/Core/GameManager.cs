@@ -10,6 +10,7 @@ namespace GoblinKing.Core
         public Keybindings keybindings;
         public GameObject playerObject;
         public GameObject visibilityDiamondObject;
+        public Data.GameData GameData;
         public Camera Camera;
 
         public GameObject[] levelGeneratorPrefabs;
@@ -23,9 +24,12 @@ namespace GoblinKing.Core
         private Collider[] raycastResult = new Collider[1];
         private int advanceTime = 0; // How much time should be advanced due to player actions
 
+        [SerializeField]
+        private bool pathfindDirty = false;
+        private Pathfinding.DungeonGrid pathfindingGrid;
+
         private List<Vector2Int> reservedPlaces = new List<Vector2Int>(); // Prevent creatures from moving inside eachother
 
-        public Data.GameData GameData;
 
         public GameObject CurrentFloorObject
         {
@@ -36,6 +40,35 @@ namespace GoblinKing.Core
                     return dungeonFloors[currentFloor];
                 }
                 return null;
+            }
+        }
+
+        public void UpdatePathfindingGrid()
+        {
+            var dungeonLevel = CurrentFloorObject.GetComponent<DungeonLevel>();
+            dungeonLevel.CalculateBounds();
+            int minX = (int)Mathf.Round(dungeonLevel.Bounds.min.x);
+            int maxX = (int)Mathf.Round(dungeonLevel.Bounds.max.x);
+            int minY = (int)Mathf.Round(dungeonLevel.Bounds.min.z);
+            int maxY = (int)Mathf.Round(dungeonLevel.Bounds.max.z);
+            pathfindingGrid = new Pathfinding.DungeonGrid();
+            pathfindingGrid.CreateGrid(minX, maxX, minY, maxY, IsWalkable);
+        }
+
+        private void OnDrawGizmos()
+        {
+            if (playerObject == null)
+            {
+                return;
+            }
+
+            var result = Pathfinding.Pathfinding.FindPath(pathfindingGrid, new Vector2Int(0, 0), playerObject.GetComponent<Creature>().Position);
+
+            foreach (var point in result)
+            {
+                Vector3 pos = Utils.ConvertToWorldCoord(point);
+                Gizmos.color = Color.red;
+                Gizmos.DrawSphere(pos, 0.3f);
             }
         }
 
@@ -213,6 +246,7 @@ namespace GoblinKing.Core
 
                 // Level generator has done its job and is no longer needed
                 Destroy(generatorInstance);
+                pathfindDirty = true;
             }
             else
             {
@@ -316,6 +350,12 @@ namespace GoblinKing.Core
         // Update is called once per frame
         private void Update()
         {
+            if (pathfindDirty)
+            {
+                pathfindDirty = false;
+                UpdatePathfindingGrid();
+            }
+
             bool closeView = gameViews.Peek().UpdateView();
 
             if (closeView)

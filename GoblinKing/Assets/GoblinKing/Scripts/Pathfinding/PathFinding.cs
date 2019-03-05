@@ -41,7 +41,7 @@ namespace GoblinKing.Pathfinding
         /// <param name="distance">The type of distance, Euclidean or Manhattan.</param>
         /// <param name="ignorePrices">If true, will ignore tile price (how much it "cost" to walk on).</param>
         /// <returns>List of points that represent the path to walk.</returns>
-        public static List<Vector2Int> FindPath(NodeGrid grid, Vector2Int startPos, Vector2Int targetPos, DistanceType distance = DistanceType.Euclidean, bool ignorePrices = false)
+        public static List<Vector2Int> FindPath(DungeonGrid grid, Vector2Int startPos, Vector2Int targetPos, DistanceType distance = DistanceType.Euclidean, bool ignorePrices = false)
         {
             // find path
             List<Node> nodes_path = _ImpFindPath(grid, startPos, targetPos, distance, ignorePrices);
@@ -67,10 +67,24 @@ namespace GoblinKing.Pathfinding
         /// <param name="distance">The type of distance, Euclidean or Manhattan.</param>
         /// <param name="ignorePrices">If true, will ignore tile price (how much it "cost" to walk on).</param>
         /// <returns>List of grid nodes that represent the path to walk.</returns>
-        private static List<Node> _ImpFindPath(NodeGrid grid, Vector2Int startPos, Vector2Int targetPos, DistanceType distance = DistanceType.Euclidean, bool ignorePrices = false)
+        private static List<Node> _ImpFindPath(DungeonGrid grid, Vector2Int startPos, Vector2Int targetPos, DistanceType distance = DistanceType.Euclidean, bool ignorePrices = false)
         {
-            Node startNode = grid.nodes[startPos.x, startPos.y];
-            Node targetNode = grid.nodes[targetPos.x, targetPos.y];
+            // Node startNode = grid.nodes[startPos.x, startPos.y];
+            // Node targetNode = grid.nodes[targetPos.x, targetPos.y];
+            Node startNode = grid.At(startPos.x, startPos.y);
+            Node targetNode = grid.At(targetPos.x, targetPos.y);
+
+            if (startNode == null)
+            {
+                Debug.LogError("startNode null!");
+                return new List<Node>();
+            }
+
+            if (targetNode == null)
+            {
+                Debug.LogError("targetNode null!");
+                return new List<Node>();
+            }
 
             List<Node> openSet = new List<Node>();
             HashSet<Node> closedSet = new HashSet<Node>();
@@ -125,7 +139,7 @@ namespace GoblinKing.Pathfinding
         /// <param name="startNode">Starting node.</param>
         /// <param name="endNode">Ending (target) node.</param>
         /// <returns>Retraced path between nodes.</returns>
-        private static List<Node> RetracePath(NodeGrid grid, Node startNode, Node endNode)
+        private static List<Node> RetracePath(DungeonGrid grid, Node startNode, Node endNode)
         {
             List<Node> path = new List<Node>();
             Node currentNode = endNode;
