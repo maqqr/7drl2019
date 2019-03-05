@@ -113,10 +113,6 @@ namespace GoblinKing.Core.GameViews
                     gameManager.playerObject.GetComponent<Creature>().AddItem(itemKey);
                     Unhighlight(highlightedObject);
                     GameObject.Destroy(highlightedObject);
-
-                    // TODO: remove this
-                    var hand = GameObject.Find("RightHand").transform;
-                    SpawnItemToHand(hand, itemKey);
                 }
             }
 
@@ -188,19 +184,6 @@ namespace GoblinKing.Core.GameViews
             rend.material.SetFloat("_RimIntensity", 0f);
             rend.material.SetFloat("_RimSize", 0f);
             rend.material.SetFloat("_RimSmoothness", 0f);
-        }
-
-        private void SpawnItemToHand(Transform hand, string itemKey)
-        {
-            var itemObject = gameManager.SpawnItem(itemKey, Vector3.zero, Quaternion.identity);
-
-            var grabChild = itemObject.transform.Find("Grab");
-            GameObject.Destroy(itemObject.GetComponentInChildren<Collider>());
-            GameObject.Destroy(itemObject.GetComponentInChildren<Rigidbody>());
-            GameObject.Destroy(itemObject.GetComponentInChildren<PickupItem>());
-
-            Utils.Alignment(itemObject.transform, grabChild.transform, hand.transform);
-            itemObject.transform.parent = hand.transform;
         }
     }
 }

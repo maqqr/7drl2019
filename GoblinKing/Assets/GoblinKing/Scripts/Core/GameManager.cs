@@ -73,6 +73,20 @@ namespace GoblinKing.Core
             creature.Position = position;
         }
 
+        public void SpawnItemToHand(Transform hand, string itemKey)
+        {
+            var itemObject = SpawnItem(itemKey, Vector3.zero, Quaternion.identity);
+
+            var grabChild = itemObject.transform.Find("Grab");
+            GameObject.Destroy(itemObject.GetComponentInChildren<Collider>());
+            GameObject.Destroy(itemObject.GetComponentInChildren<Rigidbody>());
+            GameObject.Destroy(itemObject.GetComponentInChildren<PickupItem>());
+            itemObject.GetComponentInChildren<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+
+            Utils.Alignment(itemObject.transform, grabChild.transform, hand.transform);
+            itemObject.transform.parent = hand.transform;
+        }
+
         public bool IsWalkable(Vector2Int position)
         {
             // Check that no creature is currently occupying the position

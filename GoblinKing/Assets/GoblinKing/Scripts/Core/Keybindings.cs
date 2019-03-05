@@ -13,5 +13,8 @@ namespace GoblinKing.Core
 
         public KeyCode OpenPerkTree = KeyCode.P;
         public KeyCode OpenInventory = KeyCode.I;
+
+        // Inventory view keys:
+        public KeyCode DropItem = KeyCode.D;
     }
 }

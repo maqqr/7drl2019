@@ -12,6 +12,7 @@ namespace GoblinKing.Core
         public Vector2Int Position; // Position in game coordinates
         public Data.CreatureData Data;
         public List<InventoryItem> Inventory = new List<InventoryItem>();
+        public Dictionary<EquipSlot, InventoryItem> Equipment = new Dictionary<EquipSlot, InventoryItem>();
 
         // Variables for keeping 3D model in sync
         public float TransitionSlowness = 0.3f; // TODO: should this be affected by creature speed?
@@ -38,9 +39,14 @@ namespace GoblinKing.Core
             }
         }
 
+        public bool HasItemInSlot(InventoryItem item, EquipSlot slot)
+        {
+            return Equipment.ContainsKey(slot) && Equipment[slot] == item;
+        }
+
         public void AddItem(string newItemKey)
         {
-            for (int i=0; i<Inventory.Count; i++)
+            for (int i = 0; i < Inventory.Count; i++)
             {
                 if (Inventory[i].ItemKey == newItemKey)
                 {
