@@ -338,6 +338,18 @@ namespace GoblinKing.Core
             }
         }
 
+        public void AdjustNutrition(int deltahunger)
+        {
+            playerObject.GetComponent<Player>().Nutrition += deltahunger;
+        }
+
+        public void UpdateHunger()
+        {
+            int deltahp = playerObject.GetComponent<Player>().Nutrition < 1 ? (playerObject.GetComponent<Player>().Nutrition > -10 ? - 1 : - 2): 0;
+            playerObject.GetComponent<Creature>().Hp -= deltahp;
+            
+        }
+
         public void SetMouseLookEnabled(bool enabled)
         {
             Camera.gameObject.GetComponent<SmoothMouseLook>().enabled = enabled;
@@ -359,6 +371,9 @@ namespace GoblinKing.Core
                     AI.AIBehaviour.UpdateAI(this, cre);
                 }
             }
+            AdjustNutrition(-1);
+            UpdateHunger();
+            Debug.Log("Player nutrition: "+playerObject.GetComponent<Player>().Nutrition);
         }
 
         internal void AddNewView(GameViews.IGameView view)
@@ -380,6 +395,14 @@ namespace GoblinKing.Core
             int atk_right = attacker.Equipment.ContainsKey(EquipSlot.RightHand) ? GameData.ItemData[attacker.Equipment[EquipSlot.RightHand].ItemKey].MeleeDamage : 1;
             int def_left = defender.Equipment.ContainsKey(EquipSlot.LeftHand) ? GameData.ItemData[defender.Equipment[EquipSlot.LeftHand].ItemKey].Defence : 0;
             int def_right = defender.Equipment.ContainsKey(EquipSlot.RightHand) ? GameData.ItemData[defender.Equipment[EquipSlot.RightHand].ItemKey].Defence : 0;
+
+            // Backstab
+            var atkdir = attacker.gameObject.transform.forward;
+            var defdir = defender.gameObject.transform.forward;
+            var angle = Vector2.Angle(new Vector2(atkdir.x, atkdir.z),new Vector2(defdir.x, defdir.z));
+
+            if(angle<20) Debug.Log("Backstab!");
+
             int dmg = System.Math.Max(atk_left + atk_right - (def_left + def_right), 0);
             defender.Hp -= dmg;
             if(defender.Hp <1)

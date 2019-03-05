@@ -7,5 +7,6 @@ namespace GoblinKing.Core
     internal class Player : MonoBehaviour
     {
         public VisibilityLevel CurrentVisibility;
+        public int Nutrition = 300;
     }
 }

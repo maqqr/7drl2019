@@ -58,6 +58,11 @@ namespace GoblinKing.Core.GameViews
                 DropItem(highlightedItem);
                 RefreshView();
             }
+            if (highlightedItem != null && Utils.IsPressed(gameManager.keybindings.ConsumeItem))
+            {
+                ConsumeItem(highlightedItem);
+                RefreshView();
+            }
 
             return Utils.IsPressed(gameManager.keybindings.OpenInventory);
         }
@@ -162,6 +167,27 @@ namespace GoblinKing.Core.GameViews
             gameManager.SpawnItem(item.ItemKey, spawnPos, Random.rotation);
             gameManager.AdvanceTime(gameManager.playerObject.GetComponent<Creature>().Speed);
             gameManager.UpdateGameWorld();
+        }
+        private void ConsumeItem(InventoryItem item)
+        {
+            var player = gameManager.playerObject.GetComponent<Creature>();
+            var playerp = gameManager.playerObject.GetComponent<Player>();
+            var nut = gameManager.GameData.ItemData[item.ItemKey].Nutrition;
+            if(nut != 0)
+            {
+                if (player.HasItemInSlot(item, EquipSlot.LeftHand))
+                {
+                    gameManager.PlayerUnequip(EquipSlot.LeftHand);
+                }
+                else if (player.HasItemInSlot(item, EquipSlot.RightHand))
+                {
+                    gameManager.PlayerUnequip(EquipSlot.RightHand);
+                }
+                playerp.Nutrition += nut;
+                player.RemoveItem(item, 1);
+                gameManager.AdvanceTime(gameManager.playerObject.GetComponent<Creature>().Speed);
+                gameManager.UpdateGameWorld();
+            }
         }
     }
 }

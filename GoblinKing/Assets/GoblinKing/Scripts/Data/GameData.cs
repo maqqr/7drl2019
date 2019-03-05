@@ -29,7 +29,8 @@ namespace GoblinKing.Data
                     ThrowingDamage = item.Value["damT"].AsInt,
                     Defence = item.Value["def"].AsInt,
                     Description = item.Value["desc"],
-                    ItemPrefab = Resources.Load<GameObject>(item.Value["assetpath"])
+                    ItemPrefab = Resources.Load<GameObject>(item.Value["assetpath"]),
+                    Nutrition = item.Value["nutrition"] != null ? item.Value["nutrition"].AsInt : 0
                 });
             }
 

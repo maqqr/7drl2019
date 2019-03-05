@@ -18,5 +18,6 @@ namespace GoblinKing.Core
 
         // Inventory view keys:
         public KeyCode DropItem = KeyCode.D;
+        public KeyCode ConsumeItem = KeyCode.E;
     }
 }

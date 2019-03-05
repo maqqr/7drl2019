@@ -6,7 +6,7 @@
         "rib":    { "weight": 3, "damM": 1, "damT": 1, "def": 1, "name": "Rib", "assetpath": "Items/Rib", "desc": "Nice rib." },
         "bone":   { "weight": 2, "damM": 2, "damT": 1, "def": 0, "name": "Bone", "assetpath": "Items/Bone", "desc": "Nice bone." },
         "bucket": { "weight": 3, "damM": 1, "damT": 1, "def": 1, "name": "Bucket", "assetpath": "Items/Bucket", "desc": "Nice bucket." },
-        "bluemushroom":      { "weight": 1, "damM": 0, "damT": 0, "def": 0, "name": "Blue Mushroom", "assetpath": "Items/BlueMushroom", "desc": "Glowing mushroom." },
+        "bluemushroom":      { "weight": 1, "damM": 0, "damT": 0, "def": 0, "name": "Blue Mushroom", "assetpath": "Items/BlueMushroom", "desc": "Glowing mushroom.", "nutrition":25 },
         "potionSmallXP":     { "weight": 1, "damM": 0, "damT": 1, "def": 0, "name": "Small experience potion", "assetpath": "Items/PotionSmall_XP", "desc": "Magical potion infused with wisdom. Drink to gain experience." },
         "potionSmallHealth": { "weight": 1, "damM": 0, "damT": 1, "def": 0, "name": "Small health potion", "assetpath": "Items/PotionSmall_Health", "desc": "Drink to gain health." },
         "potionBigXP":       { "weight": 2, "damM": 0, "damT": 1, "def": 1, "name": "Big XP potion", "assetpath": "Items/PotionBig_XP", "desc": "Magical potion infused with wisdom. Drink to gain large amount of experience." },
