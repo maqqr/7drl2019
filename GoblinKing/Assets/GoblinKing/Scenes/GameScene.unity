@@ -3108,6 +3108,8 @@ MonoBehaviour:
   playerObject: {fileID: 0}
   visibilityDiamondObject: {fileID: 907954258}
   Camera: {fileID: 0}
+  PlayerHearts: {fileID: 2095338322}
+  EnemyHearts: {fileID: 1864230218}
   levelGeneratorPrefabs:
   - {fileID: 5527877373573840763, guid: a42bb827e519d284986595bf05606948, type: 3}
   perkTreePrefab: {fileID: 307888046144457542, guid: 29ef7b7c14eb26e45a354ae14c110772,
@@ -4058,6 +4060,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentVisibility: 0
+  Nutrition: 300
 --- !u!114 &1911936403
 MonoBehaviour:
   m_ObjectHideFlags: 0

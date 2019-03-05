@@ -373,6 +373,7 @@ namespace GoblinKing.Core
             }
             AdjustNutrition(-1);
             UpdateHunger();
+            UpdateHearts(playerObject.GetComponent<Creature>(), PlayerHearts);
             Debug.Log("Player nutrition: "+playerObject.GetComponent<Player>().Nutrition);
         }
 
@@ -435,6 +436,7 @@ namespace GoblinKing.Core
         {
             NextDungeonFloor();
             AddNewView(new GameViews.InGameView());
+            UpdateHearts(playerObject.GetComponent<Creature>(), PlayerHearts);
         }
 
         // Update is called once per frame
