@@ -335,6 +335,18 @@ namespace GoblinKing.Core
             }
         }
 
+        public void AdjustNutrition(int deltahunger)
+        {
+            playerObject.GetComponent<Player>().Nutrition += deltahunger;
+        }
+
+        public void UpdateHunger()
+        {
+            int deltahp = playerObject.GetComponent<Player>().Nutrition < 1 ? (playerObject.GetComponent<Player>().Nutrition > -10 ? - 1 : - 2): 0;
+            playerObject.GetComponent<Creature>().Hp -= deltahp;
+            
+        }
+
         public void SetMouseLookEnabled(bool enabled)
         {
             Camera.gameObject.GetComponent<SmoothMouseLook>().enabled = enabled;
@@ -356,6 +368,9 @@ namespace GoblinKing.Core
                     AI.AIBehaviour.UpdateAI(this, cre);
                 }
             }
+            AdjustNutrition(-1);
+            UpdateHunger();
+            Debug.Log("Player nutrition: "+playerObject.GetComponent<Player>().Nutrition);
         }
 
         internal void AddNewView(GameViews.IGameView view)

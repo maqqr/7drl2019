@@ -14,6 +14,7 @@ namespace GoblinKing.Data
         public int Defence;
         public string Description;
         public string AssetPath;
+        public int Nutrition;
 
         public GameObject ItemPrefab;
     }
