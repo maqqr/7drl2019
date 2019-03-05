@@ -119,6 +119,9 @@ ModelImporter:
     100226: Weapon_bone.R
     100228: Weapon_bone.R_end
     100230: Weapon_bone.R_end_end
+    100232: Torch
+    100234: TorchHolder
+    100236: TorchHead
     400000: //RootNode
     400002: BrickWall1
     400004: BrickWallHole1
@@ -235,6 +238,9 @@ ModelImporter:
     400226: Weapon_bone.R
     400228: Weapon_bone.R_end
     400230: Weapon_bone.R_end_end
+    400232: Torch
+    400234: TorchHolder
+    400236: TorchHead
     2100000: PreviewMaterial
     2300000: BrickWall1
     2300002: BrickWallHole1
@@ -254,6 +260,9 @@ ModelImporter:
     2300030: Crosshair
     2300032: DoorCutter
     2300034: GOBLIN_BASE
+    2300036: Torch
+    2300038: TorchHolder
+    2300040: TorchHead
     3300000: BrickWall1
     3300002: BrickWallHole1
     3300004: DoorFrame1
@@ -272,6 +281,9 @@ ModelImporter:
     3300030: Crosshair
     3300032: DoorCutter
     3300034: GOBLIN_BASE
+    3300036: Torch
+    3300038: TorchHolder
+    3300040: TorchHead
     4300000: BrickWall1
     4300002: StoneTileGround1
     4300004: Pillar1
@@ -290,6 +302,9 @@ ModelImporter:
     4300030: Crosshair
     4300032: GOBLIN_BASE
     4300034: DoorCutter
+    4300036: Torch
+    4300038: TorchHolder
+    4300040: TorchHead
     10800000: Point
   externalObjects: {}
   materials:

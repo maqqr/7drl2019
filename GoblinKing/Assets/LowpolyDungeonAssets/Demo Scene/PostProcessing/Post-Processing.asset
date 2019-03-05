@@ -101,10 +101,10 @@ MonoBehaviour:
     m_Enabled: 1
     m_Settings:
       bloom:
-        intensity: 5.53
+        intensity: 0.3
         threshold: 3
-        softKnee: 0.5
-        radius: 5
+        softKnee: 0.654
+        radius: 7
         antiFlicker: 0
       lensDirt:
         texture: {fileID: 0}
