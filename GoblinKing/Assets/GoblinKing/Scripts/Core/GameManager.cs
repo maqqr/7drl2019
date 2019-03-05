@@ -87,6 +87,48 @@ namespace GoblinKing.Core
             itemObject.transform.parent = hand.transform;
         }
 
+        internal void PlayerEquip(InventoryItem item, EquipSlot slot)
+        {
+            var player = playerObject.GetComponent<Creature>();
+            EquipSlot otherHand = slot == EquipSlot.LeftHand ? EquipSlot.RightHand : EquipSlot.LeftHand;
+
+            // Unequip old item
+            if (player.Equipment.ContainsKey(slot))
+            {
+                PlayerUnequip(slot);
+            }
+
+            // One item cannot be held in both hands
+            if (item.Count == 1 && player.HasItemInSlot(item, otherHand))
+            {
+                PlayerUnequip(otherHand);
+            }
+
+            player.Equipment[slot] = item;
+
+            var handObj = GetEquipTransformForSlot(slot);
+            SpawnItemToHand(handObj.transform, item.ItemKey);
+        }
+
+        internal void PlayerUnequip(EquipSlot slot)
+        {
+            var player = playerObject.GetComponent<Creature>();
+            player.Equipment.Remove(slot);
+            var handObj = GetEquipTransformForSlot(slot);
+
+            for (int i = handObj.childCount - 1; i >= 0; i--)
+            {
+                GameObject.Destroy(handObj.transform.GetChild(i).gameObject);
+            }
+        }
+
+        private Transform GetEquipTransformForSlot(EquipSlot slot)
+        {
+            // TODO: this should be done without transform.Find
+            var handName = slot == EquipSlot.LeftHand ? "LeftHand" : "RightHand";
+            return Camera.gameObject.transform.Find(handName);
+        }
+
         public bool IsWalkable(Vector2Int position)
         {
             // Check that no creature is currently occupying the position

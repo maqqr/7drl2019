@@ -57,6 +57,16 @@ namespace GoblinKing.Core
             Inventory.Add(new InventoryItem() { ItemKey = newItemKey, Count = 1 });
         }
 
+        public void RemoveItem(InventoryItem item, int removeCount)
+        {
+            item.Count--;
+
+            if (item.Count == 0)
+            {
+                Inventory.Remove(item);
+            }
+        }
+
         private void Awake()
         {
             // Get Animator component from the first child object

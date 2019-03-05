@@ -9,10 +9,12 @@ namespace GoblinKing.Core
         public KeyCode[] MoveLeft = { KeyCode.LeftArrow, KeyCode.A };
         public KeyCode[] MoveRight = { KeyCode.RightArrow, KeyCode.D };
 
-        public KeyCode[] PickUp = { KeyCode.Space, KeyCode.Mouse0 };
+        public KeyCode[] PickUp = { KeyCode.Space };
 
         public KeyCode OpenPerkTree = KeyCode.P;
         public KeyCode OpenInventory = KeyCode.I;
+        public KeyCode ThrowLeftHand = KeyCode.Mouse0;
+        public KeyCode ThrowRightHand = KeyCode.Mouse1;
 
         // Inventory view keys:
         public KeyCode DropItem = KeyCode.D;

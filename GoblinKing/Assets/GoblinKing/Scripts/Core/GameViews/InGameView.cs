@@ -105,7 +105,7 @@ namespace GoblinKing.Core.GameViews
                 playerMoveTo = Utils.ConvertToGameCoord(playerObj.transform.localPosition - playerObj.transform.right);
             }
 
-            if (Utils.IsPressed(gameManager.keybindings.PickUp))
+            if (Utils.IsDown(gameManager.keybindings.PickUp))
             {
                 if (highlightedObject != null)
                 {
@@ -114,6 +114,12 @@ namespace GoblinKing.Core.GameViews
                     Unhighlight(highlightedObject);
                     GameObject.Destroy(highlightedObject);
                 }
+            }
+
+            if (Utils.IsPressed(gameManager.keybindings.ThrowLeftHand) || Utils.IsPressed(gameManager.keybindings.ThrowRightHand))
+            {
+                EquipSlot slot = Utils.IsPressed(gameManager.keybindings.ThrowLeftHand) ? EquipSlot.LeftHand : EquipSlot.RightHand;
+                ThrowItem(slot);
             }
 
             if (Utils.IsPressed(gameManager.keybindings.OpenPerkTree))
@@ -134,6 +140,32 @@ namespace GoblinKing.Core.GameViews
                     advanceTime = gameManager.playerObject.GetComponent<Creature>().Speed;
                     UpdatePlayerVisibility();
                 }
+            }
+        }
+
+        private void ThrowItem(EquipSlot slot)
+        {
+            var player = gameManager.playerObject.GetComponent<Creature>();
+            if (player.Equipment.ContainsKey(slot))
+            {
+                var removedItem = player.Equipment[slot];
+                player.RemoveItem(removedItem, 1);
+
+                if (removedItem.Count == 1 && player.HasItemInSlot(removedItem, EquipSlot.LeftHand) && player.HasItemInSlot(removedItem, EquipSlot.RightHand))
+                {
+                    gameManager.PlayerUnequip(slot);
+                }
+
+                if (removedItem.Count <= 0)
+                {
+                    gameManager.PlayerUnequip(slot);
+                }
+
+                Vector3 spawnPos = Utils.ConvertToWorldCoord(player.Position) + new Vector3(0f, 0.6f, 0f)
+                                 + player.gameObject.transform.forward * 0.3f;
+                var spawnedItem = gameManager.SpawnItem(removedItem.ItemKey, spawnPos, Random.rotation);
+
+                spawnedItem.GetComponent<Rigidbody>().AddForce(gameManager.Camera.transform.forward * 10f, ForceMode.Impulse);
             }
         }
 

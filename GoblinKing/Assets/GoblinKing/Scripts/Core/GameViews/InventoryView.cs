@@ -121,11 +121,11 @@ namespace GoblinKing.Core.GameViews
 
                     if (player.HasItemInSlot(invItem, slot))
                     {
-                        Unequip(slot);
+                        gameManager.PlayerUnequip(slot);
                     }
                     else
                     {
-                        Equip(invItem, slot);
+                        gameManager.PlayerEquip(invItem, slot);
                     }
                     RefreshView();
                 };
@@ -143,69 +143,23 @@ namespace GoblinKing.Core.GameViews
             encumbranceText.text = string.Format("Encumbrance: {0} / {1}", total, "?");
         }
 
-        private void Equip(InventoryItem item, EquipSlot slot)
-        {
-            var player = gameManager.playerObject.GetComponent<Creature>();
-            EquipSlot otherHand = slot == EquipSlot.LeftHand ? EquipSlot.RightHand : EquipSlot.LeftHand;
-
-            // Unequip old item
-            if (player.Equipment.ContainsKey(slot))
-            {
-                Unequip(slot);
-            }
-
-            // One item cannot be held in both hands
-            if (item.Count == 1 && player.HasItemInSlot(item, otherHand))
-            {
-                Unequip(otherHand);
-            }
-
-            player.Equipment[slot] = item;
-
-            var handObj = GetEquipTransformForSlot(slot);
-            gameManager.SpawnItemToHand(handObj.transform, item.ItemKey);
-        }
-
-        private void Unequip(EquipSlot slot)
-        {
-            var player = gameManager.playerObject.GetComponent<Creature>();
-            player.Equipment.Remove(slot);
-            var handObj = GetEquipTransformForSlot(slot);
-
-            for (int i = handObj.childCount - 1; i >= 0; i--)
-            {
-                GameObject.Destroy(handObj.transform.GetChild(i).gameObject);
-            }
-        }
-
         private void DropItem(InventoryItem item)
         {
             var player = gameManager.playerObject.GetComponent<Creature>();
             if (player.HasItemInSlot(item, EquipSlot.LeftHand))
             {
-                Unequip(EquipSlot.LeftHand);
+                gameManager.PlayerUnequip(EquipSlot.LeftHand);
             }
             else if (player.HasItemInSlot(item, EquipSlot.RightHand))
             {
-                Unequip(EquipSlot.RightHand);
+                gameManager.PlayerUnequip(EquipSlot.RightHand);
             }
-            item.Count--;
 
-            if (item.Count == 0)
-            {
-                player.Inventory.Remove(item);
-            }
+            player.RemoveItem(item, 1);
 
             Vector3 spawnPos = Utils.ConvertToWorldCoord(player.Position) + new Vector3(0f, 0.5f, 0f)
                              + player.gameObject.transform.forward * 0.3f;
             gameManager.SpawnItem(item.ItemKey, spawnPos, Random.rotation);
-        }
-
-        private Transform GetEquipTransformForSlot(EquipSlot slot)
-        {
-            // TODO: this should be done without transform.Find
-            var handName = slot == EquipSlot.LeftHand ? "LeftHand" : "RightHand";
-            return gameManager.Camera.gameObject.transform.Find(handName);
         }
     }
 }
