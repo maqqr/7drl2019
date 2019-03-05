@@ -83,6 +83,7 @@ namespace GoblinKing.Core.GameViews
             for (int i = 0; i < player.Inventory.Count; i++)
             {
                 var obj = GameObject.Instantiate(gameManager.inventoryGuiItemPrefab);
+                var backgroundImg = obj.GetComponent<UnityEngine.UI.Image>();
                 obj.transform.SetParent(inventoryCanvas.transform);
                 obj.GetComponent<RectTransform>().localPosition = new Vector3(150, 135 - i * 30f, 0);
                 guiItems.Add(obj);
@@ -104,11 +105,13 @@ namespace GoblinKing.Core.GameViews
 
                 itemHandler.MouseEnter += delegate
                 {
+                    backgroundImg.color = new Color(0.7f, 0.7f, 0.7f);
                     ShowItemStats(item);
                     highlightedItem = invItem;
                 };
                 itemHandler.MouseExit += delegate
                 {
+                    backgroundImg.color = new Color(1f, 1f, 1f);
                     descriptionText.text = "";
                     highlightedItem = null;
                 };
