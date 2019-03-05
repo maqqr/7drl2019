@@ -958,6 +958,7 @@ MonoBehaviour:
     type: 3}
   inventoryGuiItemPrefab: {fileID: 9127414026104117885, guid: fb91669c6387f25408f0bc7a9e28e0f1,
     type: 3}
+  pathfindDirty: 0
 --- !u!4 &1485741022
 Transform:
   m_ObjectHideFlags: 0
@@ -1145,12 +1146,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a243505783aff149bcafe80777c71f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hp: 0
+  Hp: 12
   TimeElapsed: 0
   Position: {x: 0, y: 0}
   Data:
-    Name: 
-    MaxHp: 0
+    Name: Player
+    MaxHp: 12
     Speed: 100
     AssetPath: 
     CreaturePrefab: {fileID: 0}

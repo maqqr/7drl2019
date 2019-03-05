@@ -67,6 +67,11 @@ namespace GoblinKing.Core
             }
         }
 
+        public void TurnTowards(Vector2Int position)
+        {
+            // TODO: implement
+        }
+
         private void Awake()
         {
             // Get Animator component from the first child object

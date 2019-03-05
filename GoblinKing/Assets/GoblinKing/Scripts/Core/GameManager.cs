@@ -28,7 +28,7 @@ namespace GoblinKing.Core
         private bool pathfindDirty = false;
         private Pathfinding.DungeonGrid pathfindingGrid;
 
-        private List<Vector2Int> reservedPlaces = new List<Vector2Int>(); // Prevent creatures from moving inside eachother
+        // private List<Vector2Int> reservedPlaces = new List<Vector2Int>(); // Prevent creatures from moving inside eachother
 
 
         public GameObject CurrentFloorObject
@@ -192,6 +192,11 @@ namespace GoblinKing.Core
 
         internal Creature GetCreatureAt(Vector2Int position)
         {
+            if (position == playerObject.GetComponent<Creature>().Position)
+            {
+                return playerObject.GetComponent<Creature>();
+            }
+
             List<Creature> creatures = CurrentFloorObject.GetComponent<DungeonLevel>().EnemyCreatures.Items;
             for (int i = 0; i < creatures.Count; i++)
             {
@@ -328,7 +333,7 @@ namespace GoblinKing.Core
         private void AdvanceGameWorld(int deltaTime)
         {
             List<Creature> creatures = CurrentFloorObject.GetComponent<DungeonLevel>().EnemyCreatures.Items;
-            reservedPlaces.Clear();
+            // reservedPlaces.Clear();
 
             for (int i = 0; i < creatures.Count; i++)
             {
@@ -363,15 +368,24 @@ namespace GoblinKing.Core
                 return;
             }
 
-            // Attack player
-            if (newPos == player.Position)
+            LayerMask mask = ~LayerMask.GetMask("Player", "Enemy");
+            if (IsWalkableFrom(cre.Position, newPos, mask))
             {
-                Debug.Log("Player hit!");
-            }
-            else if (!reservedPlaces.Contains(newPos) && IsWalkableFrom(cre.Position, newPos))
-            {
-                cre.Position = newPos;
-                reservedPlaces.Add(newPos);
+                cre.TurnTowards(newPos);
+
+                Creature creatureBlocking = GetCreatureAt(newPos);
+                if (creatureBlocking == null)
+                {
+                    cre.Position = newPos;
+                }
+                else if (creatureBlocking == player)
+                {
+                    Fight(cre, creatureBlocking);
+                }
+                else
+                {
+                    // TODO: move randomly to avoid the other enemy that blocks the way?
+                }
             }
         }
 
@@ -385,6 +399,11 @@ namespace GoblinKing.Core
             gameViews.Push(view);
             view.Initialize(this);
             view.OpenView();
+        }
+
+        internal void Fight(Creature attacker, Creature defender)
+        {
+            Debug.Log(attacker.Data.Name + " attacks " + defender.Data.Name);
         }
 
         private void Awake()

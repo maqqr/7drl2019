@@ -9,6 +9,8 @@ namespace GoblinKing.Core.GameViews
         private GameManager gameManager;
         private GameObject highlightedObject = null;
 
+        private float forcedCooldown = 0f;
+
         public void Initialize(GameManager gameManager)
         {
             this.gameManager = gameManager;
@@ -30,7 +32,14 @@ namespace GoblinKing.Core.GameViews
 
         public bool UpdateView()
         {
-            if (gameManager.playerObject.GetComponent<Creature>().InSync)
+            if (forcedCooldown >= 0f)
+            {
+                forcedCooldown -= Time.deltaTime;
+            }
+
+            bool playerCanAct = gameManager.playerObject.GetComponent<Creature>().InSync && forcedCooldown < 0f;
+
+            if (playerCanAct)
             {
                 gameManager.UpdateGameWorld();
                 HandlePlayerInput();
@@ -79,6 +88,7 @@ namespace GoblinKing.Core.GameViews
         {
             Vector2Int? playerMoveTo = null;
             GameObject playerObj = gameManager.playerObject;
+            var player = playerObj.GetComponent<Creature>();
 
             if (Utils.IsDown(gameManager.keybindings.MoveForward))
             {
@@ -102,10 +112,10 @@ namespace GoblinKing.Core.GameViews
                 if (highlightedObject != null)
                 {
                     string itemKey = highlightedObject.GetComponent<PickupItem>().itemKey;
-                    gameManager.playerObject.GetComponent<Creature>().AddItem(itemKey);
+                    player.AddItem(itemKey);
                     Unhighlight(highlightedObject);
                     GameObject.Destroy(highlightedObject);
-                    gameManager.AdvanceTime(gameManager.playerObject.GetComponent<Creature>().Speed);
+                    gameManager.AdvanceTime(player.Speed);
                 }
             }
 
@@ -128,14 +138,21 @@ namespace GoblinKing.Core.GameViews
             if (playerMoveTo != null)
             {
                 LayerMask mask = ~LayerMask.GetMask("Player", "Enemy");
-                if (gameManager.IsWalkableFrom(playerObj.GetComponent<Creature>().Position, playerMoveTo.Value, mask))
+                if (gameManager.IsWalkableFrom(player.Position, playerMoveTo.Value, mask))
                 {
-                    gameManager.playerObject.GetComponent<Creature>().Position = playerMoveTo.Value;
-                    gameManager.AdvanceTime(gameManager.playerObject.GetComponent<Creature>().Speed);
-                    UpdatePlayerVisibility();
-                }
-                else {
-                    Debug.LogError("not walkable");
+                    Creature creatureBlocking = gameManager.GetCreatureAt(playerMoveTo.Value);
+                    if (creatureBlocking == null)
+                    {
+                        player.Position = playerMoveTo.Value;
+                        gameManager.AdvanceTime(player.Speed);
+                        UpdatePlayerVisibility();
+                    }
+                    else if (creatureBlocking != player)
+                    {
+                        gameManager.Fight(player, creatureBlocking);
+                        gameManager.AdvanceTime(player.Speed);
+                        forcedCooldown = 1.0f; // Add a small delay to prevent too fast attack spam
+                    }
                 }
             }
         }
