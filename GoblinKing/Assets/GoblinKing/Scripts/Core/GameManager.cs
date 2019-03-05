@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GoblinKing.Helpers;
 using LevelGen = LevelGenerator.Scripts.LevelGenerator;
 
 namespace GoblinKing.Core
@@ -12,6 +13,8 @@ namespace GoblinKing.Core
         public GameObject visibilityDiamondObject;
         public Data.GameData GameData;
         public Camera Camera;
+        public HeartContainer PlayerHearts;
+        public HeartContainer EnemyHearts;
 
         public GameObject[] levelGeneratorPrefabs;
         public GameObject perkTreePrefab;
@@ -389,6 +392,12 @@ namespace GoblinKing.Core
             }
             Debug.Log(attacker.Data.Name + " attacks " + defender.Data.Name + " for " + dmg + " damage.");
             Debug.Log(defender.Data.Name + " has " + defender.Hp + " hp. " );
+        }
+
+        internal void UpdateHearts(Creature creature, HeartContainer container)
+        {
+            container.SetLife(creature.Hp);
+            container.SetMaxLife(creature.Data.MaxHp);
         }
 
         private void Awake()
