@@ -138,6 +138,11 @@ namespace GoblinKing.Core
             GameObject.Destroy(itemObject.GetComponentInChildren<PickupItem>());
             itemObject.GetComponentInChildren<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
 
+            if (grabChild == null)
+            {
+                Debug.LogError("Item \"" + itemKey + "\" is missing Grab object!");
+            }
+
             Utils.Alignment(itemObject.transform, grabChild.transform, hand.transform);
             itemObject.transform.parent = hand.transform;
         }

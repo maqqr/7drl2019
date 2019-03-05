@@ -16,7 +16,7 @@ namespace GoblinKing.Core
 
         private void Awake()
         {
-            light = GetComponent<Light>();
+            light = GetComponentInChildren<Light>();
             if (light == null)
             {
                 Debug.LogWarning("LightSource without light");

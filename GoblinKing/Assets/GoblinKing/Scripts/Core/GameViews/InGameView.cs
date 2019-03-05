@@ -178,7 +178,10 @@ namespace GoblinKing.Core.GameViews
                 Vector3 spawnPos = Utils.ConvertToWorldCoord(player.Position) + new Vector3(0f, 0.6f, 0f)
                                  + player.gameObject.transform.forward * 0.3f;
                 var spawnedItem = gameManager.SpawnItem(removedItem.ItemKey, spawnPos, Random.rotation);
-                spawnedItem.GetComponent<Rigidbody>().AddForce(gameManager.Camera.transform.forward * 10f, ForceMode.Impulse);
+
+                var rigidbody = spawnedItem.GetComponent<Rigidbody>();
+                rigidbody.isKinematic = false;
+                rigidbody.AddForce(gameManager.Camera.transform.forward * 10f, ForceMode.Impulse);
                 gameManager.AdvanceTime(gameManager.playerObject.GetComponent<Creature>().Speed);
             }
         }
