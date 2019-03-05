@@ -56,6 +56,7 @@ namespace GoblinKing.Core.GameViews
             if (highlightedItem != null && Utils.IsPressed(gameManager.keybindings.DropItem))
             {
                 DropItem(highlightedItem);
+                RefreshView();
             }
 
             return Utils.IsPressed(gameManager.keybindings.OpenInventory);
@@ -191,6 +192,10 @@ namespace GoblinKing.Core.GameViews
             {
                 player.Inventory.Remove(item);
             }
+
+            Vector3 spawnPos = Utils.ConvertToWorldCoord(player.Position) + new Vector3(0f, 0.5f, 0f)
+                             + player.gameObject.transform.forward * 0.3f;
+            gameManager.SpawnItem(item.ItemKey, spawnPos, Random.rotation);
         }
 
         private Transform GetEquipTransformForSlot(EquipSlot slot)
