@@ -429,6 +429,8 @@ namespace GoblinKing.Core
                     System.Random rnd = new System.Random();
                     SpawnItem(dropped_item.ItemKey, Utils.ConvertToWorldCoord(defender.Position) + new Vector3(0, (float)rnd.NextDouble() * 0.6f + 0.2f, 0f), Random.rotation);
                 }
+                defender.gameObject.AddComponent<Corpse>();
+                GameObject.Destroy(defender.GetComponentInChildren<Collider>());
                 GameObject.Destroy(defender);
             }
             Debug.Log(attacker.Data.Name + " attacks " + defender.Data.Name + " for " + dmg + " damage.");
