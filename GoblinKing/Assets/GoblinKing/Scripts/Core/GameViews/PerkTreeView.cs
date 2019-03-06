@@ -11,6 +11,7 @@ namespace GoblinKing.Core.GameViews
         private GameObject perkTreeCanvas;
         private Color perkBoughtColor = Color.green;
         private PerkButton[] buttons;
+        private TMPro.TextMeshProUGUI descriptionText;
 
         public void Initialize(GameManager gameManager)
         {
@@ -25,6 +26,19 @@ namespace GoblinKing.Core.GameViews
         public void OpenView()
         {
             perkTreeCanvas = GameObject.Instantiate(gameManager.perkTreePrefab);
+
+             // Find description object's text component
+            Transform[] children = perkTreeCanvas.transform.GetComponentsInChildren<Transform>();
+            for (int i = 0; i < children.Length; i++)
+            {
+                var child = children[i];
+                if (child.name == "Description")
+                {
+                    descriptionText = child.GetComponentInChildren<TMPro.TextMeshProUGUI>();
+                    descriptionText.transform.parent.gameObject.SetActive(false);
+                }
+            }
+
             buttons = perkTreeCanvas.GetComponentsInChildren<PerkButton>();
 
             foreach (var button in buttons)
@@ -42,6 +56,9 @@ namespace GoblinKing.Core.GameViews
                     {
                         backgroundImg.color = new Color(0.7f, 0.7f, 0.7f);
                     }
+                    descriptionText.transform.parent.gameObject.SetActive(true);
+                    Data.Perk perk = gameManager.GameData.PerkData[button.PerkKey];
+                    descriptionText.text = perk.Name + "\n\n" + perk.Description;
                 };
                 button.MouseExit += delegate
                 {
@@ -49,6 +66,7 @@ namespace GoblinKing.Core.GameViews
                     {
                         backgroundImg.color = new Color(1f, 1f, 1f);
                     }
+                    descriptionText.transform.parent.gameObject.SetActive(false);
                 };
                 button.MouseClick += delegate
                 {
