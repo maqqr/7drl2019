@@ -70,10 +70,11 @@ namespace GoblinKing.Core.GameViews
                 };
                 button.MouseClick += delegate
                 {
-                    if (!perkSystem.HasPerk(button.PerkKey) && perkSystem.CanBuyPerk(button.PerkKey))
+                    if (!perkSystem.HasPerk(button.PerkKey) && perkSystem.CanBuyPerk(button.PerkKey) && gameManager.playerObject.GetComponent<Player>().Perkpoints > 0)
                     {
                         // TODO: check that player has enough perk points and can buy perk
                         perkSystem.BuyPerk(button.PerkKey);
+                        gameManager.playerObject.GetComponent<Player>().Perkpoints -= 1;
                         backgroundImg.color = perkBoughtColor;
                     }
                 };

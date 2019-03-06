@@ -412,7 +412,8 @@ namespace GoblinKing.Core
 
         public void AdjustNutrition(int deltahunger)
         {
-            playerObject.GetComponent<Player>().Nutrition += deltahunger;
+            var player = playerObject.GetComponent<Player>();
+            player.Nutrition = Mathf.Min(player.Nutrition + deltahunger, player.MaxNutrition);
         }
 
         public void UpdateHunger()
@@ -494,14 +495,15 @@ namespace GoblinKing.Core
             var atkdir = attacker.gameObject.transform.forward;
             var defdir = defender.gameObject.transform.forward;
             var angle = Vector2.Angle(new Vector2(atkdir.x, atkdir.z), new Vector2(defdir.x, defdir.z));
+            float multiplier = 1f;
 
             if (angle < (attacker.PerkSystem.HasPerk("widebackstab") ? 55 : 20))
             {
-                float multiplier = attacker.PerkSystem.GetMaxFloat("backstabMultiplier", 1.3f);
+                multiplier = attacker.PerkSystem.GetMaxFloat("backstabMultiplier", 1.3f);
                 Debug.Log("Backstab!");
             }
 
-            int dmg = System.Math.Max((int)System.Math.Ceiling(atk_left + atk_right - (def_left + def_right)), 1);
+            int dmg = (int)System.Math.Max(System.Math.Ceiling((atk_left + atk_right)*multiplier) - (def_left + def_right), 1) + attacker.PerkSystem.GetMaxInt("addDmg", 0);
             defender.TakeDamage(dmg);
             
             // If player is attacking, award some experience

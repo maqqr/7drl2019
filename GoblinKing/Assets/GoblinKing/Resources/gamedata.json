@@ -10,7 +10,15 @@
         "potionSmallXP":     { "weight": 1, "damM": 0, "damT": 1, "def": 0, "experience":10, "name": "Small experience potion", "assetpath": "Items/PotionSmall_XP", "desc": "Magical potion infused with wisdom. Drink to gain experience.", "nutrition":5 },
         "potionSmallHealth": { "weight": 1, "damM": 0, "damT": 1, "def": 0, "healing": 2, "name": "Small health potion", "assetpath": "Items/PotionSmall_Health", "desc": "Drink to gain health.", "nutrition":5 },
         "potionBigXP":       { "weight": 2, "damM": 0, "damT": 1, "def": 1, "experience":25, "name": "Big XP potion", "assetpath": "Items/PotionBig_XP", "desc": "Magical potion infused with wisdom. Drink to gain large amount of experience.", "nutrition":5 },
-        "potionBigHealth":   { "weight": 2, "damM": 0, "damT": 1, "def": 1, "healing": 4,"name": "Big health potion", "assetpath": "Items/PotionBig_Health", "desc": "Drink to gain lots of health.", "nutrition":5 }
+        "potionBigHealth":   { "weight": 2, "damM": 0, "damT": 1, "def": 1, "healing": 4,"name": "Big health potion", "assetpath": "Items/PotionBig_Health", "desc": "Drink to gain lots of health.", "nutrition":5 },
+        "apple" : { "weight": 1, "damM": 0, "damT": 1, "def": 0, "healing": 1,"name": "Red apple", "assetpath": "Items/Apple", "desc": "Keeps the doctors at bay.", "nutrition":35 },
+        "rottenapple" : { "weight": 1, "damM": 0, "damT": 1, "def": 0, "healing": -2,"name": "Brown? apple", "assetpath": "Items/RottenApple", "desc": "Keeps the doctors near.", "nutrition":15 },
+        "bread" : { "weight": 2, "damM": 0, "damT": 1, "def": 0, "healing": 1,"name": "Loaf of bread", "assetpath": "Items/Bread", "desc": "Fresh from the goblin oven.", "nutrition":75 },
+        "rottenbread" : { "weight": 1, "damM": 0, "damT": 1, "def": 0, "healing": -2,"name": "Mushy bread", "assetpath": "Items/RottenBread", "desc": "It has it's own fur coat.", "nutrition":25 },
+        "cheese" : { "weight": 3, "damM": 0, "damT": 2, "def": 0, "healing": 1,"name": "Cheese sector", "assetpath": "Items/Cheese", "desc": "It makes me feel gouda.", "nutrition":125 },
+        "rottencheese" : { "weight": 2, "damM": 0, "damT": 1, "def": 0, "healing": -2,"name": "(Almost) blue cheese", "assetpath": "Items/RottenCheese", "desc": "Mr. Pac has seen better days.", "nutrition":35 },
+        "meat" : { "weight": 3, "damM": 0, "damT": 2, "def": 0, "healing": 1,"name": "Roasted meat", "assetpath": "Items/Meat", "desc": "I hope it's vegan.", "nutrition":200 },
+        "rottenmeat" : { "weight": 2, "damM": 0, "damT": 2, "def": 0, "healing": -2,"name": "Soggy meat", "assetpath": "Items/RottenMeat", "desc": "It has seen better days.", "nutrition":40 }
     },
 
     "creatures": {
@@ -26,20 +34,31 @@
     },
 
     "perks": {
-        "speed1": { "name": "Perk Name", "desc": "Increase speed by 10%", "speedReduction": 10 },
-        "speed2": { "name": "Perk Name", "desc": "Increase speed by 20%", "require": ["speed1"], "speedReduction": 20 },
+        "speed1": { "name": "Boots of speed", "desc": "Increase speed by 10%", "speedReduction": 10 },
+        "speed2": { "name": "The need to go quickly", "desc": "Increase speed by 20%", "require": ["speed1"], "speedReduction": 20 },
 
-        "maxlife1": { "name": "Perk Name", "desc": "Increase maximum life by one heart", "addMaxLife": 2 },
-        "maxlife2": { "name": "Perk Name", "desc": "Increase maximum life by two hearts", "require": ["maxlife1"], "addMaxLife": 4 },
+        "maxlife1": { "name": "Hardy", "desc": "Increase maximum life by one heart", "addMaxLife": 2 },
+        "maxlife2": { "name": "Tanky", "desc": "Increase maximum life by two hearts", "require": ["maxlife1"], "addMaxLife": 4 },
 
-        "widebackstab": { "name": "Perk Name", "desc": "Allows wider range for backstabs", "largeBackstabAngle": true },
+        "widebackstab": { "name": "Big reach", "desc": "Allows wider range for backstabs", "largeBackstabAngle": true },
 
-        "potionmastah1": { "name": "Perk Name", "desc": "Increase potion efficacy by 1.5x", "potionEffect": 1.5 },
-        "potionmastah2": { "name": "Perk Name", "desc": "Increase potion efficacy by 2.5x", "require": ["potionmastah1"], "potionEffect": 2.5 },
+        "potionmastah1": { "name": "Brewermaster", "desc": "Increase potion efficacy by 1.5x","require":["metabolism1"], "potionEffect": 1.5 },
+        "potionmastah2": { "name": "Potion connoisseur", "desc": "Increase potion efficacy by 2.5x", "require": ["potionmastah1"], "potionEffect": 2.5 },
 
-        "backstab1": { "name": "Perk Name", "desc": "Increase backstab damage multiplier to 1.5x", "backstabMultiplier": 1.5 },
-        "backstab2": { "name": "Perk Name", "desc": "Increase backstab damage multiplier to 1.8x", "require": ["backstab1"], "backstabMultiplier": 1.8 },
-        "backstab3": { "name": "Perk Name", "desc": "Increase backstab damage multiplier to 2.0x", "require": ["backstab2"], "backstabMultiplier": 2.0 },
-        "backstab4": { "name": "Perk Name", "desc": "Increase backstab damage multiplier to 2.5x", "require": ["backstab3"], "backstabMultiplier": 2.5 }
+        "backstab1": { "name": "Loose lipped", "desc": "Increase backstab damage multiplier to 1.5x", "backstabMultiplier": 1.5 },
+        "backstab2": { "name": "Gossip girl", "desc": "Increase backstab damage multiplier to 1.8x", "require": ["backstab1"], "backstabMultiplier": 1.8 },
+        "backstab3": { "name": "Turncoat", "desc": "Increase backstab damage multiplier to 2.0x", "require": ["backstab2"], "backstabMultiplier": 2.0 },
+        "backstab4": { "name": "Ghost", "desc": "Increase backstab damage multiplier to 2.5x", "require": ["backstab3"], "backstabMultiplier": 2.5 },
+
+        "metabolism1": { "name": "Efficient metabolism", "desc": "Nutrition from food increased by 25%", "metabolicMultiplier": 1.25 },
+        "metabolism2": { "name": "Take all the nutrients!", "desc": "Nutrition from food increased by 50%","require":["metabolism1"], "metabolicMultiplier": 1.50 },
+
+        "stomach1": { "name": "Iron stomach", "desc": "Reduce the effects of food poisoning by half","require":["metabolism1"], "stomachGuard": 1 },
+        "stomach2": { "name": "I eat chain for breakfast", "desc": "Immunity to health effects of rotten food", "require":["stomach1"],"stomachGuard": 2 },
+
+        "combat1": { "name": "I went to the gym once", "desc": "Damage dealt increased by 1", "addDmg": 1 },
+        "combat2": { "name": "Do you even lift bro?", "desc": "Damage dealt increased by 2", "require":["combat1"], "addDmg": 2 }
+
+
     }
 }

@@ -183,10 +183,14 @@ namespace GoblinKing.Core.GameViews
                 {
                     gameManager.PlayerUnequip(EquipSlot.RightHand);
                 }
-                playerp.Nutrition += nut;
+                gameManager.AdjustNutrition((int)System.Math.Ceiling(nut*player.PerkSystem.GetMaxFloat("metabolicMultiplier", 1f)));
                 if(gameManager.GameData.ItemData[item.ItemKey].Healing > 0)
                 {
                     player.RecoverHealth((int)System.Math.Ceiling(gameManager.GameData.ItemData[item.ItemKey].Healing * player.PerkSystem.GetMaxFloat("potionEffect", 1f)));
+                }
+                if(gameManager.GameData.ItemData[item.ItemKey].Healing < 0)
+                {
+                    player.TakeDamage(gameManager.GameData.ItemData[item.ItemKey].Healing + player.PerkSystem.GetMaxInt("stomachGuard",0));
                 }
                 if(gameManager.GameData.ItemData[item.ItemKey].Experience > 0)
                 {

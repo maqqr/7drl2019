@@ -8,6 +8,7 @@ namespace GoblinKing.Core
     {
         public VisibilityLevel CurrentVisibility;
         public int Nutrition = 300;
+        public int MaxNutrition = 500;
 
         public int Experience = 0;
         public int Level = 1;
