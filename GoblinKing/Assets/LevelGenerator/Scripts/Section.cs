@@ -73,7 +73,7 @@ namespace LevelGenerator.Scripts
             }
             else
             {
-                Destroy(candidate.gameObject);
+                DestroyImmediate(candidate.gameObject);
                 PlaceDeadEnd(exit);
             }
         }

@@ -52,6 +52,7 @@ MonoBehaviour:
   - corridor
   - room
   - spawn
+  - upstairs
   Exits: {fileID: 1831740732533053750}
   Bounds: {fileID: 5526934625025296936}
   DeadEndChance: 5
