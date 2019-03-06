@@ -11,6 +11,7 @@ namespace GoblinKing.Data
         public int MaxHp;
         public int Speed;
         public int BaseDamage;
+        public int CreatureLevel;
 
         public string AssetPath;
         public GameObject CreaturePrefab;

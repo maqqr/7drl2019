@@ -468,6 +468,10 @@ namespace GoblinKing.Core
 
             int dmg = System.Math.Max((int)System.Math.Ceiling(atk_left + atk_right - (def_left + def_right)), 1);
             defender.TakeDamage(dmg);
+            
+            // If player is attacking, award some experience
+            bool pcattack = playerObject.GetComponent<Player>().Equals(attacker.GetComponent<Player>());
+            int xp = pcattack ? (int)System.Math.Floor(1.5f*(float)System.Math.Max(1, defender.Data.CreatureLevel - playerObject.GetComponent<Player>().Level)): 0;
             if (defender.Hp < 1)
             {
                 foreach (InventoryItem dropped_item in defender.Inventory)
@@ -475,10 +479,13 @@ namespace GoblinKing.Core
                     System.Random rnd = new System.Random();
                     SpawnItem(dropped_item.ItemKey, Utils.ConvertToWorldCoord(defender.Position) + new Vector3(0, (float)rnd.NextDouble() * 0.6f + 0.2f, 0f), Random.rotation);
                 }
+                xp += xp>0 ? System.Math.Max(1, defender.Data.CreatureLevel - playerObject.GetComponent<Player>().Level)*20 : 0;
                 defender.gameObject.AddComponent<Corpse>();
                 GameObject.Destroy(defender.GetComponentInChildren<Collider>());
                 GameObject.Destroy(defender);
             }
+            Debug.Log(attacker.Data.Name + " is awarded "+ xp + " xp!");
+            if(xp >0) playerObject.GetComponent<Player>().addExperience(xp);
             Debug.Log(attacker.Data.Name + " attacks " + defender.Data.Name + " for " + dmg + " damage.");
             Debug.Log(defender.Data.Name + " has " + defender.Hp + " hp. ");
         }
