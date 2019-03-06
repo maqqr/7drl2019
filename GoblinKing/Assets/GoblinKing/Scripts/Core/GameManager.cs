@@ -276,7 +276,7 @@ namespace GoblinKing.Core
                 return false;
             }
 
-            var upstairs = dungeonLevel.transform.GetComponentInChildren<UpStairs>();
+            var upstairs = dungeonLevel.transform.GetComponentInChildren<Interaction.UpStairs>();
             if (upstairs == null || upstairs.ToString() == "null")
             {
                 return false;
