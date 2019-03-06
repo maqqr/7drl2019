@@ -126,6 +126,7 @@ ModelImporter:
     100240: WoodenCrate
     100242: BlueMushroom
     100244: HalfHeart
+    100246: Candle1
     400000: //RootNode
     400002: BrickWall1
     400004: BrickWallHole1
@@ -249,6 +250,7 @@ ModelImporter:
     400240: WoodenCrate
     400242: BlueMushroom
     400244: HalfHeart
+    400246: Candle1
     2100000: PreviewMaterial
     2300000: BrickWall1
     2300002: BrickWallHole1
@@ -275,6 +277,7 @@ ModelImporter:
     2300044: WoodenCrate
     2300046: BlueMushroom
     2300048: HalfHeart
+    2300050: Candle1
     3300000: BrickWall1
     3300002: BrickWallHole1
     3300004: DoorFrame1
@@ -300,6 +303,7 @@ ModelImporter:
     3300044: WoodenCrate
     3300046: BlueMushroom
     3300048: HalfHeart
+    3300050: Candle1
     4300000: BrickWall1
     4300002: StoneTileGround1
     4300004: Pillar1
@@ -325,6 +329,7 @@ ModelImporter:
     4300044: WoodenCrate
     4300046: BlueMushroom
     4300048: HalfHeart
+    4300050: Candle1
     10800000: Point
   externalObjects: {}
   materials:

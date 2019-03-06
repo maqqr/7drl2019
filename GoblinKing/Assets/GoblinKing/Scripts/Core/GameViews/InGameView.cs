@@ -45,19 +45,8 @@ namespace GoblinKing.Core.GameViews
                 forcedCooldown -= Time.deltaTime;
             }
 
-            if (Utils.IsDown(gameManager.keybindings.MoveForward))
-            {
-                if (playerTransitionSpeed > 0.1f)
-                {
-                    playerTransitionSpeed -= Time.deltaTime * 0.04f;
-                    playerTransitionSpeed = Mathf.Max(0.1f, playerTransitionSpeed);
-                }
-            }
-            if (Utils.IsReleased(gameManager.keybindings.MoveForward))
-            {
-                playerTransitionSpeed = originalTransitionSpeed;
-            }
-            gameManager.playerCreature.TransitionSlowness = playerTransitionSpeed;
+            CheckFastMovement();
+            CheckHeartContainerUpdate();
 
             bool playerCanAct = gameManager.playerObject.GetComponent<Creature>().InSync && forcedCooldown < 0f;
             if (playerCanAct)
@@ -272,6 +261,31 @@ namespace GoblinKing.Core.GameViews
             rend.material.SetFloat("_RimIntensity", 0f);
             rend.material.SetFloat("_RimSize", 0f);
             rend.material.SetFloat("_RimSmoothness", 0f);
+        }
+
+        private void CheckFastMovement()
+        {
+            if (Utils.IsDown(gameManager.keybindings.MoveForward))
+            {
+                if (playerTransitionSpeed > 0.1f)
+                {
+                    playerTransitionSpeed -= Time.deltaTime * 0.04f;
+                    playerTransitionSpeed = Mathf.Max(0.1f, playerTransitionSpeed);
+                }
+            }
+            if (Utils.IsReleased(gameManager.keybindings.MoveForward))
+            {
+                playerTransitionSpeed = originalTransitionSpeed;
+            }
+            gameManager.playerCreature.TransitionSlowness = playerTransitionSpeed;
+        }
+
+        private void CheckHeartContainerUpdate()
+        {
+            if (gameManager.PlayerHearts.CurrentLife != gameManager.playerCreature.Hp || gameManager.PlayerHearts.CurrentMaxLife != gameManager.playerCreature.MaxLife)
+            {
+                gameManager.UpdateHearts(gameManager.playerCreature, gameManager.PlayerHearts);
+            }
         }
     }
 }
