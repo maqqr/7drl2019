@@ -32,6 +32,11 @@ namespace GoblinKing.Core.GameViews
 
         public bool UpdateView()
         {
+            if (!gameManager.playerObject.GetComponent<Creature>())
+            {
+                return true;
+            }
+
             if (forcedCooldown >= 0f)
             {
                 forcedCooldown -= Time.deltaTime;

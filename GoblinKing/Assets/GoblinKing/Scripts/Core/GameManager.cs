@@ -511,6 +511,11 @@ namespace GoblinKing.Core
         // Update is called once per frame
         private void Update()
         {
+            if (gameViews.Count == 0)
+            {
+                return;
+            }
+
             if (pathfindDirty)
             {
                 pathfindDirty = false;
@@ -531,7 +536,10 @@ namespace GoblinKing.Core
                     gameViews.Peek().OpenView();
                 }
 
-                // TODO: if last view was closed, quit the game
+                if (gameViews.Count == 0)
+                {
+                    Debug.Log("GAME OVER");
+                }
             }
         }
     }
