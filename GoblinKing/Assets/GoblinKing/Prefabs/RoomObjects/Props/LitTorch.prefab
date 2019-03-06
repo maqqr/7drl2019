@@ -4803,6 +4803,9 @@ GameObject:
   - component: {fileID: 4726182945181625780}
   - component: {fileID: 4726182945181625782}
   - component: {fileID: 4726182945181625783}
+  - component: {fileID: 2060083569743445802}
+  - component: {fileID: 7093048320872979893}
+  - component: {fileID: 676661834996855263}
   m_Layer: 0
   m_Name: LitTorch
   m_TagString: Untagged
@@ -4871,6 +4874,44 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &2060083569743445802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4726182945181625781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa657ede85aa82c4aa2bb50b4148b0d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7093048320872979893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4726182945181625781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ff507015dc6df74494d9853af383d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FlameObject: {fileID: 88222549975964248}
+--- !u!65 &676661834996855263
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4726182945181625781}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.03286401, y: 0.03286402, z: 0.2626909}
+  m_Center: {x: 0, y: 0, z: -0.010663371}
 --- !u!1 &4726182946302154783
 GameObject:
   m_ObjectHideFlags: 0

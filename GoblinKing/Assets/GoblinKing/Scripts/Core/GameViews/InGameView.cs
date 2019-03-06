@@ -32,6 +32,11 @@ namespace GoblinKing.Core.GameViews
 
         public bool UpdateView()
         {
+            if (!gameManager.playerObject.GetComponent<Creature>())
+            {
+                return true;
+            }
+
             if (forcedCooldown >= 0f)
             {
                 forcedCooldown -= Time.deltaTime;
@@ -163,7 +168,7 @@ namespace GoblinKing.Core.GameViews
                     {
                         player.Position = playerMoveTo.Value;
                         gameManager.AdvanceTime(player.Speed);
-                        UpdatePlayerVisibility();
+                        gameManager.UpdatePlayerVisibility();
                     }
                     else if (creatureBlocking != player)
                     {
@@ -202,16 +207,6 @@ namespace GoblinKing.Core.GameViews
                 rigidbody.AddForce(gameManager.Camera.transform.forward * 10f, ForceMode.Impulse);
                 gameManager.AdvanceTime(gameManager.playerObject.GetComponent<Creature>().Speed);
             }
-        }
-
-        private void UpdatePlayerVisibility()
-        {
-            List<LightSource> lights = gameManager.CurrentFloorObject.GetComponent<DungeonLevel>().LightSources.Items;
-
-            Vector3 playerWorldPos = Utils.ConvertToWorldCoord(gameManager.playerObject.GetComponent<Creature>().Position) + new Vector3(0f, 0.5f, 0f);
-            VisibilityLevel level = Visibility.Calculate(playerWorldPos, lights);
-            gameManager.playerObject.GetComponent<Player>().CurrentVisibility = level;
-            gameManager.visibilityDiamondObject.GetComponent<MeshRenderer>().material.SetColor("_Color", Visibility.GetGemColor(level));
         }
 
         private void HighlightObject(GameObject obj)

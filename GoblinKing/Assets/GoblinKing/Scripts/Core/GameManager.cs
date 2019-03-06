@@ -74,6 +74,16 @@ namespace GoblinKing.Core
             return Pathfinding.Pathfinding.FindPath(pathfindingGrid, from, to, isWalkableFrom);
         }
 
+        public void UpdatePlayerVisibility()
+        {
+            List<LightSource> lights = CurrentFloorObject.GetComponent<DungeonLevel>().LightSources.Items;
+
+            Vector3 playerWorldPos = Utils.ConvertToWorldCoord(playerObject.GetComponent<Creature>().Position) + new Vector3(0f, 0.5f, 0f);
+            VisibilityLevel level = Visibility.Calculate(playerWorldPos, lights);
+            playerObject.GetComponent<Player>().CurrentVisibility = level;
+            visibilityDiamondObject.GetComponent<MeshRenderer>().material.SetColor("_Color", Visibility.GetGemColor(level));
+        }
+
         private void OnDrawGizmos()
         {
             if (playerObject == null)
@@ -503,6 +513,11 @@ namespace GoblinKing.Core
         // Update is called once per frame
         private void Update()
         {
+            if (gameViews.Count == 0)
+            {
+                return;
+            }
+
             if (pathfindDirty)
             {
                 pathfindDirty = false;
@@ -523,7 +538,10 @@ namespace GoblinKing.Core
                     gameViews.Peek().OpenView();
                 }
 
-                // TODO: if last view was closed, quit the game
+                if (gameViews.Count == 0)
+                {
+                    Debug.Log("GAME OVER");
+                }
             }
         }
     }
