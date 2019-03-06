@@ -419,6 +419,24 @@ namespace GoblinKing.Core
 
         }
 
+        public void addExperience(int xp)
+        {
+            playerObject.GetComponent<Player>().Experience += xp;
+            checkLevelUp();
+        }
+
+        public void checkLevelUp() {
+            var player = playerObject.GetComponent<Player>();
+            if(player.Experience >= 100) {
+                player.Experience = 0;
+                player.Level += 1;
+                player.Perkpoints += player.Level % 3 == 0 ? 1 : 0;
+                playerObject.GetComponent<Creature>().Data.MaxHp += player.Level % 2 == 0 ? 1 : 0;
+                playerObject.GetComponent<Creature>().Hp += 1;
+                Debug.Log("Level UP!");
+            }
+        }
+
         public void SetMouseLookEnabled(bool enabled)
         {
             Camera.gameObject.GetComponent<SmoothMouseLook>().enabled = enabled;
@@ -505,7 +523,7 @@ namespace GoblinKing.Core
                 GameObject.Destroy(defender);
             }
             Debug.Log(attacker.Data.Name + " is awarded "+ xp + " xp!");
-            if(xp >0) playerObject.GetComponent<Player>().addExperience(xp);
+            if(xp >0) addExperience(xp);
             Debug.Log(attacker.Data.Name + " attacks " + defender.Data.Name + " for " + dmg + " damage.");
             Debug.Log(defender.Data.Name + " has " + defender.Hp + " hp. ");
         }
