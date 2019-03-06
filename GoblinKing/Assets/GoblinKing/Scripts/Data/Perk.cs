@@ -14,7 +14,7 @@ namespace GoblinKing.Data
     {
         public string Name;
         public string Description;
-        public string Requirement;
+        public string[] Requirement;
 
         public Dictionary<string, PerkValue> Gains;
     }

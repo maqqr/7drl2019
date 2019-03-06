@@ -49,12 +49,22 @@ namespace GoblinKing.Data
                 });
             }
 
+            foreach (var spawnlist in parsedData["spawnlist"])
+            {
+                List<string> keys = new List<string>();
+                foreach (var key in spawnlist.Value.AsArray)
+                {
+                    keys.Add(key.Value);
+                }
+                gameData.SpawnList.Add(int.Parse(spawnlist.Key), keys.ToArray());
+            }
+
             foreach (var parsedPerk in parsedData["perks"])
             {
                 string key = parsedPerk.Key;
 
                 Perk perk = new Perk();
-                perk.Requirement = "";
+                perk.Requirement = new string[] {};
                 perk.Name = parsedPerk.Value["name"];
                 perk.Description = parsedPerk.Value["desc"];
 
@@ -69,7 +79,12 @@ namespace GoblinKing.Data
 
                     if (attrib.Key == "require")
                     {
-                        perk.Requirement = attrib.Value;
+                        List<string> keys = new List<string>();
+                        foreach (var akey in attrib.Value.AsArray)
+                        {
+                            keys.Add(akey.Value);
+                        }
+                        perk.Requirement = keys.ToArray();
                         continue;
                     }
 
