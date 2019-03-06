@@ -75,12 +75,10 @@ namespace GoblinKing.Data
 
                     if (attrib.Value.IsBoolean)
                     {
-                        Debug.Log("Added bool value " + attrib.Key);
                         gains.Add(attrib.Key, new PerkValue() { BoolValue = attrib.Value.AsBool });
                     }
                     else if (attrib.Value.IsNumber)
                     {
-                        Debug.Log("Added number value " + attrib.Key);
                         gains.Add(attrib.Key, new PerkValue() { NumberValue = attrib.Value.AsFloat });
                     }
                     else
