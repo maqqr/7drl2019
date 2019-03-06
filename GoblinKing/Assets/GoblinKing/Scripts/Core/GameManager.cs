@@ -259,22 +259,13 @@ namespace GoblinKing.Core
         {
             // TODO: check that manhattan distance between from and to is not greater than 1?
 
-            bool isDiagonal = from.x != to.x && from.y != to.y;
+            Vector3 fromWorld = Utils.ConvertToWorldCoord(from) + new Vector3(0f, 0.5f, 0f);
+            Vector3 toWorld = Utils.ConvertToWorldCoord(to) + new Vector3(0f, 0.5f, 0f);
+            Vector3 raycastDir = toWorld - fromWorld;
+            bool wayBlocked = Physics.Raycast(fromWorld, raycastDir, 1f, ignoreMask);
 
-            if (isDiagonal)
-            {
-                Vector3 fromWorld = Utils.ConvertToWorldCoord(from) + new Vector3(0f, 0.5f, 0f);
-                Vector3 toWorld = Utils.ConvertToWorldCoord(to) + new Vector3(0f, 0.5f, 0f);
-                Vector3 raycastDir = toWorld - fromWorld;
-                bool wayBlocked = Physics.Raycast(fromWorld, raycastDir, 1f, ignoreMask);
-
-                bool targetSpaceFree = IsWalkable(to, ignoreMask);
-                return targetSpaceFree && !wayBlocked;
-            }
-            else
-            {
-                return IsWalkable(to, ignoreMask);
-            }
+            bool targetSpaceFree = IsWalkable(to, ignoreMask);
+            return targetSpaceFree && !wayBlocked;
         }
 
         public bool IsDungeonValid(GameObject dungeonLevel)
