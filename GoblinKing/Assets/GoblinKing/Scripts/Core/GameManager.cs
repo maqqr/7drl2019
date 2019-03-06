@@ -31,8 +31,8 @@ namespace GoblinKing.Core
         private Collider[] raycastResult = new Collider[1];
         private int advanceTime = 0; // How much time should be advanced due to player actions
 
-        [SerializeField]
         private bool pathfindDirty = false;
+        private int lightingDirty = 0;
         private Pathfinding.DungeonGrid pathfindingGrid;
 
 
@@ -490,10 +490,12 @@ namespace GoblinKing.Core
                 if (defender.LeftHandTransform)
                 {
                     GameObject.Destroy(defender.LeftHandTransform.gameObject);
+                    lightingDirty = 5;
                 }
                 if (defender.RightHandTransform)
                 {
                     GameObject.Destroy(defender.RightHandTransform.gameObject);
+                    lightingDirty = 5;
                 }
                 GameObject.Destroy(defender);
             }
@@ -540,6 +542,16 @@ namespace GoblinKing.Core
             {
                 pathfindDirty = false;
                 UpdatePathfindingGrid();
+            }
+
+            if (lightingDirty > 0)
+            {
+                lightingDirty--;
+                if (lightingDirty == 0)
+                {
+                    CurrentFloorObject.GetComponent<DungeonLevel>().UpdateLights();
+                    UpdatePlayerVisibility();
+                }
             }
 
             bool closeView = gameViews.Peek().UpdateView();
