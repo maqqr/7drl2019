@@ -90,9 +90,5 @@ namespace GoblinKing.Core.GameViews
         {
             return Utils.IsPressed(gameManager.keybindings.OpenPerkTree);
         }
-
-        private void RefreshView()
-        {
-        }
     }
 }

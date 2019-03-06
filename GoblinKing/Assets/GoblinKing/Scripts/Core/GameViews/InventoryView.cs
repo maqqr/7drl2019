@@ -90,7 +90,7 @@ namespace GoblinKing.Core.GameViews
                 var obj = GameObject.Instantiate(gameManager.inventoryGuiItemPrefab);
                 var backgroundImg = obj.GetComponent<UnityEngine.UI.Image>();
                 obj.transform.SetParent(inventoryCanvas.transform);
-                obj.GetComponent<RectTransform>().localPosition = new Vector3(150, 135 - i * 30f, 0);
+                obj.GetComponent<RectTransform>().localPosition = new Vector3(170, 180 - i * 30f, 0);
                 guiItems.Add(obj);
 
                 InventoryItem invItem = player.Inventory[i];
