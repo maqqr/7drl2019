@@ -51,7 +51,7 @@ namespace GoblinKing.Core.GameViews
             {
                 const float pickupDistance = 1.5f;
 
-                var pickup = hitInfo.collider.gameObject.GetComponent<PickupItem>();
+                var pickup = hitInfo.collider.gameObject.GetComponent<Interaction.Interactable>();
                 if (pickup && hitInfo.distance < pickupDistance)
                 {
                     HighlightObject(pickup.gameObject);
@@ -115,15 +115,25 @@ namespace GoblinKing.Core.GameViews
                 playerMoveTo = Utils.ConvertToGameCoord(playerObj.transform.localPosition - playerObj.transform.right);
             }
 
-            if (Utils.IsDown(gameManager.keybindings.PickUp))
+            if (Utils.IsPressed(gameManager.keybindings.PickUp))
             {
                 if (highlightedObject != null)
                 {
-                    string itemKey = highlightedObject.GetComponent<PickupItem>().itemKey;
-                    player.AddItem(itemKey);
                     Unhighlight(highlightedObject);
-                    GameObject.Destroy(highlightedObject);
-                    gameManager.AdvanceTime(player.Speed);
+                    var interactable = highlightedObject.GetComponent<Interaction.Interactable>();
+                    bool advanceTime = false;
+                    for (int i = 0; i < interactable.Interactions.Length; i++)
+                    {
+                        if (interactable.Interactions[i].Interact(gameManager))
+                        {
+                            advanceTime = true;
+                        }
+                    }
+
+                    if (advanceTime)
+                    {
+                        gameManager.AdvanceTime(player.Speed);
+                    }
                 }
             }
 

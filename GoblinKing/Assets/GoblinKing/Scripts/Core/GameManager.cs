@@ -158,7 +158,7 @@ namespace GoblinKing.Core
             var grabChild = itemObject.transform.Find("Grab");
             GameObject.Destroy(itemObject.GetComponentInChildren<Collider>());
             GameObject.Destroy(itemObject.GetComponentInChildren<Rigidbody>());
-            GameObject.Destroy(itemObject.GetComponentInChildren<PickupItem>());
+            GameObject.Destroy(itemObject.GetComponentInChildren<Interaction.PickupItem>());
             itemObject.GetComponentInChildren<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
 
             if (grabChild == null)
