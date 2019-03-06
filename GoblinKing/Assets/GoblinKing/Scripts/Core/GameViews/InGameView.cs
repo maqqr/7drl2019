@@ -92,6 +92,11 @@ namespace GoblinKing.Core.GameViews
                 Vector2Int spawnpos = gameManager.playerObject.GetComponent<Creature>().Position;
                 gameManager.SpawnCreature("goblin", spawnpos);
             }
+            if (Input.GetKeyDown(KeyCode.End))
+            {
+                Vector2Int spawnpos = gameManager.playerObject.GetComponent<Creature>().Position;
+                gameManager.SpawnCreature("torchgoblin", spawnpos);
+            }
             // -----------------------------------------------------------------------
 
             return false;

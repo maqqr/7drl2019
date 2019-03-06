@@ -162,6 +162,8 @@ MonoBehaviour:
     BaseDamage: 0
     AssetPath: 
     CreaturePrefab: {fileID: 0}
+  LeftHandTransform: {fileID: 204848938627951618}
+  RightHandTransform: {fileID: 204848938974532975}
   InitialLeftHandItem: 
   InitialRightHandItem: 
   InitialInventory: []

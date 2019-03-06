@@ -31,8 +31,8 @@ namespace GoblinKing.Core
         private Collider[] raycastResult = new Collider[1];
         private int advanceTime = 0; // How much time should be advanced due to player actions
 
-        [SerializeField]
         private bool pathfindDirty = false;
+        private int lightingDirty = 0;
         private Pathfinding.DungeonGrid pathfindingGrid;
 
 
@@ -144,6 +144,15 @@ namespace GoblinKing.Core
             creature.Data = data;
             creature.Hp = creature.Data.MaxHp;
             creature.Position = position;
+
+            if (!string.IsNullOrEmpty(creature.InitialLeftHandItem))
+            {
+                SpawnItemToHand(creature.LeftHandTransform, creature.InitialLeftHandItem);
+            }
+            if (!string.IsNullOrEmpty(creature.InitialRightHandItem))
+            {
+                SpawnItemToHand(creature.RightHandTransform, creature.InitialRightHandItem);
+            }
         }
 
         public void SpawnPlayer(Vector2Int position)
@@ -199,7 +208,7 @@ namespace GoblinKing.Core
 
             player.Equipment[slot] = item;
 
-            var handObj = GetEquipTransformForSlot(slot);
+            var handObj = GetEquipTransformForSlot(playerObject.GetComponent<Creature>(), slot);
             SpawnItemToHand(handObj.transform, item.ItemKey);
         }
 
@@ -207,7 +216,7 @@ namespace GoblinKing.Core
         {
             var player = playerObject.GetComponent<Creature>();
             player.Equipment.Remove(slot);
-            var handObj = GetEquipTransformForSlot(slot);
+            var handObj = GetEquipTransformForSlot(playerObject.GetComponent<Creature>(), slot);
 
             for (int i = handObj.childCount - 1; i >= 0; i--)
             {
@@ -215,11 +224,10 @@ namespace GoblinKing.Core
             }
         }
 
-        private Transform GetEquipTransformForSlot(EquipSlot slot)
+        private Transform GetEquipTransformForSlot(Creature creature, EquipSlot slot)
         {
-            // TODO: this should be done without transform.Find
-            var handName = slot == EquipSlot.LeftHand ? "LeftHand" : "RightHand";
-            return Camera.gameObject.transform.Find(handName);
+            // TODO: move to Creature.cs
+            return slot == EquipSlot.LeftHand ? creature.LeftHandTransform : creature.RightHandTransform;
         }
 
         public bool IsWalkable(Vector2Int position)
@@ -451,6 +459,8 @@ namespace GoblinKing.Core
 
         internal void Fight(Creature attacker, Creature defender)
         {
+            attacker.TriggerAttackAnimation();
+
             // Damage is sum of meleedmg - sum of defence
             // Some creatures can't hold equips, so they attack with their base dmg. E.g. rats
             // Unarmed dmg is also basedmg
@@ -482,6 +492,16 @@ namespace GoblinKing.Core
                 xp += xp>0 ? System.Math.Max(1, defender.Data.CreatureLevel - playerObject.GetComponent<Player>().Level)*20 : 0;
                 defender.gameObject.AddComponent<Corpse>();
                 GameObject.Destroy(defender.GetComponentInChildren<Collider>());
+                if (defender.LeftHandTransform)
+                {
+                    GameObject.Destroy(defender.LeftHandTransform.gameObject);
+                    lightingDirty = 5;
+                }
+                if (defender.RightHandTransform)
+                {
+                    GameObject.Destroy(defender.RightHandTransform.gameObject);
+                    lightingDirty = 5;
+                }
                 GameObject.Destroy(defender);
             }
             Debug.Log(attacker.Data.Name + " is awarded "+ xp + " xp!");
@@ -529,6 +549,16 @@ namespace GoblinKing.Core
             {
                 pathfindDirty = false;
                 UpdatePathfindingGrid();
+            }
+
+            if (lightingDirty > 0)
+            {
+                lightingDirty--;
+                if (lightingDirty == 0)
+                {
+                    CurrentFloorObject.GetComponent<DungeonLevel>().UpdateLights();
+                    UpdatePlayerVisibility();
+                }
             }
 
             bool closeView = gameViews.Peek().UpdateView();

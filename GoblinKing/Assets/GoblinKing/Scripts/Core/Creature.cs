@@ -15,6 +15,9 @@ namespace GoblinKing.Core
         public List<InventoryItem> Inventory = new List<InventoryItem>();
         public Dictionary<EquipSlot, InventoryItem> Equipment = new Dictionary<EquipSlot, InventoryItem>();
 
+        public Transform LeftHandTransform;
+        public Transform RightHandTransform;
+
         public string InitialLeftHandItem = "";
         public string InitialRightHandItem = "";
         public List<string> InitialInventory = new List<string>();
@@ -33,6 +36,7 @@ namespace GoblinKing.Core
         private int animMovingParam = Animator.StringToHash("moving");
         private int animHitTrigger = Animator.StringToHash("hitTrigger");
         private int animDieTrigger = Animator.StringToHash("dieTrigger");
+        private int animAttackTrigger = Animator.StringToHash("attackTrigger");
 
         public bool InSync
         {
@@ -48,6 +52,13 @@ namespace GoblinKing.Core
             {
                 // TODO: should inventory weight affect speed?
                 return Data.Speed;
+            }
+        }
+        public void TriggerAttackAnimation()
+        {
+            if (animator)
+            {
+                animator.SetTrigger(animAttackTrigger);
             }
         }
 
