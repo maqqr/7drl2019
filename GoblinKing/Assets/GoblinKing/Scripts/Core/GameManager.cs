@@ -10,6 +10,7 @@ namespace GoblinKing.Core
     {
         public Keybindings keybindings;
         public GameObject playerObject;
+        internal Creature playerCreature;
         public GameObject visibilityDiamondObject;
         public Data.GameData GameData;
         public Camera Camera;
@@ -163,11 +164,11 @@ namespace GoblinKing.Core
             playerObject = Instantiate(playerPrefab, Utils.ConvertToWorldCoord(position), Quaternion.identity);
             playerObject.transform.position = Utils.ConvertToWorldCoord(position);
 
-            Creature creature = playerObject.GetComponent<Creature>();
-            creature.PerkSystem = new PerkSystem(GameData);
-            creature.Data = data;
-            creature.Hp = creature.MaxLife;
-            creature.Position = position;
+            playerCreature = playerObject.GetComponent<Creature>();
+            playerCreature.PerkSystem = new PerkSystem(GameData);
+            playerCreature.Data = data;
+            playerCreature.Hp = playerCreature.MaxLife;
+            playerCreature.Position = position;
 
             Camera = playerObject.GetComponentInChildren<Camera>();
         }
@@ -545,6 +546,15 @@ namespace GoblinKing.Core
             {
                 container.SetMaxLife(0);
             }
+        }
+
+        internal bool IsPlayerDead()
+        {
+            if (playerCreature)
+            {
+                return playerCreature.Hp <= 0;
+            }
+            return true;
         }
 
         private void Awake()

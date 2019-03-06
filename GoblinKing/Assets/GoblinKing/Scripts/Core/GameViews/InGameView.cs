@@ -11,6 +11,9 @@ namespace GoblinKing.Core.GameViews
 
         private float forcedCooldown = 0f;
 
+        private float playerTransitionSpeed = 0.3f;
+        private float originalTransitionSpeed = 0.3f;
+
         public void Initialize(GameManager gameManager)
         {
             this.gameManager = gameManager;
@@ -32,7 +35,7 @@ namespace GoblinKing.Core.GameViews
 
         public bool UpdateView()
         {
-            if (!gameManager.playerObject.GetComponent<Creature>())
+            if (gameManager.IsPlayerDead())
             {
                 return true;
             }
@@ -42,11 +45,29 @@ namespace GoblinKing.Core.GameViews
                 forcedCooldown -= Time.deltaTime;
             }
 
-            bool playerCanAct = gameManager.playerObject.GetComponent<Creature>().InSync && forcedCooldown < 0f;
+            if (Utils.IsDown(gameManager.keybindings.MoveForward))
+            {
+                if (playerTransitionSpeed > 0.1f)
+                {
+                    playerTransitionSpeed -= Time.deltaTime * 0.04f;
+                    playerTransitionSpeed = Mathf.Max(0.1f, playerTransitionSpeed);
+                }
+            }
+            if (Utils.IsReleased(gameManager.keybindings.MoveForward))
+            {
+                playerTransitionSpeed = originalTransitionSpeed;
+            }
+            gameManager.playerCreature.TransitionSlowness = playerTransitionSpeed;
 
+            bool playerCanAct = gameManager.playerObject.GetComponent<Creature>().InSync && forcedCooldown < 0f;
             if (playerCanAct)
             {
                 gameManager.UpdateGameWorld();
+
+                if (gameManager.IsPlayerDead())
+                {
+                    return true;
+                }
                 HandlePlayerInput();
             }
 
