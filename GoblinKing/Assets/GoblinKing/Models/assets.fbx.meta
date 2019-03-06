@@ -132,6 +132,24 @@ ModelImporter:
     100252: Bedroll1
     100254: Bedroll2
     100256: Chair1
+    100258: Apple
+    100260: Axe
+    100262: Bread
+    100264: Cheese
+    100266: Club
+    100268: Dagger
+    100270: Dart
+    100272: Hammer
+    100274: IronShield
+    100276: IronShieldSmall
+    100278: LongSword
+    100280: Mace
+    100282: Meat
+    100284: Rock1
+    100286: Spear
+    100288: StoneAxe
+    100290: WoodenShield
+    100292: WoodenShieldSmall
     400000: //RootNode
     400002: BrickWall1
     400004: BrickWallHole1
@@ -261,6 +279,24 @@ ModelImporter:
     400252: Bedroll1
     400254: Bedroll2
     400256: Chair1
+    400258: Apple
+    400260: Axe
+    400262: Bread
+    400264: Cheese
+    400266: Club
+    400268: Dagger
+    400270: Dart
+    400272: Hammer
+    400274: IronShield
+    400276: IronShieldSmall
+    400278: LongSword
+    400280: Mace
+    400282: Meat
+    400284: Rock1
+    400286: Spear
+    400288: StoneAxe
+    400290: WoodenShield
+    400292: WoodenShieldSmall
     2100000: PreviewMaterial
     2300000: BrickWall1
     2300002: BrickWallHole1
@@ -293,6 +329,24 @@ ModelImporter:
     2300056: Bedroll1
     2300058: Bedroll2
     2300060: Chair1
+    2300062: Apple
+    2300064: Axe
+    2300066: Bread
+    2300068: Cheese
+    2300070: Club
+    2300072: Dagger
+    2300074: Dart
+    2300076: Hammer
+    2300078: IronShield
+    2300080: IronShieldSmall
+    2300082: LongSword
+    2300084: Mace
+    2300086: Meat
+    2300088: Rock1
+    2300090: Spear
+    2300092: StoneAxe
+    2300094: WoodenShield
+    2300096: WoodenShieldSmall
     3300000: BrickWall1
     3300002: BrickWallHole1
     3300004: DoorFrame1
@@ -324,6 +378,24 @@ ModelImporter:
     3300056: Bedroll1
     3300058: Bedroll2
     3300060: Chair1
+    3300062: Apple
+    3300064: Axe
+    3300066: Bread
+    3300068: Cheese
+    3300070: Club
+    3300072: Dagger
+    3300074: Dart
+    3300076: Hammer
+    3300078: IronShield
+    3300080: IronShieldSmall
+    3300082: LongSword
+    3300084: Mace
+    3300086: Meat
+    3300088: Rock1
+    3300090: Spear
+    3300092: StoneAxe
+    3300094: WoodenShield
+    3300096: WoodenShieldSmall
     4300000: BrickWall1
     4300002: StoneTileGround1
     4300004: Pillar1
@@ -355,6 +427,24 @@ ModelImporter:
     4300056: Bedroll1
     4300058: Bedroll2
     4300060: Barrel1
+    4300062: Rock1
+    4300064: IronShield
+    4300066: LongSword
+    4300068: WoodenShield
+    4300070: WoodenShieldSmall
+    4300072: IronShieldSmall
+    4300074: Apple
+    4300076: Bread
+    4300078: Cheese
+    4300080: Meat
+    4300082: Dagger
+    4300084: StoneAxe
+    4300086: Axe
+    4300088: Club
+    4300090: Mace
+    4300092: Hammer
+    4300094: Spear
+    4300096: Dart
     10800000: Point
   externalObjects: {}
   materials:
