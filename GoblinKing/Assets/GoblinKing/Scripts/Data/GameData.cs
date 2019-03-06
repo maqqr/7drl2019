@@ -67,8 +67,7 @@ namespace GoblinKing.Data
                 perk.Requirement = new string[] {};
                 perk.Name = parsedPerk.Value["name"];
                 perk.Description = parsedPerk.Value["desc"];
-
-                var gains = new Dictionary<string, PerkValue>();
+                perk.Gains = new Dictionary<string, PerkValue>();
 
                 foreach (var attrib in parsedPerk.Value)
                 {
@@ -90,17 +89,19 @@ namespace GoblinKing.Data
 
                     if (attrib.Value.IsBoolean)
                     {
-                        gains.Add(attrib.Key, new PerkValue() { BoolValue = attrib.Value.AsBool });
+                        perk.Gains.Add(attrib.Key, new PerkValue() { BoolValue = attrib.Value.AsBool });
                     }
                     else if (attrib.Value.IsNumber)
                     {
-                        gains.Add(attrib.Key, new PerkValue() { NumberValue = attrib.Value.AsFloat });
+                        perk.Gains.Add(attrib.Key, new PerkValue() { NumberValue = attrib.Value.AsFloat });
                     }
                     else
                     {
                         Debug.LogError("Unsupported perk attrib type for " + attrib.Key);
                     }
                 }
+
+                gameData.PerkData.Add(key, perk);
             }
 
             return gameData;

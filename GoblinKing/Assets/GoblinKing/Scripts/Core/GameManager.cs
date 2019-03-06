@@ -141,8 +141,9 @@ namespace GoblinKing.Core
             CurrentFloorObject.GetComponent<DungeonLevel>().UpdateAllReferences();
 
             Creature creature = creatureObject.GetComponent<Creature>();
+            creature.PerkSystem = new PerkSystem(GameData);
             creature.Data = data;
-            creature.Hp = creature.Data.MaxHp;
+            creature.Hp = creature.MaxLife;
             creature.Position = position;
 
             if (!string.IsNullOrEmpty(creature.InitialLeftHandItem))
@@ -163,8 +164,10 @@ namespace GoblinKing.Core
             playerObject.transform.position = Utils.ConvertToWorldCoord(position);
 
             Creature creature = playerObject.GetComponent<Creature>();
+            creature.PerkSystem = new PerkSystem(GameData);
+            creature.PerkSystem.BuyPerk("maxlife2"); // test perk buy
             creature.Data = data;
-            creature.Hp = creature.Data.MaxHp;
+            creature.Hp = creature.MaxLife;
             creature.Position = position;
 
             Camera = playerObject.GetComponentInChildren<Camera>();
@@ -492,7 +495,11 @@ namespace GoblinKing.Core
             var defdir = defender.gameObject.transform.forward;
             var angle = Vector2.Angle(new Vector2(atkdir.x, atkdir.z), new Vector2(defdir.x, defdir.z));
 
-            if (angle < 20) Debug.Log("Backstab!");
+            if (angle < 20)
+            {
+                float multiplier = attacker.PerkSystem.GetMaxFloat("backstabMultiplier", 1.0f);
+                Debug.Log("Backstab!");
+            }
 
             int dmg = System.Math.Max((int)System.Math.Ceiling(atk_left + atk_right - (def_left + def_right)), 1);
             defender.TakeDamage(dmg);
@@ -533,7 +540,7 @@ namespace GoblinKing.Core
             if (creature)
             {
                 container.SetLife(creature.Hp);
-                container.SetMaxLife(creature.Data.MaxHp);
+                container.SetMaxLife(creature.MaxLife);
             }
             else
             {

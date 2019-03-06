@@ -14,6 +14,7 @@ namespace GoblinKing.Core
         [HideInInspector] public Data.CreatureData Data;
         public List<InventoryItem> Inventory = new List<InventoryItem>();
         public Dictionary<EquipSlot, InventoryItem> Equipment = new Dictionary<EquipSlot, InventoryItem>();
+        public PerkSystem PerkSystem;
 
         public Transform LeftHandTransform = null;
         public Transform RightHandTransform = null;
@@ -54,6 +55,15 @@ namespace GoblinKing.Core
                 return Data.Speed;
             }
         }
+
+        public int MaxLife
+        {
+            get
+            {
+                return Data.MaxHp + PerkSystem.GetMaxInt("addMaxLife");
+            }
+        }
+
         public void TriggerAttackAnimation()
         {
             if (animator)
