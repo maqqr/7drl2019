@@ -442,10 +442,12 @@ namespace GoblinKing.Core
         internal void Fight(Creature attacker, Creature defender)
         {
             // Damage is sum of meleedmg - sum of defence
-            int atk_left = attacker.Equipment.ContainsKey(EquipSlot.LeftHand) ? GameData.ItemData[attacker.Equipment[EquipSlot.LeftHand].ItemKey].MeleeDamage : 1;
-            int atk_right = attacker.Equipment.ContainsKey(EquipSlot.RightHand) ? GameData.ItemData[attacker.Equipment[EquipSlot.RightHand].ItemKey].MeleeDamage : 1;
-            int def_left = defender.Equipment.ContainsKey(EquipSlot.LeftHand) ? GameData.ItemData[defender.Equipment[EquipSlot.LeftHand].ItemKey].Defence : 0;
-            int def_right = defender.Equipment.ContainsKey(EquipSlot.RightHand) ? GameData.ItemData[defender.Equipment[EquipSlot.RightHand].ItemKey].Defence : 0;
+            // Some creatures can't hold equips, so they attack with their base dmg. E.g. rats
+            // Unarmed dmg is also basedmg
+            double atk_left = attacker.Equipment.ContainsKey(EquipSlot.LeftHand) ? GameData.ItemData[attacker.Equipment[EquipSlot.LeftHand].ItemKey].MeleeDamage : attacker.Data.BaseDamage;
+            double atk_right = attacker.Equipment.ContainsKey(EquipSlot.RightHand) ? GameData.ItemData[attacker.Equipment[EquipSlot.RightHand].ItemKey].MeleeDamage : attacker.Data.BaseDamage;
+            double def_left = defender.Equipment.ContainsKey(EquipSlot.LeftHand) ? GameData.ItemData[defender.Equipment[EquipSlot.LeftHand].ItemKey].Defence : 0;
+            double def_right = defender.Equipment.ContainsKey(EquipSlot.RightHand) ? GameData.ItemData[defender.Equipment[EquipSlot.RightHand].ItemKey].Defence : 0;
 
             // Backstab
             var atkdir = attacker.gameObject.transform.forward;
@@ -454,7 +456,7 @@ namespace GoblinKing.Core
 
             if (angle < 20) Debug.Log("Backstab!");
 
-            int dmg = System.Math.Max(atk_left + atk_right - (def_left + def_right), 0);
+            int dmg = System.Math.Max((int)System.Math.Ceiling(atk_left + atk_right - (def_left + def_right)), 1);
             defender.TakeDamage(dmg);
             if (defender.Hp < 1)
             {
