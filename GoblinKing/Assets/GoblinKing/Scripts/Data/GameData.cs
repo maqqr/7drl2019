@@ -31,7 +31,9 @@ namespace GoblinKing.Data
                     Defence = item.Value["def"].AsInt,
                     Description = item.Value["desc"],
                     ItemPrefab = Resources.Load<GameObject>(item.Value["assetpath"]),
-                    Nutrition = item.Value["nutrition"] != null ? item.Value["nutrition"].AsInt : 0
+                    Nutrition = item.Value["nutrition"] != null ? item.Value["nutrition"].AsInt : 0,
+                    Healing = item.Value["healing"] != null ? item.Value["healing"].AsInt : 0,
+                    Experience = item.Value["experience"] != null ? item.Value["experience"].AsInt : 0
                 });
             }
 

@@ -15,6 +15,8 @@ namespace GoblinKing.Data
         public string Description;
         public string AssetPath;
         public int Nutrition;
+        public int Healing;
+        public int Experience;
 
         public GameObject ItemPrefab;
     }
