@@ -88,6 +88,11 @@ namespace GoblinKing.Core
             }
         }
 
+        public void RecoverHealth(int health)
+        {
+            Hp = System.Math.Min(Hp+health, MaxLife);
+        }
+
         public bool HasItemInSlot(InventoryItem item, EquipSlot slot)
         {
             return Equipment.ContainsKey(slot) && Equipment[slot] == item;

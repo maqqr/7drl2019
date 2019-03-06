@@ -184,6 +184,15 @@ namespace GoblinKing.Core.GameViews
                     gameManager.PlayerUnequip(EquipSlot.RightHand);
                 }
                 playerp.Nutrition += nut;
+                if(gameManager.GameData.ItemData[item.ItemKey].Healing > 0)
+                {
+                    player.RecoverHealth((int)System.Math.Ceiling(gameManager.GameData.ItemData[item.ItemKey].Healing * player.PerkSystem.GetMaxFloat("potionEffect", 1f)));
+                }
+                if(gameManager.GameData.ItemData[item.ItemKey].Experience > 0)
+                {
+                    gameManager.addExperience((int)System.Math.Ceiling(gameManager.GameData.ItemData[item.ItemKey].Experience * player.PerkSystem.GetMaxFloat("potionEffect", 1f)));
+                }
+
                 player.RemoveItem(item, 1);
                 gameManager.AdvanceTime(gameManager.playerObject.GetComponent<Creature>().Speed);
                 gameManager.UpdateGameWorld();

@@ -6,11 +6,11 @@
         "rib":    { "weight": 3, "damM": 1, "damT": 1, "def": 1, "name": "Rib", "assetpath": "Items/Rib", "desc": "Nice rib." },
         "bone":   { "weight": 2, "damM": 2, "damT": 1, "def": 0, "name": "Bone", "assetpath": "Items/Bone", "desc": "Nice bone." },
         "bucket": { "weight": 3, "damM": 1, "damT": 1, "def": 1, "name": "Bucket", "assetpath": "Items/Bucket", "desc": "Nice bucket." },
-        "bluemushroom":      { "weight": 1, "damM": 0, "damT": 0, "def": 0, "name": "Blue Mushroom", "assetpath": "Items/BlueMushroom", "desc": "Glowing mushroom.", "nutrition":25 },
-        "potionSmallXP":     { "weight": 1, "damM": 0, "damT": 1, "def": 0, "name": "Small experience potion", "assetpath": "Items/PotionSmall_XP", "desc": "Magical potion infused with wisdom. Drink to gain experience." },
-        "potionSmallHealth": { "weight": 1, "damM": 0, "damT": 1, "def": 0, "name": "Small health potion", "assetpath": "Items/PotionSmall_Health", "desc": "Drink to gain health." },
-        "potionBigXP":       { "weight": 2, "damM": 0, "damT": 1, "def": 1, "name": "Big XP potion", "assetpath": "Items/PotionBig_XP", "desc": "Magical potion infused with wisdom. Drink to gain large amount of experience." },
-        "potionBigHealth":   { "weight": 2, "damM": 0, "damT": 1, "def": 1, "name": "Big health potion", "assetpath": "Items/PotionBig_Health", "desc": "Drink to gain lots of health." }
+        "bluemushroom":      { "weight": 1, "damM": 0, "damT": 0, "def": 0, "healing": 1, "experience":10, "name": "Blue Mushroom", "assetpath": "Items/BlueMushroom", "desc": "Glowing mushroom.", "nutrition":25 },
+        "potionSmallXP":     { "weight": 1, "damM": 0, "damT": 1, "def": 0, "experience":10, "name": "Small experience potion", "assetpath": "Items/PotionSmall_XP", "desc": "Magical potion infused with wisdom. Drink to gain experience.", "nutrition":5 },
+        "potionSmallHealth": { "weight": 1, "damM": 0, "damT": 1, "def": 0, "healing": 2, "name": "Small health potion", "assetpath": "Items/PotionSmall_Health", "desc": "Drink to gain health.", "nutrition":5 },
+        "potionBigXP":       { "weight": 2, "damM": 0, "damT": 1, "def": 1, "experience":25, "name": "Big XP potion", "assetpath": "Items/PotionBig_XP", "desc": "Magical potion infused with wisdom. Drink to gain large amount of experience.", "nutrition":5 },
+        "potionBigHealth":   { "weight": 2, "damM": 0, "damT": 1, "def": 1, "healing": 4,"name": "Big health potion", "assetpath": "Items/PotionBig_Health", "desc": "Drink to gain lots of health.", "nutrition":5 }
     },
 
     "creatures": {
@@ -33,6 +33,9 @@
         "maxlife2": { "name": "Perk Name", "desc": "Increase maximum life by two hearts", "require": ["maxlife1"], "addMaxLife": 4 },
 
         "widebackstab": { "name": "Perk Name", "desc": "Allows wider range for backstabs", "largeBackstabAngle": true },
+
+        "potionmastah1": { "name": "Perk Name", "desc": "Increase potion efficacy by 1.5x", "potionEffect": 1.5 },
+        "potionmastah2": { "name": "Perk Name", "desc": "Increase potion efficacy by 2.5x", "require": ["potionmastah1"], "potionEffect": 2.5 },
 
         "backstab1": { "name": "Perk Name", "desc": "Increase backstab damage multiplier to 1.5x", "backstabMultiplier": 1.5 },
         "backstab2": { "name": "Perk Name", "desc": "Increase backstab damage multiplier to 1.8x", "require": ["backstab1"], "backstabMultiplier": 1.8 },

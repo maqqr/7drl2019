@@ -60,7 +60,7 @@ namespace GoblinKing.Core
             pathfindingGrid = new Pathfinding.DungeonGrid();
             pathfindingGrid.CreateGrid(minX, maxX, minY, maxY, delegate (Vector2Int pos)
             {
-                return playerObject.GetComponent<Creature>().Position == pos || IsWalkable(pos);
+                return playerCreature.Position == pos || IsWalkable(pos);
             });
         }
 
@@ -79,7 +79,7 @@ namespace GoblinKing.Core
         {
             List<LightSource> lights = CurrentFloorObject.GetComponent<DungeonLevel>().LightSources.Items;
 
-            Vector3 playerWorldPos = Utils.ConvertToWorldCoord(playerObject.GetComponent<Creature>().Position) + new Vector3(0f, 0.5f, 0f);
+            Vector3 playerWorldPos = Utils.ConvertToWorldCoord(playerCreature.Position) + new Vector3(0f, 0.5f, 0f);
             VisibilityLevel level = Visibility.Calculate(playerWorldPos, lights);
             playerObject.GetComponent<Player>().CurrentVisibility = level;
             visibilityDiamondObject.GetComponent<MeshRenderer>().material.SetColor("_Color", Visibility.GetGemColor(level));
@@ -194,7 +194,7 @@ namespace GoblinKing.Core
 
         internal void PlayerEquip(InventoryItem item, EquipSlot slot)
         {
-            var player = playerObject.GetComponent<Creature>();
+            var player = playerCreature;
             EquipSlot otherHand = slot == EquipSlot.LeftHand ? EquipSlot.RightHand : EquipSlot.LeftHand;
 
             // Unequip old item
@@ -211,15 +211,15 @@ namespace GoblinKing.Core
 
             player.Equipment[slot] = item;
 
-            var handObj = GetEquipTransformForSlot(playerObject.GetComponent<Creature>(), slot);
+            var handObj = GetEquipTransformForSlot(playerCreature, slot);
             SpawnItemToHand(handObj.transform, item.ItemKey);
         }
 
         internal void PlayerUnequip(EquipSlot slot)
         {
-            var player = playerObject.GetComponent<Creature>();
+            var player = playerCreature;
             player.Equipment.Remove(slot);
-            var handObj = GetEquipTransformForSlot(playerObject.GetComponent<Creature>(), slot);
+            var handObj = GetEquipTransformForSlot(playerCreature, slot);
 
             for (int i = handObj.childCount - 1; i >= 0; i--)
             {
@@ -241,9 +241,9 @@ namespace GoblinKing.Core
 
         internal Creature GetCreatureAt(Vector2Int position)
         {
-            if (position == playerObject.GetComponent<Creature>().Position)
+            if (position == playerCreature.Position)
             {
-                return playerObject.GetComponent<Creature>();
+                return playerCreature;
             }
 
             List<Creature> creatures = CurrentFloorObject.GetComponent<DungeonLevel>().EnemyCreatures.Items;
@@ -372,7 +372,7 @@ namespace GoblinKing.Core
             {
                 Vector2Int point = Utils.ConvertToGameCoord(spawnPoint.transform.position);
                 playerObject.transform.position = Utils.ConvertToWorldCoord(point);
-                playerObject.GetComponent<Creature>().Position = point;
+                playerCreature.Position = point;
             }
             else
             {
@@ -418,7 +418,7 @@ namespace GoblinKing.Core
         public void UpdateHunger()
         {
             int deltahp = playerObject.GetComponent<Player>().Nutrition < 1 ? (playerObject.GetComponent<Player>().Nutrition > -10 ? -1 : -2) : 0;
-            playerObject.GetComponent<Creature>().Hp -= deltahp;
+            playerCreature.Hp -= deltahp;
 
         }
 
@@ -434,8 +434,8 @@ namespace GoblinKing.Core
                 player.Experience = 0;
                 player.Level += 1;
                 player.Perkpoints += player.Level % 3 == 0 ? 1 : 0;
-                playerObject.GetComponent<Creature>().Data.MaxHp += player.Level % 2 == 0 ? 1 : 0;
-                playerObject.GetComponent<Creature>().Hp += 1;
+                playerCreature.Data.MaxHp += player.Level % 2 == 0 ? 1 : 0;
+                playerCreature.Hp += 1;
                 Debug.Log("Level UP!");
             }
         }
@@ -462,7 +462,7 @@ namespace GoblinKing.Core
             }
             AdjustNutrition(-1);
             UpdateHunger();
-            UpdateHearts(playerObject.GetComponent<Creature>(), PlayerHearts);
+            UpdateHearts(playerCreature, PlayerHearts);
             Debug.Log("Player nutrition: " + playerObject.GetComponent<Player>().Nutrition);
         }
 
@@ -495,7 +495,7 @@ namespace GoblinKing.Core
             var defdir = defender.gameObject.transform.forward;
             var angle = Vector2.Angle(new Vector2(atkdir.x, atkdir.z), new Vector2(defdir.x, defdir.z));
 
-            if (angle < 20)
+            if (angle < (attacker.PerkSystem.HasPerk("widebackstab") ? 55 : 20))
             {
                 float multiplier = attacker.PerkSystem.GetMaxFloat("backstabMultiplier", 1.3f);
                 Debug.Log("Backstab!");
@@ -568,7 +568,7 @@ namespace GoblinKing.Core
             SpawnPlayer(Vector2Int.zero);
             NextDungeonFloor();
             AddNewView(new GameViews.InGameView());
-            UpdateHearts(playerObject.GetComponent<Creature>(), PlayerHearts);
+            UpdateHearts(playerCreature, PlayerHearts);
         }
 
         // Update is called once per frame
