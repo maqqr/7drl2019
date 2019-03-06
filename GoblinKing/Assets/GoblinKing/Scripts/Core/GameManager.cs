@@ -497,7 +497,7 @@ namespace GoblinKing.Core
 
             if (angle < 20)
             {
-                float multiplier = attacker.PerkSystem.GetMaxFloat("backstabMultiplier", 1.0f);
+                float multiplier = attacker.PerkSystem.GetMaxFloat("backstabMultiplier", 1.3f);
                 Debug.Log("Backstab!");
             }
 
