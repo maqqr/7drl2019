@@ -6,23 +6,32 @@ namespace GoblinKing.Core.Interaction
 {
     internal class DoorInteraction : MonoBehaviour, IInteraction
     {
+        public Transform OpenTransform;
+        public Transform ClosedTransform;
+
+        public bool IsOpen;
+
         public bool Interact(GameManager gameManager)
         {
-            Debug.Log("Door open");
+            IsOpen = !IsOpen;
+
+            if (IsOpen)
+            {
+                transform.parent.position = OpenTransform.position;
+                transform.parent.rotation = OpenTransform.rotation;
+            }
+            else
+            {
+                transform.parent.position = ClosedTransform.position;
+                transform.parent.rotation = ClosedTransform.rotation;
+            }
 
             return true;
         }
 
-        // Start is called before the first frame update
-        void Start()
-        {
-
-        }
-
-        // Update is called once per frame
         void Update()
         {
-
+            // TODO: make door opening smooth
         }
     }
 }

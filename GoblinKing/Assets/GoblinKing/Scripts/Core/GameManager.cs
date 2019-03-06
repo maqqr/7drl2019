@@ -240,7 +240,7 @@ namespace GoblinKing.Core
         {
             // Use sphere cast to check that there is enough free space
             Vector3 worldPosition = Utils.ConvertToWorldCoord(position) + new Vector3(0f, 0.5f, 0f);
-            int hits = Physics.OverlapSphereNonAlloc(worldPosition, 0.3f, raycastResult, ignoreMask, QueryTriggerInteraction.Ignore);
+            int hits = Physics.OverlapSphereNonAlloc(worldPosition, 0.2f, raycastResult, ignoreMask, QueryTriggerInteraction.Ignore);
             bool noObstacles = hits == 0;
 
             // Check ground to prevent moving to tiles outside of map
