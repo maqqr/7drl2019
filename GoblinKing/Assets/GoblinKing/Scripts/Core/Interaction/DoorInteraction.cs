@@ -6,8 +6,8 @@ namespace GoblinKing.Core.Interaction
 {
     internal class DoorInteraction : MonoBehaviour, IInteraction
     {
-        public Transform OpenTransform;
-        public Transform ClosedTransform;
+        public Transform OpenTransform = null;
+        public Transform ClosedTransform = null;
 
         public bool IsOpen;
 
@@ -27,6 +27,14 @@ namespace GoblinKing.Core.Interaction
             }
 
             return true;
+        }
+
+        void Awake()
+        {
+            if (!OpenTransform || !ClosedTransform)
+            {
+                Debug.LogError("Door " + gameObject.name + " is missing OpenTransform or ClosedTransform");
+            }
         }
 
         void Update()

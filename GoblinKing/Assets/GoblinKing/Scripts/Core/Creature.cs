@@ -15,8 +15,8 @@ namespace GoblinKing.Core
         public List<InventoryItem> Inventory = new List<InventoryItem>();
         public Dictionary<EquipSlot, InventoryItem> Equipment = new Dictionary<EquipSlot, InventoryItem>();
 
-        public Transform LeftHandTransform;
-        public Transform RightHandTransform;
+        public Transform LeftHandTransform = null;
+        public Transform RightHandTransform = null;
 
         public string InitialLeftHandItem = "";
         public string InitialRightHandItem = "";

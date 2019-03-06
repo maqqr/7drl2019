@@ -6,7 +6,15 @@ namespace GoblinKing.Core.Interaction
 {
     internal class ExtinguishTorch : MonoBehaviour, IInteraction
     {
-        public GameObject FlameObject;
+        public GameObject FlameObject = null;
+
+        private void Awake()
+        {
+            if (!FlameObject)
+            {
+                Debug.LogError(gameObject.name + " is missing FlameObject");
+            }
+        }
 
         public bool Interact(GameManager gameManager)
         {

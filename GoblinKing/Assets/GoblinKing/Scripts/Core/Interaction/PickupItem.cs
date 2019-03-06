@@ -6,7 +6,15 @@ namespace GoblinKing.Core.Interaction
 {
     internal class PickupItem : MonoBehaviour, IInteraction
     {
-        public string itemKey;
+        public string itemKey = "";
+
+        private void Awake()
+        {
+            if (string.IsNullOrEmpty(itemKey))
+            {
+                Debug.LogError(gameObject.name + ": PickupItem is missing " + itemKey);
+            }
+        }
 
         public bool Interact(GameManager gameManager)
         {
