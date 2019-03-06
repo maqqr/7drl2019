@@ -64,6 +64,7 @@ namespace GoblinKing.Core.GameViews
                 displayEnemy = hitInfo.collider.transform.parent?.gameObject.GetComponent<Creature>();
             }
 
+            gameManager.EnemyNameText.text = displayEnemy ? displayEnemy.Data.Name : "";
             gameManager.UpdateHearts(displayEnemy, gameManager.EnemyHearts);
 
             // ----- These are for debugging purposes ---------------------------------

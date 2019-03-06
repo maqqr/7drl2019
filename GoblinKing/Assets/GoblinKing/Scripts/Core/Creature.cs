@@ -30,7 +30,9 @@ namespace GoblinKing.Core
 
         [SerializeField]
         private Animator animator;
-        private int movingParam = Animator.StringToHash("moving");
+        private int animMovingParam = Animator.StringToHash("moving");
+        private int animHitTrigger = Animator.StringToHash("hitTrigger");
+        private int animDieTrigger = Animator.StringToHash("dieTrigger");
 
         public bool InSync
         {
@@ -46,6 +48,22 @@ namespace GoblinKing.Core
             {
                 // TODO: should inventory weight affect speed?
                 return Data.Speed;
+            }
+        }
+
+        public void TakeDamage(int damage)
+        {
+            Hp -= damage;
+            if (animator)
+            {
+                if (Hp <= 0)
+                {
+                    animator.SetTrigger(animDieTrigger);
+                }
+                else
+                {
+                    animator.SetTrigger(animHitTrigger);
+                }
             }
         }
 
@@ -127,7 +145,7 @@ namespace GoblinKing.Core
             // Update animator parameters
             if (animator)
             {
-                animator.SetBool(movingParam, !InSync);
+                animator.SetBool(animMovingParam, !InSync);
             }
         }
     }

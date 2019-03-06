@@ -15,6 +15,7 @@ namespace GoblinKing.Core
         public Camera Camera;
         public HeartContainer PlayerHearts;
         public HeartContainer EnemyHearts;
+        public TMPro.TextMeshProUGUI EnemyNameText;
 
         public GameObject[] levelGeneratorPrefabs;
         public GameObject perkTreePrefab;
@@ -405,7 +406,7 @@ namespace GoblinKing.Core
             if (angle < 20) Debug.Log("Backstab!");
 
             int dmg = System.Math.Max(atk_left + atk_right - (def_left + def_right), 0);
-            defender.Hp -= dmg;
+            defender.TakeDamage(dmg);
             if (defender.Hp < 1)
             {
                 foreach (InventoryItem dropped_item in defender.Inventory)
