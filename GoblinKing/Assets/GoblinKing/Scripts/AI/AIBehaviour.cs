@@ -72,7 +72,8 @@ namespace GoblinKing.AI
             if (newAlertLevel != AlertLevel.Unaware)
             {
                 GameObject prefab = newAlertLevel == AlertLevel.Suspicious ? gameManager.questionMarkPrefab : gameManager.exclamationMarkPrefab;
-                GameObject.Instantiate(prefab, creature.gameObject.transform.position + new Vector3(0f, 0.7f, 0f), Quaternion.Euler(-90f, 0f, 0f));
+                var obj = GameObject.Instantiate(prefab, creature.gameObject.transform.position + new Vector3(0f, 0.7f, 0f), Quaternion.Euler(-90f, 0f, 0f));
+                obj.transform.parent = creature.transform;
             }
         }
 
