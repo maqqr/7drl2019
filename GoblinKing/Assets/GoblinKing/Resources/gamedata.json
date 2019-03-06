@@ -23,5 +23,20 @@
         "0": ["goblin", "goblin"],
         "1": ["goblin", "rat", "rat"],
         "2": ["goblin", "rat", "rat"]
+    },
+
+    "perks": {
+        "speed1": { "name": "Perk Name", "desc": "Increase speed by 10%", "speedReduction": 10 },
+        "speed2": { "name": "Perk Name", "desc": "Increase speed by 20%", "require": ["speed1"], "speedReduction": 20 },
+
+        "maxlife1": { "name": "Perk Name", "desc": "Increase maximum life by one heart", "addMaxLife": 2 },
+        "maxlife2": { "name": "Perk Name", "desc": "Increase maximum life by two hearts", "require": ["maxlife1"], "addMaxLife": 4 },
+
+        "widebackstab": { "name": "Perk Name", "desc": "Allows wider range for backstabs", "largeBackstabAngle": true },
+
+        "backstab1": { "name": "Perk Name", "desc": "Increase backstab damage multiplier to 1.5x", "backstabMultiplier": 1.5 },
+        "backstab2": { "name": "Perk Name", "desc": "Increase backstab damage multiplier to 1.8x", "require": ["backstab1"], "backstabMultiplier": 1.8 },
+        "backstab3": { "name": "Perk Name", "desc": "Increase backstab damage multiplier to 2.0x", "require": ["backstab2"], "backstabMultiplier": 2.0 },
+        "backstab4": { "name": "Perk Name", "desc": "Increase backstab damage multiplier to 2.5x", "require": ["backstab3"], "backstabMultiplier": 2.5 }
     }
 }

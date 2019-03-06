@@ -9,6 +9,7 @@ namespace GoblinKing.Data
         public readonly Dictionary<string, ItemData> ItemData = new Dictionary<string, ItemData>();
         public readonly Dictionary<string, CreatureData> CreatureData = new Dictionary<string, CreatureData>();
         public readonly Dictionary<int, string[]> SpawnList = new Dictionary<int, string[]>();
+        public readonly Dictionary<string, Perk> PerkData = new Dictionary<string, Perk>();
 
         public static GameData LoadData()
         {
@@ -48,14 +49,45 @@ namespace GoblinKing.Data
                 });
             }
 
-            foreach (var spawnlist in parsedData["spawnlist"])
+            foreach (var parsedPerk in parsedData["perks"])
             {
-                List<string> keys = new List<string>();
-                foreach (var key in spawnlist.Value.AsArray)
+                string key = parsedPerk.Key;
+
+                Perk perk = new Perk();
+                perk.Requirement = "";
+                perk.Name = parsedPerk.Value["name"];
+                perk.Description = parsedPerk.Value["desc"];
+
+                var gains = new Dictionary<string, PerkValue>();
+
+                foreach (var attrib in parsedPerk.Value)
                 {
-                    keys.Add(key.Value);
+                    if (attrib.Key == "name" || attrib.Key == "desc")
+                    {
+                        continue;
+                    }
+
+                    if (attrib.Key == "require")
+                    {
+                        perk.Requirement = attrib.Value;
+                        continue;
+                    }
+
+                    if (attrib.Value.IsBoolean)
+                    {
+                        Debug.Log("Added bool value " + attrib.Key);
+                        gains.Add(attrib.Key, new PerkValue() { BoolValue = attrib.Value.AsBool });
+                    }
+                    else if (attrib.Value.IsNumber)
+                    {
+                        Debug.Log("Added number value " + attrib.Key);
+                        gains.Add(attrib.Key, new PerkValue() { NumberValue = attrib.Value.AsFloat });
+                    }
+                    else
+                    {
+                        Debug.LogError("Unsupported perk attrib type for " + attrib.Key);
+                    }
                 }
-                gameData.SpawnList.Add(int.Parse(spawnlist.Key), keys.ToArray());
             }
 
             return gameData;
