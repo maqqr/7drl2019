@@ -9,20 +9,22 @@ namespace GoblinKing.Helpers
         [SerializeField]
         private MeshRenderer[] heartMeshes;
 
-        private int currentMaxLife = 0;
+        public int CurrentLife = 0;
+        public int CurrentMaxLife = 0;
 
         public void SetMaxLife(int maxLife)
         {
-            currentMaxLife = maxLife;
+            CurrentMaxLife = maxLife;
 
             for (int i = 0; i < heartMeshes.Length; i++)
             {
-                heartMeshes[i].enabled = i < currentMaxLife;
+                heartMeshes[i].enabled = i < CurrentMaxLife;
             }
         }
 
         public void SetLife(int life)
         {
+            CurrentLife = life;
             for (int i = 0; i < heartMeshes.Length; i++)
             {
                 if (heartMeshes[i].enabled)
@@ -34,12 +36,8 @@ namespace GoblinKing.Helpers
 
         private void Awake()
         {
-            heartMeshes = GetComponentsInChildren<MeshRenderer>();
-        }
-
-        private void Start()
-        {
             SetMaxLife(0);
+            heartMeshes = GetComponentsInChildren<MeshRenderer>();
         }
 
         private void Update()
