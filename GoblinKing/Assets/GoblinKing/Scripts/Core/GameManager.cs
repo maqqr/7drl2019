@@ -155,6 +155,20 @@ namespace GoblinKing.Core
             {
                 SpawnItemToHand(creature.RightHandTransform, creature.InitialRightHandItem);
             }
+
+            var throwHandler = creature.GetComponentInChildren<RegisterThrownItemCollision>();
+            if (throwHandler)
+            {
+                throwHandler.HitByItem += delegate(string itemKey)
+                {
+                    Data.ItemData item = GameData.ItemData[itemKey];
+                    creature.TakeDamage(item.ThrowingDamage);
+                };
+            }
+            else
+            {
+                Debug.LogWarning("Creature " + key + " is missing RegisterThrownItemCollision");
+            }
         }
 
         public void SpawnPlayer(Vector2Int position)

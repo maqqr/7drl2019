@@ -52,6 +52,7 @@ MonoBehaviour:
     MaxHp: 0
     Speed: 0
     BaseDamage: 0
+    CreatureLevel: 0
     AssetPath: 
     CreaturePrefab: {fileID: 0}
   LeftHandTransform: {fileID: 763134008126009527}
@@ -1229,6 +1230,7 @@ GameObject:
   - component: {fileID: 9121182618322462663}
   - component: {fileID: 9121182618312938590}
   - component: {fileID: 7496077765758609458}
+  - component: {fileID: 3129034944205252011}
   m_Layer: 10
   m_Name: GoblinModel
   m_TagString: Untagged
@@ -1295,6 +1297,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 27545f322b670b84abaf804fa6d3cd98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3129034944205252011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9121182618312938591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bb770e06de1e5240b79fd302312c87b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &9121182618312938593
