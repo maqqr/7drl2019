@@ -51,8 +51,10 @@ MonoBehaviour:
     Name: 
     MaxHp: 0
     Speed: 0
+    BaseDamage: 0
     AssetPath: 
     CreaturePrefab: {fileID: 0}
+  CreatureDataKey: goblin
   InitialLeftHandItem: sword
   InitialRightHandItem: bone
   InitialInventory:

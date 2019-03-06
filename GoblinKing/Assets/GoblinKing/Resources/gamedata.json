@@ -14,6 +14,7 @@
     },
 
     "creatures": {
+        "player": { "name": "Player", "assetpath": "Creatures/Goblin", "maxhp": 12, "speed": 100, "basedamage": 1 },
         "goblin": { "name": "Goblin", "assetpath": "Creatures/Goblin", "maxhp": 10, "speed": 100, "basedamage": 1 }
     },
 

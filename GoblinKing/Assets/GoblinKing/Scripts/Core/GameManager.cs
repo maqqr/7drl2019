@@ -23,6 +23,7 @@ namespace GoblinKing.Core
         public GameObject inventoryGuiItemPrefab;
         public GameObject questionMarkPrefab;
         public GameObject exclamationMarkPrefab;
+        public GameObject playerPrefab;
 
         private int currentFloor = -1;
         private List<GameObject> dungeonFloors = new List<GameObject>();
@@ -33,8 +34,6 @@ namespace GoblinKing.Core
         [SerializeField]
         private bool pathfindDirty = false;
         private Pathfinding.DungeonGrid pathfindingGrid;
-
-        // private List<Vector2Int> reservedPlaces = new List<Vector2Int>(); // Prevent creatures from moving inside eachother
 
 
         public GameObject CurrentFloorObject
@@ -135,6 +134,21 @@ namespace GoblinKing.Core
             creature.Data = data;
             creature.Hp = creature.Data.MaxHp;
             creature.Position = position;
+        }
+
+        public void SpawnPlayer(Vector2Int position)
+        {
+            Data.CreatureData data = GameData.CreatureData["player"];
+
+            playerObject = Instantiate(playerPrefab, Utils.ConvertToWorldCoord(position), Quaternion.identity);
+            playerObject.transform.position = Utils.ConvertToWorldCoord(position);
+
+            Creature creature = playerObject.GetComponent<Creature>();
+            creature.Data = data;
+            creature.Hp = creature.Data.MaxHp;
+            creature.Position = position;
+
+            Camera = playerObject.GetComponentInChildren<Camera>();
         }
 
         public void SpawnItemToHand(Transform hand, string itemKey)
@@ -307,6 +321,8 @@ namespace GoblinKing.Core
             {
                 CurrentFloorObject.SetActive(true);
             }
+
+            // TODO: move player to starting cell on first level or to up stairs on other levels
         }
 
         public void PreviousDungeonFloor()
@@ -359,7 +375,6 @@ namespace GoblinKing.Core
         private void AdvanceGameWorld(int deltaTime)
         {
             List<Creature> creatures = CurrentFloorObject.GetComponent<DungeonLevel>().EnemyCreatures.Items;
-            // reservedPlaces.Clear();
 
             for (int i = 0; i < creatures.Count; i++)
             {
@@ -437,12 +452,11 @@ namespace GoblinKing.Core
         {
             keybindings = new Keybindings();
             GameData = Data.GameData.LoadData();
-            playerObject = FindObjectOfType<Player>().gameObject;
-            Camera = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
         }
 
         private void Start()
         {
+            SpawnPlayer(Vector2Int.zero);
             NextDungeonFloor();
             AddNewView(new GameViews.InGameView());
             UpdateHearts(playerObject.GetComponent<Creature>(), PlayerHearts);

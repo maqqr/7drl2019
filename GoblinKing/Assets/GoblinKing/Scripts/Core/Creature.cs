@@ -11,7 +11,7 @@ namespace GoblinKing.Core
         public int Hp = 0;
         public int TimeElapsed = 0; // Creature takes turn when TimeElapsed > Speed
         public Vector2Int Position; // Position in game coordinates
-        public Data.CreatureData Data;
+        [HideInInspector] public Data.CreatureData Data;
         public List<InventoryItem> Inventory = new List<InventoryItem>();
         public Dictionary<EquipSlot, InventoryItem> Equipment = new Dictionary<EquipSlot, InventoryItem>();
 
