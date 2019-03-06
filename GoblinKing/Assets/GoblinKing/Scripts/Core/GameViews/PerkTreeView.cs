@@ -6,12 +6,16 @@ namespace GoblinKing.Core.GameViews
     internal class PerkTreeView : IGameView
     {
         private GameManager gameManager;
+        private PerkSystem perkSystem;
 
         private GameObject perkTreeCanvas;
+        private Color perkBoughtColor = Color.green;
+        private PerkButton[] buttons;
 
         public void Initialize(GameManager gameManager)
         {
             this.gameManager = gameManager;
+            perkSystem = gameManager.playerObject.GetComponent<Creature>().PerkSystem;
         }
 
         public void Destroy()
@@ -21,26 +25,39 @@ namespace GoblinKing.Core.GameViews
         public void OpenView()
         {
             perkTreeCanvas = GameObject.Instantiate(gameManager.perkTreePrefab);
-            var buttons = perkTreeCanvas.GetComponentsInChildren<PerkButton>();
+            buttons = perkTreeCanvas.GetComponentsInChildren<PerkButton>();
 
             foreach (var button in buttons)
             {
                 var backgroundImg = button.GetComponent<UnityEngine.UI.Image>();
+
+                if (perkSystem.HasPerk(button.PerkKey))
+                {
+                    backgroundImg.color = perkBoughtColor;
+                }
+
                 button.MouseEnter += delegate
                 {
-                    backgroundImg.color = new Color(0.7f, 0.7f, 0.7f);
-                    // ShowItemStats(item);
-                    // highlightedItem = invItem;
+                    if (!perkSystem.HasPerk(button.PerkKey))
+                    {
+                        backgroundImg.color = new Color(0.7f, 0.7f, 0.7f);
+                    }
                 };
                 button.MouseExit += delegate
                 {
-                    backgroundImg.color = new Color(1f, 1f, 1f);
-                    // descriptionText.text = "";
-                    // highlightedItem = null;
+                    if (!perkSystem.HasPerk(button.PerkKey))
+                    {
+                        backgroundImg.color = new Color(1f, 1f, 1f);
+                    }
                 };
                 button.MouseClick += delegate
                 {
-                    Debug.Log(button.PerkKey);
+                    if (!perkSystem.HasPerk(button.PerkKey))
+                    {
+                        // TODO: check that player has enough perk points and can buy perk
+                        perkSystem.BuyPerk(button.PerkKey);
+                        backgroundImg.color = perkBoughtColor;
+                    }
                 };
             }
         }

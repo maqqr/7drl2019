@@ -165,7 +165,6 @@ namespace GoblinKing.Core
 
             Creature creature = playerObject.GetComponent<Creature>();
             creature.PerkSystem = new PerkSystem(GameData);
-            creature.PerkSystem.BuyPerk("maxlife2"); // test perk buy
             creature.Data = data;
             creature.Hp = creature.MaxLife;
             creature.Position = position;
