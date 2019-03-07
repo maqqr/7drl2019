@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace GoblinKing.Helpers
 {
-    [RequireComponent(typeof(Collider))]
     public class RegisterThrownItemCollision : MonoBehaviour
     {
         public delegate void HitHandler(string itemKey);
