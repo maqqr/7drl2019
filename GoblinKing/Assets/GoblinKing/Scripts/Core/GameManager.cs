@@ -16,6 +16,7 @@ namespace GoblinKing.Core
         public Camera Camera;
         public HeartContainer PlayerHearts;
         public HeartContainer EnemyHearts;
+        public HungerContainer HungerContainer;
         public TMPro.TextMeshProUGUI EnemyNameText;
 
         public GameObject[] levelGeneratorPrefabs;
@@ -428,6 +429,9 @@ namespace GoblinKing.Core
         {
             var player = playerObject.GetComponent<Player>();
             player.Nutrition = Mathf.Min(player.Nutrition + deltahunger, player.MaxNutrition);
+            HungerContainer.CurrentNutrition = player.Nutrition;
+            HungerContainer.CurrentMaxNutrition = player.MaxNutrition;
+            HungerContainer.UpdateModels();
         }
 
         public void UpdateHunger()

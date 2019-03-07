@@ -150,6 +150,12 @@ ModelImporter:
     100288: StoneAxe
     100290: WoodenShield
     100292: WoodenShieldSmall
+    100294: Hunger1
+    100296: Hunger2
+    100298: Hunger3
+    100300: Hunger4
+    100302: Hunger5
+    100304: Hunger6
     400000: //RootNode
     400002: BrickWall1
     400004: BrickWallHole1
@@ -297,6 +303,12 @@ ModelImporter:
     400288: StoneAxe
     400290: WoodenShield
     400292: WoodenShieldSmall
+    400294: Hunger1
+    400296: Hunger2
+    400298: Hunger3
+    400300: Hunger4
+    400302: Hunger5
+    400304: Hunger6
     2100000: PreviewMaterial
     2300000: BrickWall1
     2300002: BrickWallHole1
@@ -347,6 +359,12 @@ ModelImporter:
     2300092: StoneAxe
     2300094: WoodenShield
     2300096: WoodenShieldSmall
+    2300098: Hunger1
+    2300100: Hunger2
+    2300102: Hunger3
+    2300104: Hunger4
+    2300106: Hunger5
+    2300108: Hunger6
     3300000: BrickWall1
     3300002: BrickWallHole1
     3300004: DoorFrame1
@@ -396,6 +414,12 @@ ModelImporter:
     3300092: StoneAxe
     3300094: WoodenShield
     3300096: WoodenShieldSmall
+    3300098: Hunger1
+    3300100: Hunger2
+    3300102: Hunger3
+    3300104: Hunger4
+    3300106: Hunger5
+    3300108: Hunger6
     4300000: BrickWall1
     4300002: StoneTileGround1
     4300004: Pillar1
@@ -445,6 +469,12 @@ ModelImporter:
     4300092: Hammer
     4300094: Spear
     4300096: Dart
+    4300098: Hunger1
+    4300100: Hunger2
+    4300102: Hunger3
+    4300104: Hunger4
+    4300106: Hunger5
+    4300108: Hunger6
     10800000: Point
   externalObjects: {}
   materials:
