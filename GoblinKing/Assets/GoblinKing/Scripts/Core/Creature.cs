@@ -10,6 +10,7 @@ namespace GoblinKing.Core
         // Game related data
         public int Hp = 0;
         public int TimeElapsed = 0; // Creature takes turn when TimeElapsed > Speed
+        public int MaxEncumbrance = 0;
         public Vector2Int Position; // Position in game coordinates
         [HideInInspector] public Data.CreatureData Data;
         public List<InventoryItem> Inventory = new List<InventoryItem>();
@@ -61,6 +62,14 @@ namespace GoblinKing.Core
             get
             {
                 return Data.MaxHp + PerkSystem.GetMaxInt("addMaxLife");
+            }
+        }
+
+        public int MaxEnc
+        {
+            get
+            {
+                return Data.MaxEncumbrance + PerkSystem.GetMaxInt("addMaxEnc");
             }
         }
 

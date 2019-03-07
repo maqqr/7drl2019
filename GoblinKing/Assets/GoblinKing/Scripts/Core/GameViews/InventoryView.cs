@@ -146,8 +146,9 @@ namespace GoblinKing.Core.GameViews
 
         private void UpdateEncumbranceText()
         {
-            int total = Utils.TotalEncumbrance(gameManager, gameManager.playerObject.GetComponent<Creature>());
-            encumbranceText.text = string.Format("Encumbrance: {0} / {1}", total, "?");
+            var player = gameManager.playerObject.GetComponent<Creature>();
+            int total = Utils.TotalEncumbrance(gameManager, player);
+            encumbranceText.text = string.Format("Encumbrance: {0} / {1}", total, player.MaxEnc);
         }
 
         private void DropItem(InventoryItem item)
