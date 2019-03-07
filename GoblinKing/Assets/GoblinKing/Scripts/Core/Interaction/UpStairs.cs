@@ -11,6 +11,8 @@ namespace GoblinKing.Core.Interaction
             // TODO: implement
             Debug.Log("Going up stairs");
 
+            gameManager.NextDungeonFloor();
+
             return false;
         }
     }
