@@ -3719,6 +3719,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerObject: {fileID: 0}
+  playerAnim: {fileID: 0}
   visibilityDiamondObject: {fileID: 907954258}
   Camera: {fileID: 0}
   PlayerHearts: {fileID: 2095338322}
