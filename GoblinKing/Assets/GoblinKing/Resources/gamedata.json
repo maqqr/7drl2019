@@ -19,7 +19,7 @@
         "woodenshield" :   { "weight": 2, "damM": 0, "damT": 2, "def": 3, "name": "Wooden shield", "assetpath": "Items/WoodenShield", "desc": "A trusty cutting board." },
         "woodenshieldsmall" :   { "weight": 2, "damM": 0, "damT": 2, "def": 2, "name": "Small wooden shield", "assetpath": "Items/WoodenShieldSmall", "desc": "Goblin, fetch!" },
         "bucket": { "weight": 3, "damM": 1, "damT": 1, "def": 1, "name": "Bucket", "assetpath": "Items/Bucket", "desc": "It's empty." },
-        "bluemushroom":      { "weight": 1, "damM": 0, "damT": 0, "def": 0, "healing": 1, "experience":10, "name": "Blue Mushroom", "assetpath": "Items/BlueMushroom", "desc": "Glowing mushroom.", "nutrition":25 },
+        "bluemushroom":      { "weight": 1, "damM": 0, "damT": 0, "def": 0, "healing": 1, "experience":3, "name": "Blue Mushroom", "assetpath": "Items/BlueMushroom", "desc": "Glowing mushroom.", "nutrition":5 },
         "potionSmallXP":     { "weight": 1, "damM": 0, "damT": 1, "def": 0, "experience":10, "name": "Small experience potion", "assetpath": "Items/PotionSmall_XP", "desc": "Magical potion infused with wisdom. Drink to gain experience.", "nutrition":5 },
         "potionSmallHealth": { "weight": 1, "damM": 0, "damT": 1, "def": 0, "healing": 2, "name": "Small health potion", "assetpath": "Items/PotionSmall_Health", "desc": "Drink to gain health.", "nutrition":5 },
         "potionBigXP":       { "weight": 2, "damM": 0, "damT": 1, "def": 1, "experience":25, "name": "Big XP potion", "assetpath": "Items/PotionBig_XP", "desc": "Magical potion infused with wisdom. Drink to gain large amount of experience.", "nutrition":5 },
