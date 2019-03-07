@@ -8155,6 +8155,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Hp: 0
   TimeElapsed: 0
+  MaxEncumbrance: 0
+  Poison: 0
   Position: {x: 0, y: 0}
   Data:
     Name: 
@@ -8162,6 +8164,7 @@ MonoBehaviour:
     Speed: 0
     BaseDamage: 0
     CreatureLevel: 0
+    MaxEncumbrance: 0
     AssetPath: 
     CreaturePrefab: {fileID: 0}
   LeftHandTransform: {fileID: 7550513095349241206}
@@ -8171,9 +8174,11 @@ MonoBehaviour:
   InitialInventory:
   - gold
   - bone
-  AIType: 0
+  AIType: 2
   AlertLevel: 0
   SuspiciousPosition: {x: 0, y: 0}
+  PatrolTarget: {x: 0, y: 0}
+  PatrolAttemptsLeft: 0
   TransitionSlowness: 0.5
   animator: {fileID: 0}
 --- !u!1 &5642834686148560579

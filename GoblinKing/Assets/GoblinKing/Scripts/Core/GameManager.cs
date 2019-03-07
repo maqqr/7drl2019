@@ -69,6 +69,24 @@ namespace GoblinKing.Core
             });
         }
 
+        public Vector2Int RandomFreeSpace()
+        {
+            var keys = pathfindingGrid.nodes.Keys;
+            int randomIndex = Random.Range(0, keys.Count);
+
+            int i = 0;
+            foreach (var kv in pathfindingGrid.nodes)
+            {
+                if (i == randomIndex)
+                {
+                    return kv.Key;
+                }
+                i++;
+            }
+
+            return Vector2Int.zero;
+        }
+
         public List<Vector2Int> FindPath(Vector2Int from, Vector2Int to)
         {
             System.Func<Vector2Int, Vector2Int, bool> isWalkableFrom = delegate (Vector2Int start, Vector2Int end)

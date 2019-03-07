@@ -29,6 +29,8 @@ namespace GoblinKing.Core
         public AIType AIType = AIType.Still;
         public AlertLevel AlertLevel = AlertLevel.Unaware;
         public Vector2Int SuspiciousPosition;
+        public Vector2Int PatrolTarget;
+        public int PatrolAttemptsLeft = 0;
 
         // Variables for keeping 3D model in sync
         public float TransitionSlowness = 0.3f; // TODO: should this be affected by creature speed?
@@ -133,7 +135,10 @@ namespace GoblinKing.Core
 
         public void TurnTowards(Vector2Int position)
         {
-            transform.rotation = Quaternion.LookRotation(Utils.ConvertToWorldCoord(position) - transform.position, new Vector3(0,1f,0));
+            if (position != Position)
+            {
+                transform.rotation = Quaternion.LookRotation(Utils.ConvertToWorldCoord(position) - transform.position, new Vector3(0,1f,0));
+            }
         }
 
         private void Awake()

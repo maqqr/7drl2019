@@ -104,7 +104,7 @@ namespace GoblinKing.AI
                 playerModifiedVisibility = VisibilityLevel.Hidden;
             }
 
-             // Check if player is right in from of creature, overrides line of sight checks
+            // Check if player is right in from of creature, overrides line of sight checks
             Vector2Int inFront = Utils.ConvertToGameCoord(Utils.ConvertToWorldCoord(creature.Position) + creature.transform.forward * 0.7f);
             Vector2Int inFrontRight = Utils.ConvertToGameCoord(Utils.ConvertToWorldCoord(creature.Position) + creature.transform.forward * 0.7f + creature.transform.right);
             Vector2Int inFrontLeft = Utils.ConvertToGameCoord(Utils.ConvertToWorldCoord(creature.Position) + creature.transform.forward * 0.7f - creature.transform.right);
@@ -154,7 +154,7 @@ namespace GoblinKing.AI
             }
             else
             {
-                Debug.LogError("No path!");
+                // Debug.LogError("No path!");
             }
             return newPos;
         }
@@ -180,8 +180,22 @@ namespace GoblinKing.AI
 
         private static Vector2Int Patrol(GameManager gameManager, Creature creature)
         {
-            // TODO: implement
-            return creature.Position;
+            if (creature.PatrolAttemptsLeft <= 0)
+            {
+                creature.PatrolAttemptsLeft = Random.Range(5, 9);
+                creature.PatrolTarget = gameManager.RandomFreeSpace();
+                Debug.Log("Got new patrol position (" + creature.PatrolTarget.x + ", " + creature.PatrolTarget.y + ")");
+            }
+
+            Vector2Int target = PathfindTo(gameManager, creature.Position, creature.PatrolTarget);
+
+            var blockingCreature = gameManager.GetCreatureAt(target);
+            if (target == creature.Position || blockingCreature != null)
+            {
+                creature.PatrolAttemptsLeft--;
+            }
+
+            return target;
         }
     }
 }
