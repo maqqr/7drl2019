@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace GoblinKing.Core.Interaction
 {
-    internal class Interactable : MonoBehaviour
+    public class Interactable : MonoBehaviour
     {
         public IInteraction[] Interactions;
 

@@ -156,6 +156,8 @@ ModelImporter:
     100300: Hunger4
     100302: Hunger5
     100304: Hunger6
+    100306: Chest1
+    100308: ChestLid1
     400000: //RootNode
     400002: BrickWall1
     400004: BrickWallHole1
@@ -309,6 +311,8 @@ ModelImporter:
     400300: Hunger4
     400302: Hunger5
     400304: Hunger6
+    400306: Chest1
+    400308: ChestLid1
     2100000: PreviewMaterial
     2300000: BrickWall1
     2300002: BrickWallHole1
@@ -365,6 +369,8 @@ ModelImporter:
     2300104: Hunger4
     2300106: Hunger5
     2300108: Hunger6
+    2300110: Chest1
+    2300112: ChestLid1
     3300000: BrickWall1
     3300002: BrickWallHole1
     3300004: DoorFrame1
@@ -420,6 +426,8 @@ ModelImporter:
     3300104: Hunger4
     3300106: Hunger5
     3300108: Hunger6
+    3300110: Chest1
+    3300112: ChestLid1
     4300000: BrickWall1
     4300002: StoneTileGround1
     4300004: Pillar1
@@ -475,6 +483,8 @@ ModelImporter:
     4300104: Hunger4
     4300106: Hunger5
     4300108: Hunger6
+    4300110: Chest1
+    4300112: ChestLid1
     10800000: Point
   externalObjects: {}
   materials:

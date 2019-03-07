@@ -9,6 +9,7 @@ namespace GoblinKing.Data
         public readonly Dictionary<string, ItemData> ItemData = new Dictionary<string, ItemData>();
         public readonly Dictionary<string, CreatureData> CreatureData = new Dictionary<string, CreatureData>();
         public readonly Dictionary<int, string[]> SpawnList = new Dictionary<int, string[]>();
+        public readonly Dictionary<int, string[]> ItemSpawnList = new Dictionary<int, string[]>();
         public readonly Dictionary<string, Perk> PerkData = new Dictionary<string, Perk>();
 
         public static GameData LoadData()
@@ -60,6 +61,16 @@ namespace GoblinKing.Data
                     keys.Add(key.Value);
                 }
                 gameData.SpawnList.Add(int.Parse(spawnlist.Key), keys.ToArray());
+            }
+
+              foreach (var spawnlist in parsedData["itemspawnlist"])
+            {
+                List<string> keys = new List<string>();
+                foreach (var key in spawnlist.Value.AsArray)
+                {
+                    keys.Add(key.Value);
+                }
+                gameData.ItemSpawnList.Add(int.Parse(spawnlist.Key), keys.ToArray());
             }
 
             foreach (var parsedPerk in parsedData["perks"])

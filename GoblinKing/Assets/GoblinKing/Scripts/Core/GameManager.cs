@@ -30,7 +30,7 @@ namespace GoblinKing.Core
         public GameObject playerPrefab;
         public GameObject smokeCloudPrefab;
 
-        private int currentFloor = -1;
+        public int currentFloor = -1;
         private List<GameObject> dungeonFloors = new List<GameObject>();
         private Stack<GameViews.IGameView> gameViews = new Stack<GameViews.IGameView>();
         private Collider[] raycastResult = new Collider[1];

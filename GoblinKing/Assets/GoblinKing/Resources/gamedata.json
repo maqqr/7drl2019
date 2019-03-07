@@ -50,6 +50,12 @@
         "2": ["goblin", "torchgoblin"]
     },
 
+    "itemspawnlist": {
+        "0": ["skull", "bone"],
+        "1": ["skull", "bone"],
+        "2": ["skull", "bone"]
+    },
+
     "perks": {
         "speed1": { "name": "Gotta go fast", "desc": "Increase speed by 10%", "speedReduction": 10 },
         "speed2": { "name": "The need to go quickly", "desc": "Increase speed by 20%", "require": ["speed1"], "speedReduction": 20 },
