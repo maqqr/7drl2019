@@ -104,6 +104,16 @@ namespace GoblinKing.AI
                 playerModifiedVisibility = VisibilityLevel.Hidden;
             }
 
+             // Check if player is right in from of creature, overrides line of sight checks
+            Vector2Int inFront = Utils.ConvertToGameCoord(Utils.ConvertToWorldCoord(creature.Position) + creature.transform.forward * 0.7f);
+            Vector2Int inFrontRight = Utils.ConvertToGameCoord(Utils.ConvertToWorldCoord(creature.Position) + creature.transform.forward * 0.7f + creature.transform.right);
+            Vector2Int inFrontLeft = Utils.ConvertToGameCoord(Utils.ConvertToWorldCoord(creature.Position) + creature.transform.forward * 0.7f - creature.transform.right);
+
+            if (playerCre.Position == inFront || playerCre.Position == inFrontLeft || playerCre.Position == inFrontRight)
+            {
+                playerModifiedVisibility = VisibilityLevel.Visible;
+            }
+
             if (creature.AlertLevel == AlertLevel.Alerted)
             {
                 if (playerModifiedVisibility == VisibilityLevel.Hidden)
