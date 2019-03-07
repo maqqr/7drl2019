@@ -12,6 +12,8 @@ namespace GoblinKing.Core.GameViews
         private List<GameObject> guiItems = new List<GameObject>();
         private TMPro.TextMeshProUGUI descriptionText;
         private TMPro.TextMeshProUGUI encumbranceText;
+        private TMPro.TextMeshProUGUI levelText;
+        private TMPro.TextMeshProUGUI xpText;
 
         private InventoryItem highlightedItem = null;
 
@@ -28,7 +30,7 @@ namespace GoblinKing.Core.GameViews
         {
             inventoryCanvas = GameObject.Instantiate(gameManager.inventoryPrefab);
 
-            // Find description object's text component
+            // Find text components
             Transform[] children = inventoryCanvas.transform.GetComponentsInChildren<Transform>();
             for (int i = 0; i < children.Length; i++)
             {
@@ -40,6 +42,14 @@ namespace GoblinKing.Core.GameViews
                 if (child.name == "EncumbranceText")
                 {
                     encumbranceText = child.GetComponentInChildren<TMPro.TextMeshProUGUI>();
+                }
+                if (child.name == "LevelText")
+                {
+                    levelText = child.GetComponentInChildren<TMPro.TextMeshProUGUI>();
+                }
+                if (child.name == "XPText")
+                {
+                    xpText = child.GetComponentInChildren<TMPro.TextMeshProUGUI>();
                 }
             }
 
@@ -77,7 +87,7 @@ namespace GoblinKing.Core.GameViews
             }
             guiItems.Clear();
 
-            UpdateEncumbranceText();
+            UpdateStatusTexts();
 
             var player = gameManager.playerObject.GetComponent<Creature>();
 
@@ -92,7 +102,7 @@ namespace GoblinKing.Core.GameViews
                 var obj = GameObject.Instantiate(gameManager.inventoryGuiItemPrefab);
                 var backgroundImg = obj.GetComponent<UnityEngine.UI.Image>();
                 obj.transform.SetParent(inventoryCanvas.transform);
-                obj.GetComponent<RectTransform>().localPosition = new Vector3(170, 180 - i * 30f, 0);
+                obj.GetComponent<RectTransform>().localPosition = new Vector3(170, 288 - i * 30f, 0);
                 guiItems.Add(obj);
 
                 InventoryItem invItem = player.Inventory[i];
@@ -146,11 +156,16 @@ namespace GoblinKing.Core.GameViews
             descriptionText.text = string.Format("Melee damage: {0}\nThrowing damage: {1}\nDefence: {2}\n\nWeight: {3}\n\n{4}", item.MeleeDamage, item.ThrowingDamage, item.Defence, item.Weight, item.Description);
         }
 
-        private void UpdateEncumbranceText()
+        private void UpdateStatusTexts()
         {
-            var player = gameManager.playerObject.GetComponent<Creature>();
-            int total = Utils.TotalEncumbrance(gameManager, player);
-            encumbranceText.text = string.Format("Encumbrance: {0} / {1}", total, player.MaxEnc);
+            var playerCre = gameManager.playerObject.GetComponent<Creature>();
+            var player = gameManager.playerObject.GetComponent<Player>();
+
+            int total = Utils.TotalEncumbrance(gameManager, playerCre);
+            encumbranceText.text = string.Format("Encumbrance: {0} / {1}", total, playerCre.MaxEnc);
+
+            levelText.text = string.Format("Level: {0}", player.Level);
+            xpText.text = string.Format("Experience: {0} / 100", player.Experience);
         }
 
         private void DropItem(InventoryItem item)
