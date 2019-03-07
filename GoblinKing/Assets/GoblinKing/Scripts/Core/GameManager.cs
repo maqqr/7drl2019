@@ -61,7 +61,8 @@ namespace GoblinKing.Core
             pathfindingGrid = new Pathfinding.DungeonGrid();
             pathfindingGrid.CreateGrid(minX, maxX, minY, maxY, delegate (Vector2Int pos)
             {
-                return playerCreature.Position == pos || IsWalkable(pos);
+                LayerMask mask = ~LayerMask.GetMask("Player", "Enemy");
+                return playerCreature.Position == pos || IsWalkable(pos, mask);
             });
         }
 
@@ -93,7 +94,14 @@ namespace GoblinKing.Core
                 return;
             }
 
-            // var result = FindPath(new Vector2Int(0, 0), playerObject.GetComponent<Creature>().Position);
+            // if (CurrentFloorObject.GetComponent<DungeonLevel>().EnemyCreatures.Items.Count == 0)
+            // {
+            //     return;
+            // }
+
+            // var creature = CurrentFloorObject.GetComponent<DungeonLevel>().EnemyCreatures.Items[0];
+
+            // var result = FindPath(creature.Position, playerObject.GetComponent<Creature>().Position);
 
             // foreach (var point in result)
             // {
@@ -160,7 +168,7 @@ namespace GoblinKing.Core
             var throwHandler = creature.GetComponentInChildren<RegisterThrownItemCollision>();
             if (throwHandler)
             {
-                throwHandler.HitByItem += delegate(string itemKey)
+                throwHandler.HitByItem += delegate (string itemKey)
                 {
                     Data.ItemData item = GameData.ItemData[itemKey];
                     creature.TakeDamage(item.ThrowingDamage);
@@ -169,6 +177,22 @@ namespace GoblinKing.Core
             else
             {
                 Debug.LogWarning("Creature " + key + " is missing RegisterThrownItemCollision");
+            }
+        }
+
+        public void SpawnCreatureAtSpawnPoint(CreatureSpawnPoint spawnPoint)
+        {
+            // TODO: spawn if 1d100 < spawnPoint.SpawnChance
+
+            if (string.IsNullOrEmpty(spawnPoint.SpawnCreature))
+            {
+                var creatureKeyList = GameData.SpawnList[currentFloor];
+                int index = Random.Range(0, creatureKeyList.Length);
+                SpawnCreature(creatureKeyList[index], Utils.ConvertToGameCoord(spawnPoint.transform.position));
+            }
+            else
+            {
+                SpawnCreature(spawnPoint.SpawnCreature, Utils.ConvertToGameCoord(spawnPoint.transform.position));
             }
         }
 
@@ -376,6 +400,10 @@ namespace GoblinKing.Core
                 // Dungeon was generated, spawn some monsters next
                 var enemySpawnPoints = CurrentFloorObject.transform.GetComponentsInChildren<CreatureSpawnPoint>();
                 Debug.Log("Found " + enemySpawnPoints.Length + " enemy spawn points");
+                for (int i = 0; i < enemySpawnPoints.Length; i++)
+                {
+                    SpawnCreatureAtSpawnPoint(enemySpawnPoints[i]);
+                }
 
                 pathfindDirty = true;
             }
@@ -451,9 +479,11 @@ namespace GoblinKing.Core
             checkLevelUp();
         }
 
-        public void checkLevelUp() {
+        public void checkLevelUp()
+        {
             var player = playerObject.GetComponent<Player>();
-            if(player.Experience >= 100) {
+            if (player.Experience >= 100)
+            {
                 player.Experience = 0;
                 player.Level += 1;
                 player.Perkpoints += player.Level % 3 == 0 ? 1 : 0;
@@ -471,6 +501,7 @@ namespace GoblinKing.Core
         private void AdvanceGameWorld(int deltaTime)
         {
             List<Creature> creatures = CurrentFloorObject.GetComponent<DungeonLevel>().EnemyCreatures.Items;
+            Debug.Log("Number of creatures: " + creatures.Count);
 
             for (int i = 0; i < creatures.Count; i++)
             {
@@ -525,12 +556,12 @@ namespace GoblinKing.Core
                 Debug.Log("Backstab!");
             }
 
-            int dmg = (int)System.Math.Max(System.Math.Ceiling((atk_left + atk_right)*multiplier) - (def_left + def_right), 1) + attacker.PerkSystem.GetMaxInt("addDmg", 0);
+            int dmg = (int)System.Math.Max(System.Math.Ceiling((atk_left + atk_right) * multiplier) - (def_left + def_right), 1) + attacker.PerkSystem.GetMaxInt("addDmg", 0);
             defender.TakeDamage(dmg);
-            
+
             // If player is attacking, award some experience
             bool pcattack = playerObject.GetComponent<Player>().Equals(attacker.GetComponent<Player>());
-            int xp = pcattack ? (int)System.Math.Floor(1.5f*(float)System.Math.Max(1, defender.Data.CreatureLevel - playerObject.GetComponent<Player>().Level)): 0;
+            int xp = pcattack ? (int)System.Math.Floor(1.5f * (float)System.Math.Max(1, defender.Data.CreatureLevel - playerObject.GetComponent<Player>().Level)) : 0;
             if (defender.Hp < 1)
             {
                 foreach (InventoryItem dropped_item in defender.Inventory)
@@ -538,7 +569,7 @@ namespace GoblinKing.Core
                     System.Random rnd = new System.Random();
                     SpawnItem(dropped_item.ItemKey, Utils.ConvertToWorldCoord(defender.Position) + new Vector3(0, (float)rnd.NextDouble() * 0.6f + 0.2f, 0f), Random.rotation);
                 }
-                xp += xp>0 ? System.Math.Max(1, defender.Data.CreatureLevel - playerObject.GetComponent<Player>().Level)*20 : 0;
+                xp += xp > 0 ? System.Math.Max(1, defender.Data.CreatureLevel - playerObject.GetComponent<Player>().Level) * 20 : 0;
                 defender.gameObject.AddComponent<Corpse>();
                 GameObject.Destroy(defender.GetComponentInChildren<Collider>());
                 if (defender.LeftHandTransform)
@@ -553,8 +584,8 @@ namespace GoblinKing.Core
                 }
                 GameObject.Destroy(defender);
             }
-            Debug.Log(attacker.Data.Name + " is awarded "+ xp + " xp!");
-            if(xp >0) addExperience(xp);
+            Debug.Log(attacker.Data.Name + " is awarded " + xp + " xp!");
+            if (xp > 0) addExperience(xp);
             Debug.Log(attacker.Data.Name + " attacks " + defender.Data.Name + " for " + dmg + " damage.");
             Debug.Log(defender.Data.Name + " has " + defender.Hp + " hp. ");
         }
