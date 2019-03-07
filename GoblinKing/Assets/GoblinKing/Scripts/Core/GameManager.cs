@@ -11,6 +11,7 @@ namespace GoblinKing.Core
         public Keybindings keybindings;
         public GameObject playerObject;
         internal Creature playerCreature;
+        public PlayerAnimation playerAnim;
         public GameObject visibilityDiamondObject;
         public Data.GameData GameData;
         public Camera Camera;
@@ -235,6 +236,7 @@ namespace GoblinKing.Core
             playerCreature.Position = position;
 
             Camera = playerObject.GetComponentInChildren<Camera>();
+            playerAnim = Camera.GetComponent<PlayerAnimation>();
         }
 
         public void SpawnItemToHand(Transform hand, string itemKey)

@@ -118,6 +118,19 @@ namespace GoblinKing.Core.GameViews
             GameObject playerObj = gameManager.playerObject;
             var player = playerObj.GetComponent<Creature>();
 
+            if (Utils.IsDown(gameManager.keybindings.PeekLeft))
+            {
+                gameManager.playerAnim.Peek = -1;
+            }
+            else if (Utils.IsDown(gameManager.keybindings.PeekRight))
+            {
+                gameManager.playerAnim.Peek = 1;
+            }
+            else
+            {
+                gameManager.playerAnim.Peek = 0;
+            }
+
             if (Utils.IsDown(gameManager.keybindings.MoveForward))
             {
                 playerMoveTo = Utils.ConvertToGameCoord(playerObj.transform.localPosition + playerObj.transform.forward);
@@ -187,6 +200,7 @@ namespace GoblinKing.Core.GameViews
                     }
                     else if (creatureBlocking != player)
                     {
+                        gameManager.playerAnim.StartAttackAnimation();
                         gameManager.Fight(player, creatureBlocking);
                         gameManager.AdvanceTime(player.Speed);
                         forcedCooldown = 1.0f; // Add a small delay to prevent too fast attack spam
