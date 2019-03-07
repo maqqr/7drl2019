@@ -51,7 +51,7 @@
     },
 
     "perks": {
-        "speed1": { "name": "Boots of speed", "desc": "Increase speed by 10%", "speedReduction": 10 },
+        "speed1": { "name": "Gotta go fast", "desc": "Increase speed by 10%", "speedReduction": 10 },
         "speed2": { "name": "The need to go quickly", "desc": "Increase speed by 20%", "require": ["speed1"], "speedReduction": 20 },
 
         "maxlife1": { "name": "Hardy", "desc": "Increase maximum life by one heart", "addMaxLife": 2 },
@@ -62,7 +62,7 @@
         "potionmastah1": { "name": "Brewermaster", "desc": "Increase potion efficacy by 1.5x","require":["metabolism1"], "potionEffect": 1.5 },
         "potionmastah2": { "name": "Potion connoisseur", "desc": "Increase potion efficacy by 2.5x", "require": ["potionmastah1"], "potionEffect": 2.5 },
 
-        "backstab1": { "name": "Loose lipped", "desc": "Increase backstab damage multiplier to 1.5x", "backstabMultiplier": 1.5 },
+        "backstab1": { "name": "Novice rogue", "desc": "Increase backstab damage multiplier to 1.5x", "backstabMultiplier": 1.5 },
         "backstab2": { "name": "Gossip girl", "desc": "Increase backstab damage multiplier to 1.8x", "require": ["backstab1"], "backstabMultiplier": 1.8 },
         "backstab3": { "name": "Turncoat", "desc": "Increase backstab damage multiplier to 2.0x", "require": ["backstab2"], "backstabMultiplier": 2.0 },
         "backstab4": { "name": "Ghost", "desc": "Increase backstab damage multiplier to 2.5x", "require": ["backstab3"], "backstabMultiplier": 2.5 },
@@ -73,7 +73,7 @@
         "stomach1": { "name": "Iron stomach", "desc": "Reduce the effects of food poisoning by half","require":["metabolism1"], "stomachGuard": 1 },
         "stomach2": { "name": "I eat chain for breakfast", "desc": "Immunity to health effects of rotten food", "require":["stomach1"],"stomachGuard": 2 },
 
-        "combat1": { "name": "I went to the gym once", "desc": "Damage dealt increased by 1", "addDmg": 1 },
+        "combat1": { "name": "I went to the gym, once", "desc": "Damage dealt increased by 1", "addDmg": 1 },
         "combat2": { "name": "Do you even lift bro?", "desc": "Damage dealt increased by 2", "require":["combat1"], "addDmg": 2 },
 
         "bob1": { "name": "Beast of burden", "desc": "Increase maximum encumbrance by 10", "addMaxEnc": 10 },
