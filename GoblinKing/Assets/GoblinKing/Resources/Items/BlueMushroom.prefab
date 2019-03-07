@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 1100546869432447701}
   - component: {fileID: 375700903938031379}
   - component: {fileID: 8245810149965490923}
-  - component: {fileID: 1100546869430512872}
   - component: {fileID: 7221878951575204824}
   - component: {fileID: 5222045537758375097}
   m_Layer: 0
@@ -109,20 +108,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemKey: bluemushroom
---- !u!114 &1100546869430512872
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1100546869430512663}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ae4fed250d9ea542bb8bc5cbf739d7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lightRadius: 0.3
-  drawLightRadius: 1
 --- !u!65 &7221878951575204824
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -192,6 +177,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8245810149850979029}
   - component: {fileID: 8245810149850979030}
+  - component: {fileID: 4608629334306690262}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -251,3 +237,17 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &4608629334306690262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8245810149850979028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ae4fed250d9ea542bb8bc5cbf739d7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightRadius: 0.3
+  drawLightRadius: 1
