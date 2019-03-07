@@ -18,9 +18,12 @@ namespace GoblinKing.Core.Interaction
 
         public bool Interact(GameManager gameManager)
         {
+            Instantiate(gameManager.extinguishEffect, FlameObject.transform.position, Quaternion.identity);
+
             GameObject.DestroyImmediate(FlameObject);
             gameManager.CurrentFloorObject.GetComponent<DungeonLevel>().UpdateLights();
             gameManager.UpdatePlayerVisibility();
+
 
             Destroy(GetComponent<Interactable>());
 

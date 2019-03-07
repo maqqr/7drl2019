@@ -29,6 +29,7 @@ namespace GoblinKing.Core
         public GameObject exclamationMarkPrefab;
         public GameObject playerPrefab;
         public GameObject smokeCloudPrefab;
+        public GameObject extinguishEffect;
 
         public int currentFloor = -1;
         private List<GameObject> dungeonFloors = new List<GameObject>();

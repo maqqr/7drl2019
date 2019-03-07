@@ -3719,7 +3719,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerObject: {fileID: 0}
-  playerAnim: {fileID: 0}
   visibilityDiamondObject: {fileID: 907954258}
   Camera: {fileID: 0}
   PlayerHearts: {fileID: 2095338322}
@@ -3747,6 +3746,9 @@ MonoBehaviour:
   playerPrefab: {fileID: 204848937775332886, guid: 41c9947afacb6ab4aa78cfbb59447b6a,
     type: 3}
   smokeCloudPrefab: {fileID: 100000, guid: 4c5a17ca1f9fec84e941441ebb8be079, type: 3}
+  extinguishEffect: {fileID: 8894888973646525647, guid: fa4a6456df025fc4a9886a9f70e3a193,
+    type: 3}
+  currentFloor: -1
 --- !u!4 &1485741022
 Transform:
   m_ObjectHideFlags: 0
