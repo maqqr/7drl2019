@@ -89,6 +89,23 @@ namespace GoblinKing.Core
             visibilityDiamondObject.GetComponent<MeshRenderer>().material.SetColor("_Color", Visibility.GetGemColor(level));
         }
 
+        public void MakeALoudNoise(Vector3 noisePosition)
+        {
+            List<Creature> creatures = CurrentFloorObject.GetComponent<DungeonLevel>().EnemyCreatures.Items;
+            for (int i = 0; i < creatures.Count; i++)
+            {
+                Creature cre = creatures[i];
+                if (Vector3.Distance(noisePosition, Utils.ConvertToWorldCoord(cre.Position)) < 6f)
+                {
+                    if (cre.AlertLevel != AI.AlertLevel.Alerted)
+                    {
+                        AI.AIBehaviour.ChangeAlertness(this, cre, AI.AlertLevel.Suspicious);
+                        cre.SuspiciousPosition = Utils.ConvertToGameCoord(noisePosition);
+                    }
+                }
+            }
+        }
+
         private void OnDrawGizmos()
         {
             if (playerObject == null)
@@ -133,6 +150,12 @@ namespace GoblinKing.Core
             itemObject.transform.parent = CurrentFloorObject.transform;
 
             CurrentFloorObject.GetComponent<DungeonLevel>().UpdateLights();
+
+            itemObject.GetComponent<Interaction.PickupItem>().CollidedFast += delegate
+            {
+                MessageBuffer.AddMessage(Color.magenta, "The falling " + item.Name + " caused a loud noise!");
+                MakeALoudNoise(itemObject.transform.position);
+            };
 
             return itemObject;
         }
