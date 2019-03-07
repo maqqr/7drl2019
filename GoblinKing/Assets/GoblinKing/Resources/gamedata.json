@@ -46,8 +46,8 @@
 
     "spawnlist": {
         "0": ["goblin", "goblin"],
-        "1": ["goblin", "rat", "rat"],
-        "2": ["goblin", "rat", "rat"]
+        "1": ["goblin", "torchgoblin"],
+        "2": ["goblin", "torchgoblin"]
     },
 
     "perks": {
