@@ -534,6 +534,8 @@ namespace GoblinKing.Core
         internal void Fight(Creature attacker, Creature defender)
         {
             attacker.TriggerAttackAnimation();
+            AI.AIBehaviour.ChangeAlertness(this, defender, AI.AlertLevel.Alerted);
+            defender.SuspiciousPosition = attacker.Position;
 
             // Damage is sum of meleedmg - sum of defence
             // Some creatures can't hold equips, so they attack with their base dmg. E.g. rats

@@ -63,13 +63,13 @@ namespace GoblinKing.AI
             }
         }
 
-        private static void ChangeAlertness(GameManager gameManager, Creature creature, AlertLevel newAlertLevel)
+        public static void ChangeAlertness(GameManager gameManager, Creature creature, AlertLevel newAlertLevel)
         {
-            // TODO: spawn question mark or exc. mark if needed
+            bool levelChanged = newAlertLevel != creature.AlertLevel;
             creature.AlertLevel = newAlertLevel;
             Debug.Log("New alertness: " + newAlertLevel);
 
-            if (newAlertLevel != AlertLevel.Unaware)
+            if (levelChanged && newAlertLevel != AlertLevel.Unaware)
             {
                 GameObject prefab = newAlertLevel == AlertLevel.Suspicious ? gameManager.questionMarkPrefab : gameManager.exclamationMarkPrefab;
                 var obj = GameObject.Instantiate(prefab, creature.gameObject.transform.position + new Vector3(0f, 0.7f, 0f), Quaternion.Euler(-90f, 0f, 0f));
@@ -82,11 +82,31 @@ namespace GoblinKing.AI
             var playerCre = gameManager.playerObject.GetComponent<Creature>();
             var player = gameManager.playerObject.GetComponent<Player>();
 
-            // TODO: check line of sight
+            VisibilityLevel playerModifiedVisibility = player.CurrentVisibility;
+
+            // Check angle
+            var atkdir = Utils.ConvertToWorldCoord(playerCre.Position) - Utils.ConvertToWorldCoord(creature.Position);
+            var defdir = creature.transform.forward;
+            var angle = Vector2.Angle(new Vector2(atkdir.x, atkdir.z), new Vector2(defdir.x, defdir.z));
+            bool playerInFromOfCreature = angle <= 90;
+
+            // Check ray cast
+            bool noLineOfSight = true;
+            if (playerInFromOfCreature)
+            {
+                LayerMask mask = ~LayerMask.GetMask("Player", "Enemy");
+                Vector3 raycastDir = Utils.ConvertToWorldCoord(gameManager.playerCreature.Position) - Utils.ConvertToWorldCoord(creature.Position);
+                noLineOfSight = Physics.Raycast(Utils.ConvertToWorldCoord(creature.Position) + new Vector3(0f, 0.5f, 0f), raycastDir, raycastDir.magnitude, mask, QueryTriggerInteraction.Ignore);
+            }
+
+            if (noLineOfSight)
+            {
+                playerModifiedVisibility = VisibilityLevel.Hidden;
+            }
 
             if (creature.AlertLevel == AlertLevel.Alerted)
             {
-                if (player.CurrentVisibility == VisibilityLevel.Hidden)
+                if (playerModifiedVisibility == VisibilityLevel.Hidden)
                 {
                     ChangeAlertness(gameManager, creature, AlertLevel.Suspicious);
                     creature.SuspiciousPosition = playerCre.Position;
@@ -94,19 +114,19 @@ namespace GoblinKing.AI
             }
             else if (creature.AlertLevel == AlertLevel.Suspicious)
             {
-                if (player.CurrentVisibility == VisibilityLevel.Partial || player.CurrentVisibility == VisibilityLevel.Visible)
+                if (playerModifiedVisibility == VisibilityLevel.Partial || playerModifiedVisibility == VisibilityLevel.Visible)
                 {
                     ChangeAlertness(gameManager, creature, AlertLevel.Alerted);
                 }
             }
             else
             {
-                if (player.CurrentVisibility == VisibilityLevel.Partial)
+                if (playerModifiedVisibility == VisibilityLevel.Partial)
                 {
                     ChangeAlertness(gameManager, creature, AlertLevel.Suspicious);
                     creature.SuspiciousPosition = playerCre.Position;
                 }
-                else if (player.CurrentVisibility == VisibilityLevel.Visible)
+                else if (playerModifiedVisibility == VisibilityLevel.Visible)
                 {
                     ChangeAlertness(gameManager, creature, AlertLevel.Alerted);
                 }
