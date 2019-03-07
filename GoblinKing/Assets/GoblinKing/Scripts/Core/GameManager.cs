@@ -373,6 +373,10 @@ namespace GoblinKing.Core
                     }
                 }
 
+                // Dungeon was generated, spawn some monsters next
+                var enemySpawnPoints = CurrentFloorObject.transform.GetComponentsInChildren<CreatureSpawnPoint>();
+                Debug.Log("Found " + enemySpawnPoints.Length + " enemy spawn points");
+
                 pathfindDirty = true;
             }
             else

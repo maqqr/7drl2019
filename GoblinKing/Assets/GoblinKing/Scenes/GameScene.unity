@@ -657,6 +657,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 328389620}
+  - component: {fileID: 328389621}
   m_Layer: 5
   m_Name: FoodModels
   m_TagString: Untagged
@@ -685,6 +686,21 @@ Transform:
   m_Father: {fileID: 693941287}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -133.356, y: -21.000977, z: -93.022}
+--- !u!114 &328389621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328389619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f5caaa8f4b7ecb44ac9bcb15f2ef6d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hungerMeshes: []
+  CurrentNutrition: 0
+  CurrentMaxNutrition: 300
 --- !u!1 &331733073
 GameObject:
   m_ObjectHideFlags: 0
@@ -3496,6 +3512,7 @@ MonoBehaviour:
   Camera: {fileID: 0}
   PlayerHearts: {fileID: 2095338322}
   EnemyHearts: {fileID: 1864230218}
+  HungerContainer: {fileID: 328389621}
   EnemyNameText: {fileID: 1737741990}
   levelGeneratorPrefabs:
   - {fileID: 5527877373573840763, guid: a42bb827e519d284986595bf05606948, type: 3}
