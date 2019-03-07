@@ -198,6 +198,10 @@ namespace GoblinKing.Core
                 {
                     Data.ItemData item = GameData.ItemData[itemKey];
                     creature.TakeDamage(item.ThrowingDamage);
+                    if(creature.Hp < 1) {
+                        MessageBuffer.AddMessage(Color.white, item.Name + " killed "+creature.Data.Name+" on impact.");
+                        addExperience(KillCreature(creature));
+                    }
                 };
             }
             else
@@ -321,6 +325,29 @@ namespace GoblinKing.Core
                 }
             }
             return null;
+        }
+
+        internal int KillCreature(Creature cre) {
+            foreach (InventoryItem dropped_item in cre.Inventory)
+                {
+                    System.Random rnd = new System.Random();
+                    SpawnItem(dropped_item.ItemKey, Utils.ConvertToWorldCoord(cre.Position) + new Vector3(0, (float)rnd.NextDouble() * 0.6f + 0.2f, 0f), Random.rotation);
+                }
+                var corpseComponent = cre.gameObject.AddComponent<Corpse>();
+                corpseComponent.SmokeCloudPrefab = smokeCloudPrefab;
+                GameObject.Destroy(cre.GetComponentInChildren<Collider>());
+                if (cre.LeftHandTransform)
+                {
+                    GameObject.Destroy(cre.LeftHandTransform.gameObject);
+                    lightingDirty = 5;
+                }
+                if (cre.RightHandTransform)
+                {
+                    GameObject.Destroy(cre.RightHandTransform.gameObject);
+                    lightingDirty = 5;
+                }
+                GameObject.Destroy(cre);
+                return System.Math.Max(1, cre.Data.CreatureLevel - playerObject.GetComponent<Player>().Level) * 20;
         }
 
         public bool IsWalkable(Vector2Int position, LayerMask ignoreMask)
@@ -538,6 +565,7 @@ namespace GoblinKing.Core
         public void addExperience(int xp)
         {
             playerObject.GetComponent<Player>().Experience += xp;
+            MessageBuffer.AddMessage(Color.white, "You got " + xp + " xp!");
             checkLevelUp();
         }
 
@@ -573,6 +601,14 @@ namespace GoblinKing.Core
                 {
                     cre.TimeElapsed -= cre.Speed;
                     AI.AIBehaviour.UpdateAI(this, cre);
+                    if(cre.Poison > 0) {
+                        cre.TakeDamage(1);
+                        cre.Poison -= 1;
+                        if(cre.Hp < 1) {
+                            MessageBuffer.AddMessage(Color.white, cre.Data.Name + " died from poison.");
+                            addExperience(KillCreature(cre));
+                        }
+                    }
                 }
             }
             AdjustNutrition(-1);
@@ -627,32 +663,12 @@ namespace GoblinKing.Core
             int xp = pcattack ? (int)System.Math.Floor(1.5f * (float)System.Math.Max(1, defender.Data.CreatureLevel - playerObject.GetComponent<Player>().Level)) : 0;
             if (defender.Hp < 1)
             {
-                foreach (InventoryItem dropped_item in defender.Inventory)
-                {
-                    System.Random rnd = new System.Random();
-                    SpawnItem(dropped_item.ItemKey, Utils.ConvertToWorldCoord(defender.Position) + new Vector3(0, (float)rnd.NextDouble() * 0.6f + 0.2f, 0f), Random.rotation);
-                }
-                xp += xp > 0 ? System.Math.Max(1, defender.Data.CreatureLevel - playerObject.GetComponent<Player>().Level) * 20 : 0;
-                var corpseComponent = defender.gameObject.AddComponent<Corpse>();
-                corpseComponent.SmokeCloudPrefab = smokeCloudPrefab;
-                GameObject.Destroy(defender.GetComponentInChildren<Collider>());
-                if (defender.LeftHandTransform)
-                {
-                    GameObject.Destroy(defender.LeftHandTransform.gameObject);
-                    lightingDirty = 5;
-                }
-                if (defender.RightHandTransform)
-                {
-                    GameObject.Destroy(defender.RightHandTransform.gameObject);
-                    lightingDirty = 5;
-                }
-                GameObject.Destroy(defender);
+                xp += xp > 0 ? KillCreature(defender) : 0;
             }
             MessageBuffer.AddMessage(Color.white, attacker.Data.Name + " attacks " + defender.Data.Name + " for " + dmg + " damage.");
             MessageBuffer.AddMessage(Color.white, defender.Data.Name + " has " + defender.Hp + " hp. ");
             if (xp > 0) 
             {
-                MessageBuffer.AddMessage(Color.white, attacker.Data.Name + " is awarded " + xp + " xp!");
                  addExperience(xp);
             }
             

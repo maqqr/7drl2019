@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f1927aa3eb5dc947a304cb8ff2bc500, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemKey: 
+  itemKey: bowlpurple
 --- !u!54 &3351582006945668466
 Rigidbody:
   m_ObjectHideFlags: 0

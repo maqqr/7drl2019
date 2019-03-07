@@ -170,10 +170,32 @@ namespace GoblinKing.Core.GameViews
                 }
             }
 
+            if (Utils.IsPressed(gameManager.keybindings.Wait)) gameManager.AdvanceTime(player.Speed);
+
             if (Utils.IsPressed(gameManager.keybindings.ThrowLeftHand) || Utils.IsPressed(gameManager.keybindings.ThrowRightHand))
             {
                 EquipSlot slot = Utils.IsPressed(gameManager.keybindings.ThrowLeftHand) ? EquipSlot.LeftHand : EquipSlot.RightHand;
-                ThrowItem(slot);
+                if(player.Equipment.ContainsKey(slot)) {
+                    ThrowItem(slot);
+                } else if(highlightedObject != null) {
+                    Unhighlight(highlightedObject);
+                    var pick = highlightedObject.GetComponent<Interaction.PickupItem>();
+                    if(pick)
+                    {
+                        pick.Interact(gameManager);
+                        foreach(var invitem in player.Inventory)
+                        {
+                            if(invitem.ItemKey == pick.itemKey) 
+                            {
+                                gameManager.PlayerEquip(invitem ,slot);
+                                break;
+                            }
+                        }
+                        gameManager.AdvanceTime(player.Speed);
+                    }
+                    
+
+                }
             }
 
             if (Utils.IsPressed(gameManager.keybindings.OpenPerkTree))

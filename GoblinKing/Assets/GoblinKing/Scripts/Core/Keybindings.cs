@@ -13,6 +13,7 @@ namespace GoblinKing.Core
         public KeyCode[] PeekRight = { KeyCode.RightArrow, KeyCode.E };
 
         public KeyCode[] PickUp = { KeyCode.Space };
+        public KeyCode[] Wait = {KeyCode.LeftShift, KeyCode.Z};
 
         public KeyCode OpenPerkTree = KeyCode.P;
         public KeyCode OpenInventory = KeyCode.I;
