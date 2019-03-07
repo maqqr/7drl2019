@@ -3729,6 +3729,11 @@ MonoBehaviour:
   MessageBuffer: {fileID: 426142385}
   levelGeneratorPrefabs:
   - {fileID: 5527877373573840763, guid: a42bb827e519d284986595bf05606948, type: 3}
+  - {fileID: 4861664121219815408, guid: aff2d572fa92bf645baf867d99d8ac95, type: 3}
+  - {fileID: 4861664121219815408, guid: aff2d572fa92bf645baf867d99d8ac95, type: 3}
+  - {fileID: 4861664121219815408, guid: aff2d572fa92bf645baf867d99d8ac95, type: 3}
+  - {fileID: 4861664121219815408, guid: aff2d572fa92bf645baf867d99d8ac95, type: 3}
+  - {fileID: 4861664121219815408, guid: aff2d572fa92bf645baf867d99d8ac95, type: 3}
   perkTreePrefab: {fileID: 307888046144457542, guid: 29ef7b7c14eb26e45a354ae14c110772,
     type: 3}
   inventoryPrefab: {fileID: 1116146211989653171, guid: bd17bb3897ee64a4c8acac7d0c80188f,

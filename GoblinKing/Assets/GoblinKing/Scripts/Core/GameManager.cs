@@ -360,12 +360,14 @@ namespace GoblinKing.Core
             var spawnPoint = dungeonLevel.transform.GetComponentInChildren<PlayerSpawnPoint>();
             if (spawnPoint == null || spawnPoint.ToString() == "null")
             {
+                Debug.LogError("No spawn point");
                 return false;
             }
 
             var upstairs = dungeonLevel.transform.GetComponentInChildren<Interaction.UpStairs>();
             if (upstairs == null || upstairs.ToString() == "null")
             {
+                Debug.LogError("No up stairs");
                 return false;
             }
 
@@ -392,9 +394,7 @@ namespace GoblinKing.Core
                     return;
                 }
 
-                // TODO: add some logic to generator prefab selection
-                // generator should depend on which floor the player is going
-                GameObject generatorPrefab = levelGeneratorPrefabs[0];
+                GameObject generatorPrefab = levelGeneratorPrefabs[currentFloor];
 
                 int attempt = 0;
                 while (attempt < 10)
