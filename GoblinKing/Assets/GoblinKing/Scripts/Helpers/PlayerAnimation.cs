@@ -65,7 +65,7 @@ namespace GoblinKing.Helpers
                 return;
             }
 
-            PeekForward = ForwardKeyHeldDuration > 1.0f;
+            PeekForward = ForwardKeyHeldDuration > 0.5f;
 
             var peekDist = 0f;
             var cameraTargetLocalZ = 0f;

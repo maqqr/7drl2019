@@ -25,7 +25,6 @@ namespace GoblinKing.Core.Interaction
                 gameManager.SpawnItem(spawnableItems[randomItemIndex], spawnPos, Random.rotation);
             }
 
-            Destroy(Lid.GetComponent<Collider>());
             Destroy(GetComponent<Interactable>());
             Destroy(GetComponent<Collider>());
             Destroy(this);
