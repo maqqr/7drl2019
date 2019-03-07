@@ -167,7 +167,9 @@ namespace GoblinKing.Core.GameViews
 
             Vector3 spawnPos = Utils.ConvertToWorldCoord(player.Position) + new Vector3(0f, 0.5f, 0f)
                              + player.gameObject.transform.forward * 0.3f;
-            gameManager.SpawnItem(item.ItemKey, spawnPos, Random.rotation);
+
+            var spawned = gameManager.SpawnItem(item.ItemKey, spawnPos, Random.rotation);
+            spawned.GetComponent<Rigidbody>().isKinematic = false;
             gameManager.MessageBuffer.AddMessage(Color.white, "You dropped the "+gameManager.GameData.ItemData[item.ItemKey].Name+".");
             gameManager.AdvanceTime(gameManager.playerObject.GetComponent<Creature>().Speed);
             gameManager.UpdateGameWorld();
