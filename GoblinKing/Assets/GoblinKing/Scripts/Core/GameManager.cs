@@ -18,6 +18,7 @@ namespace GoblinKing.Core
         public HeartContainer EnemyHearts;
         public HungerContainer HungerContainer;
         public TMPro.TextMeshProUGUI EnemyNameText;
+        public MessageBuffer MessageBuffer;
 
         public GameObject[] levelGeneratorPrefabs;
         public GameObject perkTreePrefab;
@@ -554,7 +555,7 @@ namespace GoblinKing.Core
             if (angle < (attacker.PerkSystem.HasPerk("widebackstab") ? 55 : 20))
             {
                 multiplier = attacker.PerkSystem.GetMaxFloat("backstabMultiplier", 1.3f);
-                Debug.Log("Backstab!");
+                MessageBuffer.AddMessage(Color.red, "Backstab!");
             }
 
             int dmg = (int)System.Math.Max(System.Math.Ceiling((atk_left + atk_right) * multiplier) - (def_left + def_right), 1) + attacker.PerkSystem.GetMaxInt("addDmg", 0);
@@ -586,10 +587,10 @@ namespace GoblinKing.Core
                 }
                 GameObject.Destroy(defender);
             }
-            Debug.Log(attacker.Data.Name + " is awarded " + xp + " xp!");
+            MessageBuffer.AddMessage(Color.white, attacker.Data.Name + " is awarded " + xp + " xp!");
             if (xp > 0) addExperience(xp);
-            Debug.Log(attacker.Data.Name + " attacks " + defender.Data.Name + " for " + dmg + " damage.");
-            Debug.Log(defender.Data.Name + " has " + defender.Hp + " hp. ");
+            MessageBuffer.AddMessage(Color.white, attacker.Data.Name + " attacks " + defender.Data.Name + " for " + dmg + " damage.");
+            MessageBuffer.AddMessage(Color.white, defender.Data.Name + " has " + defender.Hp + " hp. ");
         }
 
         internal void UpdateHearts(Creature creature, HeartContainer container)
