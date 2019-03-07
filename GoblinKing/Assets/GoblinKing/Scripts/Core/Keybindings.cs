@@ -9,6 +9,9 @@ namespace GoblinKing.Core
         public KeyCode[] MoveLeft = { KeyCode.LeftArrow, KeyCode.A };
         public KeyCode[] MoveRight = { KeyCode.RightArrow, KeyCode.D };
 
+        public KeyCode[] PeekLeft = { KeyCode.RightArrow, KeyCode.Q };
+        public KeyCode[] PeekRight = { KeyCode.RightArrow, KeyCode.E };
+
         public KeyCode[] PickUp = { KeyCode.Space };
 
         public KeyCode OpenPerkTree = KeyCode.P;

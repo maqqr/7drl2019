@@ -17,6 +17,8 @@ namespace GoblinKing.Core
         public Vector2 targetDirection;
         public Vector2 targetCharacterDirection;
 
+        public float zRotation = 0f;
+
         // Assign this if there's a parent object controlling motion, such as a Character Controller.
         // Yaw rotation will affect this object instead of the camera if set.
         public GameObject characterBody;
@@ -77,6 +79,8 @@ namespace GoblinKing.Core
                 var yRotation = Quaternion.AngleAxis(_mouseAbsolute.x, transform.InverseTransformDirection(Vector3.up));
                 transform.localRotation *= yRotation;
             }
+
+            transform.localRotation *= Quaternion.AngleAxis(zRotation, Vector3.forward);
         }
     }
 }
