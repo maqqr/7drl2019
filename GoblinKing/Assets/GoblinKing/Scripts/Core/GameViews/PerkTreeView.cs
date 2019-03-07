@@ -12,6 +12,7 @@ namespace GoblinKing.Core.GameViews
         private Color perkBoughtColor = Color.green;
         private PerkButton[] buttons;
         private TMPro.TextMeshProUGUI descriptionText;
+        private TMPro.TextMeshProUGUI perkPointText;
 
         public void Initialize(GameManager gameManager)
         {
@@ -37,7 +38,13 @@ namespace GoblinKing.Core.GameViews
                     descriptionText = child.GetComponentInChildren<TMPro.TextMeshProUGUI>();
                     descriptionText.transform.parent.gameObject.SetActive(false);
                 }
+                if (child.name == "PerkPointText")
+                {
+                    perkPointText = child.GetComponentInChildren<TMPro.TextMeshProUGUI>();
+                }
             }
+
+            UpdateTexts();
 
             buttons = perkTreeCanvas.GetComponentsInChildren<PerkButton>();
 
@@ -77,6 +84,7 @@ namespace GoblinKing.Core.GameViews
                         gameManager.playerObject.GetComponent<Player>().Perkpoints -= 1;
                         backgroundImg.color = perkBoughtColor;
                         gameManager.MessageBuffer.AddMessage(Color.yellow, "You gained the perk: "+ gameManager.GameData.PerkData[button.PerkKey].Name+".");
+                        UpdateTexts();
                     }
                 };
             }
@@ -87,10 +95,14 @@ namespace GoblinKing.Core.GameViews
             GameObject.Destroy(perkTreeCanvas);
         }
 
-
         public bool UpdateView()
         {
             return Utils.IsPressed(gameManager.keybindings.OpenPerkTree);
+        }
+
+        private void UpdateTexts()
+        {
+            perkPointText.text = string.Format("Perk points: {0}", gameManager.playerObject.GetComponent<Player>().Perkpoints);
         }
     }
 }
