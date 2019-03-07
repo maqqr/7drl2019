@@ -11,6 +11,10 @@ GameObject:
   - component: {fileID: 4548859570829788}
   - component: {fileID: 33150970156578462}
   - component: {fileID: 23717090525025780}
+  - component: {fileID: 3253643117645181432}
+  - component: {fileID: 1725636729073622071}
+  - component: {fileID: 3771026602262686276}
+  - component: {fileID: 2945204320359520717}
   m_Layer: 0
   m_Name: BowlBlue
   m_TagString: Untagged
@@ -78,6 +82,60 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &3253643117645181432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138657854458988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa657ede85aa82c4aa2bb50b4148b0d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1725636729073622071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138657854458988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f1927aa3eb5dc947a304cb8ff2bc500, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemKey: 
+--- !u!54 &3771026602262686276
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138657854458988}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &2945204320359520717
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138657854458988}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.14916849, y: 0.061213817, z: 0.14916849}
+  m_Center: {x: 0.00000023841858, y: 0.030606898, z: 0}
 --- !u!1 &1594932727731085500
 GameObject:
   m_ObjectHideFlags: 0
