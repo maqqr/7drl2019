@@ -465,12 +465,41 @@ namespace GoblinKing.Core
             HungerContainer.CurrentNutrition = player.Nutrition;
             HungerContainer.CurrentMaxNutrition = player.MaxNutrition;
             HungerContainer.UpdateModels();
+            int percent = (int)(100 * (player.Nutrition / (float)player.MaxNutrition));
+            if(deltahunger > 0)
+            {
+                if (percent < 90 && percent >= 70)
+                {
+                    MessageBuffer.AddMessage(Color.white,"You feel full.");
+                }
+                if (percent < 70 && percent >= 50)
+                {
+                    MessageBuffer.AddMessage(Color.white,"You feel content.");
+                }
+                if (percent < 50 && percent >= 30)
+                {
+                    MessageBuffer.AddMessage(Color.white,"You feel like you could grab another bite.");
+                }
+                if (percent < 30 && percent >=10)
+                {
+                    MessageBuffer.AddMessage(Color.white,"Your stomach still growls.");
+                }
+                if (percent < 10 && percent >= 0)
+                {
+                    MessageBuffer.AddMessage(Color.white,"Your stomach is howling in hunger.");
+                }
+                if (percent < 0)
+                {
+                    MessageBuffer.AddMessage(Color.white,"You are starving.");
+                }
+            }
         }
 
         public void UpdateHunger()
         {
             int deltahp = playerObject.GetComponent<Player>().Nutrition < 1 ? (playerObject.GetComponent<Player>().Nutrition > -10 ? -1 : -2) : 0;
             playerCreature.Hp -= deltahp;
+            // TODO: add message when starvation status changes downwards between turns
 
         }
 
@@ -490,7 +519,7 @@ namespace GoblinKing.Core
                 player.Perkpoints += player.Level % 3 == 0 ? 1 : 0;
                 playerCreature.Data.MaxHp += player.Level % 2 == 0 ? 1 : 0;
                 playerCreature.Hp += 1;
-                Debug.Log("Level UP!");
+                MessageBuffer.AddMessage(Color.green,"Level UP!");
             }
         }
 
@@ -517,7 +546,7 @@ namespace GoblinKing.Core
             AdjustNutrition(-1);
             UpdateHunger();
             UpdateHearts(playerCreature, PlayerHearts);
-            Debug.Log("Player nutrition: " + playerObject.GetComponent<Player>().Nutrition);
+            //Debug.Log("Player nutrition: " + playerObject.GetComponent<Player>().Nutrition);
         }
 
         internal void AddNewView(GameViews.IGameView view)
@@ -587,10 +616,14 @@ namespace GoblinKing.Core
                 }
                 GameObject.Destroy(defender);
             }
-            MessageBuffer.AddMessage(Color.white, attacker.Data.Name + " is awarded " + xp + " xp!");
-            if (xp > 0) addExperience(xp);
             MessageBuffer.AddMessage(Color.white, attacker.Data.Name + " attacks " + defender.Data.Name + " for " + dmg + " damage.");
             MessageBuffer.AddMessage(Color.white, defender.Data.Name + " has " + defender.Hp + " hp. ");
+            if (xp > 0) 
+            {
+                MessageBuffer.AddMessage(Color.white, attacker.Data.Name + " is awarded " + xp + " xp!");
+                 addExperience(xp);
+            }
+            
         }
 
         internal void UpdateHearts(Creature creature, HeartContainer container)
@@ -669,7 +702,7 @@ namespace GoblinKing.Core
 
                 if (gameViews.Count == 0)
                 {
-                    Debug.Log("GAME OVER");
+                    MessageBuffer.AddMessage(Color.red,"GAME OVER");
                 }
             }
         }

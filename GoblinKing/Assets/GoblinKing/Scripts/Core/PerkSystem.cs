@@ -64,7 +64,7 @@ namespace GoblinKing.Core
             {
                 foreach (var gain in kv.Value.Gains)
                 {
-                    if (gain.Value.NumberValue > value)
+                    if (gain.Value.NumberValue > value && gain.Key==name)
                     {
                         value = gain.Value.NumberValue;
                     }
@@ -81,7 +81,7 @@ namespace GoblinKing.Core
             {
                 foreach (var gain in kv.Value.Gains)
                 {
-                    if ((int)gain.Value.NumberValue > value)
+                    if ((int)gain.Value.NumberValue > value && gain.Key==name)
                     {
                         value = (int)gain.Value.NumberValue;
                     }
@@ -96,7 +96,7 @@ namespace GoblinKing.Core
             {
                 foreach (var gain in kv.Value.Gains)
                 {
-                    if (gain.Value.BoolValue)
+                    if (gain.Value.BoolValue && gain.Key==name)
                     {
                         return true;
                     }
