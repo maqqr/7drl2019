@@ -170,6 +170,8 @@ namespace GoblinKing.Core.GameViews
                 }
             }
 
+            if (Utils.IsPressed(gameManager.keybindings.Wait)) gameManager.AdvanceTime(player.Speed);
+
             if (Utils.IsPressed(gameManager.keybindings.ThrowLeftHand) || Utils.IsPressed(gameManager.keybindings.ThrowRightHand))
             {
                 EquipSlot slot = Utils.IsPressed(gameManager.keybindings.ThrowLeftHand) ? EquipSlot.LeftHand : EquipSlot.RightHand;
