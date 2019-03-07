@@ -39,7 +39,7 @@
     },
 
     "creatures": {
-        "player": { "name": "Player", "assetpath": "Creatures/Goblin", "maxhp": 12, "speed": 100, "basedamage": 1 },
+        "player": { "name": "Player", "assetpath": "Creatures/Goblin", "maxhp": 12, "speed": 100, "basedamage": 1, "maxencumbrance": 30 },
         "goblin": { "name": "Goblin", "assetpath": "Creatures/Goblin", "maxhp": 10, "speed": 100, "basedamage": 1 },
         "torchgoblin": { "name": "Goblin", "assetpath": "Creatures/TorchGoblin", "maxhp": 10, "speed": 100, "basedamage": 1 }
     },
@@ -74,7 +74,10 @@
         "stomach2": { "name": "I eat chain for breakfast", "desc": "Immunity to health effects of rotten food", "require":["stomach1"],"stomachGuard": 2 },
 
         "combat1": { "name": "I went to the gym once", "desc": "Damage dealt increased by 1", "addDmg": 1 },
-        "combat2": { "name": "Do you even lift bro?", "desc": "Damage dealt increased by 2", "require":["combat1"], "addDmg": 2 }
+        "combat2": { "name": "Do you even lift bro?", "desc": "Damage dealt increased by 2", "require":["combat1"], "addDmg": 2 },
+
+        "bob1": { "name": "Beast of burden", "desc": "Increase maximum encumbrance by 10", "addMaxEnc": 10 },
+        "bob2": { "name": "No straws break my back!", "desc": "Increase maximum encumbrance by 20", "require": ["bob1"], "addMaxEnc": 20 }
 
 
     }

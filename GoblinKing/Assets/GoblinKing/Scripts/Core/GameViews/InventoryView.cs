@@ -127,10 +127,12 @@ namespace GoblinKing.Core.GameViews
                     if (player.HasItemInSlot(invItem, slot))
                     {
                         gameManager.PlayerUnequip(slot);
+                        gameManager.MessageBuffer.AddMessage(Color.white, "You unequipped the "+gameManager.GameData.ItemData[invItem.ItemKey].Name.ToLower()+" from your "+ slot.ToString().Replace("Hand","").ToLower() + " hand.");
                     }
                     else
                     {
                         gameManager.PlayerEquip(invItem, slot);
+                        gameManager.MessageBuffer.AddMessage(Color.white, "You equipped the "+gameManager.GameData.ItemData[invItem.ItemKey].Name.ToLower()+" to your "+ slot.ToString().Replace("Hand","").ToLower() + " hand.");
                     }
                     RefreshView();
                 };
@@ -144,8 +146,9 @@ namespace GoblinKing.Core.GameViews
 
         private void UpdateEncumbranceText()
         {
-            int total = Utils.TotalEncumbrance(gameManager, gameManager.playerObject.GetComponent<Creature>());
-            encumbranceText.text = string.Format("Encumbrance: {0} / {1}", total, "?");
+            var player = gameManager.playerObject.GetComponent<Creature>();
+            int total = Utils.TotalEncumbrance(gameManager, player);
+            encumbranceText.text = string.Format("Encumbrance: {0} / {1}", total, player.MaxEnc);
         }
 
         private void DropItem(InventoryItem item)
@@ -165,6 +168,7 @@ namespace GoblinKing.Core.GameViews
             Vector3 spawnPos = Utils.ConvertToWorldCoord(player.Position) + new Vector3(0f, 0.5f, 0f)
                              + player.gameObject.transform.forward * 0.3f;
             gameManager.SpawnItem(item.ItemKey, spawnPos, Random.rotation);
+            gameManager.MessageBuffer.AddMessage(Color.white, "You dropped the "+gameManager.GameData.ItemData[item.ItemKey].Name+".");
             gameManager.AdvanceTime(gameManager.playerObject.GetComponent<Creature>().Speed);
             gameManager.UpdateGameWorld();
         }
@@ -183,18 +187,23 @@ namespace GoblinKing.Core.GameViews
                 {
                     gameManager.PlayerUnequip(EquipSlot.RightHand);
                 }
+                gameManager.MessageBuffer.AddMessage(Color.white, "You consumed the "+gameManager.GameData.ItemData[item.ItemKey].Name+".");
                 gameManager.AdjustNutrition((int)System.Math.Ceiling(nut*player.PerkSystem.GetMaxFloat("metabolicMultiplier", 1f)));
                 if(gameManager.GameData.ItemData[item.ItemKey].Healing > 0)
                 {
                     player.RecoverHealth((int)System.Math.Ceiling(gameManager.GameData.ItemData[item.ItemKey].Healing * player.PerkSystem.GetMaxFloat("potionEffect", 1f)));
+                    gameManager.MessageBuffer.AddMessage(Color.red, "You feel like you regained some health.");
                 }
                 if(gameManager.GameData.ItemData[item.ItemKey].Healing < 0)
                 {
-                    player.TakeDamage(gameManager.GameData.ItemData[item.ItemKey].Healing + player.PerkSystem.GetMaxInt("stomachGuard",0));
+                    int grd = player.PerkSystem.GetMaxInt("stomachGuard",0);
+                    player.TakeDamage(-1*gameManager.GameData.ItemData[item.ItemKey].Healing - grd);
+                    gameManager.MessageBuffer.AddMessage((grd == 0 ? Color.green : (grd == 1 ? Color.green+Color.red : Color.red)), "The rotten food had " + (grd == 0 ? "an ill" : (grd == 1 ? "a small" : "no")) + " effect on your health.");
                 }
                 if(gameManager.GameData.ItemData[item.ItemKey].Experience > 0)
                 {
                     gameManager.addExperience((int)System.Math.Ceiling(gameManager.GameData.ItemData[item.ItemKey].Experience * player.PerkSystem.GetMaxFloat("potionEffect", 1f)));
+                    gameManager.MessageBuffer.AddMessage(Color.Lerp(Color.red, Color.blue, 0.5f), "You feel more experienced.");
                 }
 
                 player.RemoveItem(item, 1);

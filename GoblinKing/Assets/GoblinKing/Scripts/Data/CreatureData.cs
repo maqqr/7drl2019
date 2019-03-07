@@ -12,6 +12,7 @@ namespace GoblinKing.Data
         public int Speed;
         public int BaseDamage;
         public int CreatureLevel;
+        public int MaxEncumbrance;
 
         public string AssetPath;
         public GameObject CreaturePrefab;

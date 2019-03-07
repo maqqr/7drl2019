@@ -76,6 +76,7 @@ namespace GoblinKing.Core.GameViews
                         perkSystem.BuyPerk(button.PerkKey);
                         gameManager.playerObject.GetComponent<Player>().Perkpoints -= 1;
                         backgroundImg.color = perkBoughtColor;
+                        gameManager.MessageBuffer.AddMessage(Color.yellow, "You gained the perk: "+ gameManager.GameData.PerkData[button.PerkKey].Name+".");
                     }
                 };
             }
