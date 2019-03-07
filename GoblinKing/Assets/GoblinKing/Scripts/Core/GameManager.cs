@@ -399,7 +399,6 @@ namespace GoblinKing.Core
 
                 // Dungeon was generated, spawn some monsters next
                 var enemySpawnPoints = CurrentFloorObject.transform.GetComponentsInChildren<CreatureSpawnPoint>();
-                Debug.Log("Found " + enemySpawnPoints.Length + " enemy spawn points");
                 for (int i = 0; i < enemySpawnPoints.Length; i++)
                 {
                     SpawnCreatureAtSpawnPoint(enemySpawnPoints[i]);
@@ -501,7 +500,6 @@ namespace GoblinKing.Core
         private void AdvanceGameWorld(int deltaTime)
         {
             List<Creature> creatures = CurrentFloorObject.GetComponent<DungeonLevel>().EnemyCreatures.Items;
-            Debug.Log("Number of creatures: " + creatures.Count);
 
             for (int i = 0; i < creatures.Count; i++)
             {
