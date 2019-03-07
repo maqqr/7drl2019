@@ -8,9 +8,7 @@ namespace GoblinKing.Core.Interaction
     {
         public bool Interact(GameManager gameManager)
         {
-            // TODO: implement
             Debug.Log("Going up stairs");
-
             gameManager.NextDungeonFloor();
 
             return false;

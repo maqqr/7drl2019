@@ -8,8 +8,8 @@ namespace GoblinKing.Core.Interaction
     {
         public bool Interact(GameManager gameManager)
         {
-            // TODO: implement
             Debug.Log("Going down stairs");
+            gameManager.PreviousDungeonFloor();
 
             return false;
         }

@@ -430,14 +430,13 @@ namespace GoblinKing.Core
                 {
                     SpawnCreatureAtSpawnPoint(enemySpawnPoints[i]);
                 }
-
-                pathfindDirty = true;
             }
             else
             {
                 CurrentFloorObject.SetActive(true);
             }
 
+            pathfindDirty = true;
             CurrentFloorObject.GetComponent<DungeonLevel>().UpdateAllReferences();
 
             var spawnPoint = CurrentFloorObject.transform.GetComponentInChildren<PlayerSpawnPoint>();
@@ -467,6 +466,14 @@ namespace GoblinKing.Core
             // Activate previous level
             currentFloor--;
             CurrentFloorObject.SetActive(true);
+
+            var downstairsPoint = CurrentFloorObject.transform.GetComponentInChildren<DownStairsReturnPoint>();
+            Vector2Int point = Utils.ConvertToGameCoord(downstairsPoint.transform.position);
+            playerObject.transform.position = Utils.ConvertToWorldCoord(point);
+            playerCreature.Position = point;
+
+            pathfindDirty = true;
+            CurrentFloorObject.GetComponent<DungeonLevel>().UpdateAllReferences();
         }
 
         public void AdvanceTime(int deltaTime)
