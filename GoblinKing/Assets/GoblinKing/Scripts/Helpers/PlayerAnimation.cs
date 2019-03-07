@@ -4,17 +4,22 @@ using UnityEngine;
 
 namespace GoblinKing.Helpers
 {
-    public class PlayerAnimation : MonoBehaviour
+    internal class PlayerAnimation : MonoBehaviour
     {
         public Transform LeftHand;
         public Transform RightHand;
         public Core.SmoothMouseLook MouseLook;
         public Transform CameraTransform;
+        public Core.Creature PlayerCreature;
 
+        public float ForwardKeyHeldDuration = 0f;
+
+        public bool PeekForward = false;
         public int Peek = 0;
 
         private float zRotVelocity = 0f;
         private float cameraXVelocity = 0f;
+        private float cameraZVelocity = 0f;
 
         private float attackingTime = 0f;
         private Vector3 leftHandOriginal;
@@ -41,11 +46,13 @@ namespace GoblinKing.Helpers
 
         private float RayDistance(Vector3 localDir, float maxDist)
         {
-            Vector3 dir = transform.TransformVector(localDir);
+            Vector3 rayStartPos = Core.Utils.ConvertToWorldCoord(PlayerCreature.Position) + new Vector3(0f, 0.5f, 0f);
+            // Vector3 dir = transform.TransformVector(localDir);
+            Vector3 dir = transform.parent.transform.TransformVector(localDir);
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, dir, out hit, maxDist, ~0, QueryTriggerInteraction.Ignore))
+            if (Physics.Raycast(rayStartPos, dir, out hit, maxDist, ~0, QueryTriggerInteraction.Ignore))
             {
-                return hit.distance;
+                return hit.distance - 0.15f;
             }
             return maxDist;
         }
@@ -58,19 +65,31 @@ namespace GoblinKing.Helpers
                 return;
             }
 
+            PeekForward = ForwardKeyHeldDuration > 1.0f;
+
             var peekDist = 0f;
-            if (Peek != 0)
+            var cameraTargetLocalZ = 0f;
+            var cameraTargetLocalX = 0f;
+
+            if (PeekForward)
             {
-                peekDist = RayDistance(new Vector3(Peek, 0f, 0f), 0.6f);
+                Peek = 0;
+                peekDist = RayDistance(new Vector3(0f, 0f, 1f), 0.6f);
+                cameraTargetLocalZ = peekDist;
+            }
+            else
+            {
+                peekDist = Peek != 0 ? RayDistance(new Vector3(Peek, 0f, 0f), 0.6f) : 0f;
+                cameraTargetLocalX = peekDist * Peek;
             }
 
             var targetZRot = -30f * Peek;
-            var cameraTargetLocalX = peekDist * Peek;
 
             MouseLook.zRotation = Mathf.SmoothDamp(MouseLook.zRotation, targetZRot, ref zRotVelocity, 0.02f, 200.0f);
 
             Vector3 localPos = CameraTransform.localPosition;
             localPos.x = Mathf.SmoothDamp(localPos.x, cameraTargetLocalX, ref cameraXVelocity, 0.1f, 5f);
+            localPos.z = Mathf.SmoothDamp(localPos.z, cameraTargetLocalZ, ref cameraZVelocity, 0.1f, 5f);
             CameraTransform.localPosition = localPos;
 
             if (attackingTime > 0f)

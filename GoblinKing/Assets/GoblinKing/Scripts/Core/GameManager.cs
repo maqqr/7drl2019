@@ -11,7 +11,7 @@ namespace GoblinKing.Core
         public Keybindings keybindings;
         public GameObject playerObject;
         internal Creature playerCreature;
-        public PlayerAnimation playerAnim;
+        internal PlayerAnimation playerAnim;
         public GameObject visibilityDiamondObject;
         public Data.GameData GameData;
         public Camera Camera;

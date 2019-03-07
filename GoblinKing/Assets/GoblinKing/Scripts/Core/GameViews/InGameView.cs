@@ -58,6 +58,16 @@ namespace GoblinKing.Core.GameViews
                     return true;
                 }
                 HandlePlayerInput();
+
+                if (Utils.IsDown(gameManager.keybindings.MoveForward))
+                {
+                    gameManager.playerAnim.ForwardKeyHeldDuration += Time.deltaTime;
+                }
+            }
+
+            if (Utils.IsReleased(gameManager.keybindings.MoveForward))
+            {
+                gameManager.playerAnim.ForwardKeyHeldDuration = 0f;
             }
 
             Creature displayEnemy = null;
@@ -175,25 +185,28 @@ namespace GoblinKing.Core.GameViews
             if (Utils.IsPressed(gameManager.keybindings.ThrowLeftHand) || Utils.IsPressed(gameManager.keybindings.ThrowRightHand))
             {
                 EquipSlot slot = Utils.IsPressed(gameManager.keybindings.ThrowLeftHand) ? EquipSlot.LeftHand : EquipSlot.RightHand;
-                if(player.Equipment.ContainsKey(slot)) {
+                if (player.Equipment.ContainsKey(slot))
+                {
                     ThrowItem(slot);
-                } else if(highlightedObject != null) {
+                }
+                else if (highlightedObject != null)
+                {
                     Unhighlight(highlightedObject);
                     var pick = highlightedObject.GetComponent<Interaction.PickupItem>();
-                    if(pick)
+                    if (pick)
                     {
                         pick.Interact(gameManager);
-                        foreach(var invitem in player.Inventory)
+                        foreach (var invitem in player.Inventory)
                         {
-                            if(invitem.ItemKey == pick.itemKey) 
+                            if (invitem.ItemKey == pick.itemKey)
                             {
-                                gameManager.PlayerEquip(invitem ,slot);
+                                gameManager.PlayerEquip(invitem, slot);
                                 break;
                             }
                         }
                         gameManager.AdvanceTime(player.Speed);
                     }
-                    
+
 
                 }
             }
@@ -301,7 +314,7 @@ namespace GoblinKing.Core.GameViews
 
         private void CheckFastMovement()
         {
-            if (Utils.IsDown(gameManager.keybindings.MoveForward))
+            if (Utils.IsDown(gameManager.keybindings.MoveForward) && !gameManager.playerAnim.PeekForward)
             {
                 if (playerTransitionSpeed > 0.1f)
                 {
@@ -309,7 +322,7 @@ namespace GoblinKing.Core.GameViews
                     playerTransitionSpeed = Mathf.Max(0.1f, playerTransitionSpeed);
                 }
             }
-            if (Utils.IsReleased(gameManager.keybindings.MoveForward))
+            if (Utils.IsReleased(gameManager.keybindings.MoveForward) || gameManager.playerAnim.PeekForward)
             {
                 playerTransitionSpeed = originalTransitionSpeed;
             }

@@ -158,6 +158,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Hp: 12
   TimeElapsed: 0
+  MaxEncumbrance: 0
+  Poison: 0
   Position: {x: 0, y: 0}
   Data:
     Name: Player
@@ -165,6 +167,7 @@ MonoBehaviour:
     Speed: 100
     BaseDamage: 0
     CreatureLevel: 0
+    MaxEncumbrance: 0
     AssetPath: 
     CreaturePrefab: {fileID: 0}
   LeftHandTransform: {fileID: 204848938627951618}
@@ -382,4 +385,7 @@ MonoBehaviour:
   RightHand: {fileID: 204848938974532975}
   MouseLook: {fileID: 204848939329840235}
   CameraTransform: {fileID: 204848939329840237}
+  PlayerCreature: {fileID: 204848937775332885}
+  ForwardKeyHeldDuration: 0
+  PeekForward: 0
   Peek: 0
