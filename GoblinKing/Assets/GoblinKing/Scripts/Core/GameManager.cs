@@ -26,6 +26,7 @@ namespace GoblinKing.Core
         public GameObject questionMarkPrefab;
         public GameObject exclamationMarkPrefab;
         public GameObject playerPrefab;
+        public GameObject smokeCloudPrefab;
 
         private int currentFloor = -1;
         private List<GameObject> dungeonFloors = new List<GameObject>();
@@ -568,7 +569,8 @@ namespace GoblinKing.Core
                     SpawnItem(dropped_item.ItemKey, Utils.ConvertToWorldCoord(defender.Position) + new Vector3(0, (float)rnd.NextDouble() * 0.6f + 0.2f, 0f), Random.rotation);
                 }
                 xp += xp > 0 ? System.Math.Max(1, defender.Data.CreatureLevel - playerObject.GetComponent<Player>().Level) * 20 : 0;
-                defender.gameObject.AddComponent<Corpse>();
+                var corpseComponent = defender.gameObject.AddComponent<Corpse>();
+                corpseComponent.SmokeCloudPrefab = smokeCloudPrefab;
                 GameObject.Destroy(defender.GetComponentInChildren<Collider>());
                 if (defender.LeftHandTransform)
                 {

@@ -6,6 +6,8 @@ namespace GoblinKing
 {
     public class Corpse : MonoBehaviour
     {
+        public GameObject SmokeCloudPrefab;
+
         private float timeCreated;
         private float disappearDuration = 5f;
 
@@ -18,7 +20,10 @@ namespace GoblinKing
         {
             if (Time.time > timeCreated + disappearDuration)
             {
-                // TODO: spawn smoke cloud?
+                if (SmokeCloudPrefab)
+                {
+                    GameObject.Instantiate(SmokeCloudPrefab, transform.position + new Vector3(0f, 0.1f, 0f), Quaternion.identity);
+                }
 
                 GameObject.Destroy(gameObject);
             }

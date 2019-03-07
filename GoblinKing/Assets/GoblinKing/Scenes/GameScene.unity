@@ -3528,6 +3528,7 @@ MonoBehaviour:
     type: 3}
   playerPrefab: {fileID: 204848937775332886, guid: 41c9947afacb6ab4aa78cfbb59447b6a,
     type: 3}
+  smokeCloudPrefab: {fileID: 100000, guid: 4c5a17ca1f9fec84e941441ebb8be079, type: 3}
 --- !u!4 &1485741022
 Transform:
   m_ObjectHideFlags: 0
