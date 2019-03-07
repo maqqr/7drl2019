@@ -56,11 +56,13 @@ namespace GoblinKing.Core.GameViews
             if (highlightedItem != null && Utils.IsPressed(gameManager.keybindings.DropItem))
             {
                 DropItem(highlightedItem);
+                highlightedItem = null;
                 RefreshView();
             }
-            if (highlightedItem != null && Utils.IsPressed(gameManager.keybindings.ConsumeItem))
+            else if (highlightedItem != null && Utils.IsPressed(gameManager.keybindings.ConsumeItem))
             {
                 ConsumeItem(highlightedItem);
+                highlightedItem = null;
                 RefreshView();
             }
 
