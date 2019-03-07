@@ -85,9 +85,9 @@ namespace GoblinKing.AI
             VisibilityLevel playerModifiedVisibility = player.CurrentVisibility;
 
             // Check angle
-            var atkdir = Utils.ConvertToWorldCoord(playerCre.Position) - Utils.ConvertToWorldCoord(creature.Position);
-            var defdir = creature.transform.forward;
-            var angle = Vector2.Angle(new Vector2(atkdir.x, atkdir.z), new Vector2(defdir.x, defdir.z));
+            var dirToPlayer = Utils.ConvertToWorldCoord(playerCre.Position) - Utils.ConvertToWorldCoord(creature.Position);
+            var forward = creature.transform.forward;
+            var angle = Vector2.Angle(new Vector2(dirToPlayer.x, dirToPlayer.z), new Vector2(forward.x, forward.z));
             bool playerInFromOfCreature = angle <= 90;
 
             // Check ray cast
