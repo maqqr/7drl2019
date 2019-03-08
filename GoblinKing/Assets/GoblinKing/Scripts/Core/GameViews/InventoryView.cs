@@ -107,7 +107,7 @@ namespace GoblinKing.Core.GameViews
 
                 InventoryItem invItem = player.Inventory[i];
                 Data.ItemData item = gameManager.GameData.ItemData[invItem.ItemKey];
-                obj.transform.GetChild(0).GetComponent<TMPro.TextMeshProUGUI>().text = "" + invItem.Count + "x " + item.Name;
+                obj.transform.GetChild(0).GetComponent<TMPro.TextMeshProUGUI>().text = "" + invItem.Count + "x " + System.Globalization.CultureInfo.InvariantCulture.TextInfo.ToTitleCase(item.Name);
 
                 var itemHandler = obj.GetComponent<UIItemHandler>();
 
