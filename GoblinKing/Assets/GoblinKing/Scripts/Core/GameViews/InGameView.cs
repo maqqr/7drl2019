@@ -187,7 +187,7 @@ namespace GoblinKing.Core.GameViews
                 EquipSlot slot = Utils.IsPressed(gameManager.keybindings.ThrowLeftHand) ? EquipSlot.LeftHand : EquipSlot.RightHand;
                 if (player.Equipment.ContainsKey(slot))
                 {
-                    ThrowItem(slot);
+                    gameManager.PlayerThrowItem(slot);
                 }
                 else if (highlightedObject != null)
                 {
@@ -241,35 +241,6 @@ namespace GoblinKing.Core.GameViews
                         forcedCooldown = 1.0f; // Add a small delay to prevent too fast attack spam
                     }
                 }
-            }
-        }
-
-        private void ThrowItem(EquipSlot slot)
-        {
-            var player = gameManager.playerObject.GetComponent<Creature>();
-            if (player.Equipment.ContainsKey(slot))
-            {
-                var removedItem = player.Equipment[slot];
-                player.RemoveItem(removedItem, 1);
-
-                if (removedItem.Count == 1 && player.HasItemInSlot(removedItem, EquipSlot.LeftHand) && player.HasItemInSlot(removedItem, EquipSlot.RightHand))
-                {
-                    gameManager.PlayerUnequip(slot);
-                }
-
-                if (removedItem.Count <= 0)
-                {
-                    gameManager.PlayerUnequip(slot);
-                }
-
-                Vector3 spawnPos = Utils.ConvertToWorldCoord(player.Position) + new Vector3(0f, 0.6f, 0f)
-                                 + player.gameObject.transform.forward * 0.3f;
-                var spawnedItem = gameManager.SpawnItem(removedItem.ItemKey, spawnPos, Random.rotation);
-
-                var rigidbody = spawnedItem.GetComponent<Rigidbody>();
-                rigidbody.isKinematic = false;
-                rigidbody.AddForce(gameManager.Camera.transform.forward * 10f, ForceMode.Impulse);
-                gameManager.AdvanceTime(gameManager.playerObject.GetComponent<Creature>().Speed);
             }
         }
 

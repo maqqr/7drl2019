@@ -21,14 +21,7 @@ namespace GoblinKing.Core.Interaction
 
         public bool Interact(GameManager gameManager)
         {
-            if(gameManager.playerCreature.MaxEnc >= Utils.TotalEncumbrance(gameManager, gameManager.playerCreature) + gameManager.GameData.ItemData[itemKey].Weight) {
-                gameManager.playerObject.GetComponent<Creature>().AddItem(itemKey);
-                GameObject.Destroy(gameObject);
-                gameManager.MessageBuffer.AddMessage(Color.white, "You picked up the " + gameManager.GameData.ItemData[itemKey].Name.ToLower()+".");
-            }
-            else {
-                gameManager.MessageBuffer.AddMessage(Color.white, "You can't carry any more loot.");
-            }
+            gameManager.PlayerPickupItem(this);
             return true;
         }
 

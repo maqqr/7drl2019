@@ -105,8 +105,28 @@ namespace GoblinKing.Core
 
             Vector3 playerWorldPos = Utils.ConvertToWorldCoord(playerCreature.Position) + new Vector3(0f, 0.5f, 0f);
             VisibilityLevel level = Visibility.Calculate(playerWorldPos, lights);
+
+            // Equipped lightsources always cause player to be visible
+            if (CreatureHasLightsource(playerCreature, EquipSlot.LeftHand) || CreatureHasLightsource(playerCreature, EquipSlot.RightHand))
+            {
+                level = VisibilityLevel.Visible;
+            }
+
             playerObject.GetComponent<Player>().CurrentVisibility = level;
             visibilityDiamondObject.GetComponent<MeshRenderer>().material.SetColor("_Color", Visibility.GetGemColor(level));
+        }
+
+        private bool CreatureHasLightsource(Creature cre, EquipSlot slot)
+        {
+            if (slot == EquipSlot.LeftHand || slot == EquipSlot.RightHand)
+            {
+                Transform handTransform = slot == EquipSlot.LeftHand ? cre.LeftHandTransform : cre.RightHandTransform;
+                if (handTransform.childCount > 0 && handTransform.GetChild(0).GetComponentInChildren<LightSource>())
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         public void MakeALoudNoise(Vector3 noisePosition)
@@ -177,6 +197,8 @@ namespace GoblinKing.Core
                 MakeALoudNoise(itemObject.transform.position);
             };
 
+            lightingDirty = 1;
+
             return itemObject;
         }
 
@@ -217,8 +239,9 @@ namespace GoblinKing.Core
                 {
                     Data.ItemData item = GameData.ItemData[itemKey];
                     creature.TakeDamage(item.ThrowingDamage);
-                    if(creature.Hp < 1) {
-                        MessageBuffer.AddMessage(Color.white, item.Name + " killed "+creature.Data.Name+" on impact.");
+                    if (creature.Hp < 1)
+                    {
+                        MessageBuffer.AddMessage(Color.white, item.Name + " killed " + creature.Data.Name + " on impact.");
                         addExperience(KillCreature(creature));
                     }
                 };
@@ -299,6 +322,7 @@ namespace GoblinKing.Core
             }
 
             player.Equipment[slot] = item;
+            lightingDirty = 5;
 
             var handObj = GetEquipTransformForSlot(playerCreature, slot);
             SpawnItemToHand(handObj.transform, item.ItemKey);
@@ -313,6 +337,52 @@ namespace GoblinKing.Core
             for (int i = handObj.childCount - 1; i >= 0; i--)
             {
                 GameObject.Destroy(handObj.transform.GetChild(i).gameObject);
+            }
+            lightingDirty = 1;
+        }
+
+        internal void PlayerPickupItem(Interaction.PickupItem item)
+        {
+            if (playerCreature.MaxEnc >= Utils.TotalEncumbrance(this, playerCreature) + GameData.ItemData[item.itemKey].Weight)
+            {
+                playerObject.GetComponent<Creature>().AddItem(item.itemKey);
+                MessageBuffer.AddMessage(Color.white, "You picked up the " + GameData.ItemData[item.itemKey].Name + ".");
+                GameObject.Destroy(item.gameObject);
+            }
+            else
+            {
+                MessageBuffer.AddMessage(Color.white, "You can't carry any more loot.");
+            }
+            lightingDirty = 1;
+        }
+
+        internal void PlayerThrowItem(EquipSlot slot)
+        {
+            var player = playerObject.GetComponent<Creature>();
+            if (player.Equipment.ContainsKey(slot))
+            {
+                var removedItem = player.Equipment[slot];
+                player.RemoveItem(removedItem, 1);
+
+                if (removedItem.Count == 1 && player.HasItemInSlot(removedItem, EquipSlot.LeftHand) && player.HasItemInSlot(removedItem, EquipSlot.RightHand))
+                {
+                    PlayerUnequip(slot);
+                }
+
+                if (removedItem.Count <= 0)
+                {
+                    PlayerUnequip(slot);
+                }
+
+                Vector3 spawnPos = Utils.ConvertToWorldCoord(player.Position) + new Vector3(0f, 0.6f, 0f)
+                                 + player.gameObject.transform.forward * 0.3f;
+                var spawnedItem = SpawnItem(removedItem.ItemKey, spawnPos, Random.rotation);
+
+                var rigidbody = spawnedItem.GetComponent<Rigidbody>();
+                rigidbody.isKinematic = false;
+                rigidbody.AddForce(Camera.transform.forward * 10f, ForceMode.Impulse);
+                AdvanceTime(playerObject.GetComponent<Creature>().Speed);
+                lightingDirty = 15;
             }
         }
 
@@ -346,27 +416,28 @@ namespace GoblinKing.Core
             return null;
         }
 
-        internal int KillCreature(Creature cre) {
+        internal int KillCreature(Creature cre)
+        {
             foreach (InventoryItem dropped_item in cre.Inventory)
-                {
-                    System.Random rnd = new System.Random();
-                    SpawnItem(dropped_item.ItemKey, Utils.ConvertToWorldCoord(cre.Position) + new Vector3(0, (float)rnd.NextDouble() * 0.6f + 0.2f, 0f), Random.rotation);
-                }
-                var corpseComponent = cre.gameObject.AddComponent<Corpse>();
-                corpseComponent.SmokeCloudPrefab = smokeCloudPrefab;
-                GameObject.Destroy(cre.GetComponentInChildren<Collider>());
-                if (cre.LeftHandTransform)
-                {
-                    GameObject.Destroy(cre.LeftHandTransform.gameObject);
-                    lightingDirty = 5;
-                }
-                if (cre.RightHandTransform)
-                {
-                    GameObject.Destroy(cre.RightHandTransform.gameObject);
-                    lightingDirty = 5;
-                }
-                GameObject.Destroy(cre);
-                return System.Math.Max(1, cre.Data.CreatureLevel - playerObject.GetComponent<Player>().Level) * 20;
+            {
+                System.Random rnd = new System.Random();
+                SpawnItem(dropped_item.ItemKey, Utils.ConvertToWorldCoord(cre.Position) + new Vector3(0, (float)rnd.NextDouble() * 0.6f + 0.2f, 0f), Random.rotation);
+            }
+            var corpseComponent = cre.gameObject.AddComponent<Corpse>();
+            corpseComponent.SmokeCloudPrefab = smokeCloudPrefab;
+            GameObject.Destroy(cre.GetComponentInChildren<Collider>());
+            if (cre.LeftHandTransform)
+            {
+                GameObject.Destroy(cre.LeftHandTransform.gameObject);
+                lightingDirty = 1;
+            }
+            if (cre.RightHandTransform)
+            {
+                GameObject.Destroy(cre.RightHandTransform.gameObject);
+                lightingDirty = 1;
+            }
+            GameObject.Destroy(cre);
+            return System.Math.Max(1, cre.Data.CreatureLevel - playerObject.GetComponent<Player>().Level) * 20;
         }
 
         public bool IsWalkable(Vector2Int position, LayerMask ignoreMask)
@@ -544,31 +615,31 @@ namespace GoblinKing.Core
             HungerContainer.CurrentMaxNutrition = player.MaxNutrition;
             HungerContainer.UpdateModels();
             int percent = (int)(100 * (player.Nutrition / (float)player.MaxNutrition));
-            if(deltahunger > 0)
+            if (deltahunger > 0)
             {
                 if (percent < 90 && percent >= 70)
                 {
-                    MessageBuffer.AddMessage(Color.white,"You feel full.");
+                    MessageBuffer.AddMessage(Color.white, "You feel full.");
                 }
                 if (percent < 70 && percent >= 50)
                 {
-                    MessageBuffer.AddMessage(Color.white,"You feel content.");
+                    MessageBuffer.AddMessage(Color.white, "You feel content.");
                 }
                 if (percent < 50 && percent >= 30)
                 {
-                    MessageBuffer.AddMessage(Color.white,"You feel like you could grab another bite.");
+                    MessageBuffer.AddMessage(Color.white, "You feel like you could grab another bite.");
                 }
-                if (percent < 30 && percent >=10)
+                if (percent < 30 && percent >= 10)
                 {
-                    MessageBuffer.AddMessage(Color.white,"Your stomach still growls.");
+                    MessageBuffer.AddMessage(Color.white, "Your stomach still growls.");
                 }
                 if (percent < 10 && percent >= 0)
                 {
-                    MessageBuffer.AddMessage(Color.white,"Your stomach is howling in hunger.");
+                    MessageBuffer.AddMessage(Color.white, "Your stomach is howling in hunger.");
                 }
                 if (percent < 0)
                 {
-                    MessageBuffer.AddMessage(Color.white,"You are starving.");
+                    MessageBuffer.AddMessage(Color.white, "You are starving.");
                 }
             }
         }
@@ -598,7 +669,7 @@ namespace GoblinKing.Core
                 player.Perkpoints += player.Level % 3 == 0 ? 1 : 0;
                 playerCreature.Data.MaxHp += player.Level % 2 == 0 ? 1 : 0;
                 playerCreature.Hp += 1;
-                MessageBuffer.AddMessage(Color.green,"Level UP!");
+                MessageBuffer.AddMessage(Color.green, "Level UP!");
             }
         }
 
@@ -620,10 +691,12 @@ namespace GoblinKing.Core
                 {
                     cre.TimeElapsed -= cre.Speed;
                     AI.AIBehaviour.UpdateAI(this, cre);
-                    if(cre.Poison > 0) {
+                    if (cre.Poison > 0)
+                    {
                         cre.TakeDamage(1);
                         cre.Poison -= 1;
-                        if(cre.Hp < 1) {
+                        if (cre.Hp < 1)
+                        {
                             MessageBuffer.AddMessage(Color.white, cre.Data.Name + " died from poison.");
                             addExperience(KillCreature(cre));
                         }
@@ -686,11 +759,11 @@ namespace GoblinKing.Core
             }
             MessageBuffer.AddMessage(Color.white, attacker.Data.Name + " attacks " + defender.Data.Name + " for " + dmg + " damage.");
             MessageBuffer.AddMessage(Color.white, defender.Data.Name + " has " + defender.Hp + " hp. ");
-            if (xp > 0) 
+            if (xp > 0)
             {
-                 addExperience(xp);
+                addExperience(xp);
             }
-            
+
         }
 
         internal void UpdateHearts(Creature creature, HeartContainer container)
@@ -769,7 +842,7 @@ namespace GoblinKing.Core
 
                 if (gameViews.Count == 0)
                 {
-                    MessageBuffer.AddMessage(Color.red,"GAME OVER");
+                    MessageBuffer.AddMessage(Color.red, "GAME OVER");
                 }
             }
         }
