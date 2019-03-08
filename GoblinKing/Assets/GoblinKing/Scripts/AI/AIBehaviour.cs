@@ -63,6 +63,23 @@ namespace GoblinKing.AI
             }
         }
 
+        public static void RaiseAlertness(GameManager gameManager, Creature creature, AlertLevel newAlertLevel)
+        {
+            if (creature.AlertLevel == AlertLevel.Unaware)
+            {
+                // All new alertness levels are allowed when unaware
+                ChangeAlertness(gameManager, creature, newAlertLevel);
+                return;
+            }
+            if (creature.AlertLevel == AlertLevel.Suspicious && newAlertLevel == AlertLevel.Alerted)
+            {
+                // Can only increase to Alerted when Suspicious
+                ChangeAlertness(gameManager, creature, newAlertLevel);
+                return;
+            }
+            // Alertness cannot increase above Alerted
+        }
+
         public static void ChangeAlertness(GameManager gameManager, Creature creature, AlertLevel newAlertLevel)
         {
             bool levelChanged = newAlertLevel != creature.AlertLevel;
