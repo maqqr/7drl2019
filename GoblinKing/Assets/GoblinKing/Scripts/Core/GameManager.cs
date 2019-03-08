@@ -20,6 +20,7 @@ namespace GoblinKing.Core
         public HungerContainer HungerContainer;
         public TMPro.TextMeshProUGUI EnemyNameText;
         public MessageBuffer MessageBuffer;
+        public Rigidbody throwable;
 
         public GameObject[] levelGeneratorPrefabs;
         public GameObject perkTreePrefab;
