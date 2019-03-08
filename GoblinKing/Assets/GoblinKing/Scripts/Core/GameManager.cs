@@ -674,7 +674,7 @@ namespace GoblinKing.Core
             {
                 player.Experience = 0;
                 player.Level += 1;
-                player.Perkpoints += player.Level % 3 == 0 ? 1 : 0;
+                player.Perkpoints += 1;
                 playerCreature.Data.MaxHp += player.Level % 2 == 0 ? 1 : 0;
                 playerCreature.Hp += 1;
                 MessageBuffer.AddMessage(Color.green, "Level UP!");
