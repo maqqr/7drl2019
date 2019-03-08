@@ -46,9 +46,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f0d992cf9b8ab84c912df2be4435359, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundEffects:
+  - soundname: goblinhit
+    clip: {fileID: 8300000, guid: ce9f2b0f52aabb140ac9d454f147c755, type: 3}
+  - soundname: goblindie
+    clip: {fileID: 8300000, guid: 8475a4dde9493da479dcabf3f1d07471, type: 3}
+  - soundname: backstab
+    clip: {fileID: 8300000, guid: b8de8740d1dd2dd4e84347de6b47348d, type: 3}
+  - soundname: hit
+    clip: {fileID: 8300000, guid: c1b9c2d55fc3b2e49b9253a358c08078, type: 3}
+  - soundname: playerdie
+    clip: {fileID: 8300000, guid: f319be6d25ee1b24c9682e9f83df6ccf, type: 3}
+  - soundname: inventory
+    clip: {fileID: 8300000, guid: 8acf352a0c726204994d9cd7a5d3445b, type: 3}
   MenuMusic: {fileID: 2453733345511026470}
   EspionageMusic: {fileID: 5238916911517042175}
   CombatMusic: {fileID: 8187867887498478889}
+  currentMusic: 0
 --- !u!82 &2453733345511026470
 AudioSource:
   m_ObjectHideFlags: 0
