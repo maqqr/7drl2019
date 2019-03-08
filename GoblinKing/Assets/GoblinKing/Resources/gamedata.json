@@ -82,10 +82,10 @@
 
     "perks": {
         "speed1": { "name": "Gotta go fast", "desc": "Increase speed by 10%", "speedReduction": 10 },
-        "speed2": { "name": "The need to go quickly", "desc": "Increase speed by 20%", "require": ["speed1"], "speedReduction": 20 },
+        "speed2": { "name": "The need to go quickly", "desc": "Increase speed by additional 10%", "require": ["speed1"], "speedReduction": 20 },
 
         "maxlife1": { "name": "Hardy", "desc": "Increase maximum life by one heart", "addMaxLife": 2 },
-        "maxlife2": { "name": "Tanky", "desc": "Increase maximum life by two hearts", "require": ["maxlife1"], "addMaxLife": 4 },
+        "maxlife2": { "name": "Tanky", "desc": "Increase maximum life by one additional hearts", "require": ["maxlife1"], "addMaxLife": 4 },
 
         "widebackstab": { "name": "Big reach", "desc": "Allows wider range for backstabs", "largeBackstabAngle": true },
 
@@ -98,16 +98,16 @@
         "backstab4": { "name": "Ghost", "desc": "Increase backstab damage multiplier to 3.0x", "require": ["backstab3"], "backstabMultiplier": 3.0 },
 
         "metabolism1": { "name": "Efficient metabolism", "desc": "Nutrition from food increased by 25%", "metabolicMultiplier": 1.25 },
-        "metabolism2": { "name": "Take all the nutrients!", "desc": "Nutrition from food increased by 50%","require":["metabolism1"], "metabolicMultiplier": 1.50 },
+        "metabolism2": { "name": "Take all the nutrients!", "desc": "Nutrition from food further increased by additional 25%","require":["metabolism1"], "metabolicMultiplier": 1.50 },
 
         "stomach1": { "name": "Iron stomach", "desc": "Reduce the effects of food poisoning by half","require":["metabolism1"], "stomachGuard": 1 },
         "stomach2": { "name": "I eat chain for breakfast", "desc": "Immunity to health effects of rotten food", "require":["stomach1"],"stomachGuard": 2 },
 
         "combat1": { "name": "I went to the gym, once", "desc": "Damage dealt increased by 1", "addDmg": 1 },
-        "combat2": { "name": "Do you even lift bro?", "desc": "Damage dealt increased by 2", "require":["combat1"], "addDmg": 2 },
+        "combat2": { "name": "Do you even lift bro?", "desc": "Damage dealt further increased by 1", "require":["combat1"], "addDmg": 2 },
 
         "bob1": { "name": "Beast of burden", "desc": "Increase maximum encumbrance by 10", "addMaxEnc": 10 },
-        "bob2": { "name": "No straws break my back!", "desc": "Increase maximum encumbrance by 20", "require": ["bob1"], "addMaxEnc": 20 }
+        "bob2": { "name": "No straws break my back!", "desc": "Increase maximum encumbrance by additional 10", "require": ["bob1"], "addMaxEnc": 20 }
 
 
     }

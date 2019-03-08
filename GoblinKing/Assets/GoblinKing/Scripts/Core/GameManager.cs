@@ -678,10 +678,15 @@ namespace GoblinKing.Core
             {
                 player.Experience = 0;
                 player.Level += 1;
-                player.Perkpoints += 1;
-                playerCreature.Data.MaxHp += player.Level % 2 == 0 ? 1 : 0;
-                playerCreature.Hp += 1;
                 MessageBuffer.AddMessage(Color.green, "Level UP!");
+                player.Perkpoints += 1;
+                MessageBuffer.AddMessage(Color.green, "Gained 1 perk point!");
+                if(player.Level % 2 == 0) {
+                    playerCreature.Data.MaxHp +=  1;
+                    playerCreature.Hp += 1;
+                    MessageBuffer.AddMessage(Color.green, "Maximum health increased!");
+                }
+                
             }
         }
 
@@ -871,7 +876,7 @@ namespace GoblinKing.Core
             AddNewView(new GameViews.InGameView());
             UpdateHearts(playerCreature, PlayerHearts);
             AdjustNutrition(0);
-            MessageBuffer.AddMessage(Color.white, "You have 2 unused perkpoints. Press \"p\" to open the perkview and spend them");
+            MessageBuffer.AddMessage(Color.white, "You have 2 unused perk points. Press \"p\" to open the perkview.");
         }
 
         // Update is called once per frame
