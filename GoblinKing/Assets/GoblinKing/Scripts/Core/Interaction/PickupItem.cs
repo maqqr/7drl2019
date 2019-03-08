@@ -7,7 +7,7 @@ namespace GoblinKing.Core.Interaction
     internal class PickupItem : MonoBehaviour, IInteraction
     {
         public string itemKey = "";
-        public event System.Action CollidedFast;
+        public event System.Action<GameObject> CollidedFast;
 
         private float lastCollisionTime;
 
@@ -34,7 +34,7 @@ namespace GoblinKing.Core.Interaction
                     lastCollisionTime = Time.time;
                     if (CollidedFast != null)
                     {
-                        CollidedFast();
+                        CollidedFast(collision.collider.gameObject);
                     }
                 }
             }

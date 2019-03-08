@@ -148,37 +148,6 @@ namespace GoblinKing.Core
             }
         }
 
-        private void OnDrawGizmos()
-        {
-            if (playerObject == null)
-            {
-                return;
-            }
-
-            // if (CurrentFloorObject.GetComponent<DungeonLevel>().EnemyCreatures.Items.Count == 0)
-            // {
-            //     return;
-            // }
-
-            // var creature = CurrentFloorObject.GetComponent<DungeonLevel>().EnemyCreatures.Items[0];
-
-            // var result = FindPath(creature.Position, playerObject.GetComponent<Creature>().Position);
-
-            // foreach (var point in result)
-            // {
-            //     Vector3 pos = Utils.ConvertToWorldCoord(point);
-            //     Gizmos.color = Color.red;
-            //     Gizmos.DrawSphere(pos, 0.3f);
-            // }
-
-            // foreach (var kv in pathfindingGrid.nodes)
-            // {
-            //     Vector3 pos = Utils.ConvertToWorldCoord(kv.Key);
-            //     Gizmos.color = Color.white;
-            //     Gizmos.DrawWireSphere(pos, 0.4f);
-            // }
-        }
-
         public GameObject SpawnItem(string key, Vector3 position, Quaternion rotation)
         {
             if (!GameData.ItemData.ContainsKey(key))
@@ -193,9 +162,43 @@ namespace GoblinKing.Core
 
             CurrentFloorObject.GetComponent<DungeonLevel>().UpdateLights();
 
-            itemObject.GetComponent<Interaction.PickupItem>().CollidedFast += delegate
+            itemObject.GetComponent<Interaction.PickupItem>().CollidedFast += delegate(GameObject collidedWith)
             {
-                MessageBuffer.AddMessage(Color.magenta, "The falling " + item.Name + " caused a loud noise!");
+                Creature creature = null;
+                if (collidedWith.transform.parent != null)
+                {
+                    creature = collidedWith.transform.parent.GetComponent<Creature>();
+                }
+
+                if (creature)
+                {
+                    creature.TakeDamage(item.ThrowingDamage);
+                    if (item.Breakable)
+                    {
+                        if (item.Experience > 0) MessageBuffer.AddMessage(Color.white, "The experience does not make " + creature.Data.Name + " smarter.");
+                        if (item.Healing > 0) MessageBuffer.AddMessage(Color.white, "The " + creature.Data.Name + " recovers some health.");
+                        if (item.Poisoning > 0) MessageBuffer.AddMessage(Color.green, "The " + creature.Data.Name + " is poisoned.");
+                        creature.RecoverHealth(item.Healing);
+                        creature.Poison += item.Poisoning;
+                    }
+                    if (creature.Hp < 1)
+                    {
+                        MessageBuffer.AddMessage(Color.white, "The " + item.Name + " killed " + creature.Data.Name + " on impact.");
+                        addExperience(KillCreature(creature));
+                    }
+                }
+                else
+                {
+                    // Noise message is not displayed when hitting creature to reduce message spam
+                    MessageBuffer.AddMessage(Color.magenta, "The falling " + item.Name + " caused a loud noise!");
+                }
+
+                if (item.Breakable)
+                {
+                    MessageBuffer.AddMessage(Color.white, "The " + item.Name + " shattered into small pieces.");
+                    GameObject.Destroy(itemObject);
+                }
+
                 MakeALoudNoise(itemObject.transform.position);
             };
 
@@ -238,30 +241,6 @@ namespace GoblinKing.Core
             if (!string.IsNullOrEmpty(creature.InitialRightHandItem))
             {
                 SpawnItemToHand(creature.RightHandTransform, creature.InitialRightHandItem);
-            }
-
-            var throwHandler = creature.GetComponentInChildren<RegisterThrownItemCollision>();
-            if (throwHandler)
-            {
-                throwHandler.HitByItem += delegate (GameObject itemObject, string itemKey)
-                {
-                    Data.ItemData item = GameData.ItemData[itemKey];
-                    creature.TakeDamage(item.ThrowingDamage);
-                    if(item.Breakable) {
-                        creature.RecoverHealth(item.Healing);
-                        creature.Poison += item.Poisoning;
-                        Object.Destroy(itemObject);
-                    }
-                    if (creature.Hp < 1)
-                    {
-                        MessageBuffer.AddMessage(Color.white, item.Name + " killed " + creature.Data.Name + " on impact.");
-                        addExperience(KillCreature(creature));
-                    }
-                };
-            }
-            else
-            {
-                Debug.LogWarning("Creature " + key + " is missing RegisterThrownItemCollision");
             }
         }
 
