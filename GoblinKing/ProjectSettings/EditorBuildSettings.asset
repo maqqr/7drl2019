@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/GoblinKing/Scenes/GameScene.unity
+    guid: e611992aee446324198d09fb586c5937
   m_configObjects: {}
