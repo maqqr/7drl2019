@@ -1,63 +1,77 @@
 {
     "items": {
-        "sword":  { "weight": 6, "damM": 4, "damT": 3, "def": 1, "name": "short sword", "assetpath": "Items/Sword", "desc": "Pointy end goes to goblin." },
-        "gold":   { "weight": 0, "damM": 0, "damT": 0, "def": 0, "name": "gold coin", "assetpath": "Items/Gold", "desc": "Shiny." },
-        "skull":  { "weight": 1, "damM": 1, "damT": 1, "def": 0, "name": "skull", "assetpath": "Items/Skull", "desc": "Thank Mr. calcium." },
-        "rib":    { "weight": 3, "damM": 1, "damT": 1, "def": 1, "name": "rib", "assetpath": "Items/Rib", "desc": "Nice rib." },
-        "bone":   { "weight": 2, "damM": 2, "damT": 1, "def": 0, "name": "bone", "assetpath": "Items/Bone", "desc": "Now I have an extra bone ;) ;) ;)." },
-        "axe" :   { "weight": 5, "damM": 4, "damT": 4, "def": 0, "name": "axe", "assetpath": "Items/Axe", "desc": "I could get some oak logs with this." },
-        "dagger" :   { "weight": 2, "damM": 3, "damT": 4, "def": 1, "name": "dagger", "assetpath": "Items/Dagger", "desc": "Watch your back." },
-        "dart" :   { "weight": 1, "damM": 0, "damT": 5, "def": 0, "name": "dart", "assetpath": "Items/Dart", "desc": "Bullseye!" },
-        "club" :   { "weight": 4, "damM": 3, "damT": 2, "def": 0, "name": "club", "assetpath": "Items/Club", "desc": "Let's go clubbing." },
-        "stoneaxe" :   { "weight": 3, "damM": 3, "damT": 3, "def": 0, "name": "stoneaxe", "assetpath": "Items/Stoneaxe", "desc": "Chopping Yews might take a while with this one." },
-        "mace" :   { "weight": 4, "damM": 5, "damT": 1, "def": 0, "name": "mace", "assetpath": "Items/Mace", "desc": "Keep away from eyes." },
-        "hammer" :   { "weight": 5, "damM": 5, "damT": 4, "def": 0, "name": "hammer", "assetpath": "Items/Hammer", "desc": "Good to pound goblins with." },
-        "longsword" :   { "weight": 6, "damM": 6, "damT": 2, "def": 1, "name": "longsword", "assetpath": "Items/Longsword", "desc": "I've seen longer ones." },
-        "spear" :   { "weight": 3, "damM": 2, "damT": 6, "def": 1, "name": "spear", "assetpath": "Items/Spear", "desc": "I feel like this should be thrown." },
-        "ironshield" :   { "weight": 4, "damM": 0, "damT": 2, "def": 5, "name": "iron shield", "assetpath": "Items/IronShield", "desc": "My own little iron curtain." },
-        "ironshieldsmall" :   { "weight": 3, "damM": 0, "damT": 3, "def": 4, "name": "small iron shield", "assetpath": "Items/IronShieldSmall", "desc": "A metal throwing disc." },
-        "woodenshield" :   { "weight": 2, "damM": 0, "damT": 2, "def": 3, "name": "wooden shield", "assetpath": "Items/WoodenShield", "desc": "A trusty cutting board." },
-        "woodenshieldsmall" :   { "weight": 2, "damM": 0, "damT": 2, "def": 2, "name": "small wooden shield", "assetpath": "Items/WoodenShieldSmall", "desc": "Goblin, fetch!" },
-        "bucket": { "weight": 3, "damM": 1, "damT": 1, "def": 1, "name": "bucket", "assetpath": "Items/Bucket", "desc": "It's empty." },
-        "bluemushroom":      { "weight": 1, "damM": 0, "damT": 0, "def": 0, "healing": 1, "experience":3, "name": "blue mushroom", "assetpath": "Items/BlueMushroom", "desc": "Glowing mushroom.", "nutrition":5 },
-        "potionSmallXP":     { "weight": 1, "damM": 0, "damT": 1, "def": 0, "experience":10, "name": "small experience potion", "assetpath": "Items/PotionSmall_XP", "desc": "Magical potion infused with wisdom. Drink to gain experience.", "nutrition":5 },
-        "potionSmallHealth": { "weight": 1, "damM": 0, "damT": 1, "def": 0, "healing": 2, "name": "small health potion", "assetpath": "Items/PotionSmall_Health", "desc": "Drink to gain health.", "nutrition":5 },
-        "potionBigXP":       { "weight": 2, "damM": 0, "damT": 1, "def": 1, "experience":25, "name": "big XP potion", "assetpath": "Items/PotionBig_XP", "desc": "Magical potion infused with wisdom. Drink to gain large amount of experience.", "nutrition":5 },
-        "potionBigHealth":   { "weight": 2, "damM": 0, "damT": 1, "def": 1, "healing": 4,"name": "big health potion", "assetpath": "Items/PotionBig_Health", "desc": "Drink to gain lots of health.", "nutrition":5 },
-        "apple" : { "weight": 1, "damM": 0, "damT": 1, "def": 0, "healing": 1,"name": "red apple", "assetpath": "Items/Apple", "desc": "Keeps the doctors at bay.", "nutrition":35 },
-        "rottenapple" : { "weight": 1, "damM": 0, "damT": 1, "def": 0, "healing": -2,"name": "moldy apple", "assetpath": "Items/RottenApple", "desc": "Keeps the doctors near.", "nutrition":15 },
-        "bread" : { "weight": 2, "damM": 0, "damT": 1, "def": 0, "healing": 1,"name": "loaf of bread", "assetpath": "Items/Bread", "desc": "Fresh from the goblin oven.", "nutrition":75 },
-        "rottenbread" : { "weight": 1, "damM": 0, "damT": 1, "def": 0, "healing": -2,"name": "mushy bread", "assetpath": "Items/RottenBread", "desc": "It has it's own fur coat.", "nutrition":25 },
-        "cheese" : { "weight": 3, "damM": 0, "damT": 2, "def": 0, "healing": 1,"name": "cheese sector", "assetpath": "Items/Cheese", "desc": "It makes me feel gouda.", "nutrition":125 },
-        "rottencheese" : { "weight": 2, "damM": 0, "damT": 1, "def": 0, "healing": -2,"name": "(almost) blue cheese", "assetpath": "Items/RottenCheese", "desc": "Mr. Pac has seen better days.", "nutrition":35 },
-        "meat" : { "weight": 3, "damM": 0, "damT": 2, "def": 0, "healing": 1,"name": "roasted meat", "assetpath": "Items/Meat", "desc": "I hope it's vegan.", "nutrition":200 },
-        "rottenmeat" : { "weight": 2, "damM": 0, "damT": 2, "def": 0, "healing": -2,"name": "soggy meat", "assetpath": "Items/RottenMeat", "desc": "It has seen better days.", "nutrition":40 },
-        "bowlblue" : { "weight": 3, "damM": 0, "damT": 2, "def": 1, "name": "blue bowl", "assetpath": "Items/BowlBlue", "desc": "It has a stingy smell."},
-        "bowlpurple" : { "weight": 3, "damM": 0, "damT": 2, "def": 1, "name": "purple bowl", "assetpath": "Items/BowlPurple", "desc": "It has breadcrumbs in it."},
-        "bowlred" : { "weight": 3, "damM": 0, "damT": 2, "def": 1, "name": "red bowl", "assetpath": "Items/BowlRed", "desc": "A makeshift plantpot. No clue why the goblins have one."},
-        "rock" : { "weight": 3, "damM": 2, "damT": 3, "def": 0, "name": "rock", "assetpath": "Items/Rock", "desc": "Mesa bash rock-thin together. Mesa make fire."},
-        "lockpick" : { "weight": 0, "damM": 0, "damT": 0, "def": 0, "name": "lock pick", "assetpath": "Items/Lockpick", "desc": "My favourite tool."}
+        "dagger" :              { "weight": 2, "damM": 2, "damT": 4, "def": 1, "name": "dagger", "assetpath": "Items/Dagger", "desc": "Watch your back." },
+        "dart" :                { "weight": 1, "damM": 0, "damT": 5, "def": 0, "name": "dart", "assetpath": "Items/Dart", "desc": "Bullseye!" },
+        "spear" :               { "weight": 3, "damM": 2, "damT": 6, "def": 0, "name": "spear", "assetpath": "Items/Spear", "desc": "I feel like this should be thrown." },
+
+        "club" :                { "weight": 4, "damM": 3, "damT": 2, "def": 1, "name": "club", "assetpath": "Items/Club", "desc": "Let's go clubbing." },
+        "stoneaxe" :            { "weight": 4, "damM": 3, "damT": 3, "def": 1, "name": "stoneaxe", "assetpath": "Items/Stoneaxe", "desc": "Chopping Yews might take a while with this one." },
+        "axe" :                 { "weight": 5, "damM": 4, "damT": 4, "def": 1, "name": "axe", "assetpath": "Items/Axe", "desc": "I could get some oak logs with this." },
+        "mace" :                { "weight": 5, "damM": 4, "damT": 3, "def": 1, "name": "mace", "assetpath": "Items/Mace", "desc": "Keep away from eyes." },
+        "sword":                { "weight": 5, "damM": 4, "damT": 3, "def": 1, "name": "short sword", "assetpath": "Items/Sword", "desc": "Pointy end goes to goblin." },
+        "hammer" :              { "weight": 7, "damM": 5, "damT": 4, "def": 1, "name": "hammer", "assetpath": "Items/Hammer", "desc": "Good to pound goblins with." },
+        "longsword" :           { "weight": 6, "damM": 6, "damT": 2, "def": 1, "name": "longsword", "assetpath": "Items/Longsword", "desc": "I've seen longer ones." },
+        
+        "rib":                  { "weight": 3, "damM": 1, "damT": 1, "def": 1, "name": "rib", "assetpath": "Items/Rib", "desc": "Nice rib." },
+        "bucket":               { "weight": 4, "damM": 1, "damT": 1, "def": 1, "name": "bucket", "assetpath": "Items/Bucket", "desc": "Lancelots first shield. " },
+        "woodenshieldsmall" :   { "weight": 2, "damM": 1, "damT": 2, "def": 2, "name": "small wooden shield", "assetpath": "Items/WoodenShieldSmall", "desc": "Goblin, fetch!" },
+        "woodenshield" :        { "weight": 2, "damM": 1, "damT": 2, "def": 3, "name": "wooden shield", "assetpath": "Items/WoodenShield", "desc": "A trusty cutting board." },
+        "ironshieldsmall" :     { "weight": 3, "damM": 1, "damT": 3, "def": 4, "name": "small iron shield", "assetpath": "Items/IronShieldSmall", "desc": "A metal throwing disc." },
+        "ironshield" :          { "weight": 4, "damM": 1, "damT": 2, "def": 5, "name": "iron shield", "assetpath": "Items/IronShield", "desc": "My own little iron curtain." },
+                
+        "potionSmallXP":        { "weight": 1, "damM": 0, "damT": 1, "def": 0, "experience":10, "name": "small experience potion", "assetpath": "Items/PotionSmall_XP", "desc": "Magical potion infused with wisdom. Drink to gain experience.", "nutrition":5 },
+        "potionSmallHealth":    { "weight": 1, "damM": 0, "damT": 1, "def": 0, "healing": 2, "name": "small health potion", "assetpath": "Items/PotionSmall_Health", "desc": "Drink to gain health.", "nutrition":5 },
+        "potionBigXP":          { "weight": 2, "damM": 0, "damT": 1, "def": 1, "experience":25, "name": "big XP potion", "assetpath": "Items/PotionBig_XP", "desc": "Magical potion infused with wisdom. Drink to gain large amount of experience.", "nutrition":5 },
+        "potionBigHealth":      { "weight": 2, "damM": 0, "damT": 1, "def": 1, "healing": 4,"name": "big health potion", "assetpath": "Items/PotionBig_Health", "desc": "Drink to gain lots of health.", "nutrition":5 },
+        
+        "bluemushroom":         { "weight": 1, "damM": 0, "damT": 0, "def": 0, "healing": 1, "experience":3, "name": "blue mushroom", "assetpath": "Items/BlueMushroom", "desc": "Glowing mushroom.", "nutrition":5 },
+        "apple" :               { "weight": 1, "damM": 0, "damT": 1, "def": 0, "healing": 1,"name": "red apple", "assetpath": "Items/Apple", "desc": "Keeps the doctors at bay.", "nutrition":35 },
+        "bread" :               { "weight": 2, "damM": 0, "damT": 1, "def": 0, "healing": 1,"name": "loaf of bread", "assetpath": "Items/Bread", "desc": "Fresh from the goblin oven.", "nutrition":75 },
+        "cheese" :              { "weight": 3, "damM": 0, "damT": 2, "def": 0, "healing": 1,"name": "cheese wheel", "assetpath": "Items/Cheese", "desc": "It makes me feel gouda.", "nutrition":125 },
+        "meat" :                { "weight": 3, "damM": 0, "damT": 2, "def": 0, "healing": 1,"name": "roasted meat", "assetpath": "Items/Meat", "desc": "I hope it's vegan.", "nutrition":200 },
+        "rottenapple" :         { "weight": 1, "damM": 0, "damT": 1, "def": 0, "healing": -2,"name": "moldy apple", "assetpath": "Items/RottenApple", "desc": "Keeps the doctors near.", "nutrition":15 },
+        "rottenbread" :         { "weight": 1, "damM": 0, "damT": 1, "def": 0, "healing": -2,"name": "mushy bread", "assetpath": "Items/RottenBread", "desc": "It has it's own fur coat.", "nutrition":25 },
+        "rottencheese" :        { "weight": 2, "damM": 0, "damT": 1, "def": 0, "healing": -2,"name": "'almost' blue cheese", "assetpath": "Items/RottenCheese", "desc": "Mr. Pac has seen better days.", "nutrition":35 },
+        "rottenmeat" :          { "weight": 2, "damM": 0, "damT": 2, "def": 0, "healing": -2,"name": "soggy meat", "assetpath": "Items/RottenMeat", "desc": "It has seen better days.", "nutrition":40 },
+        
+        "bone":                 { "weight": 2, "damM": 2, "damT": 1, "def": 0, "name": "bone", "assetpath": "Items/Bone", "desc": "Now I have an extra bone." },
+        "bowlblue" :            { "weight": 3, "damM": 0, "damT": 2, "def": 1, "name": "blue bowl", "assetpath": "Items/BowlBlue", "desc": "It has a stingy smell."},
+        "bowlpurple" :          { "weight": 3, "damM": 0, "damT": 2, "def": 1, "name": "purple bowl", "assetpath": "Items/BowlPurple", "desc": "It has breadcrumbs in it."},
+        "bowlred" :             { "weight": 3, "damM": 0, "damT": 2, "def": 1, "name": "red bowl", "assetpath": "Items/BowlRed", "desc": "A makeshift plantpot. No clue why the goblins have one."},
+        "gold":                 { "weight": 0, "damM": 0, "damT": 0, "def": 0, "name": "gold coin", "assetpath": "Items/Gold", "desc": "Shiny." },
+        "rock" :                { "weight": 3, "damM": 1, "damT": 2, "def": 0, "name": "rock", "assetpath": "Items/Rock", "desc": "Mesa bash rock-thin together. Mesa make fire."},
+        "skull":                { "weight": 1, "damM": 1, "damT": 1, "def": 0, "name": "skull", "assetpath": "Items/Skull", "desc": "Thank Mr. calcium." },
+
+        "lockpick" :            { "weight": 0, "damM": 0, "damT": 0, "def": 0, "name": "lock pick", "assetpath": "Items/Lockpick", "desc": "My favourite tool."}
     },
 
     "creatures": {
-        "player": { "name": "Player", "assetpath": "Creatures/Goblin", "maxhp": 12, "speed": 100, "basedamage": 1, "maxencumbrance": 30 },
-        "goblin": { "name": "Goblin", "assetpath": "Creatures/Goblin", "maxhp": 10, "speed": 100, "basedamage": 1 },
-        "torchgoblin": { "name": "Goblin", "assetpath": "Creatures/TorchGoblin", "maxhp": 10, "speed": 100, "basedamage": 1 },
-        "goblinguardsword": { "name": "Goblin", "assetpath": "Creatures/GoblinGuardSword", "maxhp": 10, "speed": 100, "basedamage": 1 },
+        "player":               { "name": "Player", "assetpath": "Creatures/Goblin", "maxhp": 12, "speed": 100, "basedamage": 1, "maxencumbrance": 30 },
+        "goblin":               { "name": "Goblin", "assetpath": "Creatures/Goblin", "maxhp": 10, "speed": 100, "basedamage": 1 },
+        "torchgoblin":          { "name": "Goblin", "assetpath": "Creatures/TorchGoblin", "maxhp": 10, "speed": 100, "basedamage": 1 },
+        "goblinguardsword":     { "name": "Goblin", "assetpath": "Creatures/GoblinGuardSword", "maxhp": 10, "speed": 100, "basedamage": 1 },
         "goblinguardlongsword": { "name": "Goblin", "assetpath": "Creatures/GoblinGuardLongsword", "maxhp": 20, "speed": 100, "basedamage": 1 },
-        "goblinking": { "name": "Goblin", "assetpath": "Creatures/GoblinKing", "maxhp": 12, "speed": 100, "basedamage": 1 }
+        "goblinking":           { "name": "Goblin King", "assetpath": "Creatures/GoblinKing", "maxhp": 12, "speed": 100, "basedamage": 1 }
     },
 
     "spawnlist": {
-        "0": ["goblinking", "goblinking"],
-        "1": ["goblin", "torchgoblin"],
-        "2": ["goblin", "torchgoblin"]
+        "0": ["goblin", "goblin", "goblin", "torchgoblin"],
+        "1": ["goblin", "goblin", "torchgoblin"],
+        "2": ["goblin", "torchgoblin"],
+        "3": ["goblinguardsword", "goblin", "torchgoblin"],
+        "4": ["goblinguardsword", "goblinguardsword", "goblin", "torchgoblin"],
+        "5": ["goblinguardlongsword", "goblinguardsword", "goblinguardsword", "goblinguardsword", "torchgoblin"],
+        "6": ["goblinguardlongsword", "goblinguardlongsword", "goblinguardlongsword", "goblinguardsword", "goblinguardsword", "torchgoblin"]
     },
 
     "itemspawnlist": {
-        "0": ["skull", "bone"],
-        "1": ["skull", "bone"],
-        "2": ["skull", "bone"]
+        "0": ["skull", "bone", "dagger", "club", "stoneaxe", "bucket", "rottenapple", "rottenbread", "rottencheese", "rottenmeat"],
+        "1": ["gold", "potionSmallXP", "dagger", "club", "stoneaxe", "woodenshieldsmall"],
+        "2": ["gold", "potionSmallXP", "dagger", "dart", "club", "stoneaxe", "axe", "mace", "sword", "woodenshieldsmall", "woodenshield"],
+        "3": ["gold", "potionSmallHealth", "potionSmallXP", "dagger", "dart", "club", "stoneaxe", "axe", "mace", "sword", "woodenshield", "ironshieldsmall"],
+        "4": ["gold", "potionSmallHealth", "potionSmallXP", "potionBigXP", "dart", "spear", "axe", "mace", "sword", "hammer", "longsword", "ironshieldsmall", "ironshield"],
+        "5": ["gold", "potionSmallHealth", "potionBigHealth", "potionSmallXP", "potionBigXP", "dart", "spear", "axe", "mace", "sword", "hammer", "longsword", "ironshieldsmall", "ironshield"],
+        "6": ["gold", "potionBigHealth", "potionBigXP", "dart", "spear", "hammer", "longsword", "ironshield"]
     },
 
     "perks": {
