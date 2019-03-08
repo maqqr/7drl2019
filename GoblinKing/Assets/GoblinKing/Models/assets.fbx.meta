@@ -164,6 +164,7 @@ ModelImporter:
     100316: WeaponRack
     100318: Campfire
     100320: RoastingStick
+    100322: AcidPotion
     400000: //RootNode
     400002: BrickWall1
     400004: BrickWallHole1
@@ -325,6 +326,7 @@ ModelImporter:
     400316: WeaponRack
     400318: Campfire
     400320: RoastingStick
+    400322: AcidPotion
     2100000: PreviewMaterial
     2300000: BrickWall1
     2300002: BrickWallHole1
@@ -389,6 +391,7 @@ ModelImporter:
     2300120: WeaponRack
     2300122: Campfire
     2300124: RoastingStick
+    2300126: AcidPotion
     3300000: BrickWall1
     3300002: BrickWallHole1
     3300004: DoorFrame1
@@ -452,6 +455,7 @@ ModelImporter:
     3300120: WeaponRack
     3300122: Campfire
     3300124: RoastingStick
+    3300126: AcidPotion
     4300000: BrickWall1
     4300002: StoneTileGround1
     4300004: Pillar1
@@ -515,6 +519,7 @@ ModelImporter:
     4300120: WeaponRack
     4300122: Campfire
     4300124: RoastingStick
+    4300126: AcidPotion
     10800000: Point
   externalObjects: {}
   materials:

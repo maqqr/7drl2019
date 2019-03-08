@@ -19,6 +19,7 @@
         "ironshieldsmall" :     { "weight": 3, "damM": 1, "damT": 3, "def": 4, "name": "small iron shield", "assetpath": "Items/IronShieldSmall", "desc": "A metal throwing disc." },
         "ironshield" :          { "weight": 4, "damM": 1, "damT": 2, "def": 5, "name": "iron shield", "assetpath": "Items/IronShield", "desc": "My own little iron curtain." },
                 
+        "potionAcid":           { "weight": 1, "damM": 0, "damT": 8, "def": 0, "experience":10, "name": "potion of acid", "assetpath": "Items/PotionAcid", "desc": "Filled with acid. Not safe to drink.", "healing":-8, "breakable":true },
         "potionSmallXP":        { "weight": 1, "damM": 0, "damT": 1, "def": 0, "experience":10, "name": "small experience potion", "assetpath": "Items/PotionSmall_XP", "desc": "Magical potion infused with wisdom. Drink to gain experience.", "nutrition":5, "breakable":true },
         "potionSmallHealth":    { "weight": 1, "damM": 0, "damT": 1, "def": 0, "healing": 2, "name": "small health potion", "assetpath": "Items/PotionSmall_Health", "desc": "Drink to gain health.", "nutrition":5, "breakable":true },
         "potionSmallPoison":    { "weight": 1, "damM": 0, "damT": 1, "def": 0, "poisoning": 2, "name": "small poison vial", "assetpath": "Items/PotionSmall_Poison", "desc": "Throw to apply poison.", "breakable":true, "nutrition":5 },
