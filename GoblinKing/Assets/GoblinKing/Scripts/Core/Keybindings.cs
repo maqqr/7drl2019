@@ -16,6 +16,7 @@ namespace GoblinKing.Core
         public KeyCode[] Wait = {KeyCode.LeftShift, KeyCode.Z};
 
         public KeyCode OpenPerkTree = KeyCode.P;
+        public KeyCode Push = KeyCode.F;
         public KeyCode OpenInventory = KeyCode.I;
         public KeyCode ThrowLeftHand = KeyCode.Mouse0;
         public KeyCode ThrowRightHand = KeyCode.Mouse1;
