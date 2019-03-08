@@ -614,7 +614,7 @@ PrefabInstance:
     - target: {fileID: 6840896342282349834, guid: 9294af79938a9b44dbe64bd95125a29b,
         type: 3}
       propertyPath: m_Name
-      value: PerkButton (17)
+      value: bob1
       objectReference: {fileID: 0}
     - target: {fileID: 6840896342282349835, guid: 9294af79938a9b44dbe64bd95125a29b,
         type: 3}
@@ -726,6 +726,18 @@ PrefabInstance:
       propertyPath: PerkKey
       value: bob1
       objectReference: {fileID: 0}
+    - target: {fileID: 6840896342282349941, guid: 9294af79938a9b44dbe64bd95125a29b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c9efddacfd044f2428a0a1b054b6c859,
+        type: 3}
+    - target: {fileID: 2824043447996731228, guid: 9294af79938a9b44dbe64bd95125a29b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f170af191c5f54845b1f4d0aa9c23faf,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9294af79938a9b44dbe64bd95125a29b, type: 3}
 --- !u!224 &6832791041910885997 stripped
@@ -744,7 +756,7 @@ PrefabInstance:
     - target: {fileID: 6840896342282349834, guid: 9294af79938a9b44dbe64bd95125a29b,
         type: 3}
       propertyPath: m_Name
-      value: PerkButton (10)
+      value: potionmastah2
       objectReference: {fileID: 0}
     - target: {fileID: 6840896342282349835, guid: 9294af79938a9b44dbe64bd95125a29b,
         type: 3}
@@ -856,6 +868,18 @@ PrefabInstance:
       propertyPath: PerkKey
       value: potionmastah2
       objectReference: {fileID: 0}
+    - target: {fileID: 6840896342282349941, guid: 9294af79938a9b44dbe64bd95125a29b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c9efddacfd044f2428a0a1b054b6c859,
+        type: 3}
+    - target: {fileID: 2824043447996731228, guid: 9294af79938a9b44dbe64bd95125a29b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f4d161b830d8bfa439ea99974de1353a,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9294af79938a9b44dbe64bd95125a29b, type: 3}
 --- !u!224 &6623424442241256512 stripped
@@ -874,7 +898,7 @@ PrefabInstance:
     - target: {fileID: 6840896342282349834, guid: 9294af79938a9b44dbe64bd95125a29b,
         type: 3}
       propertyPath: m_Name
-      value: PerkButton (18)
+      value: bob2
       objectReference: {fileID: 0}
     - target: {fileID: 6840896342282349835, guid: 9294af79938a9b44dbe64bd95125a29b,
         type: 3}
@@ -986,6 +1010,18 @@ PrefabInstance:
       propertyPath: PerkKey
       value: bob2
       objectReference: {fileID: 0}
+    - target: {fileID: 6840896342282349941, guid: 9294af79938a9b44dbe64bd95125a29b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c9efddacfd044f2428a0a1b054b6c859,
+        type: 3}
+    - target: {fileID: 2824043447996731228, guid: 9294af79938a9b44dbe64bd95125a29b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f170af191c5f54845b1f4d0aa9c23faf,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9294af79938a9b44dbe64bd95125a29b, type: 3}
 --- !u!224 &6483537133291716563 stripped
@@ -1004,7 +1040,7 @@ PrefabInstance:
     - target: {fileID: 6840896342282349834, guid: 9294af79938a9b44dbe64bd95125a29b,
         type: 3}
       propertyPath: m_Name
-      value: PerkButton (9)
+      value: potionmastah1
       objectReference: {fileID: 0}
     - target: {fileID: 6840896342282349835, guid: 9294af79938a9b44dbe64bd95125a29b,
         type: 3}
@@ -1116,6 +1152,18 @@ PrefabInstance:
       propertyPath: PerkKey
       value: potionmastah1
       objectReference: {fileID: 0}
+    - target: {fileID: 6840896342282349941, guid: 9294af79938a9b44dbe64bd95125a29b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c9efddacfd044f2428a0a1b054b6c859,
+        type: 3}
+    - target: {fileID: 2824043447996731228, guid: 9294af79938a9b44dbe64bd95125a29b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f4d161b830d8bfa439ea99974de1353a,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9294af79938a9b44dbe64bd95125a29b, type: 3}
 --- !u!224 &6050569653383975583 stripped
@@ -1134,7 +1182,7 @@ PrefabInstance:
     - target: {fileID: 6840896342282349834, guid: 9294af79938a9b44dbe64bd95125a29b,
         type: 3}
       propertyPath: m_Name
-      value: PerkButton (2)
+      value: maxlife1
       objectReference: {fileID: 0}
     - target: {fileID: 6840896342282349835, guid: 9294af79938a9b44dbe64bd95125a29b,
         type: 3}
@@ -1246,6 +1294,18 @@ PrefabInstance:
       propertyPath: PerkKey
       value: maxlife1
       objectReference: {fileID: 0}
+    - target: {fileID: 6840896342282349941, guid: 9294af79938a9b44dbe64bd95125a29b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c9efddacfd044f2428a0a1b054b6c859,
+        type: 3}
+    - target: {fileID: 2824043447996731228, guid: 9294af79938a9b44dbe64bd95125a29b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9d62a2c444d72b846bfcbdbf985a0c94,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9294af79938a9b44dbe64bd95125a29b, type: 3}
 --- !u!224 &5607163136154250785 stripped
@@ -1264,7 +1324,7 @@ PrefabInstance:
     - target: {fileID: 6840896342282349834, guid: 9294af79938a9b44dbe64bd95125a29b,
         type: 3}
       propertyPath: m_Name
-      value: PerkButton (4)
+      value: widebackstab
       objectReference: {fileID: 0}
     - target: {fileID: 6840896342282349835, guid: 9294af79938a9b44dbe64bd95125a29b,
         type: 3}
@@ -1376,6 +1436,18 @@ PrefabInstance:
       propertyPath: PerkKey
       value: widebackstab
       objectReference: {fileID: 0}
+    - target: {fileID: 6840896342282349941, guid: 9294af79938a9b44dbe64bd95125a29b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c9efddacfd044f2428a0a1b054b6c859,
+        type: 3}
+    - target: {fileID: 2824043447996731228, guid: 9294af79938a9b44dbe64bd95125a29b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: eff330577faa7e34cb01fb923aeec710,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9294af79938a9b44dbe64bd95125a29b, type: 3}
 --- !u!224 &5441946196624964195 stripped
@@ -1394,7 +1466,7 @@ PrefabInstance:
     - target: {fileID: 6840896342282349834, guid: 9294af79938a9b44dbe64bd95125a29b,
         type: 3}
       propertyPath: m_Name
-      value: PerkButton (11)
+      value: metabolism1
       objectReference: {fileID: 0}
     - target: {fileID: 6840896342282349835, guid: 9294af79938a9b44dbe64bd95125a29b,
         type: 3}
@@ -1506,6 +1578,18 @@ PrefabInstance:
       propertyPath: PerkKey
       value: metabolism1
       objectReference: {fileID: 0}
+    - target: {fileID: 6840896342282349941, guid: 9294af79938a9b44dbe64bd95125a29b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c9efddacfd044f2428a0a1b054b6c859,
+        type: 3}
+    - target: {fileID: 2824043447996731228, guid: 9294af79938a9b44dbe64bd95125a29b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2bf65df63342fb94fac8192285fafe38,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9294af79938a9b44dbe64bd95125a29b, type: 3}
 --- !u!224 &4892904467113520115 stripped
@@ -1524,7 +1608,7 @@ PrefabInstance:
     - target: {fileID: 6840896342282349834, guid: 9294af79938a9b44dbe64bd95125a29b,
         type: 3}
       propertyPath: m_Name
-      value: PerkButton (1)
+      value: speed2
       objectReference: {fileID: 0}
     - target: {fileID: 6840896342282349835, guid: 9294af79938a9b44dbe64bd95125a29b,
         type: 3}
@@ -1636,6 +1720,18 @@ PrefabInstance:
       propertyPath: PerkKey
       value: speed2
       objectReference: {fileID: 0}
+    - target: {fileID: 6840896342282349941, guid: 9294af79938a9b44dbe64bd95125a29b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c9efddacfd044f2428a0a1b054b6c859,
+        type: 3}
+    - target: {fileID: 2824043447996731228, guid: 9294af79938a9b44dbe64bd95125a29b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8ed53b4d24bfd424ba35f89587061ffe,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9294af79938a9b44dbe64bd95125a29b, type: 3}
 --- !u!224 &7227649656618972494 stripped
@@ -1654,7 +1750,7 @@ PrefabInstance:
     - target: {fileID: 6840896342282349834, guid: 9294af79938a9b44dbe64bd95125a29b,
         type: 3}
       propertyPath: m_Name
-      value: PerkButton (3)
+      value: maxlife2
       objectReference: {fileID: 0}
     - target: {fileID: 6840896342282349835, guid: 9294af79938a9b44dbe64bd95125a29b,
         type: 3}
@@ -1766,6 +1862,18 @@ PrefabInstance:
       propertyPath: PerkKey
       value: maxlife2
       objectReference: {fileID: 0}
+    - target: {fileID: 6840896342282349941, guid: 9294af79938a9b44dbe64bd95125a29b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c9efddacfd044f2428a0a1b054b6c859,
+        type: 3}
+    - target: {fileID: 2824043447996731228, guid: 9294af79938a9b44dbe64bd95125a29b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9d62a2c444d72b846bfcbdbf985a0c94,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9294af79938a9b44dbe64bd95125a29b, type: 3}
 --- !u!224 &7307338595108620185 stripped
@@ -1784,7 +1892,7 @@ PrefabInstance:
     - target: {fileID: 6840896342282349834, guid: 9294af79938a9b44dbe64bd95125a29b,
         type: 3}
       propertyPath: m_Name
-      value: PerkButton (6)
+      value: backstab2
       objectReference: {fileID: 0}
     - target: {fileID: 6840896342282349835, guid: 9294af79938a9b44dbe64bd95125a29b,
         type: 3}
@@ -1896,6 +2004,18 @@ PrefabInstance:
       propertyPath: PerkKey
       value: backstab2
       objectReference: {fileID: 0}
+    - target: {fileID: 6840896342282349941, guid: 9294af79938a9b44dbe64bd95125a29b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c9efddacfd044f2428a0a1b054b6c859,
+        type: 3}
+    - target: {fileID: 2824043447996731228, guid: 9294af79938a9b44dbe64bd95125a29b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 657fa7485b7673645a324f41661cee19,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9294af79938a9b44dbe64bd95125a29b, type: 3}
 --- !u!224 &1481080706537886901 stripped
@@ -1914,7 +2034,7 @@ PrefabInstance:
     - target: {fileID: 6840896342282349834, guid: 9294af79938a9b44dbe64bd95125a29b,
         type: 3}
       propertyPath: m_Name
-      value: PerkButton (12)
+      value: metabolism2
       objectReference: {fileID: 0}
     - target: {fileID: 6840896342282349835, guid: 9294af79938a9b44dbe64bd95125a29b,
         type: 3}
@@ -2026,6 +2146,18 @@ PrefabInstance:
       propertyPath: PerkKey
       value: metabolism2
       objectReference: {fileID: 0}
+    - target: {fileID: 6840896342282349941, guid: 9294af79938a9b44dbe64bd95125a29b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c9efddacfd044f2428a0a1b054b6c859,
+        type: 3}
+    - target: {fileID: 2824043447996731228, guid: 9294af79938a9b44dbe64bd95125a29b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2bf65df63342fb94fac8192285fafe38,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9294af79938a9b44dbe64bd95125a29b, type: 3}
 --- !u!224 &1530376097703864954 stripped
@@ -2044,7 +2176,7 @@ PrefabInstance:
     - target: {fileID: 6840896342282349834, guid: 9294af79938a9b44dbe64bd95125a29b,
         type: 3}
       propertyPath: m_Name
-      value: PerkButton (7)
+      value: backstab3
       objectReference: {fileID: 0}
     - target: {fileID: 6840896342282349835, guid: 9294af79938a9b44dbe64bd95125a29b,
         type: 3}
@@ -2156,6 +2288,18 @@ PrefabInstance:
       propertyPath: PerkKey
       value: backstab3
       objectReference: {fileID: 0}
+    - target: {fileID: 6840896342282349941, guid: 9294af79938a9b44dbe64bd95125a29b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c9efddacfd044f2428a0a1b054b6c859,
+        type: 3}
+    - target: {fileID: 2824043447996731228, guid: 9294af79938a9b44dbe64bd95125a29b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 657fa7485b7673645a324f41661cee19,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9294af79938a9b44dbe64bd95125a29b, type: 3}
 --- !u!224 &1206477261674635690 stripped
@@ -2174,7 +2318,7 @@ PrefabInstance:
     - target: {fileID: 6840896342282349834, guid: 9294af79938a9b44dbe64bd95125a29b,
         type: 3}
       propertyPath: m_Name
-      value: PerkButton
+      value: speed1
       objectReference: {fileID: 0}
     - target: {fileID: 6840896342282349835, guid: 9294af79938a9b44dbe64bd95125a29b,
         type: 3}
@@ -2286,6 +2430,18 @@ PrefabInstance:
       propertyPath: PerkKey
       value: speed1
       objectReference: {fileID: 0}
+    - target: {fileID: 6840896342282349941, guid: 9294af79938a9b44dbe64bd95125a29b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c9efddacfd044f2428a0a1b054b6c859,
+        type: 3}
+    - target: {fileID: 2824043447996731228, guid: 9294af79938a9b44dbe64bd95125a29b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8ed53b4d24bfd424ba35f89587061ffe,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9294af79938a9b44dbe64bd95125a29b, type: 3}
 --- !u!224 &307888044890983521 stripped
@@ -2304,7 +2460,7 @@ PrefabInstance:
     - target: {fileID: 6840896342282349834, guid: 9294af79938a9b44dbe64bd95125a29b,
         type: 3}
       propertyPath: m_Name
-      value: PerkButton (16)
+      value: combat2
       objectReference: {fileID: 0}
     - target: {fileID: 6840896342282349835, guid: 9294af79938a9b44dbe64bd95125a29b,
         type: 3}
@@ -2416,6 +2572,18 @@ PrefabInstance:
       propertyPath: PerkKey
       value: combat2
       objectReference: {fileID: 0}
+    - target: {fileID: 6840896342282349941, guid: 9294af79938a9b44dbe64bd95125a29b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c9efddacfd044f2428a0a1b054b6c859,
+        type: 3}
+    - target: {fileID: 2824043447996731228, guid: 9294af79938a9b44dbe64bd95125a29b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 570c5a85a6f5e45458e09ffbbae07587,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9294af79938a9b44dbe64bd95125a29b, type: 3}
 --- !u!224 &4192339135296130333 stripped
@@ -2434,7 +2602,7 @@ PrefabInstance:
     - target: {fileID: 6840896342282349834, guid: 9294af79938a9b44dbe64bd95125a29b,
         type: 3}
       propertyPath: m_Name
-      value: PerkButton (13)
+      value: stomach1
       objectReference: {fileID: 0}
     - target: {fileID: 6840896342282349835, guid: 9294af79938a9b44dbe64bd95125a29b,
         type: 3}
@@ -2546,6 +2714,18 @@ PrefabInstance:
       propertyPath: PerkKey
       value: stomach1
       objectReference: {fileID: 0}
+    - target: {fileID: 6840896342282349941, guid: 9294af79938a9b44dbe64bd95125a29b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c9efddacfd044f2428a0a1b054b6c859,
+        type: 3}
+    - target: {fileID: 2824043447996731228, guid: 9294af79938a9b44dbe64bd95125a29b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 84bcc1524b1f00440b01e5991d320643,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9294af79938a9b44dbe64bd95125a29b, type: 3}
 --- !u!224 &4037777974803746929 stripped
@@ -2564,7 +2744,7 @@ PrefabInstance:
     - target: {fileID: 6840896342282349834, guid: 9294af79938a9b44dbe64bd95125a29b,
         type: 3}
       propertyPath: m_Name
-      value: PerkButton (5)
+      value: backstab1
       objectReference: {fileID: 0}
     - target: {fileID: 6840896342282349835, guid: 9294af79938a9b44dbe64bd95125a29b,
         type: 3}
@@ -2676,6 +2856,18 @@ PrefabInstance:
       propertyPath: PerkKey
       value: backstab1
       objectReference: {fileID: 0}
+    - target: {fileID: 6840896342282349941, guid: 9294af79938a9b44dbe64bd95125a29b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c9efddacfd044f2428a0a1b054b6c859,
+        type: 3}
+    - target: {fileID: 2824043447996731228, guid: 9294af79938a9b44dbe64bd95125a29b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 657fa7485b7673645a324f41661cee19,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9294af79938a9b44dbe64bd95125a29b, type: 3}
 --- !u!224 &3630730840923262895 stripped
@@ -2694,7 +2886,7 @@ PrefabInstance:
     - target: {fileID: 6840896342282349834, guid: 9294af79938a9b44dbe64bd95125a29b,
         type: 3}
       propertyPath: m_Name
-      value: PerkButton (14)
+      value: stomach2
       objectReference: {fileID: 0}
     - target: {fileID: 6840896342282349835, guid: 9294af79938a9b44dbe64bd95125a29b,
         type: 3}
@@ -2806,6 +2998,18 @@ PrefabInstance:
       propertyPath: PerkKey
       value: stomach2
       objectReference: {fileID: 0}
+    - target: {fileID: 6840896342282349941, guid: 9294af79938a9b44dbe64bd95125a29b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c9efddacfd044f2428a0a1b054b6c859,
+        type: 3}
+    - target: {fileID: 2824043447996731228, guid: 9294af79938a9b44dbe64bd95125a29b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 84bcc1524b1f00440b01e5991d320643,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9294af79938a9b44dbe64bd95125a29b, type: 3}
 --- !u!224 &2665304800577998383 stripped
@@ -2824,7 +3028,7 @@ PrefabInstance:
     - target: {fileID: 6840896342282349834, guid: 9294af79938a9b44dbe64bd95125a29b,
         type: 3}
       propertyPath: m_Name
-      value: PerkButton (15)
+      value: combat1
       objectReference: {fileID: 0}
     - target: {fileID: 6840896342282349835, guid: 9294af79938a9b44dbe64bd95125a29b,
         type: 3}
@@ -2936,6 +3140,18 @@ PrefabInstance:
       propertyPath: PerkKey
       value: combat1
       objectReference: {fileID: 0}
+    - target: {fileID: 6840896342282349941, guid: 9294af79938a9b44dbe64bd95125a29b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c9efddacfd044f2428a0a1b054b6c859,
+        type: 3}
+    - target: {fileID: 2824043447996731228, guid: 9294af79938a9b44dbe64bd95125a29b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 570c5a85a6f5e45458e09ffbbae07587,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9294af79938a9b44dbe64bd95125a29b, type: 3}
 --- !u!224 &2512951727069044740 stripped
@@ -2954,7 +3170,7 @@ PrefabInstance:
     - target: {fileID: 6840896342282349834, guid: 9294af79938a9b44dbe64bd95125a29b,
         type: 3}
       propertyPath: m_Name
-      value: PerkButton (8)
+      value: backstab4
       objectReference: {fileID: 0}
     - target: {fileID: 6840896342282349835, guid: 9294af79938a9b44dbe64bd95125a29b,
         type: 3}
@@ -3066,6 +3282,18 @@ PrefabInstance:
       propertyPath: PerkKey
       value: backstab4
       objectReference: {fileID: 0}
+    - target: {fileID: 6840896342282349941, guid: 9294af79938a9b44dbe64bd95125a29b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c9efddacfd044f2428a0a1b054b6c859,
+        type: 3}
+    - target: {fileID: 2824043447996731228, guid: 9294af79938a9b44dbe64bd95125a29b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 657fa7485b7673645a324f41661cee19,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9294af79938a9b44dbe64bd95125a29b, type: 3}
 --- !u!224 &2342501728593332560 stripped

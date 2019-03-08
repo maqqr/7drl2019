@@ -9,10 +9,13 @@ namespace GoblinKing.Core.GameViews
         private PerkSystem perkSystem;
 
         private GameObject perkTreeCanvas;
+        private Color availableColor = Color.white;
+        private Color cannotBuyYetColor = new Color(0.3f, 0.3f, 0.3f);
         private Color perkBoughtColor = Color.green;
         private PerkButton[] buttons;
         private TMPro.TextMeshProUGUI descriptionText;
         private TMPro.TextMeshProUGUI perkPointText;
+
 
         public void Initialize(GameManager gameManager)
         {
@@ -28,7 +31,7 @@ namespace GoblinKing.Core.GameViews
         {
             perkTreeCanvas = GameObject.Instantiate(gameManager.perkTreePrefab);
 
-             // Find description object's text component
+            // Find description object's text component
             Transform[] children = perkTreeCanvas.transform.GetComponentsInChildren<Transform>();
             for (int i = 0; i < children.Length; i++)
             {
@@ -47,6 +50,7 @@ namespace GoblinKing.Core.GameViews
             UpdateTexts();
 
             buttons = perkTreeCanvas.GetComponentsInChildren<PerkButton>();
+            UpdateButtonColors();
 
             foreach (var button in buttons)
             {
@@ -59,7 +63,7 @@ namespace GoblinKing.Core.GameViews
 
                 button.MouseEnter += delegate
                 {
-                    if (!perkSystem.HasPerk(button.PerkKey))
+                    if (!perkSystem.HasPerk(button.PerkKey) && perkSystem.CanBuyPerk(button.PerkKey) && gameManager.playerObject.GetComponent<Player>().Perkpoints > 0)
                     {
                         backgroundImg.color = new Color(0.7f, 0.7f, 0.7f);
                     }
@@ -71,7 +75,7 @@ namespace GoblinKing.Core.GameViews
                 {
                     if (!perkSystem.HasPerk(button.PerkKey))
                     {
-                        backgroundImg.color = new Color(1f, 1f, 1f);
+                        UpdateButtonColor(button);
                     }
                     descriptionText.transform.parent.gameObject.SetActive(false);
                 };
@@ -79,12 +83,22 @@ namespace GoblinKing.Core.GameViews
                 {
                     if (!perkSystem.HasPerk(button.PerkKey) && perkSystem.CanBuyPerk(button.PerkKey) && gameManager.playerObject.GetComponent<Player>().Perkpoints > 0)
                     {
-                        // TODO: check that player has enough perk points and can buy perk
                         perkSystem.BuyPerk(button.PerkKey);
                         gameManager.playerObject.GetComponent<Player>().Perkpoints -= 1;
-                        backgroundImg.color = perkBoughtColor;
-                        gameManager.MessageBuffer.AddMessage(Color.yellow, "You gained the perk: "+ gameManager.GameData.PerkData[button.PerkKey].Name+".");
+                        gameManager.MessageBuffer.AddMessage(Color.yellow, "You gained the perk: " + gameManager.GameData.PerkData[button.PerkKey].Name + ".");
                         UpdateTexts();
+                        UpdateButtonColors();
+                    }
+                    else
+                    {
+                        string reason = null;
+                        if (perkSystem.HasPerk(button.PerkKey)) reason = "You already have that perk.";
+                        else if (!perkSystem.CanBuyPerk(button.PerkKey)) reason = "You cannot buy that perk yet.";
+                        else if (gameManager.playerObject.GetComponent<Player>().Perkpoints == 0) reason = "You do not have enough perk point to buy that.";
+                        if (!string.IsNullOrEmpty(reason))
+                        {
+                            gameManager.MessageBuffer.AddMessage(Color.yellow, reason);
+                        }
                     }
                 };
             }
@@ -103,6 +117,32 @@ namespace GoblinKing.Core.GameViews
         private void UpdateTexts()
         {
             perkPointText.text = string.Format("Perk points: {0}", gameManager.playerObject.GetComponent<Player>().Perkpoints);
+        }
+
+        private void UpdateButtonColors()
+        {
+            foreach (var button in buttons)
+            {
+                UpdateButtonColor(button);
+            }
+        }
+
+        private void UpdateButtonColor(PerkButton button)
+        {
+            var backgroundImg = button.GetComponent<UnityEngine.UI.Image>();
+
+            if (perkSystem.HasPerk(button.PerkKey))
+            {
+                backgroundImg.color = perkBoughtColor;
+            }
+            else if (perkSystem.CanBuyPerk(button.PerkKey))
+            {
+                backgroundImg.color = availableColor;
+            }
+            else
+            {
+                backgroundImg.color = cannotBuyYetColor;
+            }
         }
     }
 }
