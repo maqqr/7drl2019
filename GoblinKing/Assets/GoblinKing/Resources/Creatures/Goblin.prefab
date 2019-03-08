@@ -3300,8 +3300,8 @@ MonoBehaviour:
     CreaturePrefab: {fileID: 0}
   LeftHandTransform: {fileID: 4920239950745181778}
   RightHandTransform: {fileID: 3717047834807226837}
-  InitialLeftHandItem: sword
-  InitialRightHandItem: 
+  InitialLeftHandItem: 
+  InitialRightHandItem: sword
   InitialInventory:
   - gold
   - lockpick

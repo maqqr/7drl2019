@@ -91,7 +91,7 @@ MonoBehaviour:
   LeftHandTransform: {fileID: 9071296301192764253}
   RightHandTransform: {fileID: 3461297738730760347}
   InitialLeftHandItem: 
-  InitialRightHandItem: dagger
+  InitialRightHandItem: axe
   InitialInventory:
   - gold
   - gold

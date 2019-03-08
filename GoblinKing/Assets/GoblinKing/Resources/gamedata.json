@@ -51,16 +51,17 @@
     "creatures": {
         "player":               { "name": "Player", "assetpath": "Creatures/Goblin", "maxhp": 12, "speed": 100, "basedamage": 1, "maxencumbrance": 30 },
         "goblin":               { "name": "Goblin", "assetpath": "Creatures/Goblin", "maxhp": 10, "speed": 100, "basedamage": 1 },
-        "crazygoblin":          { "name": "Crazy goblin", "assetpath": "Creatures/CrazyGoblin", "maxhp": 6, "speed": 50, "basedamage": 1 },
-        "gluttongoblin":        { "name": "Glutton goblin", "assetpath": "Creatures/GluttonGoblin", "maxhp": 12, "speed": 150, "basedamage": 1 },
+        "crazygoblin":          { "name": "Crazy Goblin", "assetpath": "Creatures/CrazyGoblin", "maxhp": 6, "speed": 50, "basedamage": 1 },
+        "gluttongoblin":        { "name": "Glutton Goblin", "assetpath": "Creatures/GluttonGoblin", "maxhp": 12, "speed": 150, "basedamage": 1 },
         "bonegoblin":           { "name": "Bone goblin", "assetpath": "Creatures/BoneGoblin", "maxhp": 8, "speed": 120, "basedamage": 1 },
-        "torchgoblin":          { "name": "Goblin", "assetpath": "Creatures/TorchGoblin", "maxhp": 12, "speed": 100, "basedamage": 1 },
+        "torchgoblin":          { "name": "Goblin Scout", "assetpath": "Creatures/TorchGoblin", "maxhp": 12, "speed": 100, "basedamage": 1 },
         "hamletgoblin":         { "name": "Hamlet goblin", "assetpath": "Creatures/HamletGoblin", "maxhp": 16, "speed": 500, "basedamage": 1 },
-        "goblinguardsword":     { "name": "Goblin", "assetpath": "Creatures/GoblinGuardSword", "maxhp": 14, "speed": 100, "basedamage": 1 },
-        "goblinguardlongsword": { "name": "Goblin", "assetpath": "Creatures/GoblinGuardLongsword", "maxhp": 20, "speed": 100, "basedamage": 1 },
+        "goblinguardsword":     { "name": "Goblin Guard", "assetpath": "Creatures/GoblinGuardSword", "maxhp": 14, "speed": 100, "basedamage": 1 },
+        "goblinguardlongsword": { "name": "Goblin Guard", "assetpath": "Creatures/GoblinGuardLongsword", "maxhp": 20, "speed": 100, "basedamage": 1 },
         "goblinking":           { "name": "Goblin King", "assetpath": "Creatures/GoblinKing", "maxhp": 12, "speed": 100, "basedamage": 1 },
         "rat":                  { "name": "Rat", "assetpath": "Creatures/Rat", "maxhp": 6, "speed": 100, "basedamage": 1 },
-        "swordrat":             { "name": "Rat", "assetpath": "Creatures/SwordRat", "maxhp": 6, "speed": 100, "basedamage": 1 }
+        "swordrat":             { "name": "Rat", "assetpath": "Creatures/SwordRat", "maxhp": 6, "speed": 100, "basedamage": 1 },
+        "goblinroyalguard":     { "name": "Royal Goblin Guard", "assetpath": "Creatures/GoblinRoyalGuard", "maxhp": 20, "speed": 100, "basedamage": 1 }
     },
 
     "spawnlist": {
