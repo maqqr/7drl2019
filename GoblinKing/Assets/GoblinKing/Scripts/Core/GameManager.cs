@@ -736,8 +736,6 @@ namespace GoblinKing.Core
         internal void Fight(Creature attacker, Creature defender)
         {
             attacker.TriggerAttackAnimation();
-            AI.AIBehaviour.ChangeAlertness(this, defender, AI.AlertLevel.Alerted);
-            defender.SuspiciousPosition = attacker.Position;
 
             // Damage is sum of meleedmg - sum of defence
             // Some creatures can't hold equips, so they attack with their base dmg. E.g. rats
@@ -774,6 +772,16 @@ namespace GoblinKing.Core
             if (xp > 0)
             {
                 addExperience(xp);
+            }
+
+            if (defender.Hp > 0)
+            {
+                if (BackgroundMusic.Instance)
+                {
+                    BackgroundMusic.Instance.StartCombatMusic();
+                }
+                AI.AIBehaviour.ChangeAlertness(this, defender, AI.AlertLevel.Alerted);
+                defender.SuspiciousPosition = attacker.Position;
             }
 
         }
@@ -813,6 +821,10 @@ namespace GoblinKing.Core
 
             if (kingIsDead)
             {
+                 if (BackgroundMusic.Instance)
+                {
+                    BackgroundMusic.Instance.SetMusic(BackgroundMusic.Music.Menu);
+                }
                 UnityEngine.SceneManagement.SceneManager.LoadScene("Victory", UnityEngine.SceneManagement.LoadSceneMode.Single);
             }
             else
@@ -823,6 +835,10 @@ namespace GoblinKing.Core
 
         private void Awake()
         {
+            if (BackgroundMusic.Instance)
+            {
+                BackgroundMusic.Instance.SetMusic(BackgroundMusic.Music.Espionage);
+            }
             keybindings = new Keybindings();
             GameData = Data.GameData.LoadData();
         }
@@ -843,6 +859,10 @@ namespace GoblinKing.Core
                 gameoverTimer -= Time.deltaTime;
                 if (gameoverTimer < 0f)
                 {
+                    if (BackgroundMusic.Instance)
+                    {
+                        BackgroundMusic.Instance.SetMusic(BackgroundMusic.Music.Menu);
+                    }
                     UnityEngine.SceneManagement.SceneManager.LoadScene("GameOver");
                 }
                 return;
