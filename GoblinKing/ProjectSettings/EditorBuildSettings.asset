@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/GoblinKing/Scenes/MainMenu.unity
+    guid: d1c213e3c0a65674fbc60c9fe0ad3f0c
+  - enabled: 1
     path: Assets/GoblinKing/Scenes/GameScene.unity
     guid: e611992aee446324198d09fb586c5937
+  - enabled: 1
+    path: Assets/GoblinKing/Scenes/GameOver.unity
+    guid: 684a6b7df122c864ca87c161607b1904
+  - enabled: 1
+    path: Assets/GoblinKing/Scenes/Victory.unity
+    guid: d142e72f0bac88148b1dcddddbdc9d09
   m_configObjects: {}
