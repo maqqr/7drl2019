@@ -9,7 +9,10 @@ namespace GoblinKing.Helpers
     {
         private void Awake()
         {
-            GetComponent<Rigidbody>().Sleep();
+            // Sleep does not work well enough
+            // GetComponent<Rigidbody>().Sleep();
+
+            GetComponent<Rigidbody>().isKinematic = true;
         }
     }
 }

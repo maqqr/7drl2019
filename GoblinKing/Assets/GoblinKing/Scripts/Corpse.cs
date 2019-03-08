@@ -22,6 +22,11 @@ namespace GoblinKing
             {
                 if (SmokeCloudPrefab)
                 {
+                    if (Core.BackgroundMusic.Instance)
+                    {
+                        Core.BackgroundMusic.Instance.PlaySoundEffectAt("puff", transform.position);
+                    }
+
                     GameObject.Instantiate(SmokeCloudPrefab, transform.position + new Vector3(0f, 0.1f, 0f), Quaternion.identity);
                 }
 

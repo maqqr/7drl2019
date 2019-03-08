@@ -160,6 +160,7 @@ namespace GoblinKing.Core
             Data.ItemData item = GameData.ItemData[key];
             GameObject itemObject = Instantiate(item.ItemPrefab, position, rotation);
             itemObject.transform.parent = CurrentFloorObject.transform;
+            itemObject.GetComponent<Rigidbody>().isKinematic = false;
 
             CurrentFloorObject.GetComponent<DungeonLevel>().UpdateLights();
 

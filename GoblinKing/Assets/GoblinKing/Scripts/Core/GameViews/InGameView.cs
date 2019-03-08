@@ -181,8 +181,16 @@ namespace GoblinKing.Core.GameViews
                 }
             }
 
-            if (Utils.IsPressed(gameManager.keybindings.Wait)) gameManager.AdvanceTime(player.Speed);
-            if(Utils.IsPressed(gameManager.keybindings.Push) && gameManager.throwable != null) gameManager.throwable.AddForce(new Vector3(gameManager.Camera.transform.forward.x,0f, gameManager.Camera.transform.forward.z) *10f, ForceMode.Impulse);
+            if (Utils.IsPressed(gameManager.keybindings.Wait))
+            {
+                gameManager.AdvanceTime(player.Speed);
+            }
+
+            if (Utils.IsPressed(gameManager.keybindings.Push) && gameManager.throwable != null)
+            {
+                gameManager.throwable.isKinematic = false;
+                gameManager.throwable.AddForce(new Vector3(gameManager.Camera.transform.forward.x, 0f, gameManager.Camera.transform.forward.z) * 10f, ForceMode.Impulse);
+            }
 
             if (Utils.IsPressed(gameManager.keybindings.ThrowLeftHand) || Utils.IsPressed(gameManager.keybindings.ThrowRightHand))
             {

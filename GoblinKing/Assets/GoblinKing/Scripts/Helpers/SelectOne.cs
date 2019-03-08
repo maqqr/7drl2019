@@ -11,7 +11,9 @@ namespace GoblinKing.Helpers
             if (transform.childCount > 0)
             {
                 int randomIndex = Random.Range(0, transform.childCount);
-                transform.GetChild(randomIndex).SetParent(transform.parent); // Save one from destruction
+                var selectedChild = transform.GetChild(randomIndex); // Save one from destruction
+                selectedChild.SetParent(transform.parent);
+                selectedChild.gameObject.SetActive(true);
 
                 Transform[] remainingChildren = GetComponentsInChildren<Transform>(true);
 

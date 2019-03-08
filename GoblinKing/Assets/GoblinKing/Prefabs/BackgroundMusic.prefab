@@ -59,6 +59,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: f319be6d25ee1b24c9682e9f83df6ccf, type: 3}
   - soundname: inventory
     clip: {fileID: 8300000, guid: 8acf352a0c726204994d9cd7a5d3445b, type: 3}
+  - soundname: puff
+    clip: {fileID: 8300000, guid: 913094865e11348489e60fea7ac0648f, type: 3}
   MenuMusic: {fileID: 2453733345511026470}
   EspionageMusic: {fileID: 5238916911517042175}
   CombatMusic: {fileID: 8187867887498478889}
