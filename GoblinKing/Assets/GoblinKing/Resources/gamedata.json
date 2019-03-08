@@ -27,7 +27,7 @@
         "potionBigPoison":      { "weight": 2, "damM": 0, "damT": 1, "def": 1, "poisoning":4, "name": "big poison vial", "assetpath": "Items/PotionBig_Poison", "desc": "Throw to cause severe poisoning", "nutrition":5, "breakable":true },
         "potionBigHealth":      { "weight": 2, "damM": 0, "damT": 1, "def": 1, "healing": 4,"name": "big health potion", "assetpath": "Items/PotionBig_Health", "desc": "Drink to gain lots of health.", "nutrition":5, "breakable":true },
         
-        "bluemushroom":         { "weight": 1, "damM": 0, "damT": 0, "def": 0, "healing": 1, "experience":3, "name": "blue mushroom", "assetpath": "Items/BlueMushroom", "desc": "Glowing mushroom.", "nutrition":5 },
+        "bluemushroom":         { "weight": 1, "damM": 0, "damT": 0, "def": 0, "healing": 1, "experience":3, "name": "blue mushroom", "assetpath": "Items/BlueMushroom", "desc": "Glowing mushroom.", "nutrition":10 },
         "apple" :               { "weight": 1, "damM": 0, "damT": 1, "def": 0, "healing": 1,"name": "red apple", "assetpath": "Items/Apple", "desc": "Keeps the doctors at bay.", "nutrition":35 },
         "bread" :               { "weight": 2, "damM": 0, "damT": 1, "def": 0, "healing": 1,"name": "loaf of bread", "assetpath": "Items/Bread", "desc": "Fresh from the goblin oven.", "nutrition":75 },
         "cheese" :              { "weight": 3, "damM": 0, "damT": 2, "def": 0, "healing": 1,"name": "cheese wheel", "assetpath": "Items/Cheese", "desc": "It makes me feel gouda.", "nutrition":125 },
