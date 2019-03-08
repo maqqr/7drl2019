@@ -86,6 +86,7 @@ namespace GoblinKing.Core
 
         public void TakeDamage(int damage)
         {
+            if(damage < 0) damage *=-1;
             Hp -= damage;
             if (animator)
             {

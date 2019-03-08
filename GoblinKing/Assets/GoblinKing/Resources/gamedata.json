@@ -19,10 +19,12 @@
         "ironshieldsmall" :     { "weight": 3, "damM": 1, "damT": 3, "def": 4, "name": "small iron shield", "assetpath": "Items/IronShieldSmall", "desc": "A metal throwing disc." },
         "ironshield" :          { "weight": 4, "damM": 1, "damT": 2, "def": 5, "name": "iron shield", "assetpath": "Items/IronShield", "desc": "My own little iron curtain." },
                 
-        "potionSmallXP":        { "weight": 1, "damM": 0, "damT": 1, "def": 0, "experience":10, "name": "small experience potion", "assetpath": "Items/PotionSmall_XP", "desc": "Magical potion infused with wisdom. Drink to gain experience.", "nutrition":5 },
-        "potionSmallHealth":    { "weight": 1, "damM": 0, "damT": 1, "def": 0, "healing": 2, "name": "small health potion", "assetpath": "Items/PotionSmall_Health", "desc": "Drink to gain health.", "nutrition":5 },
-        "potionBigXP":          { "weight": 2, "damM": 0, "damT": 1, "def": 1, "experience":25, "name": "big XP potion", "assetpath": "Items/PotionBig_XP", "desc": "Magical potion infused with wisdom. Drink to gain large amount of experience.", "nutrition":5 },
-        "potionBigHealth":      { "weight": 2, "damM": 0, "damT": 1, "def": 1, "healing": 4,"name": "big health potion", "assetpath": "Items/PotionBig_Health", "desc": "Drink to gain lots of health.", "nutrition":5 },
+        "potionSmallXP":        { "weight": 1, "damM": 0, "damT": 1, "def": 0, "experience":10, "name": "small experience potion", "assetpath": "Items/PotionSmall_XP", "desc": "Magical potion infused with wisdom. Drink to gain experience.", "nutrition":5, "breakable":true },
+        "potionSmallHealth":    { "weight": 1, "damM": 0, "damT": 1, "def": 0, "healing": 2, "name": "small health potion", "assetpath": "Items/PotionSmall_Health", "desc": "Drink to gain health.", "nutrition":5, "breakable":true },
+        "potionSmallPoison":    { "weight": 1, "damM": 0, "damT": 1, "def": 0, "poisoning": 2, "name": "small poison vial", "assetpath": "Items/PotionSmall_Poison", "desc": "Throw to apply poison.", "breakable":true, "nutrition":5 },
+        "potionBigXP":          { "weight": 2, "damM": 0, "damT": 1, "def": 1, "experience":25, "name": "big XP potion", "assetpath": "Items/PotionBig_XP", "desc": "Magical potion infused with wisdom. Drink to gain large amount of experience.", "nutrition":5, "breakable":true },
+        "potionBigPoison":      { "weight": 2, "damM": 0, "damT": 1, "def": 1, "poisoning":4, "name": "big poison vial", "assetpath": "Items/PotionBig_Poison", "desc": "Throw to cause severe poisoning", "nutrition":5, "breakable":true },
+        "potionBigHealth":      { "weight": 2, "damM": 0, "damT": 1, "def": 1, "healing": 4,"name": "big health potion", "assetpath": "Items/PotionBig_Health", "desc": "Drink to gain lots of health.", "nutrition":5, "breakable":true },
         
         "bluemushroom":         { "weight": 1, "damM": 0, "damT": 0, "def": 0, "healing": 1, "experience":3, "name": "blue mushroom", "assetpath": "Items/BlueMushroom", "desc": "Glowing mushroom.", "nutrition":5 },
         "apple" :               { "weight": 1, "damM": 0, "damT": 1, "def": 0, "healing": 1,"name": "red apple", "assetpath": "Items/Apple", "desc": "Keeps the doctors at bay.", "nutrition":35 },

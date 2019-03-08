@@ -247,6 +247,10 @@ namespace GoblinKing.Core
                 {
                     Data.ItemData item = GameData.ItemData[itemKey];
                     creature.TakeDamage(item.ThrowingDamage);
+                    if(item.Breakable) {
+                        creature.RecoverHealth(item.Healing);
+                        creature.Poison += item.Poisoning;
+                    }
                     if (creature.Hp < 1)
                     {
                         MessageBuffer.AddMessage(Color.white, item.Name + " killed " + creature.Data.Name + " on impact.");
@@ -658,7 +662,7 @@ namespace GoblinKing.Core
 
         public void UpdateHunger()
         {
-            int deltahp = playerObject.GetComponent<Player>().Nutrition < 1 ? (playerObject.GetComponent<Player>().Nutrition > -10 ? -1 : -2) : 0;
+            int deltahp = playerObject.GetComponent<Player>().Nutrition < 1 ? (playerObject.GetComponent<Player>().Nutrition > -10 ? 1 : 2) : 0;
             playerCreature.Hp -= deltahp;
             // TODO: add message when starvation status changes downwards between turns
 
