@@ -164,7 +164,7 @@ namespace GoblinKing.Core
 
             CurrentFloorObject.GetComponent<DungeonLevel>().UpdateLights();
 
-            itemObject.GetComponent<Interaction.PickupItem>().CollidedFast += delegate(GameObject collidedWith, float timeSinceLastCollision)
+            itemObject.GetComponent<Interaction.PickupItem>().CollidedFast += delegate (GameObject collidedWith, float timeSinceLastCollision)
             {
                 MakeALoudNoise(itemObject.transform.position);
 
@@ -694,24 +694,28 @@ namespace GoblinKing.Core
                 MessageBuffer.AddMessage(Color.green, "Level UP!");
                 player.Perkpoints += 1;
                 MessageBuffer.AddMessage(Color.green, "Gained 1 perk point!");
-                if(player.Level % 2 == 0) {
-                    playerCreature.Data.MaxHp +=  1;
+                if (player.Level % 2 == 0)
+                {
+                    playerCreature.Data.MaxHp += 1;
                     playerCreature.Hp += 1;
                     MessageBuffer.AddMessage(Color.green, "Maximum health increased!");
                 }
-                
+
             }
         }
 
         public void SetMouseLookEnabled(bool enabled)
         {
             Camera.gameObject.GetComponent<SmoothMouseLook>().enabled = enabled;
-            if(!Application.isEditor)
+            if (!Application.isEditor)
             {
-                if(Camera.gameObject.GetComponent<SmoothMouseLook>().enabled) {
+                if (Camera.gameObject.GetComponent<SmoothMouseLook>().enabled)
+                {
                     Cursor.lockState = CursorLockMode.Locked;
                     Cursor.visible = false;
-                } else {
+                }
+                else
+                {
                     Cursor.lockState = CursorLockMode.Confined;
                     Cursor.visible = true;
                 }
@@ -875,10 +879,12 @@ namespace GoblinKing.Core
 
             if (kingIsDead)
             {
-                 if (BackgroundMusic.Instance)
+                if (BackgroundMusic.Instance)
                 {
                     BackgroundMusic.Instance.SetMusic(BackgroundMusic.Music.Menu, 1f, true);
                 }
+                Cursor.lockState = CursorLockMode.Confined;
+                Cursor.visible = true;
                 UnityEngine.SceneManagement.SceneManager.LoadScene("Victory", UnityEngine.SceneManagement.LoadSceneMode.Single);
             }
             else
