@@ -102,6 +102,7 @@ namespace GoblinKing.Core.GameViews
                 var obj = GameObject.Instantiate(gameManager.inventoryGuiItemPrefab);
                 var backgroundImg = obj.GetComponent<UnityEngine.UI.Image>();
                 obj.transform.SetParent(inventoryCanvas.transform);
+                obj.transform.localScale = Vector3.one;
                 obj.GetComponent<RectTransform>().localPosition = new Vector3(170, 288 - i * 30f, 0);
                 guiItems.Add(obj);
 
