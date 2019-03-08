@@ -45,11 +45,13 @@
         "torchgoblin": { "name": "Goblin", "assetpath": "Creatures/TorchGoblin", "maxhp": 10, "speed": 100, "basedamage": 1 },
         "goblinguardsword": { "name": "Goblin", "assetpath": "Creatures/GoblinGuardSword", "maxhp": 10, "speed": 100, "basedamage": 1 },
         "goblinguardlongsword": { "name": "Goblin", "assetpath": "Creatures/GoblinGuardLongsword", "maxhp": 20, "speed": 100, "basedamage": 1 },
-        "goblinking": { "name": "Goblin", "assetpath": "Creatures/GoblinKing", "maxhp": 12, "speed": 100, "basedamage": 1 }
+        "goblinking": { "name": "Goblin", "assetpath": "Creatures/GoblinKing", "maxhp": 12, "speed": 100, "basedamage": 1 },
+        "rat": { "name": "Rat", "assetpath": "Creatures/Rat", "maxhp": 6, "speed": 100, "basedamage": 1 },
+        "swordrat": { "name": "Rat", "assetpath": "Creatures/SwordRat", "maxhp": 6, "speed": 100, "basedamage": 1 }
     },
 
     "spawnlist": {
-        "0": ["goblinking", "goblinking"],
+        "0": ["swordrat", "swordrat"],
         "1": ["goblin", "torchgoblin"],
         "2": ["goblin", "torchgoblin"]
     },
