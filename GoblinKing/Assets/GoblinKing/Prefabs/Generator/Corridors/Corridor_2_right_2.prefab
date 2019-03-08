@@ -609,6 +609,8 @@ MonoBehaviour:
   - spawn
   - upstairs
   - downstairs
+  - freedom
+  - king
   Exits: {fileID: 5178585713537592805}
   Bounds: {fileID: 1298782695808941819}
   DeadEndChance: 5

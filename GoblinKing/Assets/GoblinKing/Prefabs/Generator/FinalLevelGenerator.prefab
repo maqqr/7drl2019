@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5527877373573840763
+--- !u!1 &5805358098393715860
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5527877373573840765}
-  - component: {fileID: 5527877373573840766}
+  - component: {fileID: 5805358098393715858}
+  - component: {fileID: 5805358098393715857}
   m_Layer: 0
-  m_Name: EasyLevelGenerator
+  m_Name: FinalLevelGenerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5527877373573840765
+--- !u!4 &5805358098393715858
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5527877373573840763}
+  m_GameObject: {fileID: 5805358098393715860}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -31,13 +31,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5527877373573840766
+--- !u!114 &5805358098393715857
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5527877373573840763}
+  m_GameObject: {fileID: 5805358098393715860}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6626a6e366a9c48a48525cde4050d0b3, type: 3}
@@ -50,7 +50,7 @@ MonoBehaviour:
   Sections:
   - {fileID: 8236647765998972548, guid: feb7925b5a853b1498e8e27224df93b3, type: 3}
   - {fileID: 3167342503853784978, guid: 2cf6a2ce4b6e95d428e337f32f7573a1, type: 3}
-  - {fileID: 3582506439723972392, guid: b1cf0d4f4554e1442b6f82502836e359, type: 3}
+  - {fileID: 610345496995397016, guid: 01f8b8e83b5e2454da25a18353edf3f8, type: 3}
   - {fileID: 8415484525075233319, guid: fc5a10967beaa1e43b04cd9f9d5b38c6, type: 3}
   - {fileID: 8586822718708304707, guid: 613dd44dc4f6cf34a8095e5fa7a9a9cf, type: 3}
   - {fileID: 8132454301378121561, guid: 15a28d8a5660c2f4388adaa32f46dc71, type: 3}
@@ -63,24 +63,25 @@ MonoBehaviour:
   - {fileID: 6149285172420153582, guid: 46b549a97999bd24190c04ddde6f8c48, type: 3}
   - {fileID: 5975904605572473120, guid: cbc1d5c87243a1448858a4f7d035b85a, type: 3}
   - {fileID: 5202178695017380353, guid: 444b416685ea646469b1315bc42b665d, type: 3}
-  - {fileID: 610345496995397016, guid: 01f8b8e83b5e2454da25a18353edf3f8, type: 3}
+  - {fileID: 1594396985370728187, guid: 5b8a98072721e254e9b4a72a99a3f6a8, type: 3}
+  - {fileID: 3826741809951232160, guid: c534cd9fae970e34e85d017b7ca7e6fe, type: 3}
   DeadEnds:
   - {fileID: 4298375606707071215, guid: 2d22e51fe90d0bc43b84d521d3feac4f, type: 3}
   InitialSectionTags:
   - GSR
   SpecialRules:
-  - Tag: spawn
+  - Tag: downstairs
     MinAmount: 1
     MaxAmount: 1
   - Tag: upstairs
-    MinAmount: 1
-    MaxAmount: 1
-  - Tag: downstairs
+    MinAmount: 0
+    MaxAmount: 0
+  - Tag: spawn
     MinAmount: 0
     MaxAmount: 0
   - Tag: freedom
-    MinAmount: 0
-    MaxAmount: 0
+    MinAmount: 1
+    MaxAmount: 1
   - Tag: king
-    MinAmount: 0
-    MaxAmount: 0
+    MinAmount: 1
+    MaxAmount: 1
