@@ -6,7 +6,7 @@ namespace GoblinKing.Helpers
 {
     public class RegisterThrownItemCollision : MonoBehaviour
     {
-        public delegate void HitHandler(string itemKey);
+        public delegate void HitHandler(GameObject itemObject, string itemKey);
         public event HitHandler HitByItem;
 
         private void OnCollisionEnter(Collision collision)
@@ -16,7 +16,7 @@ namespace GoblinKing.Helpers
                 var item = collision.collider.GetComponent<Core.Interaction.PickupItem>();
                 if (HitByItem != null)
                 {
-                    HitByItem(item.itemKey);
+                    HitByItem(collision.collider.gameObject, item.itemKey);
                 }
             }
         }
