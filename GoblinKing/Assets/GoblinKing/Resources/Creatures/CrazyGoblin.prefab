@@ -69,6 +69,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7333162404773166111, guid: 9e662ef5ed10dcf4eb65b189e9304640,
         type: 3}
+      propertyPath: InitialInventory.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7333162404773166111, guid: 9e662ef5ed10dcf4eb65b189e9304640,
+        type: 3}
       propertyPath: LeftHandTransform
       value: 
       objectReference: {fileID: 763134008126009527}
@@ -91,6 +96,11 @@ PrefabInstance:
         type: 3}
       propertyPath: AIType
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7333162404773166111, guid: 9e662ef5ed10dcf4eb65b189e9304640,
+        type: 3}
+      propertyPath: InitialInventory.Array.data[1]
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3480144788262942690, guid: 9e662ef5ed10dcf4eb65b189e9304640,
         type: 3}
