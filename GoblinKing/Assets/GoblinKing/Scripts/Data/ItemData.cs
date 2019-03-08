@@ -17,6 +17,8 @@ namespace GoblinKing.Data
         public int Nutrition;
         public int Healing;
         public int Experience;
+        public bool Breakable;
+        public int Poisoning;
 
         public GameObject ItemPrefab;
     }
