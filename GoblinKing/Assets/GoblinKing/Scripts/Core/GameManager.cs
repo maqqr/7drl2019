@@ -841,6 +841,7 @@ namespace GoblinKing.Core
                 {
                     UnityEngine.SceneManagement.SceneManager.LoadScene("GameOver");
                 }
+                return;
             }
 
             if (pathfindDirty)
