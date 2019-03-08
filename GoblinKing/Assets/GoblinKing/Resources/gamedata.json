@@ -35,7 +35,8 @@
         "bowlblue" : { "weight": 3, "damM": 0, "damT": 2, "def": 1, "name": "blue bowl", "assetpath": "Items/BowlBlue", "desc": "It has a stingy smell."},
         "bowlpurple" : { "weight": 3, "damM": 0, "damT": 2, "def": 1, "name": "purple bowl", "assetpath": "Items/BowlPurple", "desc": "It has breadcrumbs in it."},
         "bowlred" : { "weight": 3, "damM": 0, "damT": 2, "def": 1, "name": "red bowl", "assetpath": "Items/BowlRed", "desc": "A makeshift plantpot. No clue why the goblins have one."},
-        "rock" : { "weight": 3, "damM": 2, "damT": 3, "def": 0, "name": "rock", "assetpath": "Items/Rock", "desc": "Mesa bash rock-thin together. Mesa make fire."}
+        "rock" : { "weight": 3, "damM": 2, "damT": 3, "def": 0, "name": "rock", "assetpath": "Items/Rock", "desc": "Mesa bash rock-thin together. Mesa make fire."},
+        "lockpick" : { "weight": 0, "damM": 0, "damT": 0, "def": 0, "name": "lock pick", "assetpath": "Items/Lockpick", "desc": "My favourite tool."}
     },
 
     "creatures": {
