@@ -3301,10 +3301,10 @@ MonoBehaviour:
   LeftHandTransform: {fileID: 4920239950745181778}
   RightHandTransform: {fileID: 3717047834807226837}
   InitialLeftHandItem: sword
-  InitialRightHandItem: bone
+  InitialRightHandItem: 
   InitialInventory:
   - gold
-  - bone
+  - lockpick
   AIType: 2
   AlertLevel: 0
   SuspiciousPosition: {x: 0, y: 0}
