@@ -8170,10 +8170,9 @@ MonoBehaviour:
   LeftHandTransform: {fileID: 7550513095349241206}
   RightHandTransform: {fileID: 2239802778697452273}
   InitialLeftHandItem: 
-  InitialRightHandItem: 
+  InitialRightHandItem: club
   InitialInventory:
   - gold
-  - bone
   AIType: 2
   AlertLevel: 0
   SuspiciousPosition: {x: 0, y: 0}
