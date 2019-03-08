@@ -243,7 +243,7 @@ namespace GoblinKing.Core
             var throwHandler = creature.GetComponentInChildren<RegisterThrownItemCollision>();
             if (throwHandler)
             {
-                throwHandler.HitByItem += delegate (string itemKey)
+                throwHandler.HitByItem += delegate (GameObject itemObject, string itemKey)
                 {
                     Data.ItemData item = GameData.ItemData[itemKey];
                     creature.TakeDamage(item.ThrowingDamage);
