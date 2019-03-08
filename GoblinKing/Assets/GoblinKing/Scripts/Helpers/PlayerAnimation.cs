@@ -6,11 +6,11 @@ namespace GoblinKing.Helpers
 {
     internal class PlayerAnimation : MonoBehaviour
     {
-        public Transform LeftHand;
-        public Transform RightHand;
-        public Core.SmoothMouseLook MouseLook;
-        public Transform CameraTransform;
-        public Core.Creature PlayerCreature;
+        public Transform LeftHand = null;
+        public Transform RightHand = null;
+        public Core.SmoothMouseLook MouseLook = null;
+        public Transform CameraTransform = null;
+        public Core.Creature PlayerCreature = null;
 
         public float ForwardKeyHeldDuration = 0f;
 
