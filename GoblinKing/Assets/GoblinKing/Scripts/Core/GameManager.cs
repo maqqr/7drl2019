@@ -870,6 +870,8 @@ namespace GoblinKing.Core
             NextDungeonFloor();
             AddNewView(new GameViews.InGameView());
             UpdateHearts(playerCreature, PlayerHearts);
+            AdjustNutrition(0);
+            MessageBuffer.AddMessage(Color.white, "You have 2 unused perkpoints. Press \"p\" to open the perkview and spend them");
         }
 
         // Update is called once per frame
