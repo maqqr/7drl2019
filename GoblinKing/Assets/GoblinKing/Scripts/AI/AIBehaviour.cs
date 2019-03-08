@@ -171,9 +171,13 @@ namespace GoblinKing.AI
 
         private static Vector2Int MoveRandomly(GameManager gameManager, Creature creature)
         {
-            int randomX = Random.Range(-1, 2);
-            int randomY = Random.Range(-1, 2);
-            Vector2Int newPos = new Vector2Int(creature.Position.x + randomX, creature.Position.y + randomY);
+            Vector2Int newPos = creature.Position;
+            if (Random.Range(0, 2) == 0)
+            {
+                int randomX = Random.Range(-1, 2);
+                int randomY = Random.Range(-1, 2);
+                newPos = new Vector2Int(creature.Position.x + randomX, creature.Position.y + randomY);
+            }
             return newPos;
         }
 
