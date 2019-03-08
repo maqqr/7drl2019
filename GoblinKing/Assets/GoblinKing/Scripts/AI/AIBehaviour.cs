@@ -90,6 +90,15 @@ namespace GoblinKing.AI
             var angle = Vector2.Angle(new Vector2(dirToPlayer.x, dirToPlayer.z), new Vector2(forward.x, forward.z));
             bool playerInFromOfCreature = angle <= 90;
 
+            // Check if player is right in from of creature
+            Vector2Int inFront = Utils.ConvertToGameCoord(Utils.ConvertToWorldCoord(creature.Position) + creature.transform.forward * 0.7f);
+            Vector2Int inFrontRight = Utils.ConvertToGameCoord(Utils.ConvertToWorldCoord(creature.Position) + creature.transform.forward * 0.7f + creature.transform.right);
+            Vector2Int inFrontLeft = Utils.ConvertToGameCoord(Utils.ConvertToWorldCoord(creature.Position) + creature.transform.forward * 0.7f - creature.transform.right);
+            if (playerCre.Position == inFront || playerCre.Position == inFrontLeft || playerCre.Position == inFrontRight)
+            {
+                playerModifiedVisibility = VisibilityLevel.Visible;
+            }
+
             // Check ray cast
             bool noLineOfSight = true;
             if (playerInFromOfCreature)
@@ -102,16 +111,6 @@ namespace GoblinKing.AI
             if (noLineOfSight)
             {
                 playerModifiedVisibility = VisibilityLevel.Hidden;
-            }
-
-            // Check if player is right in from of creature, overrides line of sight checks
-            Vector2Int inFront = Utils.ConvertToGameCoord(Utils.ConvertToWorldCoord(creature.Position) + creature.transform.forward * 0.7f);
-            Vector2Int inFrontRight = Utils.ConvertToGameCoord(Utils.ConvertToWorldCoord(creature.Position) + creature.transform.forward * 0.7f + creature.transform.right);
-            Vector2Int inFrontLeft = Utils.ConvertToGameCoord(Utils.ConvertToWorldCoord(creature.Position) + creature.transform.forward * 0.7f - creature.transform.right);
-
-            if (playerCre.Position == inFront || playerCre.Position == inFrontLeft || playerCre.Position == inFrontRight)
-            {
-                playerModifiedVisibility = VisibilityLevel.Visible;
             }
 
             if (creature.AlertLevel == AlertLevel.Alerted)

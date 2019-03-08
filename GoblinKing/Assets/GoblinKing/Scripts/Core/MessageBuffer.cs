@@ -23,7 +23,7 @@ namespace GoblinKing.Core
             textComponents[0].color = color;
         }
 
-        private void Start()
+        private void Awake()
         {
             var firstLine = transform.GetChild(0).gameObject;
             var firstLineRect = firstLine.GetComponent<RectTransform>();

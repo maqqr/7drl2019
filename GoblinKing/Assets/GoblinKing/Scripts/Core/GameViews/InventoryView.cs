@@ -76,7 +76,7 @@ namespace GoblinKing.Core.GameViews
                 RefreshView();
             }
 
-            return Utils.IsPressed(gameManager.keybindings.OpenInventory);
+            return Utils.IsPressed(gameManager.keybindings.OpenInventory) || gameManager.playerCreature.Hp<1;
         }
 
         private void RefreshView()
