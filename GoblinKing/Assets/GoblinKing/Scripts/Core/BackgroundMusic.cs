@@ -6,6 +6,28 @@ namespace GoblinKing.Core
 {
     public class BackgroundMusic : MonoBehaviour
     {
+        [System.Serializable]
+        public struct SoundEffectClip
+        {
+            public string soundname;
+            public AudioClip clip;
+        }
+
+        public SoundEffectClip[] soundEffects;
+
+        public void PlaySoundEffectAt(string sound, Vector3 position)
+        {
+            for (int i = 0; i < soundEffects.Length; i++)
+            {
+                if (soundEffects[i].soundname == sound)
+                {
+                    AudioSource.PlayClipAtPoint(soundEffects[i].clip, position, 0.3f);
+                    return;
+                }
+            }
+            Debug.LogError("No sound effect \"" + sound + "\"");
+        }
+
         public enum Music
         {
             Menu, Espionage, Combat
@@ -33,7 +55,7 @@ namespace GoblinKing.Core
             }
         }
 
-        public void SetMusic(Music newMusic, float newTransitionSpeed=1f, bool forceChange=false)
+        public void SetMusic(Music newMusic, float newTransitionSpeed = 1f, bool forceChange = false)
         {
             if (currentMusic != newMusic || forceChange)
             {
@@ -89,11 +111,11 @@ namespace GoblinKing.Core
         {
             if (currentMusic != music && source.volume > 0f)
             {
-                source.volume = Mathf.Max(0f, source.volume - transitionSpeed  * Time.deltaTime);
+                source.volume = Mathf.Max(0f, source.volume - transitionSpeed * Time.deltaTime);
             }
             else if (currentMusic == music && source.volume < 1f)
             {
-                source.volume = Mathf.Min(1f, source.volume + transitionSpeed  * Time.deltaTime);
+                source.volume = Mathf.Min(1f, source.volume + transitionSpeed * Time.deltaTime);
             }
         }
     }

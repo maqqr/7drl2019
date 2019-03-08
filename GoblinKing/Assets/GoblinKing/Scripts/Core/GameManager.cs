@@ -199,6 +199,11 @@ namespace GoblinKing.Core
                     GameObject.Destroy(itemObject);
                 }
 
+                if (BackgroundMusic.Instance)
+                {
+                    BackgroundMusic.Instance.PlaySoundEffectAt("hit", itemObject.transform.position);
+                }
+
                 MakeALoudNoise(itemObject.transform.position);
             };
 
@@ -344,6 +349,11 @@ namespace GoblinKing.Core
                 playerObject.GetComponent<Creature>().AddItem(item.itemKey);
                 MessageBuffer.AddMessage(Color.white, "You picked up the " + GameData.ItemData[item.itemKey].Name + ".");
                 GameObject.Destroy(item.gameObject);
+
+                if (BackgroundMusic.Instance)
+                {
+                    BackgroundMusic.Instance.PlaySoundEffectAt("inventory", playerObject.transform.position);
+                }
             }
             else
             {
@@ -754,6 +764,7 @@ namespace GoblinKing.Core
         internal void Fight(Creature attacker, Creature defender)
         {
             attacker.TriggerAttackAnimation();
+            MakeALoudNoise(attacker.transform.position);
 
             // Damage is sum of meleedmg - sum of defence
             // Some creatures can't hold equips, so they attack with their base dmg. E.g. rats
@@ -768,11 +779,17 @@ namespace GoblinKing.Core
             var defdir = defender.gameObject.transform.forward;
             var angle = Vector2.Angle(new Vector2(atkdir.x, atkdir.z), new Vector2(defdir.x, defdir.z));
             float multiplier = 1f;
+            bool isBackstab = angle < (attacker.PerkSystem.HasPerk("widebackstab") ? 55 : 20);
 
-            if (angle < (attacker.PerkSystem.HasPerk("widebackstab") ? 55 : 20))
+            if (isBackstab)
             {
                 multiplier = attacker.PerkSystem.GetMaxFloat("backstabMultiplier", 1.3f);
                 MessageBuffer.AddMessage(Color.red, "Backstab!");
+            }
+
+            if (BackgroundMusic.Instance)
+            {
+                BackgroundMusic.Instance.PlaySoundEffectAt(isBackstab ? "backstab" : "hit", defender.transform.position);
             }
 
             int dmg = (int)System.Math.Max(System.Math.Ceiling((atk_left + atk_right) * multiplier) - (def_left + def_right), 1) + attacker.PerkSystem.GetMaxInt("addDmg", 0);
@@ -783,6 +800,11 @@ namespace GoblinKing.Core
             int xp = pcattack ? (int)System.Math.Floor(1.5f * (float)System.Math.Max(1, defender.Data.CreatureLevel - playerObject.GetComponent<Player>().Level)) : 0;
             if (defender.Hp < 1)
             {
+                if (BackgroundMusic.Instance)
+                {
+                    BackgroundMusic.Instance.PlaySoundEffectAt(defender == playerCreature ? "playerdie" : "goblindie", playerObject.transform.position);
+                }
+
                 xp += xp > 0 ? KillCreature(defender) : 0;
             }
             MessageBuffer.AddMessage(Color.white, attacker.Data.Name + " attacks " + defender.Data.Name + " for " + dmg + " damage.");
