@@ -3304,7 +3304,6 @@ MonoBehaviour:
   InitialRightHandItem: woodenshieldsmall
   InitialInventory:
   - gold
-  - bone
   AIType: 1
   AlertLevel: 0
   SuspiciousPosition: {x: 0, y: 0}
