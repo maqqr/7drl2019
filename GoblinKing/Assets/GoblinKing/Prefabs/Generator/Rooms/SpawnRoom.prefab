@@ -1470,10 +1470,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3221760802891407900}
     m_Modifications:
-    - target: {fileID: 1641868856143768, guid: a6708921f3701a44f976527854381306, type: 3}
-      propertyPath: m_Name
-      value: Skull
-      objectReference: {fileID: 0}
     - target: {fileID: 4943443195327920, guid: a6708921f3701a44f976527854381306, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.8146462
@@ -1529,6 +1525,10 @@ PrefabInstance:
     - target: {fileID: 4943443195327920, guid: a6708921f3701a44f976527854381306, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.35000014
+      objectReference: {fileID: 0}
+    - target: {fileID: 1641868856143768, guid: a6708921f3701a44f976527854381306, type: 3}
+      propertyPath: m_Name
+      value: Skull
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6708921f3701a44f976527854381306, type: 3}
@@ -1636,11 +1636,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
-    - target: {fileID: 5354294859083027032, guid: 6b86ac08ca0c63b49a4787a0f208d0ba,
-        type: 3}
-      propertyPath: m_Name
-      value: CellWall (15)
-      objectReference: {fileID: 0}
     - target: {fileID: 5354294859083517560, guid: 6b86ac08ca0c63b49a4787a0f208d0ba,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1706,6 +1701,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5354294859083027032, guid: 6b86ac08ca0c63b49a4787a0f208d0ba,
+        type: 3}
+      propertyPath: m_Name
+      value: CellWall (15)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b86ac08ca0c63b49a4787a0f208d0ba, type: 3}
 --- !u!4 &5294602631980796479 stripped
@@ -1721,11 +1721,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
-    - target: {fileID: 5354294859083027032, guid: 6b86ac08ca0c63b49a4787a0f208d0ba,
-        type: 3}
-      propertyPath: m_Name
-      value: CellWall (3)
-      objectReference: {fileID: 0}
     - target: {fileID: 5354294859083517560, guid: 6b86ac08ca0c63b49a4787a0f208d0ba,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1790,6 +1785,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5354294859083027032, guid: 6b86ac08ca0c63b49a4787a0f208d0ba,
+        type: 3}
+      propertyPath: m_Name
+      value: CellWall (3)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b86ac08ca0c63b49a4787a0f208d0ba, type: 3}
@@ -2061,11 +2061,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
-    - target: {fileID: 6317484099880444570, guid: a881874ffd4717843a0be7df30cd22e3,
-        type: 3}
-      propertyPath: m_Name
-      value: CellDoorway (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 6317484099880444569, guid: a881874ffd4717843a0be7df30cd22e3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2121,6 +2116,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6317484099880444570, guid: a881874ffd4717843a0be7df30cd22e3,
+        type: 3}
+      propertyPath: m_Name
+      value: CellDoorway (1)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a881874ffd4717843a0be7df30cd22e3, type: 3}
 --- !u!4 &5913048163023273957 stripped
@@ -2136,11 +2136,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
-    - target: {fileID: 5354294859083027032, guid: 6b86ac08ca0c63b49a4787a0f208d0ba,
-        type: 3}
-      propertyPath: m_Name
-      value: CellWall (5)
-      objectReference: {fileID: 0}
     - target: {fileID: 5354294859083517560, guid: 6b86ac08ca0c63b49a4787a0f208d0ba,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2205,6 +2200,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5354294859083027032, guid: 6b86ac08ca0c63b49a4787a0f208d0ba,
+        type: 3}
+      propertyPath: m_Name
+      value: CellWall (5)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b86ac08ca0c63b49a4787a0f208d0ba, type: 3}
@@ -2298,6 +2298,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
+    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
+        type: 3}
+      propertyPath: m_Name
+      value: StoneTileGround (16)
+      objectReference: {fileID: 0}
     - target: {fileID: 8525570768474280643, guid: d59fe569c2f732740b926ed1c46e37a1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2352,11 +2357,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
-        type: 3}
-      propertyPath: m_Name
-      value: StoneTileGround (16)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d59fe569c2f732740b926ed1c46e37a1, type: 3}
@@ -2458,11 +2458,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 987297809778741842}
     m_Modifications:
-    - target: {fileID: 1597453686038119688, guid: 34b4f226709d2ee4cb63d557a26c5fb0,
-        type: 3}
-      propertyPath: m_Name
-      value: TorchHolder (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 1597453686038550824, guid: 34b4f226709d2ee4cb63d557a26c5fb0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2527,6 +2522,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1597453686038119688, guid: 34b4f226709d2ee4cb63d557a26c5fb0,
+        type: 3}
+      propertyPath: m_Name
+      value: TorchHolder (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34b4f226709d2ee4cb63d557a26c5fb0, type: 3}
@@ -2634,11 +2634,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 441320468748190416}
     m_Modifications:
-    - target: {fileID: 6073597266765138811, guid: 0905291c77b7f0f4abbc3f391d20ce38,
-        type: 3}
-      propertyPath: m_Name
-      value: RottenApple (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 6073597266765436763, guid: 0905291c77b7f0f4abbc3f391d20ce38,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2693,6 +2688,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6073597266765138811, guid: 0905291c77b7f0f4abbc3f391d20ce38,
+        type: 3}
+      propertyPath: m_Name
+      value: RottenApple (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0905291c77b7f0f4abbc3f391d20ce38, type: 3}
@@ -2863,6 +2863,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
+    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
+        type: 3}
+      propertyPath: m_Name
+      value: StoneTileGround (27)
+      objectReference: {fileID: 0}
     - target: {fileID: 8525570768474280643, guid: d59fe569c2f732740b926ed1c46e37a1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2917,11 +2922,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
-        type: 3}
-      propertyPath: m_Name
-      value: StoneTileGround (27)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d59fe569c2f732740b926ed1c46e37a1, type: 3}
@@ -3023,6 +3023,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
+    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
+        type: 3}
+      propertyPath: m_Name
+      value: StoneTileGround (31)
+      objectReference: {fileID: 0}
     - target: {fileID: 8525570768474280643, guid: d59fe569c2f732740b926ed1c46e37a1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3077,11 +3082,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
-        type: 3}
-      propertyPath: m_Name
-      value: StoneTileGround (31)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d59fe569c2f732740b926ed1c46e37a1, type: 3}
@@ -3406,6 +3406,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
+    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
+        type: 3}
+      propertyPath: m_Name
+      value: StoneTileGround (33)
+      objectReference: {fileID: 0}
     - target: {fileID: 8525570768474280643, guid: d59fe569c2f732740b926ed1c46e37a1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3460,11 +3465,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
-        type: 3}
-      propertyPath: m_Name
-      value: StoneTileGround (33)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d59fe569c2f732740b926ed1c46e37a1, type: 3}
@@ -3736,11 +3736,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4333760667905745402}
     m_Modifications:
-    - target: {fileID: 2311124071984026988, guid: e1b4c7043f2abb744acd90450010011d,
-        type: 3}
-      propertyPath: m_Name
-      value: PlayerSpawn
-      objectReference: {fileID: 0}
     - target: {fileID: 444761590576974375, guid: e1b4c7043f2abb744acd90450010011d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3795,6 +3790,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2311124071984026988, guid: e1b4c7043f2abb744acd90450010011d,
+        type: 3}
+      propertyPath: m_Name
+      value: PlayerSpawn
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1b4c7043f2abb744acd90450010011d, type: 3}
@@ -3886,11 +3886,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 987297809778741842}
     m_Modifications:
-    - target: {fileID: 3025205689395399822, guid: 727c86e415ff8374f8ce7556f3d8c868,
-        type: 3}
-      propertyPath: m_Name
-      value: Pillar (4)
-      objectReference: {fileID: 0}
     - target: {fileID: 3025205689394974894, guid: 727c86e415ff8374f8ce7556f3d8c868,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3956,6 +3951,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3025205689395399822, guid: 727c86e415ff8374f8ce7556f3d8c868,
+        type: 3}
+      propertyPath: m_Name
+      value: Pillar (4)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 727c86e415ff8374f8ce7556f3d8c868, type: 3}
 --- !u!4 &4212599804492831761 stripped
@@ -3971,11 +3971,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 987297809778741842}
     m_Modifications:
-    - target: {fileID: 3025205689395399822, guid: 727c86e415ff8374f8ce7556f3d8c868,
-        type: 3}
-      propertyPath: m_Name
-      value: Pillar (18)
-      objectReference: {fileID: 0}
     - target: {fileID: 3025205689394974894, guid: 727c86e415ff8374f8ce7556f3d8c868,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4040,6 +4035,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3025205689395399822, guid: 727c86e415ff8374f8ce7556f3d8c868,
+        type: 3}
+      propertyPath: m_Name
+      value: Pillar (18)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 727c86e415ff8374f8ce7556f3d8c868, type: 3}
@@ -4125,11 +4125,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 987297809778741842}
     m_Modifications:
-    - target: {fileID: 9019281991250603210, guid: 7a4d24b410ef62d4692475988485366a,
-        type: 3}
-      propertyPath: m_Name
-      value: TorchHolderEmpty
-      objectReference: {fileID: 0}
     - target: {fileID: 9019281991250899178, guid: 7a4d24b410ef62d4692475988485366a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4194,6 +4189,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019281991250603210, guid: 7a4d24b410ef62d4692475988485366a,
+        type: 3}
+      propertyPath: m_Name
+      value: TorchHolderEmpty
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a4d24b410ef62d4692475988485366a, type: 3}
@@ -4301,6 +4301,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
+    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
+        type: 3}
+      propertyPath: m_Name
+      value: StoneTileGround (19)
+      objectReference: {fileID: 0}
     - target: {fileID: 8525570768474280643, guid: d59fe569c2f732740b926ed1c46e37a1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4356,11 +4361,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
-        type: 3}
-      propertyPath: m_Name
-      value: StoneTileGround (19)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d59fe569c2f732740b926ed1c46e37a1, type: 3}
 --- !u!4 &8037361609084708131 stripped
@@ -4376,11 +4376,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 987297809778741842}
     m_Modifications:
-    - target: {fileID: 3025205689395399822, guid: 727c86e415ff8374f8ce7556f3d8c868,
-        type: 3}
-      propertyPath: m_Name
-      value: Pillar (7)
-      objectReference: {fileID: 0}
     - target: {fileID: 3025205689394974894, guid: 727c86e415ff8374f8ce7556f3d8c868,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4445,6 +4440,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3025205689395399822, guid: 727c86e415ff8374f8ce7556f3d8c868,
+        type: 3}
+      propertyPath: m_Name
+      value: Pillar (7)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 727c86e415ff8374f8ce7556f3d8c868, type: 3}
@@ -4546,11 +4546,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 987297809778741842}
     m_Modifications:
-    - target: {fileID: 3025205689395399822, guid: 727c86e415ff8374f8ce7556f3d8c868,
-        type: 3}
-      propertyPath: m_Name
-      value: Pillar (10)
-      objectReference: {fileID: 0}
     - target: {fileID: 3025205689394974894, guid: 727c86e415ff8374f8ce7556f3d8c868,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4616,6 +4611,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3025205689395399822, guid: 727c86e415ff8374f8ce7556f3d8c868,
+        type: 3}
+      propertyPath: m_Name
+      value: Pillar (10)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 727c86e415ff8374f8ce7556f3d8c868, type: 3}
 --- !u!4 &3715934114909690448 stripped
@@ -4631,6 +4631,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
+    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
+        type: 3}
+      propertyPath: m_Name
+      value: StoneTileGround (36)
+      objectReference: {fileID: 0}
     - target: {fileID: 8525570768474280643, guid: d59fe569c2f732740b926ed1c46e37a1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4686,11 +4691,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
-        type: 3}
-      propertyPath: m_Name
-      value: StoneTileGround (36)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d59fe569c2f732740b926ed1c46e37a1, type: 3}
 --- !u!4 &7700964312323865429 stripped
@@ -4706,6 +4706,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
+    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
+        type: 3}
+      propertyPath: m_Name
+      value: StoneTileGround (18)
+      objectReference: {fileID: 0}
     - target: {fileID: 8525570768474280643, guid: d59fe569c2f732740b926ed1c46e37a1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4760,11 +4765,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
-        type: 3}
-      propertyPath: m_Name
-      value: StoneTileGround (18)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d59fe569c2f732740b926ed1c46e37a1, type: 3}
@@ -4941,6 +4941,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
+    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
+        type: 3}
+      propertyPath: m_Name
+      value: StoneTileGround (14)
+      objectReference: {fileID: 0}
     - target: {fileID: 8525570768474280643, guid: d59fe569c2f732740b926ed1c46e37a1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4996,11 +5001,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
-        type: 3}
-      propertyPath: m_Name
-      value: StoneTileGround (14)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d59fe569c2f732740b926ed1c46e37a1, type: 3}
 --- !u!4 &7764421350366175619 stripped
@@ -5016,11 +5016,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
-    - target: {fileID: 5354294859083027032, guid: 6b86ac08ca0c63b49a4787a0f208d0ba,
-        type: 3}
-      propertyPath: m_Name
-      value: CellWall (6)
-      objectReference: {fileID: 0}
     - target: {fileID: 5354294859083517560, guid: 6b86ac08ca0c63b49a4787a0f208d0ba,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5086,6 +5081,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5354294859083027032, guid: 6b86ac08ca0c63b49a4787a0f208d0ba,
+        type: 3}
+      propertyPath: m_Name
+      value: CellWall (6)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b86ac08ca0c63b49a4787a0f208d0ba, type: 3}
 --- !u!4 &6329534614746309306 stripped
@@ -5101,6 +5101,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
+    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
+        type: 3}
+      propertyPath: m_Name
+      value: StoneTileGround (8)
+      objectReference: {fileID: 0}
     - target: {fileID: 8525570768474280643, guid: d59fe569c2f732740b926ed1c46e37a1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5156,11 +5161,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
-        type: 3}
-      propertyPath: m_Name
-      value: StoneTileGround (8)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d59fe569c2f732740b926ed1c46e37a1, type: 3}
 --- !u!4 &7519587966567364121 stripped
@@ -5176,6 +5176,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
+    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
+        type: 3}
+      propertyPath: m_Name
+      value: StoneTileGround (41)
+      objectReference: {fileID: 0}
     - target: {fileID: 8525570768474280643, guid: d59fe569c2f732740b926ed1c46e37a1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5230,11 +5235,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
-        type: 3}
-      propertyPath: m_Name
-      value: StoneTileGround (41)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d59fe569c2f732740b926ed1c46e37a1, type: 3}
@@ -5326,6 +5326,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
+    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
+        type: 3}
+      propertyPath: m_Name
+      value: StoneTileGround (29)
+      objectReference: {fileID: 0}
     - target: {fileID: 8525570768474280643, guid: d59fe569c2f732740b926ed1c46e37a1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5380,11 +5385,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
-        type: 3}
-      propertyPath: m_Name
-      value: StoneTileGround (29)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d59fe569c2f732740b926ed1c46e37a1, type: 3}
@@ -5571,11 +5571,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 987297809778741842}
     m_Modifications:
-    - target: {fileID: 3025205689395399822, guid: 727c86e415ff8374f8ce7556f3d8c868,
-        type: 3}
-      propertyPath: m_Name
-      value: Pillar (16)
-      objectReference: {fileID: 0}
     - target: {fileID: 3025205689394974894, guid: 727c86e415ff8374f8ce7556f3d8c868,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5641,6 +5636,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3025205689395399822, guid: 727c86e415ff8374f8ce7556f3d8c868,
+        type: 3}
+      propertyPath: m_Name
+      value: Pillar (16)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 727c86e415ff8374f8ce7556f3d8c868, type: 3}
 --- !u!4 &918582617284553973 stripped
@@ -5656,10 +5656,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3068055935575940211}
     m_Modifications:
-    - target: {fileID: 1676496197657016, guid: 98b3063d9360f9045ac20df774732c86, type: 3}
-      propertyPath: m_Name
-      value: Rib
-      objectReference: {fileID: 0}
     - target: {fileID: 4839397882755874, guid: 98b3063d9360f9045ac20df774732c86, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.903
@@ -5715,6 +5711,10 @@ PrefabInstance:
     - target: {fileID: 4839397882755874, guid: 98b3063d9360f9045ac20df774732c86, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.24999991
+      objectReference: {fileID: 0}
+    - target: {fileID: 1676496197657016, guid: 98b3063d9360f9045ac20df774732c86, type: 3}
+      propertyPath: m_Name
+      value: Rib
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98b3063d9360f9045ac20df774732c86, type: 3}
@@ -5822,11 +5822,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
-    - target: {fileID: 5354294859083027032, guid: 6b86ac08ca0c63b49a4787a0f208d0ba,
-        type: 3}
-      propertyPath: m_Name
-      value: CellWall (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 5354294859083517560, guid: 6b86ac08ca0c63b49a4787a0f208d0ba,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5891,6 +5886,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5354294859083027032, guid: 6b86ac08ca0c63b49a4787a0f208d0ba,
+        type: 3}
+      propertyPath: m_Name
+      value: CellWall (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b86ac08ca0c63b49a4787a0f208d0ba, type: 3}
@@ -6162,11 +6162,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 465882654969332794}
     m_Modifications:
-    - target: {fileID: 8562658828176788985, guid: 9f86a4bfa2140de49ad6a46b1ff7d5eb,
-        type: 3}
-      propertyPath: m_Name
-      value: Chest
-      objectReference: {fileID: 0}
     - target: {fileID: 8557186151888015029, guid: 9f86a4bfa2140de49ad6a46b1ff7d5eb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6232,6 +6227,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8562658828176788985, guid: 9f86a4bfa2140de49ad6a46b1ff7d5eb,
+        type: 3}
+      propertyPath: m_Name
+      value: Chest
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f86a4bfa2140de49ad6a46b1ff7d5eb, type: 3}
 --- !u!4 &6902160193573965662 stripped
@@ -6247,6 +6247,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
+    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
+        type: 3}
+      propertyPath: m_Name
+      value: StoneTileGround (15)
+      objectReference: {fileID: 0}
     - target: {fileID: 8525570768474280643, guid: d59fe569c2f732740b926ed1c46e37a1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6301,11 +6306,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
-        type: 3}
-      propertyPath: m_Name
-      value: StoneTileGround (15)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d59fe569c2f732740b926ed1c46e37a1, type: 3}
@@ -6407,6 +6407,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
+    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
+        type: 3}
+      propertyPath: m_Name
+      value: StoneTileGround (9)
+      objectReference: {fileID: 0}
     - target: {fileID: 8525570768474280643, guid: d59fe569c2f732740b926ed1c46e37a1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6461,11 +6466,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
-        type: 3}
-      propertyPath: m_Name
-      value: StoneTileGround (9)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d59fe569c2f732740b926ed1c46e37a1, type: 3}
@@ -6721,11 +6721,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
-    - target: {fileID: 5354294859083027032, guid: 6b86ac08ca0c63b49a4787a0f208d0ba,
-        type: 3}
-      propertyPath: m_Name
-      value: CellWall (12)
-      objectReference: {fileID: 0}
     - target: {fileID: 5354294859083517560, guid: 6b86ac08ca0c63b49a4787a0f208d0ba,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6790,6 +6785,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5354294859083027032, guid: 6b86ac08ca0c63b49a4787a0f208d0ba,
+        type: 3}
+      propertyPath: m_Name
+      value: CellWall (12)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b86ac08ca0c63b49a4787a0f208d0ba, type: 3}
@@ -6891,10 +6891,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3068055935575940211}
     m_Modifications:
-    - target: {fileID: 1641868856143768, guid: a6708921f3701a44f976527854381306, type: 3}
-      propertyPath: m_Name
-      value: Skull
-      objectReference: {fileID: 0}
     - target: {fileID: 4943443195327920, guid: a6708921f3701a44f976527854381306, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.7419999
@@ -6950,6 +6946,10 @@ PrefabInstance:
     - target: {fileID: 4943443195327920, guid: a6708921f3701a44f976527854381306, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.35000014
+      objectReference: {fileID: 0}
+    - target: {fileID: 1641868856143768, guid: a6708921f3701a44f976527854381306, type: 3}
+      propertyPath: m_Name
+      value: Skull
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6708921f3701a44f976527854381306, type: 3}
@@ -7063,11 +7063,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
-    - target: {fileID: 5354294859083027032, guid: 6b86ac08ca0c63b49a4787a0f208d0ba,
-        type: 3}
-      propertyPath: m_Name
-      value: CellWall (14)
-      objectReference: {fileID: 0}
     - target: {fileID: 5354294859083517560, guid: 6b86ac08ca0c63b49a4787a0f208d0ba,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7133,6 +7128,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5354294859083027032, guid: 6b86ac08ca0c63b49a4787a0f208d0ba,
+        type: 3}
+      propertyPath: m_Name
+      value: CellWall (14)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b86ac08ca0c63b49a4787a0f208d0ba, type: 3}
 --- !u!4 &8812422128835183018 stripped
@@ -7148,6 +7148,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
+    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
+        type: 3}
+      propertyPath: m_Name
+      value: StoneTileGround (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 8525570768474280643, guid: d59fe569c2f732740b926ed1c46e37a1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7203,11 +7208,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
-        type: 3}
-      propertyPath: m_Name
-      value: StoneTileGround (1)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d59fe569c2f732740b926ed1c46e37a1, type: 3}
 --- !u!4 &5181241638158350281 stripped
@@ -7223,6 +7223,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
+    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
+        type: 3}
+      propertyPath: m_Name
+      value: StoneTileGround (3)
+      objectReference: {fileID: 0}
     - target: {fileID: 8525570768474280643, guid: d59fe569c2f732740b926ed1c46e37a1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7278,11 +7283,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
-        type: 3}
-      propertyPath: m_Name
-      value: StoneTileGround (3)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d59fe569c2f732740b926ed1c46e37a1, type: 3}
 --- !u!4 &5181241638743427171 stripped
@@ -7298,6 +7298,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
+    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
+        type: 3}
+      propertyPath: m_Name
+      value: StoneTileGround
+      objectReference: {fileID: 0}
     - target: {fileID: 8525570768474280643, guid: d59fe569c2f732740b926ed1c46e37a1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7353,11 +7358,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
-        type: 3}
-      propertyPath: m_Name
-      value: StoneTileGround
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d59fe569c2f732740b926ed1c46e37a1, type: 3}
 --- !u!4 &5181241639288418142 stripped
@@ -7373,6 +7373,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
+    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
+        type: 3}
+      propertyPath: m_Name
+      value: StoneTileGround (4)
+      objectReference: {fileID: 0}
     - target: {fileID: 8525570768474280643, guid: d59fe569c2f732740b926ed1c46e37a1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7428,11 +7433,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
-        type: 3}
-      propertyPath: m_Name
-      value: StoneTileGround (4)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d59fe569c2f732740b926ed1c46e37a1, type: 3}
 --- !u!4 &5181241639341370430 stripped
@@ -7448,6 +7448,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
+    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
+        type: 3}
+      propertyPath: m_Name
+      value: StoneTileGround (2)
+      objectReference: {fileID: 0}
     - target: {fileID: 8525570768474280643, guid: d59fe569c2f732740b926ed1c46e37a1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7502,11 +7507,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
-        type: 3}
-      propertyPath: m_Name
-      value: StoneTileGround (2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d59fe569c2f732740b926ed1c46e37a1, type: 3}
@@ -7608,11 +7608,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 987297809778741842}
     m_Modifications:
-    - target: {fileID: 3025205689395399822, guid: 727c86e415ff8374f8ce7556f3d8c868,
-        type: 3}
-      propertyPath: m_Name
-      value: Pillar (15)
-      objectReference: {fileID: 0}
     - target: {fileID: 3025205689394974894, guid: 727c86e415ff8374f8ce7556f3d8c868,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7678,6 +7673,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3025205689395399822, guid: 727c86e415ff8374f8ce7556f3d8c868,
+        type: 3}
+      propertyPath: m_Name
+      value: Pillar (15)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 727c86e415ff8374f8ce7556f3d8c868, type: 3}
 --- !u!4 &1947119558487926263 stripped
@@ -7693,11 +7693,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
-    - target: {fileID: 5354294859083027032, guid: 6b86ac08ca0c63b49a4787a0f208d0ba,
-        type: 3}
-      propertyPath: m_Name
-      value: CellWall (4)
-      objectReference: {fileID: 0}
     - target: {fileID: 5354294859083517560, guid: 6b86ac08ca0c63b49a4787a0f208d0ba,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7762,6 +7757,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5354294859083027032, guid: 6b86ac08ca0c63b49a4787a0f208d0ba,
+        type: 3}
+      propertyPath: m_Name
+      value: CellWall (4)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b86ac08ca0c63b49a4787a0f208d0ba, type: 3}
@@ -7948,11 +7948,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 987297809778741842}
     m_Modifications:
-    - target: {fileID: 1597453686038119688, guid: 34b4f226709d2ee4cb63d557a26c5fb0,
-        type: 3}
-      propertyPath: m_Name
-      value: TorchHolder
-      objectReference: {fileID: 0}
     - target: {fileID: 1597453686038550824, guid: 34b4f226709d2ee4cb63d557a26c5fb0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8018,6 +8013,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1597453686038119688, guid: 34b4f226709d2ee4cb63d557a26c5fb0,
+        type: 3}
+      propertyPath: m_Name
+      value: TorchHolder
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34b4f226709d2ee4cb63d557a26c5fb0, type: 3}
 --- !u!1 &2390813778773976618 stripped
@@ -8039,6 +8039,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
+    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
+        type: 3}
+      propertyPath: m_Name
+      value: StoneTileGround (7)
+      objectReference: {fileID: 0}
     - target: {fileID: 8525570768474280643, guid: d59fe569c2f732740b926ed1c46e37a1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8094,11 +8099,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
-        type: 3}
-      propertyPath: m_Name
-      value: StoneTileGround (7)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d59fe569c2f732740b926ed1c46e37a1, type: 3}
 --- !u!4 &4748660648704397598 stripped
@@ -8114,11 +8114,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
-    - target: {fileID: 5354294859083027032, guid: 6b86ac08ca0c63b49a4787a0f208d0ba,
-        type: 3}
-      propertyPath: m_Name
-      value: CellWall (16)
-      objectReference: {fileID: 0}
     - target: {fileID: 5354294859083517560, guid: 6b86ac08ca0c63b49a4787a0f208d0ba,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8183,6 +8178,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5354294859083027032, guid: 6b86ac08ca0c63b49a4787a0f208d0ba,
+        type: 3}
+      propertyPath: m_Name
+      value: CellWall (16)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b86ac08ca0c63b49a4787a0f208d0ba, type: 3}
@@ -8614,6 +8614,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
+    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
+        type: 3}
+      propertyPath: m_Name
+      value: StoneTileGround (5)
+      objectReference: {fileID: 0}
     - target: {fileID: 8525570768474280643, guid: d59fe569c2f732740b926ed1c46e37a1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8668,11 +8673,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
-        type: 3}
-      propertyPath: m_Name
-      value: StoneTileGround (5)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d59fe569c2f732740b926ed1c46e37a1, type: 3}
@@ -8774,6 +8774,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
+    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
+        type: 3}
+      propertyPath: m_Name
+      value: StoneTileGround (34)
+      objectReference: {fileID: 0}
     - target: {fileID: 8525570768474280643, guid: d59fe569c2f732740b926ed1c46e37a1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8828,11 +8833,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
-        type: 3}
-      propertyPath: m_Name
-      value: StoneTileGround (34)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d59fe569c2f732740b926ed1c46e37a1, type: 3}
@@ -8934,6 +8934,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
+    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
+        type: 3}
+      propertyPath: m_Name
+      value: StoneTileGround (21)
+      objectReference: {fileID: 0}
     - target: {fileID: 8525570768474280643, guid: d59fe569c2f732740b926ed1c46e37a1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8989,11 +8994,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
-        type: 3}
-      propertyPath: m_Name
-      value: StoneTileGround (21)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d59fe569c2f732740b926ed1c46e37a1, type: 3}
 --- !u!4 &3979855876001705517 stripped
@@ -9009,10 +9009,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3221760802891407900}
     m_Modifications:
-    - target: {fileID: 1676496197657016, guid: 98b3063d9360f9045ac20df774732c86, type: 3}
-      propertyPath: m_Name
-      value: Rib
-      objectReference: {fileID: 0}
     - target: {fileID: 4839397882755874, guid: 98b3063d9360f9045ac20df774732c86, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.829
@@ -9069,6 +9065,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.24999991
       objectReference: {fileID: 0}
+    - target: {fileID: 1676496197657016, guid: 98b3063d9360f9045ac20df774732c86, type: 3}
+      propertyPath: m_Name
+      value: Rib
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98b3063d9360f9045ac20df774732c86, type: 3}
 --- !u!1 &4718103980771172452 stripped
@@ -9090,11 +9090,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
-    - target: {fileID: 5354294859083027032, guid: 6b86ac08ca0c63b49a4787a0f208d0ba,
-        type: 3}
-      propertyPath: m_Name
-      value: CellWall (17)
-      objectReference: {fileID: 0}
     - target: {fileID: 5354294859083517560, guid: 6b86ac08ca0c63b49a4787a0f208d0ba,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9160,6 +9155,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5354294859083027032, guid: 6b86ac08ca0c63b49a4787a0f208d0ba,
+        type: 3}
+      propertyPath: m_Name
+      value: CellWall (17)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b86ac08ca0c63b49a4787a0f208d0ba, type: 3}
 --- !u!4 &864011495696808192 stripped
@@ -9175,11 +9175,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
-    - target: {fileID: 5354294859083027032, guid: 6b86ac08ca0c63b49a4787a0f208d0ba,
-        type: 3}
-      propertyPath: m_Name
-      value: CellWall (9)
-      objectReference: {fileID: 0}
     - target: {fileID: 5354294859083517560, guid: 6b86ac08ca0c63b49a4787a0f208d0ba,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9245,6 +9240,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5354294859083027032, guid: 6b86ac08ca0c63b49a4787a0f208d0ba,
+        type: 3}
+      propertyPath: m_Name
+      value: CellWall (9)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b86ac08ca0c63b49a4787a0f208d0ba, type: 3}
 --- !u!4 &837685266813379426 stripped
@@ -9260,11 +9260,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
-    - target: {fileID: 5354294859083027032, guid: 6b86ac08ca0c63b49a4787a0f208d0ba,
-        type: 3}
-      propertyPath: m_Name
-      value: CellWall (11)
-      objectReference: {fileID: 0}
     - target: {fileID: 5354294859083517560, guid: 6b86ac08ca0c63b49a4787a0f208d0ba,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9330,6 +9325,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5354294859083027032, guid: 6b86ac08ca0c63b49a4787a0f208d0ba,
+        type: 3}
+      propertyPath: m_Name
+      value: CellWall (11)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b86ac08ca0c63b49a4787a0f208d0ba, type: 3}
 --- !u!4 &1031052909318557336 stripped
@@ -9345,6 +9345,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
+    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
+        type: 3}
+      propertyPath: m_Name
+      value: StoneTileGround (28)
+      objectReference: {fileID: 0}
     - target: {fileID: 8525570768474280643, guid: d59fe569c2f732740b926ed1c46e37a1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9399,11 +9404,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
-        type: 3}
-      propertyPath: m_Name
-      value: StoneTileGround (28)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d59fe569c2f732740b926ed1c46e37a1, type: 3}
@@ -9659,11 +9659,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
-    - target: {fileID: 6317484099880444570, guid: a881874ffd4717843a0be7df30cd22e3,
-        type: 3}
-      propertyPath: m_Name
-      value: CellDoorway (3)
-      objectReference: {fileID: 0}
     - target: {fileID: 6317484099880444569, guid: a881874ffd4717843a0be7df30cd22e3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9718,6 +9713,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6317484099880444570, guid: a881874ffd4717843a0be7df30cd22e3,
+        type: 3}
+      propertyPath: m_Name
+      value: CellDoorway (3)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a881874ffd4717843a0be7df30cd22e3, type: 3}
@@ -9904,11 +9904,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 987297809778741842}
     m_Modifications:
-    - target: {fileID: 3025205689395399822, guid: 727c86e415ff8374f8ce7556f3d8c868,
-        type: 3}
-      propertyPath: m_Name
-      value: Pillar (17)
-      objectReference: {fileID: 0}
     - target: {fileID: 3025205689394974894, guid: 727c86e415ff8374f8ce7556f3d8c868,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9974,6 +9969,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3025205689395399822, guid: 727c86e415ff8374f8ce7556f3d8c868,
+        type: 3}
+      propertyPath: m_Name
+      value: Pillar (17)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 727c86e415ff8374f8ce7556f3d8c868, type: 3}
 --- !u!4 &6961879683732354747 stripped
@@ -9989,6 +9989,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
+    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
+        type: 3}
+      propertyPath: m_Name
+      value: StoneTileGround (17)
+      objectReference: {fileID: 0}
     - target: {fileID: 8525570768474280643, guid: d59fe569c2f732740b926ed1c46e37a1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10043,11 +10048,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
-        type: 3}
-      propertyPath: m_Name
-      value: StoneTileGround (17)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d59fe569c2f732740b926ed1c46e37a1, type: 3}
@@ -10149,6 +10149,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
+    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
+        type: 3}
+      propertyPath: m_Name
+      value: StoneTileGround (39)
+      objectReference: {fileID: 0}
     - target: {fileID: 8525570768474280643, guid: d59fe569c2f732740b926ed1c46e37a1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10204,11 +10209,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
-        type: 3}
-      propertyPath: m_Name
-      value: StoneTileGround (39)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d59fe569c2f732740b926ed1c46e37a1, type: 3}
 --- !u!4 &4220656785814945143 stripped
@@ -10224,6 +10224,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
+    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
+        type: 3}
+      propertyPath: m_Name
+      value: StoneTileGround (32)
+      objectReference: {fileID: 0}
     - target: {fileID: 8525570768474280643, guid: d59fe569c2f732740b926ed1c46e37a1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10278,11 +10283,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
-        type: 3}
-      propertyPath: m_Name
-      value: StoneTileGround (32)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d59fe569c2f732740b926ed1c46e37a1, type: 3}
@@ -10384,11 +10384,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
-    - target: {fileID: 6317484099880444570, guid: a881874ffd4717843a0be7df30cd22e3,
-        type: 3}
-      propertyPath: m_Name
-      value: CellDoorway (2)
-      objectReference: {fileID: 0}
     - target: {fileID: 6317484099880444569, guid: a881874ffd4717843a0be7df30cd22e3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10443,6 +10438,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6317484099880444570, guid: a881874ffd4717843a0be7df30cd22e3,
+        type: 3}
+      propertyPath: m_Name
+      value: CellDoorway (2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a881874ffd4717843a0be7df30cd22e3, type: 3}
@@ -10544,11 +10544,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 441320468748190416}
     m_Modifications:
-    - target: {fileID: 3453350632334165303, guid: b874f3176318a614ab465dfa472ea77e,
-        type: 3}
-      propertyPath: m_Name
-      value: Meat
-      objectReference: {fileID: 0}
     - target: {fileID: 3453350632333875479, guid: b874f3176318a614ab465dfa472ea77e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10613,6 +10608,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3453350632334165303, guid: b874f3176318a614ab465dfa472ea77e,
+        type: 3}
+      propertyPath: m_Name
+      value: Meat
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b874f3176318a614ab465dfa472ea77e, type: 3}
@@ -10720,11 +10720,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
-    - target: {fileID: 5354294859083027032, guid: 6b86ac08ca0c63b49a4787a0f208d0ba,
-        type: 3}
-      propertyPath: m_Name
-      value: CellWall (19)
-      objectReference: {fileID: 0}
     - target: {fileID: 5354294859083517560, guid: 6b86ac08ca0c63b49a4787a0f208d0ba,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10790,6 +10785,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5354294859083027032, guid: 6b86ac08ca0c63b49a4787a0f208d0ba,
+        type: 3}
+      propertyPath: m_Name
+      value: CellWall (19)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b86ac08ca0c63b49a4787a0f208d0ba, type: 3}
 --- !u!4 &1751796139517521975 stripped
@@ -10805,6 +10805,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
+    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
+        type: 3}
+      propertyPath: m_Name
+      value: StoneTileGround (30)
+      objectReference: {fileID: 0}
     - target: {fileID: 8525570768474280643, guid: d59fe569c2f732740b926ed1c46e37a1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10859,11 +10864,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
-        type: 3}
-      propertyPath: m_Name
-      value: StoneTileGround (30)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d59fe569c2f732740b926ed1c46e37a1, type: 3}
@@ -10955,6 +10955,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
+    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
+        type: 3}
+      propertyPath: m_Name
+      value: StoneTileGround (10)
+      objectReference: {fileID: 0}
     - target: {fileID: 8525570768474280643, guid: d59fe569c2f732740b926ed1c46e37a1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11009,11 +11014,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
-        type: 3}
-      propertyPath: m_Name
-      value: StoneTileGround (10)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d59fe569c2f732740b926ed1c46e37a1, type: 3}
@@ -11107,6 +11107,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
+    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
+        type: 3}
+      propertyPath: m_Name
+      value: StoneTileGround (40)
+      objectReference: {fileID: 0}
     - target: {fileID: 8525570768474280643, guid: d59fe569c2f732740b926ed1c46e37a1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11161,11 +11166,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
-        type: 3}
-      propertyPath: m_Name
-      value: StoneTileGround (40)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d59fe569c2f732740b926ed1c46e37a1, type: 3}
@@ -11352,11 +11352,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 987297809778741842}
     m_Modifications:
-    - target: {fileID: 1597453686038119688, guid: 34b4f226709d2ee4cb63d557a26c5fb0,
-        type: 3}
-      propertyPath: m_Name
-      value: TorchHolder (2)
-      objectReference: {fileID: 0}
     - target: {fileID: 1597453686038550824, guid: 34b4f226709d2ee4cb63d557a26c5fb0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11421,6 +11416,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1597453686038119688, guid: 34b4f226709d2ee4cb63d557a26c5fb0,
+        type: 3}
+      propertyPath: m_Name
+      value: TorchHolder (2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34b4f226709d2ee4cb63d557a26c5fb0, type: 3}
@@ -11690,6 +11690,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
+    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
+        type: 3}
+      propertyPath: m_Name
+      value: StoneTileGround (22)
+      objectReference: {fileID: 0}
     - target: {fileID: 8525570768474280643, guid: d59fe569c2f732740b926ed1c46e37a1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11745,11 +11750,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
-        type: 3}
-      propertyPath: m_Name
-      value: StoneTileGround (22)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d59fe569c2f732740b926ed1c46e37a1, type: 3}
 --- !u!4 &3136424411471140989 stripped
@@ -11765,6 +11765,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
+    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
+        type: 3}
+      propertyPath: m_Name
+      value: StoneTileGround (13)
+      objectReference: {fileID: 0}
     - target: {fileID: 8525570768474280643, guid: d59fe569c2f732740b926ed1c46e37a1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11820,11 +11825,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
-        type: 3}
-      propertyPath: m_Name
-      value: StoneTileGround (13)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d59fe569c2f732740b926ed1c46e37a1, type: 3}
 --- !u!4 &2891395866293064726 stripped
@@ -11840,6 +11840,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
+    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
+        type: 3}
+      propertyPath: m_Name
+      value: StoneTileGround (20)
+      objectReference: {fileID: 0}
     - target: {fileID: 8525570768474280643, guid: d59fe569c2f732740b926ed1c46e37a1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11895,11 +11900,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
-        type: 3}
-      propertyPath: m_Name
-      value: StoneTileGround (20)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d59fe569c2f732740b926ed1c46e37a1, type: 3}
 --- !u!4 &2974299976425301364 stripped
@@ -11915,11 +11915,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
-    - target: {fileID: 6317484099880444570, guid: a881874ffd4717843a0be7df30cd22e3,
-        type: 3}
-      propertyPath: m_Name
-      value: CellDoorway (5)
-      objectReference: {fileID: 0}
     - target: {fileID: 6317484099880444569, guid: a881874ffd4717843a0be7df30cd22e3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11974,6 +11969,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6317484099880444570, guid: a881874ffd4717843a0be7df30cd22e3,
+        type: 3}
+      propertyPath: m_Name
+      value: CellDoorway (5)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a881874ffd4717843a0be7df30cd22e3, type: 3}
@@ -12160,10 +12160,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6018311313495886257}
     m_Modifications:
-    - target: {fileID: 1947533218949664, guid: 0aef1918dfffe17469df7e18774106be, type: 3}
-      propertyPath: m_Name
-      value: Bucket
-      objectReference: {fileID: 0}
     - target: {fileID: 4606027223887464, guid: 0aef1918dfffe17469df7e18774106be, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.19712618
@@ -12208,6 +12204,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1947533218949664, guid: 0aef1918dfffe17469df7e18774106be, type: 3}
+      propertyPath: m_Name
+      value: Bucket
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0aef1918dfffe17469df7e18774106be, type: 3}
 --- !u!4 &6997967888970891446 stripped
@@ -12229,11 +12229,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
-    - target: {fileID: 5354294859083027032, guid: 6b86ac08ca0c63b49a4787a0f208d0ba,
-        type: 3}
-      propertyPath: m_Name
-      value: CellWall (13)
-      objectReference: {fileID: 0}
     - target: {fileID: 5354294859083517560, guid: 6b86ac08ca0c63b49a4787a0f208d0ba,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12299,6 +12294,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5354294859083027032, guid: 6b86ac08ca0c63b49a4787a0f208d0ba,
+        type: 3}
+      propertyPath: m_Name
+      value: CellWall (13)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b86ac08ca0c63b49a4787a0f208d0ba, type: 3}
 --- !u!4 &3122046694769411431 stripped
@@ -12314,11 +12314,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
-    - target: {fileID: 5354294859083027032, guid: 6b86ac08ca0c63b49a4787a0f208d0ba,
-        type: 3}
-      propertyPath: m_Name
-      value: CellWall (10)
-      objectReference: {fileID: 0}
     - target: {fileID: 5354294859083517560, guid: 6b86ac08ca0c63b49a4787a0f208d0ba,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12383,6 +12378,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5354294859083027032, guid: 6b86ac08ca0c63b49a4787a0f208d0ba,
+        type: 3}
+      propertyPath: m_Name
+      value: CellWall (10)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b86ac08ca0c63b49a4787a0f208d0ba, type: 3}
@@ -12474,6 +12474,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
+    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
+        type: 3}
+      propertyPath: m_Name
+      value: StoneTileGround (11)
+      objectReference: {fileID: 0}
     - target: {fileID: 8525570768474280643, guid: d59fe569c2f732740b926ed1c46e37a1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12529,11 +12534,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
-        type: 3}
-      propertyPath: m_Name
-      value: StoneTileGround (11)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d59fe569c2f732740b926ed1c46e37a1, type: 3}
 --- !u!4 &1525536019925458916 stripped
@@ -12549,6 +12549,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
+    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
+        type: 3}
+      propertyPath: m_Name
+      value: StoneTileGround (37)
+      objectReference: {fileID: 0}
     - target: {fileID: 8525570768474280643, guid: d59fe569c2f732740b926ed1c46e37a1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12604,11 +12609,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
-        type: 3}
-      propertyPath: m_Name
-      value: StoneTileGround (37)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d59fe569c2f732740b926ed1c46e37a1, type: 3}
 --- !u!4 &1309268271307178609 stripped
@@ -12624,11 +12624,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
-    - target: {fileID: 5354294859083027032, guid: 6b86ac08ca0c63b49a4787a0f208d0ba,
-        type: 3}
-      propertyPath: m_Name
-      value: CellWall (7)
-      objectReference: {fileID: 0}
     - target: {fileID: 5354294859083517560, guid: 6b86ac08ca0c63b49a4787a0f208d0ba,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12694,6 +12689,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5354294859083027032, guid: 6b86ac08ca0c63b49a4787a0f208d0ba,
+        type: 3}
+      propertyPath: m_Name
+      value: CellWall (7)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b86ac08ca0c63b49a4787a0f208d0ba, type: 3}
 --- !u!4 &3413904549432385884 stripped
@@ -12709,6 +12709,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
+    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
+        type: 3}
+      propertyPath: m_Name
+      value: StoneTileGround (25)
+      objectReference: {fileID: 0}
     - target: {fileID: 8525570768474280643, guid: d59fe569c2f732740b926ed1c46e37a1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12764,11 +12769,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
-        type: 3}
-      propertyPath: m_Name
-      value: StoneTileGround (25)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d59fe569c2f732740b926ed1c46e37a1, type: 3}
 --- !u!4 &1373062410485709942 stripped
@@ -12784,11 +12784,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
-    - target: {fileID: 5354294859083027032, guid: 6b86ac08ca0c63b49a4787a0f208d0ba,
-        type: 3}
-      propertyPath: m_Name
-      value: CellWall (8)
-      objectReference: {fileID: 0}
     - target: {fileID: 5354294859083517560, guid: 6b86ac08ca0c63b49a4787a0f208d0ba,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12854,6 +12849,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5354294859083027032, guid: 6b86ac08ca0c63b49a4787a0f208d0ba,
+        type: 3}
+      propertyPath: m_Name
+      value: CellWall (8)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b86ac08ca0c63b49a4787a0f208d0ba, type: 3}
 --- !u!4 &3171841598998005651 stripped
@@ -12869,6 +12869,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
+    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
+        type: 3}
+      propertyPath: m_Name
+      value: StoneTileGround (12)
+      objectReference: {fileID: 0}
     - target: {fileID: 8525570768474280643, guid: d59fe569c2f732740b926ed1c46e37a1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12923,11 +12928,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
-        type: 3}
-      propertyPath: m_Name
-      value: StoneTileGround (12)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d59fe569c2f732740b926ed1c46e37a1, type: 3}
@@ -13029,11 +13029,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6060326139710386709}
     m_Modifications:
-    - target: {fileID: 5272050058925845166, guid: 2f4ead841f565bb4eaf3dd7ec4ad955a,
-        type: 3}
-      propertyPath: m_Name
-      value: LitCandle
-      objectReference: {fileID: 0}
     - target: {fileID: 5272050058925845167, guid: 2f4ead841f565bb4eaf3dd7ec4ad955a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13098,6 +13093,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5272050058925845166, guid: 2f4ead841f565bb4eaf3dd7ec4ad955a,
+        type: 3}
+      propertyPath: m_Name
+      value: LitCandle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f4ead841f565bb4eaf3dd7ec4ad955a, type: 3}
@@ -13199,6 +13199,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
+    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
+        type: 3}
+      propertyPath: m_Name
+      value: StoneTileGround (6)
+      objectReference: {fileID: 0}
     - target: {fileID: 8525570768474280643, guid: d59fe569c2f732740b926ed1c46e37a1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13254,11 +13259,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
-        type: 3}
-      propertyPath: m_Name
-      value: StoneTileGround (6)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d59fe569c2f732740b926ed1c46e37a1, type: 3}
 --- !u!4 &2249408774684187997 stripped
@@ -13274,6 +13274,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
+    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
+        type: 3}
+      propertyPath: m_Name
+      value: StoneTileGround (26)
+      objectReference: {fileID: 0}
     - target: {fileID: 8525570768474280643, guid: d59fe569c2f732740b926ed1c46e37a1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13328,11 +13333,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
-        type: 3}
-      propertyPath: m_Name
-      value: StoneTileGround (26)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d59fe569c2f732740b926ed1c46e37a1, type: 3}
@@ -13434,11 +13434,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 441320468748190416}
     m_Modifications:
-    - target: {fileID: 6073597266765138811, guid: 0905291c77b7f0f4abbc3f391d20ce38,
-        type: 3}
-      propertyPath: m_Name
-      value: RottenApple
-      objectReference: {fileID: 0}
     - target: {fileID: 6073597266765436763, guid: 0905291c77b7f0f4abbc3f391d20ce38,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13493,6 +13488,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6073597266765138811, guid: 0905291c77b7f0f4abbc3f391d20ce38,
+        type: 3}
+      propertyPath: m_Name
+      value: RottenApple
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0905291c77b7f0f4abbc3f391d20ce38, type: 3}
@@ -13770,11 +13770,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
-    - target: {fileID: 5354294859083027032, guid: 6b86ac08ca0c63b49a4787a0f208d0ba,
-        type: 3}
-      propertyPath: m_Name
-      value: CellWall (18)
-      objectReference: {fileID: 0}
     - target: {fileID: 5354294859083517560, guid: 6b86ac08ca0c63b49a4787a0f208d0ba,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13840,6 +13835,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5354294859083027032, guid: 6b86ac08ca0c63b49a4787a0f208d0ba,
+        type: 3}
+      propertyPath: m_Name
+      value: CellWall (18)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b86ac08ca0c63b49a4787a0f208d0ba, type: 3}
 --- !u!4 &2841829441905058408 stripped
@@ -13855,10 +13855,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1522542589632444077}
     m_Modifications:
-    - target: {fileID: 1641868856143768, guid: a6708921f3701a44f976527854381306, type: 3}
-      propertyPath: m_Name
-      value: Skull
-      objectReference: {fileID: 0}
     - target: {fileID: 4943443195327920, guid: a6708921f3701a44f976527854381306, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.424
@@ -13914,6 +13910,10 @@ PrefabInstance:
     - target: {fileID: 4943443195327920, guid: a6708921f3701a44f976527854381306, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.35000014
+      objectReference: {fileID: 0}
+    - target: {fileID: 1641868856143768, guid: a6708921f3701a44f976527854381306, type: 3}
+      propertyPath: m_Name
+      value: Skull
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6708921f3701a44f976527854381306, type: 3}
@@ -14187,11 +14187,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
-    - target: {fileID: 6317484099880444570, guid: a881874ffd4717843a0be7df30cd22e3,
-        type: 3}
-      propertyPath: m_Name
-      value: CellDoorway (4)
-      objectReference: {fileID: 0}
     - target: {fileID: 6317484099880444569, guid: a881874ffd4717843a0be7df30cd22e3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14246,6 +14241,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6317484099880444570, guid: a881874ffd4717843a0be7df30cd22e3,
+        type: 3}
+      propertyPath: m_Name
+      value: CellDoorway (4)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a881874ffd4717843a0be7df30cd22e3, type: 3}
@@ -14347,11 +14347,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6060326139710386709}
     m_Modifications:
-    - target: {fileID: 6172262672430116236, guid: 9d17ea948a071674daffbac6cb8a5bde,
-        type: 3}
-      propertyPath: m_Name
-      value: Chair (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 6172262672430412204, guid: 9d17ea948a071674daffbac6cb8a5bde,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14417,6 +14412,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.9000019
       objectReference: {fileID: 0}
+    - target: {fileID: 6172262672430116236, guid: 9d17ea948a071674daffbac6cb8a5bde,
+        type: 3}
+      propertyPath: m_Name
+      value: Chair (1)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d17ea948a071674daffbac6cb8a5bde, type: 3}
 --- !u!4 &2678853611808926184 stripped
@@ -14438,6 +14438,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
+    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
+        type: 3}
+      propertyPath: m_Name
+      value: StoneTileGround (24)
+      objectReference: {fileID: 0}
     - target: {fileID: 8525570768474280643, guid: d59fe569c2f732740b926ed1c46e37a1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14492,11 +14497,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
-        type: 3}
-      propertyPath: m_Name
-      value: StoneTileGround (24)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d59fe569c2f732740b926ed1c46e37a1, type: 3}
@@ -14598,6 +14598,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
+    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
+        type: 3}
+      propertyPath: m_Name
+      value: StoneTileGround (35)
+      objectReference: {fileID: 0}
     - target: {fileID: 8525570768474280643, guid: d59fe569c2f732740b926ed1c46e37a1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14652,11 +14657,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
-        type: 3}
-      propertyPath: m_Name
-      value: StoneTileGround (35)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d59fe569c2f732740b926ed1c46e37a1, type: 3}
@@ -15428,6 +15428,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
+    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
+        type: 3}
+      propertyPath: m_Name
+      value: StoneTileGround (23)
+      objectReference: {fileID: 0}
     - target: {fileID: 8525570768474280643, guid: d59fe569c2f732740b926ed1c46e37a1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15482,11 +15487,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
-        type: 3}
-      propertyPath: m_Name
-      value: StoneTileGround (23)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d59fe569c2f732740b926ed1c46e37a1, type: 3}
@@ -15659,11 +15659,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6060326139710386709}
     m_Modifications:
-    - target: {fileID: 6172262672430116236, guid: 9d17ea948a071674daffbac6cb8a5bde,
-        type: 3}
-      propertyPath: m_Name
-      value: Chair
-      objectReference: {fileID: 0}
     - target: {fileID: 6172262672430412204, guid: 9d17ea948a071674daffbac6cb8a5bde,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15729,6 +15724,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.9000019
       objectReference: {fileID: 0}
+    - target: {fileID: 6172262672430116236, guid: 9d17ea948a071674daffbac6cb8a5bde,
+        type: 3}
+      propertyPath: m_Name
+      value: Chair
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d17ea948a071674daffbac6cb8a5bde, type: 3}
 --- !u!4 &2947002587523679863 stripped
@@ -15750,6 +15750,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
+    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
+        type: 3}
+      propertyPath: m_Name
+      value: StoneTileGround (38)
+      objectReference: {fileID: 0}
     - target: {fileID: 8525570768474280643, guid: d59fe569c2f732740b926ed1c46e37a1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15804,11 +15809,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8525570768474280640, guid: d59fe569c2f732740b926ed1c46e37a1,
-        type: 3}
-      propertyPath: m_Name
-      value: StoneTileGround (38)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d59fe569c2f732740b926ed1c46e37a1, type: 3}
@@ -15995,10 +15995,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1522542589632444077}
     m_Modifications:
-    - target: {fileID: 1676496197657016, guid: 98b3063d9360f9045ac20df774732c86, type: 3}
-      propertyPath: m_Name
-      value: Rib
-      objectReference: {fileID: 0}
     - target: {fileID: 4839397882755874, guid: 98b3063d9360f9045ac20df774732c86, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.829
@@ -16055,6 +16051,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.24999991
       objectReference: {fileID: 0}
+    - target: {fileID: 1676496197657016, guid: 98b3063d9360f9045ac20df774732c86, type: 3}
+      propertyPath: m_Name
+      value: Rib
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98b3063d9360f9045ac20df774732c86, type: 3}
 --- !u!4 &9104452581990128172 stripped
@@ -16076,11 +16076,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6980714165785388510}
     m_Modifications:
-    - target: {fileID: 6317484099880444570, guid: a881874ffd4717843a0be7df30cd22e3,
-        type: 3}
-      propertyPath: m_Name
-      value: CellDoorway
-      objectReference: {fileID: 0}
     - target: {fileID: 6317484099880444569, guid: a881874ffd4717843a0be7df30cd22e3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16135,6 +16130,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6317484099880444570, guid: a881874ffd4717843a0be7df30cd22e3,
+        type: 3}
+      propertyPath: m_Name
+      value: CellDoorway
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a881874ffd4717843a0be7df30cd22e3, type: 3}
