@@ -37,6 +37,8 @@ namespace GoblinKing.Core
         private Collider[] raycastResult = new Collider[1];
         private int advanceTime = 0; // How much time should be advanced due to player actions
 
+        private float gameoverTimer = 0f;
+
         private bool pathfindDirty = false;
         private int lightingDirty = 0;
         private Pathfinding.DungeonGrid pathfindingGrid;
@@ -788,6 +790,27 @@ namespace GoblinKing.Core
             return true;
         }
 
+        public void WinGame()
+        {
+            bool kingIsDead = true;
+            foreach (var creature in CurrentFloorObject.GetComponent<DungeonLevel>().EnemyCreatures.Items)
+            {
+                if (creature.Data.Name == "Goblin King")
+                {
+                    kingIsDead = false;
+                }
+            }
+
+            if (kingIsDead)
+            {
+                UnityEngine.SceneManagement.SceneManager.LoadScene("Victory", UnityEngine.SceneManagement.LoadSceneMode.Single);
+            }
+            else
+            {
+                MessageBuffer.AddMessage(Color.white, "The king is still alive. You must get your revenge before you can leave.");
+            }
+        }
+
         private void Awake()
         {
             keybindings = new Keybindings();
@@ -807,7 +830,11 @@ namespace GoblinKing.Core
         {
             if (gameViews.Count == 0)
             {
-                return;
+                gameoverTimer -= Time.deltaTime;
+                if (gameoverTimer < 0f)
+                {
+                    UnityEngine.SceneManagement.SceneManager.LoadScene("GameOver");
+                }
             }
 
             if (pathfindDirty)
@@ -843,6 +870,7 @@ namespace GoblinKing.Core
                 if (gameViews.Count == 0)
                 {
                     MessageBuffer.AddMessage(Color.red, "GAME OVER");
+                    gameoverTimer = 3f;
                 }
             }
         }
