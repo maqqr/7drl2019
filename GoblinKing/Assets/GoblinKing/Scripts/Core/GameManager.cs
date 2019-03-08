@@ -165,6 +165,8 @@ namespace GoblinKing.Core
 
             itemObject.GetComponent<Interaction.PickupItem>().CollidedFast += delegate(GameObject collidedWith)
             {
+                MakeALoudNoise(itemObject.transform.position);
+
                 Creature creature = null;
                 if (collidedWith.transform.parent != null)
                 {
@@ -173,6 +175,9 @@ namespace GoblinKing.Core
 
                 if (creature)
                 {
+                    // Creatures are allowed to cheat a bit to survive flying rocks in the darkness :P
+                    creature.SuspiciousPosition = playerCreature.Position;
+
                     creature.TakeDamage(item.ThrowingDamage);
                     if (item.Breakable)
                     {
@@ -204,8 +209,6 @@ namespace GoblinKing.Core
                 {
                     BackgroundMusic.Instance.PlaySoundEffectAt("hit", itemObject.transform.position);
                 }
-
-                MakeALoudNoise(itemObject.transform.position);
             };
 
             lightingDirty = 1;
