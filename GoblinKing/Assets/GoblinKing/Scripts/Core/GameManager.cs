@@ -191,7 +191,7 @@ namespace GoblinKing.Core
                 else
                 {
                     // Noise message is not displayed when hitting creature to reduce message spam
-                    MessageBuffer.AddMessage(Color.magenta, "The falling " + item.Name + " caused a loud noise!");
+                    MessageBuffer.AddMessage(Color.magenta, "The moving " + item.Name + " caused a loud noise!");
                 }
 
                 if (item.Breakable)
