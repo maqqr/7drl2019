@@ -18,7 +18,6 @@ namespace GoblinKing.Core
         [SerializeField]
         private AudioSource CombatMusic = null;
 
-        private float cooldown = 0f;
         private float transitionSpeed = 1f;
 
         [SerializeField]
@@ -34,20 +33,13 @@ namespace GoblinKing.Core
             }
         }
 
-        public void SetMusic(Music newMusic, float newTransitionSpeed=1f)
+        public void SetMusic(Music newMusic, float newTransitionSpeed=1f, bool forceChange=false)
         {
-            GetAudioSource(newMusic).time = 0f;
-            currentMusic = newMusic;
-            transitionSpeed = newTransitionSpeed;
-        }
-
-        public void StartCombatMusic()
-        {
-            cooldown = 25f;
-
-            if (currentMusic != Music.Combat)
+            if (currentMusic != newMusic || forceChange)
             {
-                SetMusic(Music.Combat);
+                GetAudioSource(newMusic).time = 0f;
+                currentMusic = newMusic;
+                transitionSpeed = newTransitionSpeed;
             }
         }
 
@@ -71,16 +63,6 @@ namespace GoblinKing.Core
 
         void Update()
         {
-            if (cooldown > 0f)
-            {
-                cooldown -= Time.deltaTime;
-
-                if (cooldown <= 0f)
-                {
-                    SetMusic(Music.Espionage, 0.2f);
-                }
-            }
-
             UpdateVolume(MenuMusic, Music.Menu);
             UpdateVolume(EspionageMusic, Music.Espionage);
             UpdateVolume(CombatMusic, Music.Combat);

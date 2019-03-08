@@ -694,6 +694,8 @@ namespace GoblinKing.Core
         {
             List<Creature> creatures = CurrentFloorObject.GetComponent<DungeonLevel>().EnemyCreatures.Items;
 
+            bool anyCreatureAlerted = false;
+
             for (int i = 0; i < creatures.Count; i++)
             {
                 Creature cre = creatures[i];
@@ -714,11 +716,28 @@ namespace GoblinKing.Core
                         }
                     }
                 }
+
+                if (cre.AlertLevel == AI.AlertLevel.Alerted)
+                {
+                    anyCreatureAlerted = true;
+                }
             }
             AdjustNutrition(-1);
             UpdateHunger();
             UpdateHearts(playerCreature, PlayerHearts);
             //Debug.Log("Player nutrition: " + playerObject.GetComponent<Player>().Nutrition);
+
+            if (BackgroundMusic.Instance)
+            {
+                if (anyCreatureAlerted)
+                {
+                    BackgroundMusic.Instance.SetMusic(BackgroundMusic.Music.Combat);
+                }
+                else
+                {
+                    BackgroundMusic.Instance.SetMusic(BackgroundMusic.Music.Espionage, 0.2f);
+                }
+            }
         }
 
         internal void AddNewView(GameViews.IGameView view)
@@ -776,14 +795,9 @@ namespace GoblinKing.Core
 
             if (defender.Hp > 0)
             {
-                if (BackgroundMusic.Instance)
-                {
-                    BackgroundMusic.Instance.StartCombatMusic();
-                }
                 AI.AIBehaviour.ChangeAlertness(this, defender, AI.AlertLevel.Alerted);
                 defender.SuspiciousPosition = attacker.Position;
             }
-
         }
 
         internal void UpdateHearts(Creature creature, HeartContainer container)
@@ -823,7 +837,7 @@ namespace GoblinKing.Core
             {
                  if (BackgroundMusic.Instance)
                 {
-                    BackgroundMusic.Instance.SetMusic(BackgroundMusic.Music.Menu);
+                    BackgroundMusic.Instance.SetMusic(BackgroundMusic.Music.Menu, 1f, true);
                 }
                 UnityEngine.SceneManagement.SceneManager.LoadScene("Victory", UnityEngine.SceneManagement.LoadSceneMode.Single);
             }
@@ -837,7 +851,7 @@ namespace GoblinKing.Core
         {
             if (BackgroundMusic.Instance)
             {
-                BackgroundMusic.Instance.SetMusic(BackgroundMusic.Music.Espionage);
+                BackgroundMusic.Instance.SetMusic(BackgroundMusic.Music.Espionage, 1f, true);
             }
             keybindings = new Keybindings();
             GameData = Data.GameData.LoadData();
@@ -861,7 +875,7 @@ namespace GoblinKing.Core
                 {
                     if (BackgroundMusic.Instance)
                     {
-                        BackgroundMusic.Instance.SetMusic(BackgroundMusic.Music.Menu);
+                        BackgroundMusic.Instance.SetMusic(BackgroundMusic.Music.Menu, 1f, true);
                     }
                     UnityEngine.SceneManagement.SceneManager.LoadScene("GameOver");
                 }
