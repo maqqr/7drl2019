@@ -214,6 +214,12 @@ namespace GoblinKing.Core
 
             Data.CreatureData data = GameData.CreatureData[key];
 
+            if (data.CreaturePrefab == null)
+            {
+                Debug.LogError("SpawnCreature: creature prefab missing for key \"" + key + "\"");
+                return;
+            }
+
             GameObject creatureObject = Instantiate(data.CreaturePrefab, Utils.ConvertToWorldCoord(position), Quaternion.identity);
             creatureObject.transform.position = Utils.ConvertToWorldCoord(position);
             creatureObject.transform.parent = CurrentFloorObject.transform;
