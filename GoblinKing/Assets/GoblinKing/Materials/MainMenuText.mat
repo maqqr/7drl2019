@@ -75,21 +75,21 @@ Material:
     - _MKEditorShowRimBehavior: 1
     - _MKEditorShowShadowBehavior: 0
     - _MKEditorShowSketchBehavior: 0
-    - _MKEditorShowSpecularBehavior: 0
+    - _MKEditorShowSpecularBehavior: 1
     - _MKEditorShowTranslucentBehavior: 0
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
     - _OutlineSize: 0.01
     - _Parallax: 0.02
-    - _RimIntensity: 0
-    - _RimSize: 0
-    - _RimSmoothness: 0
+    - _RimIntensity: 0.662
+    - _RimSize: 0.9
+    - _RimSmoothness: 0.401
     - _ShadowIntensity: 1
-    - _Shininess: 0.275
+    - _Shininess: 0.01
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
-    - _SpecularIntensity: 0.5
+    - _SpecularIntensity: 0
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1

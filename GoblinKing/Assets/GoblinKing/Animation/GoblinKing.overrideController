@@ -7,5 +7,9 @@ AnimatorOverrideController:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: GoblinKing
-  m_Controller: {fileID: 0}
-  m_Clips: []
+  m_Controller: {fileID: 9100000, guid: 54d308eb3ad44a742977046f057de842, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 94c75858633b4e04f9e28db3b52b2bba, type: 3}
+    m_OverrideClip: {fileID: 7400000, guid: b5fdffd4b731ceb4db25da9c342d272e, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 101086e64034c0c49ae4490991a3567a, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 827a05e27b7ec034a8430c077c7947f4, type: 2}
