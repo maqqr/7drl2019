@@ -52,36 +52,37 @@
         "player":               { "name": "Player", "assetpath": "Creatures/Goblin", "maxhp": 12, "speed": 100, "basedamage": 1, "maxencumbrance": 30 },
         "goblin":               { "name": "Goblin", "assetpath": "Creatures/Goblin", "maxhp": 10, "speed": 100, "basedamage": 1 },
         "crazygoblin":          { "name": "Crazy Goblin", "assetpath": "Creatures/CrazyGoblin", "maxhp": 6, "speed": 50, "basedamage": 1 },
+        "goblinberserker":      { "name": "Goblin Berserker", "assetpath": "Creatures/GoblinBerserker", "maxhp": 8, "speed": 80, "basedamage": 1 },
         "gluttongoblin":        { "name": "Glutton Goblin", "assetpath": "Creatures/GluttonGoblin", "maxhp": 12, "speed": 150, "basedamage": 1 },
-        "bonegoblin":           { "name": "Bone goblin", "assetpath": "Creatures/BoneGoblin", "maxhp": 8, "speed": 120, "basedamage": 1 },
+        "bonegoblin":           { "name": "Bone Goblin", "assetpath": "Creatures/BoneGoblin", "maxhp": 8, "speed": 120, "basedamage": 1 },
         "torchgoblin":          { "name": "Goblin Scout", "assetpath": "Creatures/TorchGoblin", "maxhp": 12, "speed": 100, "basedamage": 1 },
-        "hamletgoblin":         { "name": "Hamlet goblin", "assetpath": "Creatures/HamletGoblin", "maxhp": 16, "speed": 500, "basedamage": 1 },
+        "hamletgoblin":         { "name": "Hamlet Goblin", "assetpath": "Creatures/HamletGoblin", "maxhp": 16, "speed": 500, "basedamage": 1 },
         "goblinguardsword":     { "name": "Goblin Guard", "assetpath": "Creatures/GoblinGuardSword", "maxhp": 14, "speed": 100, "basedamage": 1 },
         "goblinguardlongsword": { "name": "Goblin Guard", "assetpath": "Creatures/GoblinGuardLongsword", "maxhp": 20, "speed": 100, "basedamage": 1 },
         "goblinking":           { "name": "Goblin King", "assetpath": "Creatures/GoblinKing", "maxhp": 12, "speed": 100, "basedamage": 1 },
         "rat":                  { "name": "Rat", "assetpath": "Creatures/Rat", "maxhp": 6, "speed": 100, "basedamage": 1 },
-        "swordrat":             { "name": "Rat", "assetpath": "Creatures/SwordRat", "maxhp": 6, "speed": 100, "basedamage": 1 },
+        "swordrat":             { "name": "Rat?", "assetpath": "Creatures/SwordRat", "maxhp": 6, "speed": 100, "basedamage": 1 },
         "goblinroyalguard":     { "name": "Royal Goblin Guard", "assetpath": "Creatures/GoblinRoyalGuard", "maxhp": 20, "speed": 100, "basedamage": 1 }
     },
 
     "spawnlist": {
         "0": ["bonegoblin", "bonegoblin", "goblin", "goblin", "goblin", "goblin", "torchgoblin", "torchgoblin", "rat", "rat", "rat", "rat", "rat", "rat", "swordrat", "crazygoblin", "crazygoblin", "crazygoblin", "gluttongoblin", "hamletgoblin", "hamletgoblin"],
         "1": ["bonegoblin", "goblin", "goblin", "goblin", "torchgoblin", "torchgoblin", "rat", "rat", "swordrat", "crazygoblin", "crazygoblin", "gluttongoblin", "hamletgoblin", "hamletgoblin", "hamletgoblin"],
-        "2": ["goblin", "goblin", "torchgoblin", "torchgoblin", "rat", "crazygoblin", "crazygoblin", "gluttongoblin", "hamletgoblin", "hamletgoblin"],
+        "2": ["goblin", "goblin", "goblin", "torchgoblin", "torchgoblin", "rat", "swordrat", "crazygoblin", "crazygoblin", "gluttongoblin", "hamletgoblin", "hamletgoblin"],
         "3": ["goblinguardsword", "goblin", "torchgoblin", "crazygoblin", "crazygoblin", "gluttongoblin", "hamletgoblin"],
-        "4": ["goblinguardsword", "goblinguardsword", "goblin", "torchgoblin", "crazygoblin", "crazygoblin", "gluttongoblin", "bonegoblin", "hamletgoblin"],
-        "5": ["goblinguardlongsword", "goblinguardsword", "goblinguardsword", "goblinguardsword", "torchgoblin", "crazygoblin", "crazygoblin", "gluttongoblin", "bonegoblin", "hamletgoblin", "hamletgoblin"],
-        "6": ["goblinguardlongsword", "goblinguardlongsword", "goblinguardlongsword", "goblinguardsword", "goblinguardsword", "torchgoblin", "crazygoblin", "crazygoblin", "hamletgoblin"]
+        "4": ["goblinguardsword", "goblinguardsword", "goblin", "torchgoblin", "crazygoblin", "crazygoblin", "gluttongoblin", "bonegoblin", "hamletgoblin", "goblinberserker"],
+        "5": ["goblinguardlongsword", "goblinguardsword", "goblinguardsword", "goblinguardsword", "torchgoblin", "crazygoblin", "crazygoblin", "gluttongoblin", "bonegoblin", "hamletgoblin", "hamletgoblin", "goblinberserker"],
+        "6": ["goblinguardlongsword", "goblinguardlongsword", "goblinguardlongsword", "goblinguardsword", "goblinguardsword", "torchgoblin", "crazygoblin", "hamletgoblin", "goblinberserker"]
     },
 
     "itemspawnlist": {
-        "0": ["skull", "bone", "dagger", "club", "stoneaxe", "bucket", "rottenapple", "rottenbread", "rottencheese", "rottenmeat"],
-        "1": ["gold", "potionSmallXP", "dagger", "club", "stoneaxe", "woodenshieldsmall"],
-        "2": ["gold", "potionSmallXP", "dagger", "dart", "club", "stoneaxe", "axe", "mace", "sword", "woodenshieldsmall", "woodenshield"],
-        "3": ["gold", "potionSmallHealth", "potionSmallXP", "dagger", "dart", "club", "stoneaxe", "axe", "mace", "sword", "woodenshield", "ironshieldsmall"],
-        "4": ["gold", "potionSmallHealth", "potionSmallXP", "potionBigXP", "dart", "spear", "axe", "mace", "sword", "hammer", "longsword", "ironshieldsmall", "ironshield"],
-        "5": ["gold", "potionSmallHealth", "potionBigHealth", "potionSmallXP", "potionBigXP", "dart", "spear", "axe", "mace", "sword", "hammer", "longsword", "ironshieldsmall", "ironshield"],
-        "6": ["gold", "potionBigHealth", "potionBigXP", "dart", "spear", "hammer", "longsword", "ironshield"]
+        "0": ["potionSmallXP", "skull", "bone", "dagger", "club", "stoneaxe", "bucket", "rottenapple", "rottenbread", "rottencheese", "rottenmeat", "apple"],
+        "1": ["gold", "potionSmallHealth", "potionSmallXP", "potionSmallPoison", "dagger", "club", "stoneaxe", "woodenshieldsmall", "rottenbread", "rottencheese", "rottenmeat", "apple"],
+        "2": ["gold", "potionSmallHealth", "potionSmallXP", "potionSmallPoison", "dagger", "dart", "club", "stoneaxe", "axe", "mace", "sword", "woodenshieldsmall", "woodenshield", "rottencheese", "rottenmeat", "apple", "bread"],
+        "3": ["gold", "potionSmallHealth", "potionSmallXP", "potionSmallPoison", "dagger", "dart", "club", "stoneaxe", "axe", "mace", "sword", "woodenshield", "ironshieldsmall", "rottenmeat", "apple", "bread"],
+        "4": ["gold", "potionSmallHealth", "potionBigHealth", "potionSmallXP", "potionBigXP", "potionBigPoison", "dart", "spear", "axe", "mace", "sword", "hammer", "longsword", "ironshieldsmall", "ironshield", "apple", "bread", "cheese"],
+        "5": ["gold", "potionBigHealth", "potionSmallXP", "potionBigXP", "potionBigPoison", "dart", "spear", "axe", "mace", "sword", "hammer", "longsword", "ironshieldsmall", "ironshield", "apple", "bread", "cheese", "meat"],
+        "6": ["gold", "potionBigHealth", "potionBigPoison", "potionBigXP", "dart", "spear", "hammer", "longsword", "ironshield", "apple", "bread", "cheese", "meat"]
     },
 
     "perks": {
