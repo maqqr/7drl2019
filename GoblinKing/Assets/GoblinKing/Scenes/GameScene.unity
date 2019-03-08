@@ -3732,7 +3732,7 @@ MonoBehaviour:
   - {fileID: 4861664121219815408, guid: aff2d572fa92bf645baf867d99d8ac95, type: 3}
   - {fileID: 4861664121219815408, guid: aff2d572fa92bf645baf867d99d8ac95, type: 3}
   - {fileID: 4861664121219815408, guid: aff2d572fa92bf645baf867d99d8ac95, type: 3}
-  - {fileID: 4861664121219815408, guid: aff2d572fa92bf645baf867d99d8ac95, type: 3}
+  - {fileID: 5805358098393715860, guid: 472b4c8e3059cc849949329a1f19f268, type: 3}
   perkTreePrefab: {fileID: 307888046144457542, guid: 29ef7b7c14eb26e45a354ae14c110772,
     type: 3}
   inventoryPrefab: {fileID: 1116146211989653171, guid: bd17bb3897ee64a4c8acac7d0c80188f,

@@ -78,3 +78,9 @@ MonoBehaviour:
   - Tag: spawn
     MinAmount: 0
     MaxAmount: 0
+  - Tag: freedom
+    MinAmount: 0
+    MaxAmount: 0
+  - Tag: king
+    MinAmount: 0
+    MaxAmount: 0
