@@ -10,6 +10,8 @@ namespace GoblinKing.Helpers
     {
         GameManager gameManager = null;
 
+        private Vector2Int prevPosition = Vector2Int.zero;
+
         void Start()
         {
             gameManager = GameObject.FindObjectOfType<GameManager>();
@@ -17,10 +19,13 @@ namespace GoblinKing.Helpers
 
         void Update()
         {
-            if (gameManager.playerCreature.Position == Utils.ConvertToGameCoord(transform.position))
+            bool playerMoved = prevPosition != gameManager.playerCreature.Position;
+            if (playerMoved && gameManager.playerCreature.Position == Utils.ConvertToGameCoord(transform.position))
             {
                 gameManager.WinGame();
             }
+
+            prevPosition = gameManager.playerCreature.Position;
         }
     }
 }
