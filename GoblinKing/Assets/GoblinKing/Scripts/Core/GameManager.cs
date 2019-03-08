@@ -250,6 +250,7 @@ namespace GoblinKing.Core
                     if(item.Breakable) {
                         creature.RecoverHealth(item.Healing);
                         creature.Poison += item.Poisoning;
+                        Object.Destroy(itemObject);
                     }
                     if (creature.Hp < 1)
                     {
