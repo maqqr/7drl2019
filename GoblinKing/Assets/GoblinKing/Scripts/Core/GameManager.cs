@@ -333,6 +333,10 @@ namespace GoblinKing.Core
             lightingDirty = 5;
 
             var handObj = GetEquipTransformForSlot(playerCreature, slot);
+            if (handObj == null)
+            {
+                Debug.Log("asd");
+            }
             SpawnItemToHand(handObj.transform, item.ItemKey);
         }
 
