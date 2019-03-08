@@ -46,10 +46,10 @@
     },
 
     "creatures": {
-        "player":               { "name": "Player", "assetpath": "Creatures/Goblin", "maxhp": 12, "speed": 100, "basedamage": 1, "maxencumbrance": 30 },
-        "goblin":               { "name": "Goblin", "assetpath": "Creatures/Goblin", "maxhp": 10, "speed": 100, "basedamage": 1 },
-        "torchgoblin":          { "name": "Goblin", "assetpath": "Creatures/TorchGoblin", "maxhp": 10, "speed": 100, "basedamage": 1 },
-        "goblinguardsword":     { "name": "Goblin", "assetpath": "Creatures/GoblinGuardSword", "maxhp": 10, "speed": 100, "basedamage": 1 },
+        "player":               { "name": "Player", "assetpath": "Creatures/Goblin", "maxhp": 10, "speed": 100, "basedamage": 1, "maxencumbrance": 30 },
+        "goblin":               { "name": "Goblin", "assetpath": "Creatures/Goblin", "maxhp": 12, "speed": 100, "basedamage": 1 },
+        "torchgoblin":          { "name": "Goblin", "assetpath": "Creatures/TorchGoblin", "maxhp": 12, "speed": 100, "basedamage": 1 },
+        "goblinguardsword":     { "name": "Goblin", "assetpath": "Creatures/GoblinGuardSword", "maxhp": 14, "speed": 100, "basedamage": 1 },
         "goblinguardlongsword": { "name": "Goblin", "assetpath": "Creatures/GoblinGuardLongsword", "maxhp": 20, "speed": 100, "basedamage": 1 },
         "goblinking":           { "name": "Goblin King", "assetpath": "Creatures/GoblinKing", "maxhp": 12, "speed": 100, "basedamage": 1 },
         "rat": { "name": "Rat", "assetpath": "Creatures/Rat", "maxhp": 6, "speed": 100, "basedamage": 1 },
@@ -57,9 +57,9 @@
     },
 
     "spawnlist": {
-        "0": ["goblin", "goblin", "goblin", "torchgoblin"],
-        "1": ["goblin", "goblin", "torchgoblin"],
-        "2": ["goblin", "torchgoblin"],
+        "0": ["goblin", "goblin", "goblin", "goblin", "goblin", "goblin", "torchgoblin", "torchgoblin", "rat", "rat", "rat", "rat", "rat", "rat", "swordrat"],
+        "1": ["goblin", "goblin", "goblin", "goblin", "torchgoblin", "torchgoblin", "rat", "rat", "swordrat"],
+        "2": ["goblin", "goblin", "torchgoblin", "torchgoblin", "rat"],
         "3": ["goblinguardsword", "goblin", "torchgoblin"],
         "4": ["goblinguardsword", "goblinguardsword", "goblin", "torchgoblin"],
         "5": ["goblinguardlongsword", "goblinguardsword", "goblinguardsword", "goblinguardsword", "torchgoblin"],
@@ -89,9 +89,9 @@
         "potionmastah2": { "name": "Potion connoisseur", "desc": "Increase potion efficacy by 2.5x", "require": ["potionmastah1"], "potionEffect": 2.5 },
 
         "backstab1": { "name": "Novice rogue", "desc": "Increase backstab damage multiplier to 1.5x", "backstabMultiplier": 1.5 },
-        "backstab2": { "name": "Gossip girl", "desc": "Increase backstab damage multiplier to 1.8x", "require": ["backstab1"], "backstabMultiplier": 1.8 },
-        "backstab3": { "name": "Turncoat", "desc": "Increase backstab damage multiplier to 2.0x", "require": ["backstab2"], "backstabMultiplier": 2.0 },
-        "backstab4": { "name": "Ghost", "desc": "Increase backstab damage multiplier to 2.5x", "require": ["backstab3"], "backstabMultiplier": 2.5 },
+        "backstab2": { "name": "Gossip girl", "desc": "Increase backstab damage multiplier to 2.0x", "require": ["backstab1"], "backstabMultiplier": 2.0 },
+        "backstab3": { "name": "Turncoat", "desc": "Increase backstab damage multiplier to 2.5x", "require": ["backstab2"], "backstabMultiplier": 2.5 },
+        "backstab4": { "name": "Ghost", "desc": "Increase backstab damage multiplier to 3.0x", "require": ["backstab3"], "backstabMultiplier": 3.0 },
 
         "metabolism1": { "name": "Efficient metabolism", "desc": "Nutrition from food increased by 25%", "metabolicMultiplier": 1.25 },
         "metabolism2": { "name": "Take all the nutrients!", "desc": "Nutrition from food increased by 50%","require":["metabolism1"], "metabolicMultiplier": 1.50 },
