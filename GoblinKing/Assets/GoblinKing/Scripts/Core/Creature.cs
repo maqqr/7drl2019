@@ -106,6 +106,18 @@ namespace GoblinKing.Core
             Hp = System.Math.Min(Hp+health, MaxLife);
         }
 
+        public InventoryItem GetItemFromInventory(string itemKey)
+        {
+            for (int i = 0; i < Inventory.Count; i++)
+            {
+                if (Inventory[i].ItemKey == itemKey)
+                {
+                    return Inventory[i];
+                }
+            }
+            return null;
+        }
+
         public bool HasItemInSlot(InventoryItem item, EquipSlot slot)
         {
             return Equipment.ContainsKey(slot) && Equipment[slot] == item;
