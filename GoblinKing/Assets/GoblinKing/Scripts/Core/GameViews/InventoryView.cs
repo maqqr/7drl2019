@@ -90,11 +90,7 @@ namespace GoblinKing.Core.GameViews
             UpdateStatusTexts();
 
             var player = gameManager.playerObject.GetComponent<Creature>();
-
-            if (player.Inventory.Count == 0)
-            {
-                descriptionText.text = "Your inventory is empty.";
-            }
+            descriptionText.text = player.Inventory.Count == 0 ? "Your inventory is empty." : "";
 
             // Instantiate items in inventory
             for (int i = 0; i < player.Inventory.Count; i++)
