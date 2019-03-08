@@ -13,7 +13,7 @@
         "longsword" :           { "weight": 6, "damM": 6, "damT": 2, "def": 1, "name": "longsword", "assetpath": "Items/Longsword", "desc": "I've seen longer ones." },
         
         "rib":                  { "weight": 3, "damM": 1, "damT": 1, "def": 1, "name": "rib", "assetpath": "Items/Rib", "desc": "Nice rib." },
-        "bucket":               { "weight": 4, "damM": 1, "damT": 1, "def": 1, "name": "bucket", "assetpath": "Items/Bucket", "desc": "Lancelots first shield. " },
+        "bucket":               { "weight": 4, "damM": 1, "damT": 1, "def": 1, "name": "bucket", "assetpath": "Items/Bucket", "desc": "Lancelot's first shield. " },
         "woodenshieldsmall" :   { "weight": 2, "damM": 1, "damT": 2, "def": 2, "name": "small wooden shield", "assetpath": "Items/WoodenShieldSmall", "desc": "Goblin, fetch!" },
         "woodenshield" :        { "weight": 2, "damM": 1, "damT": 2, "def": 3, "name": "wooden shield", "assetpath": "Items/WoodenShield", "desc": "A trusty cutting board." },
         "ironshieldsmall" :     { "weight": 3, "damM": 1, "damT": 3, "def": 4, "name": "small iron shield", "assetpath": "Items/IronShieldSmall", "desc": "A metal throwing disc." },
@@ -46,24 +46,28 @@
     },
 
     "creatures": {
-        "player":               { "name": "Player", "assetpath": "Creatures/Goblin", "maxhp": 10, "speed": 100, "basedamage": 1, "maxencumbrance": 30 },
-        "goblin":               { "name": "Goblin", "assetpath": "Creatures/Goblin", "maxhp": 12, "speed": 100, "basedamage": 1 },
+        "player":               { "name": "Player", "assetpath": "Creatures/Goblin", "maxhp": 12, "speed": 100, "basedamage": 1, "maxencumbrance": 30 },
+        "goblin":               { "name": "Goblin", "assetpath": "Creatures/Goblin", "maxhp": 10, "speed": 100, "basedamage": 1 },
+        "crazygoblin":          { "name": "Crazy goblin", "assetpath": "Creatures/CrazyGoblin", "maxhp": 6, "speed": 50, "basedamage": 1 },
+        "gluttongoblin":        { "name": "Glutton goblin", "assetpath": "Creatures/GluttonGoblin", "maxhp": 12, "speed": 150, "basedamage": 1 },
+        "bonegoblin":           { "name": "Bone goblin", "assetpath": "Creatures/BoneGoblin", "maxhp": 8, "speed": 120, "basedamage": 1 },
         "torchgoblin":          { "name": "Goblin", "assetpath": "Creatures/TorchGoblin", "maxhp": 12, "speed": 100, "basedamage": 1 },
+        "hamletgoblin":         { "name": "Hamlet goblin", "assetpath": "Creatures/HamletGoblin", "maxhp": 16, "speed": 500, "basedamage": 1 },
         "goblinguardsword":     { "name": "Goblin", "assetpath": "Creatures/GoblinGuardSword", "maxhp": 14, "speed": 100, "basedamage": 1 },
         "goblinguardlongsword": { "name": "Goblin", "assetpath": "Creatures/GoblinGuardLongsword", "maxhp": 20, "speed": 100, "basedamage": 1 },
         "goblinking":           { "name": "Goblin King", "assetpath": "Creatures/GoblinKing", "maxhp": 12, "speed": 100, "basedamage": 1 },
-        "rat": { "name": "Rat", "assetpath": "Creatures/Rat", "maxhp": 6, "speed": 100, "basedamage": 1 },
-        "swordrat": { "name": "Rat", "assetpath": "Creatures/SwordRat", "maxhp": 6, "speed": 100, "basedamage": 1 }
+        "rat":                  { "name": "Rat", "assetpath": "Creatures/Rat", "maxhp": 6, "speed": 100, "basedamage": 1 },
+        "swordrat":             { "name": "Rat", "assetpath": "Creatures/SwordRat", "maxhp": 6, "speed": 100, "basedamage": 1 }
     },
 
     "spawnlist": {
-        "0": ["goblin", "goblin", "goblin", "goblin", "goblin", "goblin", "torchgoblin", "torchgoblin", "rat", "rat", "rat", "rat", "rat", "rat", "swordrat"],
-        "1": ["goblin", "goblin", "goblin", "goblin", "torchgoblin", "torchgoblin", "rat", "rat", "swordrat"],
-        "2": ["goblin", "goblin", "torchgoblin", "torchgoblin", "rat"],
-        "3": ["goblinguardsword", "goblin", "torchgoblin"],
-        "4": ["goblinguardsword", "goblinguardsword", "goblin", "torchgoblin"],
-        "5": ["goblinguardlongsword", "goblinguardsword", "goblinguardsword", "goblinguardsword", "torchgoblin"],
-        "6": ["goblinguardlongsword", "goblinguardlongsword", "goblinguardlongsword", "goblinguardsword", "goblinguardsword", "torchgoblin"]
+        "0": ["bonegoblin", "bonegoblin", "goblin", "goblin", "goblin", "goblin", "torchgoblin", "torchgoblin", "rat", "rat", "rat", "rat", "rat", "rat", "swordrat", "crazygoblin", "crazygoblin", "crazygoblin", "gluttongoblin", "hamletgoblin", "hamletgoblin"],
+        "1": ["bonegoblin", "goblin", "goblin", "goblin", "torchgoblin", "torchgoblin", "rat", "rat", "swordrat", "crazygoblin", "crazygoblin", "gluttongoblin", "hamletgoblin", "hamletgoblin", "hamletgoblin"],
+        "2": ["goblin", "goblin", "torchgoblin", "torchgoblin", "rat", "crazygoblin", "crazygoblin", "gluttongoblin", "hamletgoblin", "hamletgoblin"],
+        "3": ["goblinguardsword", "goblin", "torchgoblin", "crazygoblin", "crazygoblin", "gluttongoblin", "hamletgoblin"],
+        "4": ["goblinguardsword", "goblinguardsword", "goblin", "torchgoblin", "crazygoblin", "crazygoblin", "gluttongoblin", "bonegoblin", "hamletgoblin"],
+        "5": ["goblinguardlongsword", "goblinguardsword", "goblinguardsword", "goblinguardsword", "torchgoblin", "crazygoblin", "crazygoblin", "gluttongoblin", "bonegoblin", "hamletgoblin", "hamletgoblin"],
+        "6": ["goblinguardlongsword", "goblinguardlongsword", "goblinguardlongsword", "goblinguardsword", "goblinguardsword", "torchgoblin", "crazygoblin", "crazygoblin", "hamletgoblin"]
     },
 
     "itemspawnlist": {
