@@ -580,6 +580,12 @@ namespace GoblinKing.Core
             {
                 Vector2Int point = Utils.ConvertToGameCoord(spawnPoint.transform.position);
                 playerObject.transform.position = Utils.ConvertToWorldCoord(point);
+                playerObject.transform.rotation = Quaternion.LookRotation(spawnPoint.transform.forward);
+
+                Camera.transform.localRotation = Quaternion.identity;
+                Camera.GetComponent<SmoothMouseLook>().targetDirection = transform.localRotation.eulerAngles;
+                Camera.GetComponent<SmoothMouseLook>().targetCharacterDirection = playerObject.transform.localRotation.eulerAngles;
+                Camera.GetComponent<SmoothMouseLook>().ResetCamera();
                 playerCreature.Position = point;
             }
             else

@@ -23,6 +23,12 @@ namespace GoblinKing.Core
         // Yaw rotation will affect this object instead of the camera if set.
         public GameObject characterBody;
 
+        public void ResetCamera()
+        {
+            _mouseAbsolute = Vector2.zero;
+            _mouseAbsolute = Vector2.zero;
+        }
+
         void Start()
         {
             // Set target direction to the camera's initial orientation.
