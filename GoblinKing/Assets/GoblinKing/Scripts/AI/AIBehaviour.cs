@@ -185,7 +185,7 @@ namespace GoblinKing.AI
         {
             if (creature.PatrolAttemptsLeft <= 0)
             {
-                creature.PatrolAttemptsLeft = Random.Range(5, 9);
+                creature.PatrolAttemptsLeft = Random.Range(8, 14);
                 creature.PatrolTarget = gameManager.RandomFreeSpace();
                 Debug.Log("Got new patrol position (" + creature.PatrolTarget.x + ", " + creature.PatrolTarget.y + ")");
             }
