@@ -65,6 +65,7 @@ MonoBehaviour:
   - {fileID: 5202178695017380353, guid: 444b416685ea646469b1315bc42b665d, type: 3}
   - {fileID: 1594396985370728187, guid: 5b8a98072721e254e9b4a72a99a3f6a8, type: 3}
   - {fileID: 3826741809951232160, guid: c534cd9fae970e34e85d017b7ca7e6fe, type: 3}
+  - {fileID: 4940209785845512415, guid: c4481be52d3fe0e44bc2f14540f94eb3, type: 3}
   DeadEnds:
   - {fileID: 4298375606707071215, guid: 2d22e51fe90d0bc43b84d521d3feac4f, type: 3}
   InitialSectionTags:
