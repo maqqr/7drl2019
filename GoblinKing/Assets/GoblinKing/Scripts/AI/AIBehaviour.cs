@@ -63,6 +63,23 @@ namespace GoblinKing.AI
             }
         }
 
+        public static void RaiseAlertness(GameManager gameManager, Creature creature, AlertLevel newAlertLevel)
+        {
+            if (creature.AlertLevel == AlertLevel.Unaware)
+            {
+                // All new alertness levels are allowed when unaware
+                ChangeAlertness(gameManager, creature, newAlertLevel);
+                return;
+            }
+            if (creature.AlertLevel == AlertLevel.Suspicious && newAlertLevel == AlertLevel.Alerted)
+            {
+                // Can only increase to Alerted when Suspicious
+                ChangeAlertness(gameManager, creature, newAlertLevel);
+                return;
+            }
+            // Alertness cannot increase above Alerted
+        }
+
         public static void ChangeAlertness(GameManager gameManager, Creature creature, AlertLevel newAlertLevel)
         {
             bool levelChanged = newAlertLevel != creature.AlertLevel;
@@ -171,9 +188,13 @@ namespace GoblinKing.AI
 
         private static Vector2Int MoveRandomly(GameManager gameManager, Creature creature)
         {
-            int randomX = Random.Range(-1, 2);
-            int randomY = Random.Range(-1, 2);
-            Vector2Int newPos = new Vector2Int(creature.Position.x + randomX, creature.Position.y + randomY);
+            Vector2Int newPos = creature.Position;
+            if (Random.Range(0, 2) == 0)
+            {
+                int randomX = Random.Range(-1, 2);
+                int randomY = Random.Range(-1, 2);
+                newPos = new Vector2Int(creature.Position.x + randomX, creature.Position.y + randomY);
+            }
             return newPos;
         }
 
@@ -181,7 +202,7 @@ namespace GoblinKing.AI
         {
             if (creature.PatrolAttemptsLeft <= 0)
             {
-                creature.PatrolAttemptsLeft = Random.Range(5, 9);
+                creature.PatrolAttemptsLeft = Random.Range(8, 14);
                 creature.PatrolTarget = gameManager.RandomFreeSpace();
                 Debug.Log("Got new patrol position (" + creature.PatrolTarget.x + ", " + creature.PatrolTarget.y + ")");
             }

@@ -142,7 +142,7 @@ namespace GoblinKing.Core
                 {
                     if (cre.AlertLevel != AI.AlertLevel.Alerted)
                     {
-                        AI.AIBehaviour.ChangeAlertness(this, cre, AI.AlertLevel.Suspicious);
+                        AI.AIBehaviour.RaiseAlertness(this, cre, AI.AlertLevel.Suspicious);
                         cre.SuspiciousPosition = Utils.ConvertToGameCoord(noisePosition);
                     }
                 }
@@ -821,7 +821,7 @@ namespace GoblinKing.Core
 
             if (defender.Hp > 0)
             {
-                AI.AIBehaviour.ChangeAlertness(this, defender, AI.AlertLevel.Alerted);
+                AI.AIBehaviour.RaiseAlertness(this, defender, AI.AlertLevel.Alerted);
                 defender.SuspiciousPosition = attacker.Position;
             }
         }
