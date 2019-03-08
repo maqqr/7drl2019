@@ -164,7 +164,7 @@ namespace GoblinKing.Core
 
             CurrentFloorObject.GetComponent<DungeonLevel>().UpdateLights();
 
-            itemObject.GetComponent<Interaction.PickupItem>().CollidedFast += delegate(GameObject collidedWith)
+            itemObject.GetComponent<Interaction.PickupItem>().CollidedFast += delegate(GameObject collidedWith, float timeSinceLastCollision)
             {
                 MakeALoudNoise(itemObject.transform.position);
 
@@ -180,6 +180,8 @@ namespace GoblinKing.Core
                     creature.SuspiciousPosition = playerCreature.Position;
 
                     creature.TakeDamage(item.ThrowingDamage);
+                    MessageBuffer.AddMessage(Color.magenta, "The flying " + item.Name + " hits " + creature.Data.Name + "!");
+
                     if (item.Breakable)
                     {
                         if (item.Experience > 0) MessageBuffer.AddMessage(Color.white, "The experience does not make " + creature.Data.Name + " smarter.");
@@ -197,7 +199,10 @@ namespace GoblinKing.Core
                 else
                 {
                     // Noise message is not displayed when hitting creature to reduce message spam
-                    MessageBuffer.AddMessage(Color.magenta, "The moving " + item.Name + " caused a loud noise!");
+                    if (timeSinceLastCollision > 2.0f)
+                    {
+                        MessageBuffer.AddMessage(Color.magenta, "The moving " + item.Name + " caused a loud noise!");
+                    }
                 }
 
                 if (item.Breakable)
@@ -385,12 +390,15 @@ namespace GoblinKing.Core
                     PlayerUnequip(slot);
                 }
 
-                Vector3 spawnPos = Utils.ConvertToWorldCoord(player.Position) + new Vector3(0f, 0.6f, 0f)
-                                 + player.gameObject.transform.forward * 0.3f;
-                var spawnedItem = SpawnItem(removedItem.ItemKey, spawnPos, Random.rotation);
+                // var spawnRot = Quaternion.LookRotation(Camera.transform.right);
+                Vector3 spawnPos = Utils.ConvertToWorldCoord(player.Position) + new Vector3(0f, 0.5f, 0f)
+                                 + player.gameObject.transform.forward * 0.4f;
+                var spawnedItem = SpawnItem(removedItem.ItemKey, spawnPos, Quaternion.identity);
+                Utils.Alignment(spawnedItem.transform, spawnedItem.transform.Find("Grab").transform, Camera.transform);
 
                 var rigidbody = spawnedItem.GetComponent<Rigidbody>();
                 rigidbody.isKinematic = false;
+                rigidbody.collisionDetectionMode = CollisionDetectionMode.ContinuousSpeculative;
                 rigidbody.AddForce(Camera.transform.forward * 10f, ForceMode.Impulse);
                 AdvanceTime(playerObject.GetComponent<Creature>().Speed);
                 lightingDirty = 15;
