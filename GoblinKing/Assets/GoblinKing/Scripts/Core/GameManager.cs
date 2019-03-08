@@ -688,6 +688,13 @@ namespace GoblinKing.Core
         public void SetMouseLookEnabled(bool enabled)
         {
             Camera.gameObject.GetComponent<SmoothMouseLook>().enabled = enabled;
+            if(Camera.gameObject.GetComponent<SmoothMouseLook>().enabled) {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+            } else {
+                Cursor.lockState = CursorLockMode.Confined;
+                Cursor.visible = true;
+            }
         }
 
         private void AdvanceGameWorld(int deltaTime)
