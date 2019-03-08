@@ -161,6 +161,7 @@ ModelImporter:
     100310: LockedDoor1
     100312: Lockpick
     100314: Throne
+    100316: WeaponRack
     400000: //RootNode
     400002: BrickWall1
     400004: BrickWallHole1
@@ -319,6 +320,7 @@ ModelImporter:
     400310: LockedDoor1
     400312: Lockpick
     400314: Throne
+    400316: WeaponRack
     2100000: PreviewMaterial
     2300000: BrickWall1
     2300002: BrickWallHole1
@@ -380,6 +382,7 @@ ModelImporter:
     2300114: LockedDoor1
     2300116: Lockpick
     2300118: Throne
+    2300120: WeaponRack
     3300000: BrickWall1
     3300002: BrickWallHole1
     3300004: DoorFrame1
@@ -440,6 +443,7 @@ ModelImporter:
     3300114: LockedDoor1
     3300116: Lockpick
     3300118: Throne
+    3300120: WeaponRack
     4300000: BrickWall1
     4300002: StoneTileGround1
     4300004: Pillar1
@@ -500,6 +504,7 @@ ModelImporter:
     4300114: Lockpick
     4300116: LockedDoor1
     4300118: Throne
+    4300120: WeaponRack
     10800000: Point
   externalObjects: {}
   materials:
