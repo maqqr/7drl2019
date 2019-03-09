@@ -24,12 +24,9 @@ namespace GoblinKing.Core.Interaction
             gameManager.CurrentFloorObject.GetComponent<DungeonLevel>().UpdateLights();
             gameManager.UpdatePlayerVisibility();
 
-
             Destroy(GetComponent<Interactable>());
 
-            // TODO: add small smoke cloud
-
-            return false;
+            return true;
         }
     }
 }
