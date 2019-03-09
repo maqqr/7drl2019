@@ -14,6 +14,8 @@ namespace GoblinKing.Core.GameViews
         private float playerTransitionSpeed = 0.3f;
         private float originalTransitionSpeed = 0.3f;
 
+        private int debugMode = 5;
+
         public void Initialize(GameManager gameManager)
         {
             this.gameManager = gameManager;
@@ -94,29 +96,40 @@ namespace GoblinKing.Core.GameViews
             gameManager.UpdateHearts(displayEnemy, gameManager.EnemyHearts);
 
             // ----- These are for debugging purposes ---------------------------------
-            if (Input.GetKeyDown(KeyCode.PageUp))
-            {
-                gameManager.NextDungeonFloor();
-            }
-            if (Input.GetKeyDown(KeyCode.PageDown))
-            {
-                gameManager.PreviousDungeonFloor();
-            }
-            if (Input.GetKey(KeyCode.Insert))
-            {
-                IEnumerable<string> itemKeys = gameManager.GameData.ItemData.Keys;
-                Vector3 spawnpos = gameManager.playerObject.transform.position + new Vector3(0f, 0.5f, 0f) + gameManager.playerObject.transform.forward;
-                gameManager.SpawnItem(itemKeys.PickOne(), spawnpos, Random.rotation);
-            }
-            if (Input.GetKeyDown(KeyCode.Home))
-            {
-                Vector2Int spawnpos = gameManager.playerObject.GetComponent<Creature>().Position;
-                gameManager.SpawnCreature("goblin", spawnpos);
-            }
             if (Input.GetKeyDown(KeyCode.End))
             {
-                Vector2Int spawnpos = gameManager.playerObject.GetComponent<Creature>().Position;
-                gameManager.SpawnCreature("torchgoblin", spawnpos);
+                debugMode--;
+                if (debugMode == 0)
+                {
+                    gameManager.MessageBuffer.AddMessage(Color.magenta, "Activated debug mode.");
+                }
+            }
+            if (debugMode <= 0)
+            {
+                if (Input.GetKeyDown(KeyCode.Delete))
+                {
+                    gameManager.playerCreature.Hp += 2;
+                    gameManager.playerObject.GetComponent<Player>().Perkpoints++;
+                }
+                if (Input.GetKeyDown(KeyCode.PageUp) && gameManager.currentFloor < 5)
+                {
+                    gameManager.NextDungeonFloor();
+                }
+                if (Input.GetKeyDown(KeyCode.PageDown))
+                {
+                    gameManager.PreviousDungeonFloor();
+                }
+                if (Input.GetKey(KeyCode.Insert))
+                {
+                    IEnumerable<string> itemKeys = gameManager.GameData.ItemData.Keys;
+                    Vector3 spawnpos = gameManager.playerObject.transform.position + new Vector3(0f, 0.5f, 0f) + gameManager.playerObject.transform.forward;
+                    gameManager.SpawnItem(itemKeys.PickOne(), spawnpos, Random.rotation);
+                }
+                if (Input.GetKeyDown(KeyCode.Home))
+                {
+                    Vector2Int spawnpos = gameManager.playerObject.GetComponent<Creature>().Position;
+                    gameManager.SpawnCreature("goblin", spawnpos);
+                }
             }
             // -----------------------------------------------------------------------
 

@@ -88,6 +88,7 @@ namespace GoblinKing.Core.GameViews
                         gameManager.MessageBuffer.AddMessage(Color.yellow, "You gained the perk: " + gameManager.GameData.PerkData[button.PerkKey].Name + ".");
                         UpdateTexts();
                         UpdateButtonColors();
+                        gameManager.UpdateHearts(gameManager.playerCreature, gameManager.PlayerHearts);
                     }
                     else
                     {

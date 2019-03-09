@@ -529,6 +529,33 @@ namespace GoblinKing.Core
                 return false;
             }
 
+            if (currentFloor == 5)
+            {
+                bool kingFound = false;
+                Transform[] children = dungeonLevel.transform.GetComponentsInChildren<Transform>();
+                for (int i = 0; i < children.Length; i++)
+                {
+                    if (children[i].gameObject.name == "Throne")
+                    {
+                        kingFound = true;
+                        break;
+                    }
+                    // Creature cre = children[i].GetComponent<Creature>();
+                    // if (cre && cre.Data.Name == "Goblin King")
+                    // {
+                    //     kingFound = true;
+                    //     break;
+                    // }
+                }
+
+                Debug.Log("King found: " + kingFound);
+
+                if (!kingFound)
+                {
+                    return false;
+                }
+            }
+
             return true;
         }
 
@@ -716,12 +743,12 @@ namespace GoblinKing.Core
                 MessageBuffer.AddMessage(Color.green, "Level UP!");
                 player.Perkpoints += 1;
                 MessageBuffer.AddMessage(Color.green, "Gained 1 perk point!");
-                if (player.Level % 2 == 0)
-                {
-                    playerCreature.Data.MaxHp += 1;
-                    playerCreature.Hp += 1;
-                    MessageBuffer.AddMessage(Color.green, "Maximum health increased!");
-                }
+                // if (player.Level % 2 == 0)
+                // {
+                    // playerCreature.Data.MaxHp += 1;
+                    // playerCreature.Hp += 1;
+                    // MessageBuffer.AddMessage(Color.green, "Maximum health increased!");
+                // }
 
             }
         }

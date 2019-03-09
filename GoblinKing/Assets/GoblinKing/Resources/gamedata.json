@@ -89,8 +89,10 @@
         "speed1": { "name": "Gotta go fast", "desc": "Increase speed by 10%", "speedReduction": 10 },
         "speed2": { "name": "The need to go quickly", "desc": "Increase speed by additional 10%", "require": ["speed1"], "speedReduction": 20 },
 
-        "maxlife1": { "name": "Hardy", "desc": "Increase maximum life by one heart", "addMaxLife": 2 },
-        "maxlife2": { "name": "Tanky", "desc": "Increase maximum life by one additional hearts", "require": ["maxlife1"], "addMaxLife": 4 },
+        "maxlife1": { "name": "Healthy", "desc": "Increase maximum life by one heart", "addMaxLife": 2 },
+        "maxlife2": { "name": "Hardy", "desc": "Increase maximum life by two additional hearts", "require": ["maxlife1"], "addMaxLife": 4 },
+        "maxlife3": { "name": "Bulky", "desc": "Increase maximum life by three additional hearts", "require": ["maxlife2"], "addMaxLife": 6 },
+        "maxlife4": { "name": "Tanky", "desc": "Increase maximum life by four additional hearts", "require": ["maxlife3"], "addMaxLife": 8 },
 
         "widebackstab": { "name": "Big reach", "desc": "Allows wider range for backstabs", "largeBackstabAngle": true },
 
