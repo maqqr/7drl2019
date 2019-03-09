@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1879991201775294756}
   - component: {fileID: 1879991201775294760}
   - component: {fileID: 1879991201775294761}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: DoorModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,6 +119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OpenTransform: {fileID: 1879991202104726523}
   ClosedTransform: {fileID: 1879991202100076712}
+  PlayDoorSound: 1
   IsOpen: 0
 --- !u!1 &1879991201993606497
 GameObject:
