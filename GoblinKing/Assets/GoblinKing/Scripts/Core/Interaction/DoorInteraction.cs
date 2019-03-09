@@ -9,6 +9,8 @@ namespace GoblinKing.Core.Interaction
         public Transform OpenTransform = null;
         public Transform ClosedTransform = null;
 
+        public bool PlayDoorSound = true;
+
         public bool IsOpen;
 
         public bool Interact(GameManager gameManager)
@@ -24,6 +26,18 @@ namespace GoblinKing.Core.Interaction
             {
                 transform.parent.position = ClosedTransform.position;
                 transform.parent.rotation = ClosedTransform.rotation;
+            }
+
+            if (BackgroundMusic.Instance)
+            {
+                if (PlayDoorSound)
+                {
+                    BackgroundMusic.Instance.PlaySoundEffectAt(IsOpen ? "dooropen" : "doorclose", transform.position);
+                }
+                else
+                {
+                    BackgroundMusic.Instance.PlaySoundEffectAt("celldoor", transform.position);
+                }
             }
 
             return true;

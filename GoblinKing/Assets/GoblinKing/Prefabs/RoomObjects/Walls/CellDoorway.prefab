@@ -119,6 +119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OpenTransform: {fileID: 6317484100721835052}
   ClosedTransform: {fileID: 6317484099914703100}
+  PlayDoorSound: 0
   IsOpen: 0
 --- !u!1 &6317484099505909451
 GameObject:

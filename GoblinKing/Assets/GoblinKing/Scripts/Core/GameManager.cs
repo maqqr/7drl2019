@@ -20,6 +20,7 @@ namespace GoblinKing.Core
         public HungerContainer HungerContainer;
         public TMPro.TextMeshProUGUI EnemyNameText;
         public MessageBuffer MessageBuffer;
+        public GameObject HelpWindow;
         public Rigidbody throwable;
 
         public GameObject[] levelGeneratorPrefabs;
@@ -921,7 +922,7 @@ namespace GoblinKing.Core
             AddNewView(new GameViews.InGameView());
             UpdateHearts(playerCreature, PlayerHearts);
             AdjustNutrition(0);
-            MessageBuffer.AddMessage(Color.white, "You have 2 unused perk points. Press \"p\" to open the perkview.");
+            MessageBuffer.AddMessage(Color.white, "You have 2 unused perk points. Press P to open the perk tree.");
         }
 
         // Update is called once per frame

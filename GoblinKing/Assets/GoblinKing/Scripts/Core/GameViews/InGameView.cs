@@ -181,6 +181,11 @@ namespace GoblinKing.Core.GameViews
                 }
             }
 
+            if (Utils.IsPressed(gameManager.keybindings.Help))
+            {
+                gameManager.HelpWindow.SetActive(!gameManager.HelpWindow.activeSelf);
+            }
+
             if (Utils.IsPressed(gameManager.keybindings.Wait))
             {
                 gameManager.AdvanceTime(player.Speed);
@@ -205,7 +210,7 @@ namespace GoblinKing.Core.GameViews
                 }
                 else if (highlightedObject != null)
                 {
-                    Unhighlight(highlightedObject);
+                    // Unhighlight(highlightedObject);
                     var pick = highlightedObject.GetComponent<Interaction.PickupItem>();
                     if (pick)
                     {

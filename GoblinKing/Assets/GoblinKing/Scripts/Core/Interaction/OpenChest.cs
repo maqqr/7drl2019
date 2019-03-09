@@ -34,6 +34,11 @@ namespace GoblinKing.Core.Interaction
                     gameManager.SpawnItem(spawnableItems[randomItemIndex], spawnPos, Random.rotation);
                 }
 
+                if (BackgroundMusic.Instance)
+                {
+                    BackgroundMusic.Instance.PlaySoundEffectAt("chestopen", transform.position);
+                }
+
                 Destroy(GetComponent<Interactable>());
                 Destroy(GetComponent<Collider>());
                 Destroy(this);
@@ -42,6 +47,10 @@ namespace GoblinKing.Core.Interaction
             else
             {
                 gameManager.MessageBuffer.AddMessage(Color.red, "You need a lock pick to open the chest.");
+                if (BackgroundMusic.Instance)
+                {
+                    BackgroundMusic.Instance.PlaySoundEffectAt("locked", transform.position);
+                }
                 return false;
             }
         }

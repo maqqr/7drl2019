@@ -61,6 +61,16 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 8acf352a0c726204994d9cd7a5d3445b, type: 3}
   - soundname: puff
     clip: {fileID: 8300000, guid: 913094865e11348489e60fea7ac0648f, type: 3}
+  - soundname: celldoor
+    clip: {fileID: 8300000, guid: 7205c3671d28198469745f9680413ea7, type: 3}
+  - soundname: chestopen
+    clip: {fileID: 8300000, guid: 2c0351583bf1007499cdcf3f65e4aa4b, type: 3}
+  - soundname: dooropen
+    clip: {fileID: 8300000, guid: 2ceb1f27fde34eb4290e80914450aa76, type: 3}
+  - soundname: doorclose
+    clip: {fileID: 8300000, guid: c5c7d6cb59b5c494094d307f9aea2094, type: 3}
+  - soundname: locked
+    clip: {fileID: 8300000, guid: 0c9f88a63fc7a7348a06264ca526db10, type: 3}
   MenuMusic: {fileID: 2453733345511026470}
   EspionageMusic: {fileID: 5238916911517042175}
   CombatMusic: {fileID: 8187867887498478889}
