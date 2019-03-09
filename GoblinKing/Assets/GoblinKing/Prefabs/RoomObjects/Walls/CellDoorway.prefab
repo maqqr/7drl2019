@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1061158572848931260}
   - component: {fileID: 1061158572848931261}
   - component: {fileID: 1061158572848931262}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: CellDoorModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -43,7 +43,8 @@ namespace GoblinKing.AI
             }
 
             LayerMask mask = ~LayerMask.GetMask("Player", "Enemy");
-            if (gameManager.IsWalkableFrom(creature.Position, newPosition, mask))
+            GameObject blockingObject = gameManager.GetBlockingObject(creature.Position, newPosition, mask);
+            if (blockingObject == null)
             {
                 creature.TurnTowards(newPosition);
 
@@ -59,6 +60,14 @@ namespace GoblinKing.AI
                 else
                 {
                     // TODO: move randomly to avoid the other enemy that blocks the way?
+                }
+            }
+            else
+            {
+                var doorInteraction = blockingObject.GetComponent<GoblinKing.Core.Interaction.DoorInteraction>();
+                if (doorInteraction)
+                {
+                    doorInteraction.Interact(gameManager);
                 }
             }
         }

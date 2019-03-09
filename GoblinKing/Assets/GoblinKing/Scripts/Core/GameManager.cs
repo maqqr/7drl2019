@@ -100,7 +100,8 @@ namespace GoblinKing.Core
             System.Func<Vector2Int, Vector2Int, bool> isWalkableFrom = delegate (Vector2Int start, Vector2Int end)
             {
                 // TODO: this could use some caching
-                return IsWalkableFrom(start, end, LayerMask.NameToLayer("Player"));
+                LayerMask mask = ~LayerMask.GetMask("Door");
+                return IsWalkableFrom(start, end, mask);
             };
 
             return Pathfinding.Pathfinding.FindPath(pathfindingGrid, from, to, isWalkableFrom);
@@ -493,6 +494,23 @@ namespace GoblinKing.Core
 
             bool targetSpaceFree = IsWalkable(to, ignoreMask);
             return targetSpaceFree && !wayBlocked;
+        }
+
+        public GameObject GetBlockingObject(Vector2Int from, Vector2Int to, LayerMask ignoreMask)
+        {
+            // This shares some code with IsWalkableFrom due to lack of sleep
+            Vector3 fromWorld = Utils.ConvertToWorldCoord(from) + new Vector3(0f, 0.5f, 0f);
+            Vector3 toWorld = Utils.ConvertToWorldCoord(to) + new Vector3(0f, 0.5f, 0f);
+            Vector3 raycastDir = toWorld - fromWorld;
+            RaycastHit hit;
+            if (Physics.Raycast(fromWorld, raycastDir, out hit, 1f, ignoreMask, QueryTriggerInteraction.Ignore))
+            {
+                return hit.collider.gameObject;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public bool IsDungeonValid(GameObject dungeonLevel)
