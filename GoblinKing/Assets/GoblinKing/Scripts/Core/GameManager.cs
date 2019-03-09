@@ -44,6 +44,9 @@ namespace GoblinKing.Core
         private int lightingDirty = 0;
         private Pathfinding.DungeonGrid pathfindingGrid;
 
+        // This is static because time is running out.
+        public static int CoinsStolen = 0;
+
 
         public GameObject CurrentFloorObject
         {
@@ -883,6 +886,13 @@ namespace GoblinKing.Core
                 {
                     BackgroundMusic.Instance.SetMusic(BackgroundMusic.Music.Menu, 1f, true);
                 }
+
+                var coinItem = playerCreature.GetItemFromInventory("gold");
+                if (coinItem != null)
+                {
+                    CoinsStolen = coinItem.Count;
+                }
+
                 Cursor.lockState = CursorLockMode.Confined;
                 Cursor.visible = true;
                 UnityEngine.SceneManagement.SceneManager.LoadScene("Victory", UnityEngine.SceneManagement.LoadSceneMode.Single);
@@ -899,6 +909,7 @@ namespace GoblinKing.Core
             {
                 BackgroundMusic.Instance.SetMusic(BackgroundMusic.Music.Espionage, 1f, true);
             }
+            CoinsStolen = 0;
             keybindings = new Keybindings();
             GameData = Data.GameData.LoadData();
         }
