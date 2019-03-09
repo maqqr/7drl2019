@@ -5096,13 +5096,15 @@ MonoBehaviour:
     How to play:
 
 
-    The game is turnbased. Use mouse to look and WASD or arrow keys to move. You can
-    attack creatures by moving towards them. You can interact with objects by pressing
-    space.
+    The game is turn based. Use mouse to look and WASD or arrow keys to move. You
+    can attack creatures by moving towards them. You can interact with objects by
+    pressing space.
 
 
     After gaining enough experience points, you level up and get perk point on every
-    other level. Perk points can be used to buy various upgrades.
+    other level. Perk points can be used to buy various upgrades. The gem at the botton
+    shows how visible you are and the piece of meat represents your hunger. Once the
+    meat is gone, you are starving.
 
 
     I - Show inventory and equipment
@@ -5124,7 +5126,6 @@ MonoBehaviour:
 
     Moving towards an impassable object for one second allows you to peek over it,
     which makes picking up items easier.
-
 
 
     <align="center">- Press H to hide (or show) this help window -</align>'
@@ -5197,12 +5198,12 @@ MonoBehaviour:
   m_margin: {x: 20, y: 20, z: 20, w: 20}
   m_textInfo:
     textComponent: {fileID: 1978541003}
-    characterCount: 969
+    characterCount: 1104
     spriteCount: 0
-    spaceCount: 195
-    wordCount: 188
+    spaceCount: 221
+    wordCount: 215
     linkCount: 0
-    lineCount: 31
+    lineCount: 32
     pageCount: 1
     materialCount: 1
   m_havePropertiesChanged: 0
